@@ -9,6 +9,8 @@ import { CalorieCalculator } from '@/pages/CalorieCalculator';
 import { BudgetCalculator } from '@/pages/BudgetCalculator';
 import { BreedCatalog } from '@/pages/BreedCatalog';
 import { BreedDetail } from '@/pages/BreedDetail';
+import { PetQuiz } from '@/pages/PetQuiz';
+
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/tools/budget" element={<BudgetCalculator />} />
             <Route path="/wiki" element={<BreedCatalog />} />
             <Route path="/wiki/:id" element={<BreedDetail />} />
+            <Route path="/tools/quiz" element={<PetQuiz />} />
+
           </Routes>
         </main>
         <Footer />
