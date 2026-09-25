@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { breeds } from '@/data/breeds';
+import { BREEDS_DATABASE } from '@/data/breeds';
 import { Filter, Dog, Cat, ArrowRight, Home as HomeIcon, Heart, Baby, Ruler, ShieldCheck } from 'lucide-react';
 
 type Species = 'all' | 'dog' | 'cat';
@@ -12,7 +12,7 @@ export function BreedCatalog() {
   const [kids, setKids] = useState(false);
 
   const filtered = useMemo(() => {
-    return breeds.filter((b) => {
+    return BREEDS_DATABASE.filter((b) => {
       if (species !== 'all' && b.species !== species) return false;
       if (apartment && !b.apartmentFriendly) return false;
       if (hypoallergenic && !b.hypoallergenic) return false;
