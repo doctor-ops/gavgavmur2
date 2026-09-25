@@ -75,7 +75,7 @@ export function BreedCatalog() {
                 <img
                   src={breed.image}
                   alt={breed.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-300" // ⬅️ Добавлен класс object-top
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
