@@ -112,18 +112,33 @@ export function PetQuiz() {
   };
 
   const getRecommendedBreeds = (): Breed[] => {
+    // 1. Находим доминирующий темперамент по баллам
     const targetTemp = (Object.keys(tempScores) as Array<keyof typeof tempScores>).reduce((a, b) => 
       tempScores[a] > tempScores[b] ? a : b
     );
+
+    // 2. Находим доминирующий размер по баллам
     const targetSize = (Object.keys(sizeScores) as Array<keyof typeof sizeScores>).reduce((a, b) => 
       sizeScores[a] > sizeScores[b] ? a : b
     );
+
+    // Попытка №1: Ищем идеальное совпадение (и характер, и размер)
     let matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp && b.size === targetSize);
+
+    // Попытка №2: Если идеальных совпадений нет, берем все породы с таким характером
     if (matches.length === 0) {
       matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp);
     }
+
+    // Попытка №3: Экстренный случай (если база пуста), выводим первые 4 любые породы, чтобы экран не был пустым
+    if (matches.length === 0) {
+      matches = BREEDS_DATABASE;
+    }
+
+    // Возвращаем максимум 4 лучшие породы
     return matches.slice(0, 4);
   };
+
 
   const recommended = getRecommendedBreeds();
 
