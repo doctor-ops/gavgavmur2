@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { breeds } from '@/data/breeds';
+import { BREEDS_DATABASE as breeds } from '@/data/breeds';
 import { ArrowLeft, Dog, Cat, Ruler, MapPin, Heart, Home as HomeIcon, ShieldCheck, Baby, AlertTriangle, Calculator, Wallet } from 'lucide-react';
 
 const ratingLabels: Record<string, string> = {
