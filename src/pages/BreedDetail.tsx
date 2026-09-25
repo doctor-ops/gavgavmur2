@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { BREEDS_DATABASE } from '@/data/breeds';
-import { ArrowLeft, Dog, Cat, Ruler, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
+import { ArrowLeft, Dog, Cat, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
 
 export function BreedDetail() {
   const { id } = useParams<{ id: string }>();
@@ -33,11 +33,28 @@ export function BreedDetail() {
       </Link>
 
       <div className="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden">
-        {/* Главный блок с фото */}
-        <div className="relative h-[350px] md:h-[450px] bg-slate-900">
-          <img src={breed.image} alt={breed.name} className="w-full h-full object-cover opacity-90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+        
+        {/* Инновационный контейнер с эффектом размытого заднего фона */}
+        <div className="relative h-[350px] md:h-[450px] bg-slate-950 overflow-hidden flex items-center justify-center">
+          
+          {/* 1. Задний план: та же картинка, растянутая и сильно размытая */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center scale-110 blur-xl opacity-40 pointer-events-none"
+            style={{ backgroundImage: `url(${breed.image})` }}
+          />
+          
+          {/* Темное затенение поверх размытия для контраста с текстом */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-slate-950/10" />
+
+          {/* 2. Передний план: четкое оригинальное фото без обрезки */}
+          <img 
+            src={breed.image} 
+            alt={breed.name} 
+            className="relative z-10 max-w-full max-h-full object-contain pointer-events-none p-2 animate-fade-in" 
+          />
+
+          {/* Плашка с названием и баджами поверх фото */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white z-20">
             <div className="flex flex-wrap items-center gap-3 mb-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-wider">
                 {breed.type === 'dog' ? <Dog className="w-3.5 h-3.5" /> : <Cat className="w-3.5 h-3.5" />}
@@ -54,7 +71,7 @@ export function BreedDetail() {
         {/* Контентная часть */}
         <div className="p-6 md:p-8">
           
-          {/* Сетка основных характеристик на русском */}
+          {/* Сетка основных характеристик */}
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-indigo-600" /> Основные характеристики
           </h2>
