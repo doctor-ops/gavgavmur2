@@ -71,11 +71,12 @@ export function BreedCatalog() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredBreeds.map((breed) => (
             <div key={breed.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
-              <div className="relative h-56 overflow-hidden bg-gray-100">
+              {/* Контейнер картинки переделан под отображение целиком с темным стильным фоном */}
+              <div className="relative h-64 bg-slate-950 flex items-center justify-center border-b border-gray-100/10">
                 <img
                   src={breed.image}
                   alt={breed.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-300" // ⬅️ Добавлен класс object-top
+                  className="max-w-full max-h-full object-contain group-hover:scale-[1.02] transition-all duration-300"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
@@ -87,7 +88,7 @@ export function BreedCatalog() {
                     </span>
                   </div>
 
-                  {/* Вывод новых локализованных полей */}
+                  {/* Вывод локализованных полей */}
                   <div className="space-y-1.5 text-xs text-gray-500 mb-4 bg-slate-50 p-3 rounded-xl border border-gray-100/60">
                     <div>📍 <span className="font-semibold text-gray-700">Происхождение:</span> {breed.origin}</div>
                     <div>⏳ <span className="font-semibold text-gray-700">Продолжительность жизни:</span> {breed.lifeSpan}</div>
