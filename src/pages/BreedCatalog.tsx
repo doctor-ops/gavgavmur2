@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { BREEDS_DATABASE } from '@/data/breeds';
-import { Filter, Dog, Cat, ArrowRight, Home as HomeIcon, Heart } from 'lucide-react';
+import { Filter, Dog, Cat, ArrowRight, Filter as FilterIcon } from 'lucide-react';
 
 export function BreedCatalog() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'dog' | 'cat'>('all');
@@ -33,7 +33,7 @@ export function BreedCatalog() {
             onClick={() => setActiveFilter('all')}
             className={`px-4 py-2.5 rounded-xl font-semibold text-sm transition-all flex items-center gap-2 ${activeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'}`}
           >
-            <Filter className="w-4 h-4" /> Все хвостики
+            <FilterIcon className="w-4 h-4" /> Все хвостики
           </button>
           <button
             onClick={() => setActiveFilter('dog')}
@@ -71,14 +71,27 @@ export function BreedCatalog() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredBreeds.map((breed) => (
             <div key={breed.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
-              {/* Контейнер картинки переделан под отображение целиком с темным стильным фоном */}
-              <div className="relative h-64 bg-slate-950 flex items-center justify-center border-b border-gray-100/10">
+              
+              {/* Контейнер изображения с эффектом размытия фона */}
+              <div className="relative h-64 bg-slate-950 overflow-hidden flex items-center justify-center border-b border-gray-100/10">
+                
+                {/* Эффект размытого заднего плана индивидуально под каждую породу */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center scale-110 blur-lg opacity-30 pointer-events-none group-hover:scale-115 transition-all duration-300"
+                  style={{ backgroundImage: `url(${breed.image})` }}
+                />
+                
+                {/* Легкое темное напыление сверху */}
+                <div className="absolute inset-0 bg-slate-950/20" />
+
+                {/* Основное четкое изображение по центру */}
                 <img
                   src={breed.image}
                   alt={breed.name}
-                  className="max-w-full max-h-full object-contain group-hover:scale-[1.02] transition-all duration-300"
+                  className="relative z-10 max-w-full max-h-full object-contain p-2 group-hover:scale-[1.03] transition-all duration-300"
                 />
               </div>
+
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
