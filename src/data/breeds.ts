@@ -372,8 +372,7 @@ export const BREEDS_DATABASE: Breed[] = [
     lifeSpan: "12–14 лет",
     weight: "20–25 кг",
     origin: "Соединенное Королевство"
-  }
-  
+  },
   {
     "id": "def76aab-6e55-4df5-9e06-ce6b1c33c87b",
     "name": "Абиссинская кошка",
