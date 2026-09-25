@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home, HelpCircle } from 'lucide-react';
+import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
 import { BREEDS_DATABASE, Breed } from '../data/breeds';
 
 interface Question {
@@ -8,9 +8,6 @@ interface Question {
   icon: React.ReactNode;
   options: {
     text: string;
-    // Начисление очков разным психотипам питомцев
-    // active (активные собаки/кошки), calm (спокойные), independent (независимые), friendly (очень общительные)
-    // size: s (маленькие), m (средние), l (крупные)
     effects: {
       temp: { active?: number; calm?: number; independent?: number; friendly?: number };
       size: { small?: number; medium?: number; large?: number };
@@ -81,12 +78,10 @@ export function PetQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   
-  // Хранилище баллов
   const [tempScores, setTempScores] = useState({ active: 0, calm: 0, independent: 0, friendly: 0 });
   const [sizeScores, setSizeScores] = useState({ small: 0, medium: 0, large: 0 });
 
   const handleAnswer = (effects: typeof QUESTIONS[0]['options'][0]['effects']) => {
-    // Суммируем баллы за темперамент
     setTempScores(prev => ({
       active: prev.active + (effects.temp.active || 0),
       calm: prev.calm + (effects.temp.calm || 0),
@@ -94,7 +89,6 @@ export function PetQuiz() {
       friendly: prev.friendly + (effects.temp.friendly || 0),
     }));
 
-    // Суммируем баллы за размер
     setSizeScores(prev => ({
       small: prev.small + (effects.size.small || 0),
       medium: prev.medium + (effects.size.medium || 0),
@@ -115,27 +109,21 @@ export function PetQuiz() {
     setShowResult(false);
   };
 
-  // Вычисление лучших совпадений из BREEDS_DATABASE
   const getRecommendedBreeds = (): Breed[] => {
-    // Определяем доминирующий темперамент по ответам
     const targetTemp = (Object.keys(tempScores) as Array<keyof typeof tempScores>).reduce((a, b) => 
       tempScores[a] > tempScores[b] ? a : b
     );
 
-    // Определяем доминирующий размер по ответам
     const targetSize = (Object.keys(sizeScores) as Array<keyof typeof sizeScores>).reduce((a, b) => 
       sizeScores[a] > sizeScores[b] ? a : b
     );
 
-    // Фильтруем базу данных
     let matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp && b.size === targetSize);
 
-    // Если точных совпадений по двум фильтрам нет, даем гибкий подбор только по темпераменту
     if (matches.length === 0) {
       matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp);
     }
 
-    // Возвращаем максимум 4 породы для компактности
     return matches.slice(0, 4);
   };
 
@@ -145,7 +133,6 @@ export function PetQuiz() {
     <div className="max-w-3xl mx-auto px-4 py-8">
       <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-8">
         
-        {/* Шапка */}
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
             <Sparkles className="w-6 h-6" />
@@ -158,11 +145,10 @@ export function PetQuiz() {
 
         {!showResult ? (
           <div>
-            {/* Прогресс */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-400 mb-2">
                 <span>Вопрос {currentQuestion + 1} из {QUESTIONS.length}</span>
-                <span>{Math.round((currentQuestion / QUESTIONS.length) * 100)}%</span>
+                <span>{Math.round(((currentQuestion + 1) / QUESTIONS.length) * 100)}%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                 <div 
@@ -172,7 +158,6 @@ export function PetQuiz() {
               </div>
             </div>
 
-            {/* Иконка и текст вопроса */}
             <div className="flex items-start gap-3 mb-6 bg-slate-50 p-4 rounded-xl border border-gray-100">
               <div className="p-2 bg-white rounded-lg shadow-sm text-indigo-600">
                 {QUESTIONS[currentQuestion].icon}
@@ -182,7 +167,6 @@ export function PetQuiz() {
               </h2>
             </div>
 
-            {/* Варианты */}
             <div className="grid gap-3">
               {QUESTIONS[currentQuestion].options.map((option, idx) => (
                 <button
@@ -196,7 +180,6 @@ export function PetQuiz() {
             </div>
           </div>
         ) : (
-          /* ЭКРАН РЕЗУЛЬТАТОВ ТЕСТА */
           <div className="py-4">
             <div className="text-center mb-8">
               <div className="inline-flex p-4 bg-green-50 rounded-full text-green-600 mb-3">
@@ -208,33 +191,68 @@ export function PetQuiz() {
               </p>
             </div>
 
-            {/* СЕТКА С КАРТОЧКАМИ ПОРОД С ЭФФЕКТОМ BLUR НА ФОНЕ */}
             {recommended.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 {recommended.map(breed => (
-                  <div key={breed.id} className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-all flex flex-col">
+                  <div key={breed.id} className="relative border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-all flex flex-col">
                     
-                    {/* Контейнер 100% картинки без обрезки с размытием */}
-                    {/* Размытая копия на фоне /}
-                    <div
-                    className="absolute inset-0 bg-cover bg-center scale-110 blur-md opacity-30 pointer-events-none"
-                    style={{ backgroundImage: url(${breed.image}) }}
+                    {/* Размытый фон */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center scale-110 blur-md opacity-20 pointer-events-none"
+                      style={{ backgroundImage: `url(${breed.image})` }}
                     />
-                    {/ Четкий оригинал по центру */}
-                    {breed.name}
-                    {breed.temperament === 'active' ? 'Активный' : breed.temperament === 'calm' ? 'Спокойный' : breed.temperament === 'independent' ? 'Независимый' : 'Дружелюбный'}
-                    {/* Информационные плашки */}
-                    📍 Родина: {breed.origin}
-                    ⏳ Жизнь: {breed.lifeSpan}{breed.description}
-                    {/* Кнопка перехода к породе */}
-                    Подробнее в Вики
-                    ))}
-                    ) : (
-                    Для вашего редкого сочетания качеств мы рекомендуем заглянуть в общий каталог.
-                    )}
-                    Пройти заново
-                    )}
-                    );
-                    }
                     
-  
+                    <div className="relative z-10 p-5 flex flex-col h-full">
+                      <img 
+                        src={breed.image} 
+                        alt={breed.name} 
+                        className="w-full h-48 object-cover rounded-xl mb-4 shadow-sm"
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{breed.name}</h3>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-md uppercase">
+                          {breed.temperament === 'active' ? 'Активный' : breed.temperament === 'calm' ? 'Спокойный' : breed.temperament === 'independent' ? 'Независимый' : 'Дружелюбный'}
+                        </span>
+                        <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-md uppercase">
+                          {breed.size === 'small' ? 'Маленький' : breed.size === 'medium' ? 'Средний' : 'Крупный'}
+                        </span>
+                      </div>
+
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                        {breed.description}
+                      </p>
+
+                      <div className="mt-auto pt-4 border-t border-gray-50 text-xs text-gray-400 flex flex-col gap-1">
+                        <span>📍 Родина: {breed.origin}</span>
+                        <span>⏳ Жизнь: {breed.lifeSpan} | Вес: {breed.weight}</span>
+                      </div>
+                      
+                      <button className="mt-4 w-full py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors">
+                        Подробнее
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
+                <p className="text-gray-500">
+                  Для вашего редкого сочетания качеств мы рекомендуем заглянуть в общий каталог.
+                </p>
+              </div>
+            )}
+
+            <button 
+              onClick={restartQuiz}
+              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-all duration-200"
+            >
+              <RefreshCw className="w-5 h-5" />
+              Пройти заново
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
