@@ -58,9 +58,8 @@ export function Hero() {
               >
                 Рассчитать корм и бюджет
                 <ArrowRight className="w-5 h-5" />
-              </Link>
               <Link
-                to="/wiki"
+                to="/tools/quiz" // ⬅️ Изменено здесь
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-transparent text-white font-semibold text-base hover:bg-white/10 transition-all border-2 border-white/40"
               >
                 Подобрать питомца (Тест)
