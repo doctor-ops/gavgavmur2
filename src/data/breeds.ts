@@ -4,8 +4,8 @@
       "id": "036feed0-da8a-42c9-ab9a-57449b530b13",
       "type": "breed",
       "attributes": {
-        "name": "Affenpinscher",
-        "description": "The Affenpinscher is a small and playful breed of dog that was originally bred in Germany for hunting small game. They are intelligent, energetic, and affectionate, and make excellent companion dogs.",
+        "name": "Аффенпинчер",
+        "description": "Аффенпинчер — это маленькая и игривая порода собак, которая изначально была выведена в Германии для охоты на мелкую дичь. Они умны, энергичны, ласковы и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 16,
           "min": 14
@@ -28,20 +28,20 @@
           "min": 23
         },
         "origin": {
-          "era": "17th century",
-          "region": "Central Europe",
-          "country": "Germany"
+          "era": "17 век",
+          "region": "Центральная Европа",
+          "country": "Германия"
         },
         "coat": {
-          "type": "wire",
+          "type": "жесткая",
           "colors": [
-            "black",
-            "gray",
-            "silver",
-            "red",
-            "black and tan"
+            "черный",
+            "серый",
+            "серебристый",
+            "рыжий",
+            "черно-подпалый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 3,
@@ -50,12 +50,12 @@
           "grooming": 3,
           "shedding": 2,
           "temperament": [
-            "confident",
-            "curious",
-            "stubborn",
-            "playful",
-            "alert",
-            "mischievous"
+            "уверенный",
+            "любопытный",
+            "упрямый",
+            "игривый",
+            "бдительный",
+            "озорной"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -65,8 +65,8 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Monkey Terrier",
-          "Affen",
+          "Обезьяний терьер",
+          "Аффен",
           "Diablotin Moustachu"
         ],
         "recognized_by": [
@@ -81,23 +81,23 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/Affenpinscher.pdf",
-            "title": "Official Standard of the Affenpinscher (AKC)"
+            "title": "Официальный стандарт аффенпинчера (AKC)"
           },
           {
             "url": "https://www.ukcdogs.com/docs/breeds/affenpinscher-breed-standard.pdf",
-            "title": "AFFENPINSCHER Official UKC Breed Standard"
+            "title": "Официальный стандарт породы аффенпинчер UKC"
           },
           {
             "url": "https://brit-petfood.com/en/breed-catalog/pinscher-and-schanuzer-molossoid-breeds-swiss-mountain-and-cattle-dogs/affenpinscher",
-            "title": "Affenpinscher – FCI Group II breed catalog"
+            "title": "Аффенпинчер – каталог пород группы II FCI"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Affenpinscher",
-            "title": "Affenpinscher - Wikipedia"
+            "title": "Аффенпинчер - Википедия"
           },
           {
             "url": "https://www.akc.org/expert-advice/dog-breeds/affenpinscher-history/",
-            "title": "Affenpinscher History: Where the Breed Originated"
+            "title": "История аффенпинчера: происхождение породы"
           }
         ],
         "images": [
@@ -242,8 +242,8 @@
       "id": "dd9362cc-52e0-462d-b856-fccdcf24b140",
       "type": "breed",
       "attributes": {
-        "name": "Afghan Hound",
-        "description": "The Afghan Hound is a large and elegant breed of dog that was originally bred in Afghanistan for hunting small game. They are intelligent, independent, and athletic, and make excellent companion dogs.",
+        "name": "Афганская борзая",
+        "description": "Афганская борзая — крупная и элегантная порода собак, которая изначально была выведена в Афганистане для охоты на мелкую дичь. Они умны, независимы, атлетичны и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 14,
           "min": 12
@@ -266,24 +266,24 @@
           "min": 61
         },
         "origin": {
-          "era": "ancient, thousands of years old",
-          "country": "Afghanistan"
+          "era": "древняя, тысячи лет назад",
+          "country": "Афганистан"
         },
         "coat": {
-          "type": "long",
+          "type": "длинная",
           "colors": [
-            "fawn",
-            "gold",
-            "cream",
-            "red",
-            "black",
-            "brindle",
-            "blue",
-            "gray",
-            "white",
-            "tricolour"
+            "палевый",
+            "золотистый",
+            "кремовый",
+            "рыжий",
+            "черный",
+            "тигровый",
+            "голубой",
+            "серый",
+            "белый",
+            "трехцветный"
           ],
-          "length": "long"
+          "length": "длинная"
         },
         "traits": {
           "energy": 4,
@@ -292,12 +292,12 @@
           "grooming": 5,
           "shedding": 2,
           "temperament": [
-            "dignified",
-            "aloof",
-            "independent",
-            "aristocratic",
-            "gentle",
-            "clownish"
+            "достойный",
+            "отстраненный",
+            "независимый",
+            "аристократичный",
+            "нежный",
+            "клоунский"
           ],
           "trainability": 2,
           "good_with_dogs": 3,
@@ -307,10 +307,10 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Tazi",
-          "Balkh Hound",
-          "Baluchi Hound",
-          "Barakzai Hound"
+          "Тази",
+          "Балхская борзая",
+          "Белуджийская борзая",
+          "Баракзайская борзая"
         ],
         "recognized_by": [
           "AKC",
@@ -324,27 +324,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AfghanHound.pdf",
-            "title": "Official Standard of the Afghan Hound - AKC"
+            "title": "Официальный стандарт афганской борзой - AKC"
           },
           {
             "url": "https://afghanhoundclubofamerica.org/index.php/information/breed-standard",
-            "title": "Afghan Hound Club of America - Breed Standard"
+            "title": "Клуб афганских борзых Америки - Стандарт породы"
           },
           {
             "url": "https://www.ukcdogs.com/afghan-hound",
-            "title": "Breed Standards: Afghan Hound - United Kennel Club (UKC)"
+            "title": "Стандарты породы: Афганская борзая - United Kennel Club (UKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Afghan_Hound",
-            "title": "Afghan Hound - Wikipedia"
+            "title": "Афганская борзая - Википедия"
           },
           {
             "url": "https://www.hillspet.com/dog-care/dog-breeds/afghan-hound",
-            "title": "Afghan Hound Dog Breed - Hill's Pet"
+            "title": "Порода собак Афганская борзая - Hill's Pet"
           },
           {
             "url": "https://showsightmagazine.com/dog-breeds/afghan-hound/",
-            "title": "Afghan Hound Dog Breed and Characteristics - ShowSight Magazine"
+            "title": "Порода собак Афганская борзая и её характеристики - ShowSight Magazine"
           }
         ],
         "images": [
@@ -461,8 +461,8 @@
       "id": "1460844f-841c-4de8-b788-271aa4d63224",
       "type": "breed",
       "attributes": {
-        "name": "Airedale Terrier",
-        "description": "The Airedale Terrier is a large and powerful breed of dog that was originally bred in England for hunting small game. They are intelligent, energetic, and determined, and make excellent hunting dogs.",
+        "name": "Эйрдейл-терьер",
+        "description": "Эйрдейл-терьер — крупная и мощная порода собак, которая изначально была выведена в Англии для охоты на мелкую дичь. Они умны, энергичны и решительны, и являются отличными охотничьими собаками.",
         "life": {
           "max": 14,
           "min": 12
@@ -485,17 +485,17 @@
           "min": 56
         },
         "origin": {
-          "era": "19th century (1850s-1880s)",
-          "region": "Aire Valley, Yorkshire",
-          "country": "England"
+          "era": "19 век (1850-е – 1880-е)",
+          "region": "Долина Эйр, Йоркшир",
+          "country": "Англия"
         },
         "coat": {
-          "type": "wire",
+          "type": "жесткая",
           "colors": [
-            "black and tan",
-            "dark grizzle and tan"
+            "черно-подпалый",
+            "темно-серый с подпалом"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -504,12 +504,12 @@
           "grooming": 4,
           "shedding": 1,
           "temperament": [
-            "intelligent",
-            "courageous",
-            "confident",
-            "friendly",
-            "alert",
-            "independent"
+            "умный",
+            "смелый",
+            "уверенный",
+            "дружелюбный",
+            "бдительный",
+            "независимый"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -519,9 +519,9 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "King of Terriers",
+          "Король терьеров",
           "Waterside Terrier",
-          "Bingley Terrier"
+          "Бингли терьер"
         ],
         "recognized_by": [
           "AKC",
@@ -535,23 +535,23 @@
         "sources": [
           {
             "url": "https://airedale.org/your-airedale/breed-standard/",
-            "title": "Breed Standard - Airedale Terrier Club of America"
+            "title": "Стандарт породы - Клуб эйрдейл-терьеров Америки"
           },
           {
             "url": "https://www.hillspet.com/dog-care/dog-breeds/airedale-terrier",
-            "title": "Airedale Terrier Dog Breed - Temperament, Personality and Characteristics"
+            "title": "Порода собак Эйрдейл-терьер - темперамент, личность и характеристики"
           },
           {
             "url": "https://www.dogbreedinfo.com/airedale.htm",
-            "title": "Airedale Terrier Dog Breed Information and Pictures"
+            "title": "Информация и фотографии породы собак Эйрдейл-терьер"
           },
           {
             "url": "https://www.petmd.com/dog/breeds/airedale-terrier",
-            "title": "Airedale Terrier Dog Breed Health and Care"
+            "title": "Здоровье и уход за породой собак Эйрдейл-терьер"
           },
           {
             "url": "https://www.furrycritter.com/pages/descriptions/dogs/a/airedale_terrier.htm",
-            "title": "Airedale Terrier - Complete Breed Guide"
+            "title": "Эйрдейл-терьер - Полное руководство по породе"
           }
         ],
         "images": [
@@ -710,8 +710,8 @@
       "id": "e7e99424-d514-4b56-9f0c-05736f6dd22d",
       "type": "breed",
       "attributes": {
-        "name": "Akita",
-        "description": "The Akita is a large, muscular dog breed that originated in Japan. They are known for their loyalty and courage.",
+        "name": "Акита-ину",
+        "description": "Акита — крупная, мускулистая порода собак, зародившаяся в Японии. Они известны своей преданностью и мужеством.",
         "life": {
           "max": 14,
           "min": 10
@@ -734,21 +734,21 @@
           "min": 61
         },
         "origin": {
-          "era": "17th-19th century",
-          "region": "Akita Prefecture",
-          "country": "Japan"
+          "era": "17-19 века",
+          "region": "Префектура Акита",
+          "country": "Япония"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "red",
-            "fawn",
-            "sesame",
-            "brindle",
-            "white",
-            "pinto"
+            "рыжий",
+            "палевый",
+            "кунжутный",
+            "тигровый",
+            "белый",
+            "пегий"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 3,
@@ -757,12 +757,12 @@
           "grooming": 3,
           "shedding": 5,
           "temperament": [
-            "dignified",
-            "courageous",
-            "alert",
-            "responsive",
-            "loyal",
-            "reserved with strangers"
+            "достойный",
+            "смелый",
+            "бдительный",
+            "послушный",
+            "преданный",
+            "сдержанный с незнакомцами"
           ],
           "trainability": 3,
           "good_with_dogs": 1,
@@ -772,11 +772,11 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Akita Inu",
-          "Japanese Akita",
-          "American Akita",
+          "Акита Ину",
+          "Японская акита",
+          "Американская акита",
           "Akita Ken",
-          "Great Japanese Dog"
+          "Великая японская собака"
         ],
         "recognized_by": [
           "AKC",
@@ -790,27 +790,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/Akita.pdf",
-            "title": "Official Standard of the Akita (AKC)"
+            "title": "Официальный стандарт Акиты (AKC)"
           },
           {
             "url": "https://www.akitaclub.org/akc-akita-standard/",
-            "title": "AKC Akita Standard - Akita Club of America"
+            "title": "Стандарт Акиты AKC - Клуб Акиты Америки"
           },
           {
             "url": "https://showsightmagazine.com/dog-breeds/akita/",
-            "title": "Akita Dog Breed and Characteristics"
+            "title": "Порода собак Акита и её характеристики"
           },
           {
             "url": "https://www.lancasterpuppies.com/dog-breeds/american-akita/",
-            "title": "Akita Dogs Breed - Information, Temperament, Size & Price"
+            "title": "Порода собак Акита - Информация, темперамент, размер и цена"
           },
           {
             "url": "https://www.chewy.com/education/dog-breeds/akita",
-            "title": "Akita Breed: Characteristics, Care & Photos | Chewy"
+            "title": "Порода Акита: характеристики, уход и фотографии | Chewy"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Akita_(dog_breed)",
-            "title": "Akita (dog breed) - Wikipedia"
+            "title": "Акита (порода собак) - Википедия"
           }
         ],
         "images": [
@@ -969,8 +969,8 @@
       "id": "667c7359-a739-4f2b-abb4-98867671e375",
       "type": "breed",
       "attributes": {
-        "name": "Alaskan Klee Kai",
-        "description": "The Alaskan Klee Kai is a small to medium-sized breed of dog that was developed in Alaska in the 1970s. It is an active and intelligent breed that is loyal and friendly. The Alaskan Klee Kai stands between 13-17 inches at the shoulder and has a double-coat that can come in various colors and patterns.",
+        "name": "Аляскинский кли-кай",
+        "description": "Аляскинский кли-кай — порода собак от маленького до среднего размера, разработанная на Аляске в 1970-х годах. Это активная и умная порода, преданная и дружелюбная. Рост аляскинского кли-кая составляет от 33 до 43 см в холке, у него двойная шерсть различных цветов и окрасов.",
         "life": {
           "max": 15,
           "min": 12
@@ -993,19 +993,19 @@
           "min": 38
         },
         "origin": {
-          "era": "1970s-1988",
-          "region": "Alaska",
-          "country": "United States"
+          "era": "1970-е – 1988",
+          "region": "Аляска",
+          "country": "США"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "Black and white",
-            "Gray and white",
-            "Red and white",
-            "White"
+            "Черно-белый",
+            "Серо-белый",
+            "Красно-белый",
+            "Белый"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -1014,12 +1014,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "Alert",
-            "Energetic",
-            "Curious",
-            "Reserved with strangers",
-            "Intelligent",
-            "Loyal"
+            "Бдительный",
+            "Энергичный",
+            "Любопытный",
+            "Сдержанный с незнакомцами",
+            "Умный",
+            "Преданный"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -1029,7 +1029,7 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Klee Kai"
+          "Кли-кай"
         ],
         "recognized_by": [
           "UKC"
@@ -1037,19 +1037,19 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/alaskan-klee-kai",
-            "title": "Breed Standards: Alaskan Klee Kai | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Аляскинский кли-кай | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.akc.org/wp-content/uploads/2026/06/FSS-Breed-Standards-6.25.2026.pdf",
-            "title": "Official Standard of the Alaskan Klee Kai (AKC FSS)"
+            "title": "Официальный стандарт аляскинского кли-кая (AKC FSS)"
           },
           {
             "url": "https://www.hillspet.com/dog-care/dog-breeds/alaskan-klee-kai",
-            "title": "Alaskan Klee Kai Dog Breed - Temperament, Personality and Characteristics Traits | Hill's Pet US"
+            "title": "Порода собак Аляскинский кли-кай - темперамент, личность и черты характера | Hill's Pet US"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Alaskan_Klee_Kai",
-            "title": "Alaskan Klee Kai - Wikipedia"
+            "title": "Аляскинский кли-кай - Википедия"
           }
         ],
         "images": [
@@ -1140,7 +1140,7 @@
           {
             "id": "a12b7cba-5476-4377-847f-28f17d833937",
             "url": "https://images.dogapi.dog/aidrlrmqp9e2bqp9yueyamcfwxby",
-            "thumb": "https://images.dogapi.dog/f77fd9yuyey0oen2icev18fi86z6",
+            "thumb": "https://images.dogapi.dog/f77fd9yuyey0oen2icev18fiH6z6",
             "medium": "https://images.dogapi.dog/urscx0ghzwwd6vl5biokzms5ud90",
             "large": "https://images.dogapi.dog/ya7oj09h14g36iohu48s89irm5w6",
             "attribution": {
@@ -1208,8 +1208,8 @@
       "id": "5328d59b-b4e4-48e9-98ec-0545c66c4385",
       "type": "breed",
       "attributes": {
-        "name": "Alaskan Malamute",
-        "description": "The Alaskan Malamute is a large and powerful sled dog from Alaska. They are strong and hardworking, yet friendly and loyal. Alaskan Malamutes have a thick, double coat that can be any color. They are active and require plenty of exercise and mental stimulation to stay healthy and happy.",
+        "name": "Аляскинский маламут",
+        "description": "Аляскинский маламут — крупная и мощная ездовая собака с Аляски. Они сильные и трудолюбивые, но при этом дружелюбные и преданные. Маламуты обладают густой двойной шерстью любого цвета. Они активны и требуют много физических упражнений и умственной стимуляции, чтобы оставаться здоровыми и счастливыми.",
         "life": {
           "max": 14,
           "min": 10
@@ -1232,20 +1232,20 @@
           "min": 56
         },
         "origin": {
-          "era": "ancient/pre-1900s",
-          "region": "Alaska (Kotzebue Sound, Arctic)",
-          "country": "United States"
+          "era": "древняя/до 1900-х",
+          "region": "Аляска (залив Котзебю, Арктика)",
+          "country": "США"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "gray and white",
-            "black and white",
-            "sable and white",
-            "red and white",
-            "white"
+            "серо-белый",
+            "черно-белый",
+            "палево-белый",
+            "рыже-белый",
+            "белый"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -1254,12 +1254,12 @@
           "grooming": 4,
           "shedding": 5,
           "temperament": [
-            "affectionate",
-            "friendly",
-            "loyal",
-            "dignified",
-            "playful",
-            "devoted"
+            "ласковый",
+            "дружелюбный",
+            "преданный",
+            "достойный",
+            "игривый",
+            "самоотверженный"
           ],
           "trainability": 3,
           "good_with_dogs": 2,
@@ -1269,7 +1269,7 @@
           "good_with_strangers": 4
         },
         "other_names": [
-          "Mal"
+          "Мал"
         ],
         "recognized_by": [
           "AKC",
@@ -1280,27 +1280,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AlaskanMalamute.pdf",
-            "title": "Official AKC Standard of the Alaskan Malamute"
+            "title": "Официальный стандарт AKC для аляскинского маламута"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Alaskan_Malamute",
-            "title": "Alaskan Malamute - Wikipedia"
+            "title": "Аляскинский маламут - Википедия"
           },
           {
             "url": "https://www.alaskan-malamute.sk/en/standard-alaskan-malamute/",
-            "title": "FCI Standard No. 243 - Alaskan Malamute"
+            "title": "Стандарт FCI № 243 - Аляскинский маламут"
           },
           {
             "url": "https://www.ukcdogs.com/alaskan-malamute",
-            "title": "Breed Standards: Alaskan Malamute | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Аляскинский маламут | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.dogbreedinfo.com/alaskanmalamute.htm",
-            "title": "Alaskan Malamute Dog Breed Information and Pictures"
+            "title": "Информация и фотографии породы собак Аляскинский маламут"
           },
           {
             "url": "https://iheartdogs.com/alaskan-malamute-lifespan-what-to-expect-how-to-help-an-alaskan-malamute-live-longer/",
-            "title": "Alaskan Malamute Lifespan - iHeartDogs.com"
+            "title": "Продолжительность жизни аляскинского маламута - iHeartDogs.com"
           }
         ],
         "images": [
@@ -1445,8 +1445,8 @@
       "id": "f72528b5-a5d7-4a17-b709-aba2db722307",
       "type": "breed",
       "attributes": {
-        "name": "American Bulldog",
-        "description": "The American Bulldog is a large and powerful breed of dog that was originally bred in the United States for working on farms. They are intelligent, loyal, and protective, and make excellent guard dogs.",
+        "name": "Американский булдог",
+        "description": "Американский булдог — крупная и мощная порода собак, которая изначально была выведена в США для работы на фермах. Они умны, преданны, склонны к защите и являются отличными сторожевыми собаками.",
         "life": {
           "max": 12,
           "min": 10
@@ -1469,19 +1469,19 @@
           "min": 51
         },
         "origin": {
-          "country": "United States"
+          "country": "США"
         },
         "coat": {
-          "type": "smooth",
+          "type": "гладкая",
           "colors": [
-            "white",
-            "brindle",
-            "fawn",
-            "red",
-            "black",
-            "brown"
+            "белый",
+            "тигровый",
+            "палевый",
+            "рыжий",
+            "черный",
+            "коричневый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -1490,12 +1490,12 @@
           "grooming": 1,
           "shedding": 3,
           "temperament": [
-            "confident",
-            "protective",
-            "loyal",
-            "affectionate",
-            "courageous",
-            "strong-willed"
+            "уверенный",
+            "защищающий",
+            "преданный",
+            "ласковый",
+            "смелый",
+            "сильный духом"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -1505,7 +1505,7 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "American Bulldog"
+          "Американский булдог"
         ],
         "recognized_by": [
           "UKC"
@@ -1513,27 +1513,27 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/american-bulldog",
-            "title": "Breed Standards : American Bulldog | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Американский булдог | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.ukcdogs.com/docs/breeds/american-bulldog.pdf",
-            "title": "AMERICAN BULLDOG Official UKC Breed Standard"
+            "title": "Официальный стандарт породы Американский булдог UKC"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Bulldog",
-            "title": "American Bulldog - Wikipedia"
+            "title": "Американский булдог - Википедия"
           },
           {
             "url": "https://www.petmd.com/dog/breeds/american-bulldog",
-            "title": "American Bulldog Dog Breed Health and Care | PetMD"
+            "title": "Здоровье и уход за породой собак Американский булдог | PetMD"
           },
           {
             "url": "http://www.ababulldogs.com/history.html",
-            "title": "American Bulldog History"
+            "title": "История американского булдога"
           },
           {
             "url": "https://www.pawlicy.com/blog/american-bulldog-breed/",
-            "title": "American Bulldog Breed Guide: Characteristics, History & Care | Pawlicy Advisor"
+            "title": "Руководство по породе Американский булдог: характеристики, история и уход | Pawlicy Advisor"
           }
         ],
         "images": [
@@ -1664,8 +1664,8 @@
       "id": "4524645f-dda7-4031-9272-dee29f5f91ea",
       "type": "breed",
       "attributes": {
-        "name": "American English Coonhound",
-        "description": "The American English Coonhound is a large and athletic breed of dog that was originally bred in the United States for hunting raccoons. They are intelligent, energetic, and determined, and make excellent hunting dogs.",
+        "name": "Американский английский кунхаунд",
+        "description": "Американский английский кунхаунд — крупная и атлетичная порода собак, которая изначально была выведена в США для охоты на енотов. Они умны, энергичны и решительны, и являются отличными охотничьими собаками.",
         "life": {
           "max": 14,
           "min": 12
@@ -1688,21 +1688,21 @@
           "min": 58
         },
         "origin": {
-          "era": "18th–19th century",
-          "region": "Southern United States",
-          "country": "United States"
+          "era": "18–19 века",
+          "region": "Южные США",
+          "country": "США"
         },
         "coat": {
-          "type": "short",
+          "type": "короткая",
           "colors": [
-            "Redtick",
-            "Bluetick",
-            "Tricolor with ticking",
-            "Red and white",
-            "Black and white patched",
-            "Lemon and white"
+            "Redtick (рыже-крапчатый)",
+            "Bluetick (голубо-крапчатый)",
+            "Трехцветный с крапом",
+            "Рыже-белый",
+            "Черно-белый пятнистый",
+            "Лимонно-белый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -1711,12 +1711,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "Energetic",
-            "Sweet",
-            "Determined",
-            "Amiable",
-            "Friendly",
-            "Independent"
+            "Энергичный",
+            "Милый",
+            "Решительный",
+            "Любезный",
+            "Дружелюбный",
+            "Независимый"
           ],
           "trainability": 3,
           "good_with_dogs": 4,
@@ -1726,7 +1726,7 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "English Coonhound",
+          "Английский кунхаунд",
           "Redtick Coonhound"
         ],
         "recognized_by": [
@@ -1736,19 +1736,19 @@
         "sources": [
           {
             "url": "https://showsightmagazine.com/dog-breeds/american-english-coonhound/",
-            "title": "American English Coonhound Dog Breed and Characteristics"
+            "title": "Американский английский кунхаунд: порода и характеристики"
           },
           {
             "url": "https://dogtime.com/dog-breeds/american-english-coonhound",
-            "title": "American English Coonhound Dog Breed Information"
+            "title": "Информация о породе собак Американский английский кунхаунд"
           },
           {
             "url": "https://www.petguide.com/breeds/dog/american-english-coonhound",
-            "title": "American English Coonhound Information and Pictures"
+            "title": "Информация и фотографии американского английского кунхаунда"
           },
           {
             "url": "https://www.wisdompanel.com/en-us/dog-breeds/american-english-coonhound",
-            "title": "American English Coonhound Facts"
+            "title": "Факты об американском английском кунхаунде"
           }
         ],
         "images": [
@@ -1823,8 +1823,8 @@
       "id": "e1c0664d-aa61-4c85-970d-6c86ba197bee",
       "type": "breed",
       "attributes": {
-        "name": "American Eskimo Dog",
-        "description": "The American Eskimo Dog is a small to medium-sized breed with a thick, fluffy coat that comes in white, cream, or biscuit colors. It is known for its intelligence and its ability to learn a wide variety of tricks.",
+        "name": "Американский эскимо",
+        "description": "Американский эскимо — порода собак от маленького до среднего размера с густой пушистой шерстью белого, кремового или песочного цвета. Порода известна своим интеллектом и способностью быстро учить разнообразные трюки.",
         "life": {
           "max": 15,
           "min": 12
@@ -1847,16 +1847,16 @@
           "min": 36
         },
         "origin": {
-          "era": "19th–20th century",
-          "country": "United States"
+          "era": "19–20 века",
+          "country": "США"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "white",
-            "white with biscuit cream"
+            "белый",
+            "белый с кремовым оттенком"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -1865,11 +1865,11 @@
           "grooming": 4,
           "shedding": 4,
           "temperament": [
-            "intelligent",
-            "alert",
-            "friendly but conservative",
-            "protective watchdog",
-            "eager to please"
+            "умный",
+            "бдительный",
+            "дружелюбный, но сдержанный",
+            "защитный сторож",
+            "стремящийся угодить"
           ],
           "trainability": 5,
           "good_with_dogs": 3,
@@ -1879,8 +1879,8 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Eskie",
-          "American Spitz"
+          "Эски",
+          "Американский шпиц"
         ],
         "recognized_by": [
           "AKC",
@@ -1890,23 +1890,23 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AmericanEskimoDog.pdf",
-            "title": "Official Standard of the American Eskimo Dog (AKC)"
+            "title": "Официальный стандарт американского эскимо (AKC)"
           },
           {
             "url": "https://www.akc.org/dog-breeds/american-eskimo-dog/",
-            "title": "American Eskimo Dog - Dog Breed Information (AKC)"
+            "title": "Американский эскимо - Информация о породе (AKC)"
           },
           {
             "url": "https://www.ukcdogs.com/american-eskimo",
-            "title": "Breed Standards: American Eskimo (UKC)"
+            "title": "Стандарты породы: Американский эскимо (UKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Eskimo_Dog",
-            "title": "American Eskimo Dog - Wikipedia"
+            "title": "Американский эскимо - Википедия"
           },
           {
             "url": "https://ckcusa.com/breeds/american-eskimo/",
-            "title": "American Eskimo Dog Breed Information - Continental Kennel Club"
+            "title": "Информация о породе Американский эскимо - Continental Kennel Club"
           }
         ],
         "images": [
@@ -2065,8 +2065,8 @@
       "id": "8355b9c9-3724-477d-858a-c1c1c0f1743f",
       "type": "breed",
       "attributes": {
-        "name": "American Foxhound",
-        "description": "The American Foxhound is a large and athletic breed of dog that was originally bred in the United States for hunting foxes. They are intelligent, energetic, and determined, and make excellent hunting dogs.",
+        "name": "Американский фоксхаунд",
+        "description": "Американский фоксхаунд — крупная и атлетичная порода собак, которая изначально была выведена в США для охоты на лис. Они умны, энергичны и решительны, и являются отличными охотничьими собаками.",
         "life": {
           "max": 13,
           "min": 11
@@ -2089,18 +2089,18 @@
           "min": 53
         },
         "origin": {
-          "era": "18th century (colonial era)",
-          "region": "Virginia",
-          "country": "United States"
+          "era": "18 век (колониальная эпоха)",
+          "region": "Вирджиния",
+          "country": "США"
         },
         "coat": {
-          "type": "medium",
+          "type": "средняя",
           "colors": [
-            "Black, White & Tan",
-            "White, Black & Tan",
-            "Any color"
+            "Черный, Белый и Рыжий",
+            "Белый, Черный и Рыжий",
+            "Любой цвет"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 5,
@@ -2109,12 +2109,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "Independent",
-            "Determined",
-            "Sweet-tempered",
-            "Amiable",
-            "Gentle",
-            "Easy-going"
+            "Независимый",
+            "Решительный",
+            "Добродушный",
+            "Любезный",
+            "Нежный",
+            "Спокойный"
           ],
           "trainability": 3,
           "good_with_dogs": 5,
@@ -2124,7 +2124,7 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "Virginia Hound"
+          "Вирджинский хаунд"
         ],
         "recognized_by": [
           "AKC",
@@ -2136,23 +2136,23 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/american-foxhound",
-            "title": "Breed Standards : American Foxhound | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Американский фоксхаунд | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.ukcdogs.com/docs/breeds/american-foxhound.pdf",
-            "title": "AMERICAN FOXHOUND Official UKC Breed Standard"
+            "title": "Официальный стандарт породы Американский фоксхаунд UKC"
           },
           {
             "url": "https://www.akc.org/expert-advice/dog-breeds/american-foxhound-right-for-you/",
-            "title": "Is the American Foxhound the Right Dog Breed for You?"
+            "title": "Подходит ли вам порода Американский фоксхаунд?"
           },
           {
             "url": "https://www.petmd.com/dog/breeds/american-foxhound",
-            "title": "American Foxhound Dog Breed Health and Care | PetMD"
+            "title": "Здоровье и уход за породой собак Американский фоксхаунд | PetMD"
           },
           {
             "url": "https://showsightmagazine.com/dog-breeds/american-foxhound/",
-            "title": "American Foxhound Dog Breed and Characteristics"
+            "title": "Порода собак Американский фоксхаунд и её характеристики"
           }
         ],
         "images": [
@@ -2243,7 +2243,7 @@
           {
             "id": "1184ca21-daa1-403e-8321-6e6a3cd696fc",
             "url": "https://images.dogapi.dog/uoz73jvlb9270mjw67x2fkt9b7mc",
-            "thumb": "https://images.dogapi.dog/rx4kli9i3agqe0gohg5bpwbof0bg",
+            "thumb": "https://images.dogapi.dog/rx4kli9i3agqe0gohG5bpwbof0bg",
             "medium": "https://images.dogapi.dog/niuimt533i5f36j1on32axp3r7l8",
             "large": "https://images.dogapi.dog/m39k145ovcykxdgrcko0bdzjcjw0",
             "attribution": {
@@ -2297,8 +2297,8 @@
       "id": "bba868bb-71ce-4e66-9970-861fb5af642f",
       "type": "breed",
       "attributes": {
-        "name": "American Hairless Terrier",
-        "description": "The American Hairless Terrier is a small to medium-sized breed of terrier that originated in the United States. It is the hairless variety of the Rat Terrier, and was developed by breeding selectively for the gene that causes the hairlessness. The Hairless variety is considered to have a more mellow and laid-back temperament than its coated counterpart, and is an active and intelligent breed that loves to please and stay busy. The breed stands between 12-16 inches at the shoulder and comes in a variety of colors.",
+        "name": "Американский бесшерстный терьер",
+        "description": "Американский бесшерстный терьер — порода терьеров от маленького до среднего размера, зародившаяся в США. Это бесшерстная разновидность крысиного терьера, выведенная путем селекции гена, вызывающего отсутствие шерсти. Считается, что бесшерстные особи обладают более мягким и спокойным темпераментом, чем их пушистые собратья. Это активная и умная порода, которая любит радовать хозяина и всегда чем-то занята. Рост породы составляет от 30 до 40 см в холке, окрас бывает различным.",
         "life": {
           "max": 14,
           "min": 12
@@ -2321,21 +2321,21 @@
           "min": 30
         },
         "origin": {
-          "era": "1970s",
-          "region": "Louisiana",
-          "country": "United States"
+          "era": "1970-е",
+          "region": "Луизиана",
+          "country": "США"
         },
         "coat": {
-          "type": "hairless",
+          "type": "бесшерстная",
           "colors": [
-            "black",
-            "white",
-            "tan",
-            "sable",
-            "brindle",
-            "particolor"
+            "черный",
+            "белый",
+            "рыжий",
+            "палевый",
+            "тигровый",
+            "пегий"
           ],
-          "length": "hairless"
+          "length": "бесшерстная"
         },
         "traits": {
           "energy": 4,
@@ -2344,12 +2344,12 @@
           "grooming": 2,
           "shedding": 1,
           "temperament": [
-            "energetic",
-            "alert",
-            "curious",
-            "intelligent",
-            "affectionate",
-            "loyal"
+            "энергичный",
+            "бдительный",
+            "любопытный",
+            "умный",
+            "ласковый",
+            "преданный"
           ],
           "trainability": 4,
           "good_with_dogs": 4,
@@ -2368,15 +2368,15 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AmericanHairlessTerrier.pdf",
-            "title": "Official Standard of the American Hairless Terrier - AKC"
+            "title": "Официальный стандарт американского бесшерстного терьера - AKC"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Hairless_Terrier",
-            "title": "American Hairless Terrier - Wikipedia"
+            "title": "Американский бесшерстный терьер - Википедия"
           },
           {
             "url": "https://www.orvis.com/american-hairless-terrier.html",
-            "title": "American Hairless Terrier - All About Dogs | Orvis"
+            "title": "Американский бесшерстный терьер - Всё о собаках | Orvis"
           }
         ],
         "images": [
@@ -2507,8 +2507,8 @@
       "id": "7b1fef86-3fa7-4dd0-92d2-8d7a5524e844",
       "type": "breed",
       "attributes": {
-        "name": "American Leopard Hound",
-        "description": "The American Leopard Hound is a large, athletic dog breed that was originally bred for hunting. They are known for their spotted coats and keen sense of smell.",
+        "name": "Американская леопардовая гончая",
+        "description": "Американская леопардовая гончая — крупная, атлетичная порода собак, которая изначально была выведена для охоты. Они известны своей пятнистой шерстью и острым нюхом.",
         "life": {
           "max": 15,
           "min": 12
@@ -2531,21 +2531,21 @@
           "min": 53
         },
         "origin": {
-          "era": "19th century",
-          "country": "United States"
+          "era": "19 век",
+          "country": "США"
         },
         "coat": {
-          "type": "short",
+          "type": "короткая",
           "colors": [
-            "black",
-            "blue",
-            "mouse",
-            "red",
-            "yellow",
-            "brindle",
-            "with white or other spotting"
+            "черный",
+            "голубой",
+            "мышиный",
+            "рыжий",
+            "желтый",
+            "тигровый",
+            "с белыми или другими пятнами"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -2554,12 +2554,12 @@
           "grooming": 1,
           "shedding": 3,
           "temperament": [
-            "stamina",
-            "desire to please",
-            "strong tracker",
-            "hardy",
-            "versatile hunter",
-            "determined"
+            "выносливость",
+            "желание угодить",
+            "отличный следопыт",
+            "выносливый",
+            "универсальный охотник",
+            "решительный"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -2569,7 +2569,7 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Leopard Cur"
+          "Леопардовый кур"
         ],
         "recognized_by": [
           "UKC"
@@ -2577,19 +2577,19 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/docs/breeds/american-leopard-hound.pdf",
-            "title": "AMERICAN LEOPARD HOUND Official UKC Breed Standard"
+            "title": "Официальный стандарт породы Американская леопардовая гончая UKC"
           },
           {
             "url": "https://www.ukcdogs.com/breed-standards/american-leopard-hound",
-            "title": "Breed Standards : American Leopard Hound | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Американская леопардовая гончая | United Kennel Club (UKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Leopard_Hound",
-            "title": "American Leopard Hound"
+            "title": "Американская леопардовая гончая - Википедия"
           },
           {
             "url": "https://dogtime.com/dog-breeds/american-leopard-hound",
-            "title": "American Leopard Hound Dog Breed Information & Characteristics"
+            "title": "Информация и характеристики породы собак Американская леопардовая гончая"
           }
         ],
         "images": [
@@ -2748,8 +2748,8 @@
       "id": "30a056b8-2bbe-4aa9-b874-c511eb2ca775",
       "type": "breed",
       "attributes": {
-        "name": "American Staffordshire Terrier",
-        "description": "The American Staffordshire Terrier is a medium-sized breed of dog that was originally bred for dog fighting. They are intelligent, loyal, and protective, and make excellent family pets.",
+        "name": "Американский стаффордширский терьер",
+        "description": "Американский стаффордширский терьер — собака среднего размера, которая изначально выводилась для собачьих боев. Они умны, преданны, склонны к защите и являются отличными семейными питомцами.",
         "life": {
           "max": 16,
           "min": 12
@@ -2772,23 +2772,23 @@
           "min": 43
         },
         "origin": {
-          "era": "19th century",
-          "country": "United States"
+          "era": "19 век",
+          "country": "США"
         },
         "coat": {
-          "type": "smooth",
+          "type": "гладкая",
           "colors": [
-            "black",
-            "blue",
-            "brindle",
-            "fawn",
-            "red",
-            "white",
-            "solid",
-            "parti",
-            "patched"
+            "черный",
+            "голубой",
+            "тигровый",
+            "палевый",
+            "рыжий",
+            "белый",
+            "однотонный",
+            "пегий",
+            "пятнистый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -2797,12 +2797,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "Confident",
-            "Good-natured",
-            "Courageous",
-            "Smart",
-            "Loyal",
-            "Outgoing"
+            "Уверенный",
+            "Добродушный",
+            "Смелый",
+            "Умный",
+            "Преданный",
+            "Общительный"
           ],
           "trainability": 4,
           "good_with_dogs": 2,
@@ -2812,8 +2812,8 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "AmStaff",
-          "Staffie"
+          "Амстафф",
+          "Стаффи"
         ],
         "recognized_by": [
           "AKC",
@@ -2822,23 +2822,23 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AmericanStaffordshireTerrier.pdf",
-            "title": "Official Standard of the American Staffordshire Terrier"
+            "title": "Официальный стандарт американского стаффордширского терьера"
           },
           {
             "url": "https://www.akc.org/dog-breeds/american-staffordshire-terrier/",
-            "title": "American Staffordshire Terrier Dog Breed Information - AKC"
+            "title": "Американский стаффордширский терьер - Информация о породе - AKC"
           },
           {
             "url": "https://www.westminsterkennelclub.org/breed/american-staffordshire-terrier/",
-            "title": "American Staffordshire Terrier - The Westminster Kennel Club"
+            "title": "Американский стаффордширский терьер - The Westminster Kennel Club"
           },
           {
             "url": "https://www.hillspet.com/dog-care/dog-breeds/american-staffordshire-terrier",
-            "title": "The American Staffordshire Terrier Dog Breed - Hill's Pet"
+            "title": "Порода собак Американский стаффордширский терьер - Hill's Pet"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Staffordshire_Terrier",
-            "title": "American Staffordshire Terrier - Wikipedia"
+            "title": "Американский стаффордширский терьер - Википедия"
           }
         ],
         "images": [
@@ -2997,8 +2997,8 @@
       "id": "46a95f0b-8b66-400d-8323-07084c36fcae",
       "type": "breed",
       "attributes": {
-        "name": "American Water Spaniel",
-        "description": "The American Water Spaniel is a medium-sized breed of dog that was originally bred in the United States for hunting waterfowl. They are intelligent, energetic, and eager to please, and make excellent hunting dogs.",
+        "name": "Американский водяной спаниель",
+        "description": "Американский водяной спаниель — собака среднего размера, которая изначально была выведена в США для охоты на водоплавающую дичь. Они умны, энергичны, стремятся угодить хозяину и являются отличными охотничьими собаками.",
         "life": {
           "max": 14,
           "min": 12
@@ -3021,18 +3021,18 @@
           "min": 38
         },
         "origin": {
-          "era": "19th century",
-          "region": "Wisconsin / Upper Midwest",
-          "country": "United States"
+          "era": "19 век",
+          "region": "Висконсин / Верхний Средний Запад",
+          "country": "США"
         },
         "coat": {
-          "type": "curly",
+          "type": "кудрявая",
           "colors": [
-            "liver",
-            "brown",
-            "dark chocolate"
+            "печеночный",
+            "коричневый",
+            "темно-шоколадный"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -3041,12 +3041,12 @@
           "grooming": 3,
           "shedding": 2,
           "temperament": [
-            "intelligent",
-            "energetic",
-            "eager to please",
-            "affectionate",
-            "alert",
-            "active"
+            "умный",
+            "энергичный",
+            "стремящийся угодить",
+            "ласковый",
+            "бдительный",
+            "активный"
           ],
           "trainability": 4,
           "good_with_dogs": 4,
@@ -3056,7 +3056,7 @@
           "good_with_strangers": 4
         },
         "other_names": [
-          "American Brown Spaniel",
+          "Американский коричневый спаниель",
           "AWS"
         ],
         "recognized_by": [
@@ -3066,27 +3066,27 @@
         "sources": [
           {
             "url": "https://www.americanwaterspanielclub.org/breed-standard-1",
-            "title": "American Water Spaniel Breed Standard — AWSC"
+            "title": "Стандарт породы Американский водяной спаниель — AWSC"
           },
           {
             "url": "https://www.ukcdogs.com/american-water-spaniel",
-            "title": "Breed Standards : American Water Spaniel | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Американский водяной спаниель | United Kennel Club (UKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/American_Water_Spaniel",
-            "title": "American Water Spaniel - Wikipedia"
+            "title": "Американский водяной спаниель - Википедия"
           },
           {
             "url": "https://showsightmagazine.com/dog-breeds/american-water-spaniel/",
-            "title": "American Water Spaniel Breed and Characteristics – Showsight Magazine"
+            "title": "Порода Американский водяной спаниель и её характеристики – Showsight Magazine"
           },
           {
             "url": "https://www.wisdompanel.com/en-us/dog-breeds/american-water-spaniel",
-            "title": "American Water Spaniel Facts - Wisdom Panel"
+            "title": "Факты об американском водяном спаниеле - Wisdom Panel"
           },
           {
             "url": "https://www.breedscout.com/breeds/american-water-spaniel",
-            "title": "American Water Spaniel Dog Breed Information & Characteristics | BreedScout"
+            "title": "Информация и характеристики породы собак Американский водяной спаниель | BreedScout"
           }
         ],
         "images": [
@@ -3231,8 +3231,8 @@
       "id": "c94e50a5-f733-4b15-8b11-54598c949b6f",
       "type": "breed",
       "attributes": {
-        "name": "Anatolian Shepherd Dog",
-        "description": "The Anatolian Shepherd Dog is a large breed of flock guardian dog that originated in Turkey. It is a powerful and athletic breed, with a long, coarse coat. Its head is large and round, with small, erect ears. Its legs are strong and muscular, and its tail is usually docked. The Anatolian Shepherd Dog is an intelligent and loyal breed, and it makes an excellent family pet. It is an active breed, and it needs plenty of exercise and mental stimulation. It is loyal and affectionate, and it enjoys spending time with its family.",
+        "name": "Анатолийская овчарка",
+        "description": "Анатолийская овчарка — крупная порода собак-пастухов, зародившаяся в Турции. Это мощная и атлетичная порода с длинной жесткой шерстью. Голова крупная и круглая, с маленькими стоячими ушами. Лапы сильные и мускулистые, хвост обычно купирован. Анатолийская овчарка — умная и преданная порода, которая становится отличным домашним питомцем. Это активная порода, которой требуется много физических упражнений и умственной стимуляции. Она предана, ласкова и любит проводить время со своей семьей.",
         "life": {
           "max": 13,
           "min": 11
@@ -3255,21 +3255,21 @@
           "min": 70
         },
         "origin": {
-          "era": "Ancient (thousands of years ago)",
-          "region": "Anatolia",
-          "country": "Turkey"
+          "era": "Древняя (тысячи лет назад)",
+          "region": "Анатолия",
+          "country": "Турция"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "fawn with black mask",
-            "white",
-            "pinto",
-            "brindle",
-            "biscuit",
-            "sable"
+            "палевый с черной маской",
+            "белый",
+            "пегий",
+            "тигровый",
+            "песочный",
+            "соболиный"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 3,
@@ -3278,12 +3278,12 @@
           "grooming": 2,
           "shedding": 4,
           "temperament": [
-            "alert",
-            "intelligent",
-            "calm",
-            "independent",
-            "loyal",
-            "territorial"
+            "бдительный",
+            "умный",
+            "спокойный",
+            "независимый",
+            "преданный",
+            "территориальный"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -3294,8 +3294,8 @@
         },
         "other_names": [
           "Coban Kopegi",
-          "Turkish Shepherd Dog",
-          "Karabash"
+          "Турецкая овчарка",
+          "Карабаш"
         ],
         "recognized_by": [
           "AKC",
@@ -3304,19 +3304,19 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AnatolianShepherdDog.pdf",
-            "title": "Official Standard of the Anatolian Shepherd Dog - AKC"
+            "title": "Официальный стандарт анатолийской овчарки - AKC"
           },
           {
             "url": "https://www.ukcdogs.com/anatolian-shepherd",
-            "title": "Breed Standards: Anatolian Shepherd - United Kennel Club (UKC)"
+            "title": "Стандарты породы: Анатолийская овчарка - United Kennel Club (UKC)"
           },
           {
             "url": "https://www.vetstreet.com/dogs/anatolian-shepherd",
-            "title": "Anatolian Shepherd Breed Information - Vetstreet"
+            "title": "Информация о породе Анатолийская овчарка - Vetstreet"
           },
           {
             "url": "https://www.orvis.com/anatolian-shepherd-dog.html",
-            "title": "Anatolian Shepherd Dog - All About Dogs - Orvis"
+            "title": "Анатолийская овчарка - Всё о собаках - Orvis"
           }
         ],
         "images": [
@@ -3350,7 +3350,7 @@
           },
           {
             "id": "473fa76a-deb8-4c5b-aaa9-fe37f2303e62",
-            "url": "https://images.dogapi.dog/xuw37cjc9qethf681r5cog52o0xi",
+            "url": "https://images.dogapi.dog/xuw37cjc9qethf681r5cog52o1xi",
             "thumb": "https://images.dogapi.dog/aq2gmcebuexytahq2vrmzzkvyc6s",
             "medium": "https://images.dogapi.dog/vhigetzyuaojmsi0qesrsd7gv5pm",
             "large": "https://images.dogapi.dog/kgejguc0409q7k9rlk6i88oko9uj",
@@ -3393,7 +3393,7 @@
           {
             "id": "e0d84348-e1b0-4a45-8b6f-12a87355769c",
             "url": "https://images.dogapi.dog/93y5zmjty1kshgd3sh27c4xntoei",
-            "thumb": "https://images.dogapi.dog/wvgar3i94go6fzkkx54gbo3og526",
+            "thumb": "https://images.dogapi.dog/wvgar3i94go6fzkk54gbo3og526",
             "medium": "https://images.dogapi.dog/yx3o7tlw44qbayqpspoc40c2i2cz",
             "large": "https://images.dogapi.dog/gae37gzal5an14ay49imgbbldt9p",
             "attribution": {
@@ -3461,8 +3461,8 @@
       "id": "b56e4273-9ec0-4274-831d-b238225f8fb6",
       "type": "breed",
       "attributes": {
-        "name": "Appenzeller Sennenhund",
-        "description": "The Appenzeller Sennenhund is a large breed of mountain dog that originated in Switzerland. It is a powerful and athletic breed, with a thick, double coat. Its head is large and round, with small, erect ears. Its legs are strong and muscular, and its tail is usually docked. The Appenzeller Sennenhund is an intelligent and loyal breed, and it makes an excellent family pet. It is an active breed, and it needs plenty of exercise and mental stimulation. It is loyal and affectionate, and it enjoys spending time with its family.",
+        "name": "Аппенцеллерский сенненхунд",
+        "description": "Аппенцеллерский сенненхунд — крупная порода горных собак из Швейцарии. Это мощная и атлетичная порода с густой двойной шерстью. Голова крупная и круглая, с маленькими стоячими ушами. Лапы сильные и мускулистые, хвост обычно купирован. Аппенцеллерский сенненхунд — умная и преданная порода, которая становится отличным домашним питомцем. Это активная порода, которой требуется много физических упражнений и умственной стимуляции. Она предана, ласкова и любит проводить время со своей семьей.",
         "life": {
           "max": 15,
           "min": 12
@@ -3485,16 +3485,16 @@
           "min": 50
         },
         "origin": {
-          "region": "Appenzell",
-          "country": "Switzerland"
+          "region": "Аппенцелль",
+          "country": "Швейцария"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "black tricolor",
-            "Havana brown tricolor"
+            "черный трехцветный",
+            "гаванский коричневый трехцветный"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -3503,12 +3503,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "lively",
-            "watchful",
-            "self-assured",
-            "loyal",
-            "reserved with strangers",
-            "high-spirited"
+            "оживленный",
+            "бдительный",
+            "уверенный в себе",
+            "преданный",
+            "сдержанный с незнакомцами",
+            "темпераментный"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -3518,7 +3518,7 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Appenzeller",
+          "Аппенцеллер",
           "Appenzell Cattle Dog",
           "Appizöller Bläss",
           "Bouvier Appenzellois",
@@ -3532,23 +3532,23 @@
         "sources": [
           {
             "url": "https://en.wikipedia.org/wiki/Appenzeller_Sennenhund",
-            "title": "Appenzeller Sennenhund - Wikipedia"
+            "title": "Аппенцеллерский сенненхунд - Википедия"
           },
           {
             "url": "https://www.fci.be/Nomenclature/Standards/046g02-en.pdf",
-            "title": "FCI Standard No. 46 - Appenzell Cattle Dog"
+            "title": "Стандарт FCI № 46 - Appenzell Cattle Dog"
           },
           {
             "url": "https://www.ukcdogs.com/appenzeller",
-            "title": "Breed Standards: Appenzeller | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Аппенцеллер | United Kennel Club (UKC)"
           },
           {
             "url": "https://animalia.bio/pets/appenzeller-sennenhund",
-            "title": "All about Appenzeller Sennenhund breed"
+            "title": "Всё о породе Аппенцеллерский сенненхунд"
           },
           {
             "url": "https://www.furrycritter.com/pages/descriptions/dogs/a/appenzeller.htm",
-            "title": "Appenzeller - Complete Breed Guide - Furry Critter Network"
+            "title": "Аппенцеллер - Полное руководство по породе - Furry Critter Network"
           }
         ],
         "images": [
@@ -3683,7 +3683,7 @@
             "url": "https://images.dogapi.dog/5380ukye17u9qgnd591frgusplyr",
             "thumb": "https://images.dogapi.dog/tp13mjrb9oq7hh7pv6a2bjww1rbm",
             "medium": "https://images.dogapi.dog/wlrcgwelrqhp8kvo3zf0g00xrfj4",
-            "large": "https://images.dogapi.dog/ujt8fs3l6b5b97d72t22t37y4uo1",
+            "large": "https://images.dogapi.dog/ujt8fs3l6b5b97d72_22t37y4uo1",
             "attribution": {
               "author": "Pleple2000",
               "license": "CC BY-SA 3.0",
@@ -3707,8 +3707,8 @@
       "id": "0543cf54-a255-402e-84e5-f440cc2a67cc",
       "type": "breed",
       "attributes": {
-        "name": "Australian Cattle Dog",
-        "description": "The Australian Cattle Dog is a medium-sized breed of dog that was originally bred in Australia for herding and guarding livestock. They are intelligent, energetic, and hardworking, and make excellent working dogs.",
+        "name": "Австралийский cattle dog",
+        "description": "Австралийский cattle dog — порода собак среднего размера, которая изначально была выведена в Австралии для выпаса и охраны скота. Они умны, энергичны, трудолюбивы и являются отличными служебными собаками.",
         "life": {
           "max": 15,
           "min": 12
@@ -3731,19 +3731,19 @@
           "min": 43
         },
         "origin": {
-          "era": "mid-to-late 19th century",
-          "region": "New South Wales/Queensland",
-          "country": "Australia"
+          "era": "середина-конец 19 века",
+          "region": "Новый Южный Уэльс/Квинсленд",
+          "country": "Австралия"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "blue",
-            "blue mottled",
-            "blue speckled",
-            "red speckled"
+            "голубой",
+            "голубой крапчатый",
+            "голубой пятнистый",
+            "рыже-крапчатый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -3752,12 +3752,12 @@
           "grooming": 2,
           "shedding": 4,
           "temperament": [
-            "Alert",
-            "Curious",
-            "Pleasant",
-            "Loyal",
-            "Protective",
-            "Intelligent"
+            "Бдительный",
+            "Любопытный",
+            "Приятный",
+            "Преданный",
+            "Защищающий",
+            "Умный"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -3785,27 +3785,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/AustralianCattleDog.pdf",
-            "title": "Official Standard of the Australian Cattle Dog (AKC)"
+            "title": "Официальный стандарт австралийского cattle dog (AKC)"
           },
           {
             "url": "https://www.ukcdogs.com/australian-cattle-dog",
-            "title": "Breed Standards: Australian Cattle Dog (UKC)"
+            "title": "Стандарты породы: Австралийский cattle dog (UKC)"
           },
           {
             "url": "https://www.ukcdogs.com/docs/breeds/australian-cattle-dog.pdf",
-            "title": "Australian Cattle Dog Official UKC Breed Standard"
+            "title": "Официальный стандарт породы Австралийский cattle dog UKC"
           },
           {
             "url": "https://www.acdca.org/illustrated-standard/",
-            "title": "Australian Cattle Dog Breed Illustrated Standard (ACDCA)"
+            "title": "Иллюстрированный стандарт породы Австралийский cattle dog (ACDCA)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Halls_Heeler",
-            "title": "Halls Heeler - Wikipedia"
+            "title": "Halls Heeler - Википедия"
           },
           {
             "url": "https://dogtime.com/dog-breeds/australian-cattle-dog",
-            "title": "Australian Cattle Dog Breed Information & Characteristics"
+            "title": "Информация и характеристики породы собак Австралийский cattle dog"
           }
         ],
         "images": [
@@ -3896,7 +3896,7 @@
           {
             "id": "4ce0aef6-bbe9-4b84-8221-597fad71f3e3",
             "url": "https://images.dogapi.dog/aowvgt0e2ig2h6ponzqnuy6yw6b3",
-            "thumb": "https://images.dogapi.dog/4aez8mylz9zwi3546abg8pg0btva",
+            "thumb": "https://images.dogapi.dog/4aez8mylz9zwi3546abH8pg0btva",
             "medium": "https://images.dogapi.dog/sse94tqc7ccnhddzn86aakn5ura9",
             "large": "https://images.dogapi.dog/9954zxeqo2vgiciaxjgzu72m76u2",
             "attribution": {
@@ -3924,7 +3924,7 @@
           {
             "id": "1c624391-0b79-48a6-8823-504c7a7e6751",
             "url": "https://images.dogapi.dog/1gcb39mruiz3i37v0fxuo0867bfw",
-            "thumb": "https://images.dogapi.dog/u46xqyq66ynfwg5hdnxpkuccwd7m",
+            "thumb": "https://images.dogapi.dog/u46xqyq66ynfwG5hdnxpkuccwd7m",
             "medium": "https://images.dogapi.dog/qehrgrdhf8dh7ve9bzk2n1k1h9o3",
             "large": "https://images.dogapi.dog/fof5b9izzpweluui33oj4bqv0jg3",
             "attribution": {
@@ -3940,7 +3940,7 @@
             "url": "https://images.dogapi.dog/gkbdk0yaarorwswwh6dq5xg0uo4k",
             "thumb": "https://images.dogapi.dog/22c3felgo4kte5mqlyi6qs5u3zsh",
             "medium": "https://images.dogapi.dog/fkzyk52yzkabg9n6inh40exvs34p",
-            "large": "https://images.dogapi.dog/6h8nmct8n274qjskhx560ysaef2i",
+            "large": "https://images.dogapi.dog/6h8nmct8n274qjskh560ysaef2i",
             "attribution": {
               "author": "Mdk572",
               "license": "CC BY 3.0",
@@ -3964,8 +3964,8 @@
       "id": "2adf5a19-028d-4993-8044-4571008b6d49",
       "type": "breed",
       "attributes": {
-        "name": "Australian Kelpie",
-        "description": "The Australian Kelpie is a lively and intelligent herding dog from Australia. They are active, friendly, and loyal, and make great family pets. Australian Kelpies have a thick, double coat that can be any color. They are easy to train and require plenty of exercise and mental stimulation to stay healthy and happy.",
+        "name": "Австралийский келпи",
+        "description": "Австралийский келпи — живая и умная пастушья собака из Австралии. Они активны, дружелюбны и преданы, и являются отличными семейными питомцами. У келпи густая двойная шерсть любого цвета. Они легко обучаются и требуют много физических упражнений и умственной стимуляции, чтобы оставаться здоровыми и счастливыми.",
         "life": {
           "max": 14,
           "min": 12
@@ -3988,22 +3988,22 @@
           "min": 43
         },
         "origin": {
-          "era": "late 19th century",
-          "region": "New South Wales",
-          "country": "Australia"
+          "era": "конец 19 века",
+          "region": "Новый Южный Уэльс",
+          "country": "Австралия"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "black",
-            "black and tan",
-            "red",
-            "red and tan",
-            "fawn",
-            "chocolate",
-            "smoke blue"
+            "черный",
+            "черно-подпалый",
+            "рыжий",
+            "рыже-подпалый",
+            "палевый",
+            "шоколадный",
+            "дымчато-голубой"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -4012,12 +4012,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "alert",
-            "eager",
-            "highly intelligent",
-            "tractable",
-            "loyal",
-            "tireless"
+            "бдительный",
+            "рвущийся в бой",
+            "высокоинтеллектуальный",
+            "послушный",
+            "преданный",
+            "неутомимый"
           ],
           "trainability": 5,
           "good_with_dogs": 3,
@@ -4027,9 +4027,9 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Kelpie",
+          "Келпи",
           "Barb",
-          "Working Kelpie"
+          "Рабочий келпи"
         ],
         "recognized_by": [
           "FCI",
@@ -4038,23 +4038,23 @@
         "sources": [
           {
             "url": "https://www.dogsnsw.org.au/Breeds/breed-standards/149/Australian-Kelpie/",
-            "title": "Australian Kelpie Breed Standard (ANKC, via Dogs NSW)"
+            "title": "Стандарт породы Австралийский келпи (ANKC, через Dogs NSW)"
           },
           {
             "url": "https://www.fci.be/Nomenclature/Standards/293g01-en.pdf",
-            "title": "FCI-Standard N°293 Australian Kelpie"
+            "title": "Стандарт FCI № 293 Австралийский келпи"
           },
           {
             "url": "https://www.hillspet.com.au/dog-care/dog-breeds/australian-kelpie",
-            "title": "The Australian Kelpie dog Breed - Hill's Pet Australia"
+            "title": "Порода собак Австралийский келпи - Hill's Pet Australia"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Australian_Kelpie",
-            "title": "Australian Kelpie - Wikipedia"
+            "title": "Австралийский келпи - Википедия"
           },
           {
             "url": "https://www.petful.com/dog-breeds/australian-kelpies/",
-            "title": "Australian Kelpie Breed Profile: Essential Facts - Petful"
+            "title": "Профиль породы Австралийский келпи: основные факты - Petful"
           }
         ],
         "images": [
@@ -4185,8 +4185,8 @@
       "id": "03269b7d-c5d6-4a8f-83d1-7a6180d40127",
       "type": "breed",
       "attributes": {
-        "name": "Australian Shepherd",
-        "description": "The Australian Shepherd is a medium-sized breed with a medium-length, double coat. They have a wedge-shaped head and a muscular body, with a straight, medium-length tail. The Australian Shepherd is an intelligent working dog that is eager to please and loves to be around its family. They are known for their loyalty and are often used in agility, obedience, and herding events.",
+        "name": "Австралийская овчарка",
+        "description": "Австралийская овчарка — собака среднего размера с двойной шерстью средней длины. У неё клиновидная голова и мускулистое тело с прямым хвостом средней длины. Австралийская овчарка — умная служебная собака, которая стремится угодить хозяину и любит быть рядом со своей семьей. Они известны своей преданностью и часто участвуют в соревнованиях по аджилити, послушанию и выпасу скота.",
         "life": {
           "max": 15,
           "min": 12
@@ -4209,21 +4209,21 @@
           "min": 46
         },
         "origin": {
-          "era": "19th century",
-          "region": "Western United States",
-          "country": "United States"
+          "era": "19 век",
+          "region": "Запад США",
+          "country": "США"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "black",
-            "blue merle",
-            "red",
-            "red merle",
-            "with or without white markings",
-            "with or without copper/tan points"
+            "черный",
+            "голубой мерль",
+            "рыжий",
+            "рыжий мерль",
+            "с белыми отметинами или без них",
+            "с медными/рыжими подпалинами или без них"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 5,
@@ -4232,12 +4232,12 @@
           "grooming": 3,
           "shedding": 4,
           "temperament": [
-            "intelligent",
-            "energetic",
-            "loyal",
-            "eager to please",
-            "alert",
-            "protective"
+            "умный",
+            "энергичный",
+            "преданный",
+            "стремящийся угодить",
+            "бдительный",
+            "защищающий"
           ],
           "trainability": 5,
           "good_with_dogs": 4,
@@ -4247,7 +4247,7 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "Aussie"
+          "Осси"
         ],
         "recognized_by": [
           "AKC",
@@ -4260,23 +4260,23 @@
         "sources": [
           {
             "url": "https://en.wikipedia.org/wiki/Australian_Shepherd",
-            "title": "Australian Shepherd - Wikipedia"
+            "title": "Австралийская овчарка - Википедия"
           },
           {
             "url": "https://australianshepherds.org/finding-an-aussie/breed-standard/",
-            "title": "Breed Standard - United States Australian Shepherd Association"
+            "title": "Стандарт породы - Ассоциация австралийских овчарок США"
           },
           {
             "url": "https://www.akc.org/expert-advice/dog-breeds/australian-shepherd-right-for-you/",
-            "title": "Is the Australian Shepherd the Right Dog Breed for You? - AKC"
+            "title": "Подходит ли вам порода Австралийская овчарка? - AKC"
           },
           {
             "url": "https://www.akc.org/expert-advice/dog-breeds/australian-shepherd-history/",
-            "title": "Australian Shepherd History: Where the Breed Originated - AKC"
+            "title": "История австралийской овчарки: происхождение породы - AKC"
           },
           {
             "url": "https://iheartdogs.com/australian-shepherd-colors/",
-            "title": "Australian Shepherd Colors: Every AKC Shade, Pattern, and What They Mean"
+            "title": "Цвета австралийской овчарки: каждый оттенок и узор AKC и их значение"
           }
         ],
         "images": [
@@ -4355,7 +4355,7 @@
             "url": "https://images.dogapi.dog/0iattdjo26qdlqs5r43wjwl4thtq",
             "thumb": "https://images.dogapi.dog/ll6opnq7wokfy830rnynflaww39i",
             "medium": "https://images.dogapi.dog/7jycnxgvdmzx88f277mzk4hm6a4s",
-            "large": "https://images.dogapi.dog/wdbl53iyj20o89n5tsx71q66kyks",
+            "large": "https://images.dogapi.dog/wdbl53iy20o89n5tsx71q66kyks",
             "attribution": {
               "author": "LVelarde (WMF)",
               "license": "CC BY-SA 4.0",
@@ -4435,8 +4435,8 @@
       "id": "6e04f700-c307-4dd5-8d2f-fd346d949cd6",
       "type": "breed",
       "attributes": {
-        "name": "Australian Stumpy Tail Cattle Dog",
-        "description": "The Australian Stumpy Tail Cattle Dog is a medium-sized herding dog breed with a distinctive stumpy tail and a smooth, dense coat that can be blue, red, or fawn in color. They are intelligent, energetic, and obedient, and were originally bred to help farmers drive their cattle over long distances.",
+        "name": "Австралийский короткохвостый cattle dog",
+        "description": "Австралийский короткохвостый cattle dog — пастушья порода собак среднего размера с характерным коротким хвостом и гладкой густой шерстью голубого, рыжего или палевого цвета. Они умны, энергичны и послушны; изначально они были выведены, чтобы помогать фермерам перегонять скот на большие расстояния.",
         "life": {
           "max": 15,
           "min": 12
@@ -4459,19 +4459,19 @@
           "min": 43
         },
         "origin": {
-          "era": "19th century",
-          "region": "New South Wales",
-          "country": "Australia"
+          "era": "19 век",
+          "region": "Новый Южный Уэльс",
+          "country": "Австралия"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "blue speckle",
-            "blue mottled",
-            "red speckle",
-            "red mottled"
+            "голубой крап",
+            "голубой пятнистый",
+            "рыжий крап",
+            "рыжий пятнистый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 5,
@@ -4480,12 +4480,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "alert",
-            "loyal",
-            "intelligent",
-            "watchful",
-            "wary of strangers",
-            "hardworking"
+            "бдительный",
+            "преданный",
+            "умный",
+            "наблюдательный",
+            "осторожный с незнакомцами",
+            "трудолюбивый"
           ],
           "trainability": 4,
           "good_with_dogs": 3,
@@ -4508,27 +4508,27 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/stumpy-tail-cattle-dog",
-            "title": "Breed Standards: Stumpy Tail Cattle Dog | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Stumpy Tail Cattle Dog | United Kennel Club (UKC)"
           },
           {
             "url": "http://res.ukcdogs.com/pdf/breedstandards/Stumpy%20Tail%20Cattle%20Dog.pdf",
-            "title": "Stumpy Tail Cattle Dog Official UKC Breed Standard"
+            "title": "Официальный стандарт породы Stumpy Tail Cattle Dog UKC"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Australian_Stumpy_Tail_Cattle_Dog",
-            "title": "Australian Stumpy Tail Cattle Dog - Wikipedia"
+            "title": "Австралийский короткохвостый cattle dog - Википедия"
           },
           {
             "url": "https://www.roysfarm.com/australian-stumpy-tail-cattle-dog/",
-            "title": "Australian Stumpy Tail Cattle Dog | ROYS FARM"
+            "title": "Австралийский короткохвостый cattle dog | ROYS FARM"
           },
           {
             "url": "https://showsightmagazine.com/australian-stumpy-tail-cattle-dog/",
-            "title": "Australian Stumpy Tail Cattle Dog – Showsight Magazine"
+            "title": "Австралийский короткохвостый cattle dog – Showsight Magazine"
           },
           {
             "url": "https://www.furrycritter.com/pages/descriptions/dogs/s/stumpy_tail_cattle_dog.htm",
-            "title": "Stumpy Tail Cattle Dog - Complete Breed Guide | Furry Critter Network"
+            "title": "Stumpy Tail Cattle Dog - Полное руководство по породе | Furry Critter Network"
           }
         ],
         "images": [
@@ -4631,8 +4631,8 @@
       "id": "4b3278eb-612a-4e87-b2ab-73174d039514",
       "type": "breed",
       "attributes": {
-        "name": "Australian Terrier",
-        "description": "The Australian Terrier is a small breed of terrier that originated in Australia. It is a compact and lively breed, with a short, wiry coat. Its head is large and round, with small, erect ears. Its legs are short and strong, and its tail is usually docked. The Australian Terrier is an intelligent and loyal breed, and it makes an excellent family pet. It is an active breed, and it needs regular exercise and mental stimulation. It is loyal and affectionate, and it enjoys spending time with its family.",
+        "name": "Австралийский терьер",
+        "description": "Австралийский терьер — маленькая порода терьеров, зародившаяся в Австралии. Это компактная и живая порода с короткой жесткой шерстью. Голова крупная и круглая, с маленькими стоячими ушами. Лапы короткие и сильные, хвост обычно купирован. Австралийский терьер — умная и преданная порода, которая становится отличным семейным питомцем. Это активная порода, которой требуются регулярные физические упражнения и умственная стимуляция. Он предан, ласков и любит проводить время со своей семьей.",
         "life": {
           "max": 15,
           "min": 11
@@ -4655,18 +4655,18 @@
           "min": 25
         },
         "origin": {
-          "era": "19th century",
-          "region": "Tasmania",
-          "country": "Australia"
+          "era": "19 век",
+          "region": "Тасмания",
+          "country": "Австралия"
         },
         "coat": {
-          "type": "wire",
+          "type": "жесткая",
           "colors": [
-            "Blue and Tan",
-            "Solid Sandy",
-            "Solid Red"
+            "Голубой с подпалом",
+            "Однотонный песочный",
+            "Однотонный рыжий"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 4,
@@ -4675,12 +4675,12 @@
           "grooming": 3,
           "shedding": 2,
           "temperament": [
-            "Alert",
-            "Spirited",
-            "Courageous",
-            "Friendly",
-            "Confident",
-            "Independent"
+            "Бдительный",
+            "Энергичный",
+            "Смелый",
+            "Дружелюбный",
+            "Уверенный",
+            "Независимый"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -4690,7 +4690,7 @@
           "good_with_strangers": 3
         },
         "other_names": [
-          "Aussie"
+          "Осси"
         ],
         "recognized_by": [
           "AKC",
@@ -4704,27 +4704,27 @@
         "sources": [
           {
             "url": "https://www.ukcdogs.com/australian-terrier",
-            "title": "Breed Standards : Australian Terrier | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Австралийский терьер | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.dogbreedinfo.com/australianterrier.htm",
-            "title": "Australian Terrier Dog Breed Information and Pictures"
+            "title": "Информация и фотографии породы собак Австралийский терьер"
           },
           {
             "url": "https://www.petmd.com/dog/breeds/australian-terrier",
-            "title": "Australian Terrier Dog Breed Health and Care | PetMD"
+            "title": "Здоровье и уход за породой собак Австралийский терьер | PetMD"
           },
           {
             "url": "https://www.chewy.com/education/dog-breeds/australian-terrier",
-            "title": "Australian Terrier Breed: Characteristics, Care & Photos | Chewy"
+            "title": "Порода Австралийский терьер: характеристики, уход и фотографии | Chewy"
           },
           {
             "url": "https://showsightmagazine.com/dog-breeds/australian-terrier/",
-            "title": "Australian Terrier Dog Breed and Characteristics"
+            "title": "Порода собак Австралийский терьер и её характеристики"
           },
           {
             "url": "https://www.worldlifeexpectancy.com/dog-life-expectancy-australian-terrier",
-            "title": "LIFE SPAN OF Australian Terrier - World Life Expectancy"
+            "title": "ПРОДОЛЖИТЕЛЬНОСТЬ ЖИЗНИ Австралийского терьера - World Life Expectancy"
           }
         ],
         "images": [
@@ -4759,7 +4759,7 @@
           {
             "id": "a76bdec8-36f4-40b7-afe2-0a1d1d3a359d",
             "url": "https://images.dogapi.dog/gktl5r2r2pfpn36ou8nav8hx7bgb",
-            "thumb": "https://images.dogapi.dog/oc2l076adw4almhdbpn3mh8angko",
+            "thumb": "https://images.dogapi.dog/oc2l076adw4almHdbpn3mh8angko",
             "medium": "https://images.dogapi.dog/oqzm4lis45jvn8shphu2gs9r6yff",
             "large": "https://images.dogapi.dog/skbtaqq7wzqul4jmtur4fljg1t6z",
             "attribution": {
@@ -4787,7 +4787,7 @@
           {
             "id": "f7e30f4c-3e9c-451d-bc4d-c1237f480115",
             "url": "https://images.dogapi.dog/4e0qcknw4rtrlt117z6ehcojjb50",
-            "thumb": "https://images.dogapi.dog/i0d8842y98935qf1llkimhsmt7o4",
+            "thumb": "https://images.dogapi.dog/i0d8842y9893S6f1llkimhsmt7o4",
             "medium": "https://images.dogapi.dog/y5996z8pw86mw0p1you06rgrmx1a",
             "large": "https://images.dogapi.dog/temcbm00i9jxiafyojdsd7cmumkj",
             "attribution": {
@@ -4830,7 +4830,7 @@
             "id": "c7132bde-419e-4f85-8943-cddd2f72e5b5",
             "url": "https://images.dogapi.dog/9jd8uhju81ynl5v4cibojg2xb7o4",
             "thumb": "https://images.dogapi.dog/y8uuq3onqvl1bcof7ccnx4z5ld3w",
-            "medium": "https://images.dogapi.dog/p09i0xg2zl2ui15frn6v8p6np7sv",
+            "medium": "https://images.dogapi.dog/p09i0xg2zl2ui15frH6v8p6np7sv",
             "large": "https://images.dogapi.dog/d1xhwapwerrb54vl70toqltuftx5",
             "attribution": {
               "author": "Jay22897",
@@ -4857,7 +4857,7 @@
           {
             "id": "9c731b25-7177-4ab4-a5a8-f0ddfb3dafdb",
             "url": "https://images.dogapi.dog/fnaj7xks3f47u1vv3u3bvtcd2i80",
-            "thumb": "https://images.dogapi.dog/u2bncppcy3u726s9286q69eojr80",
+            "thumb": "https://images.dogapi.dog/u2bncppcy3u726s9286qH69eojr80",
             "medium": "https://images.dogapi.dog/vcinvf8e4w9ohyxaz1uzmli4bi9m",
             "large": "https://images.dogapi.dog/dtlr2r2jo5jv40moab7tsoi9gomi",
             "attribution": {
@@ -4883,8 +4883,8 @@
       "id": "1ceaee48-1374-4b11-9c66-173cce6f5da5",
       "type": "breed",
       "attributes": {
-        "name": "Azawakh",
-        "description": "The Azawakh is a small and slender breed of dog that was originally bred in Africa for hunting and guarding. They are intelligent, alert, and athletic, and make excellent companion dogs.",
+        "name": "Азавак",
+        "description": "Азавак — небольшая и стройная порода собак, которая изначально была выведена в Африке для охоты и охраны. Они умны, бдительны и атлетичны, и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 14,
           "min": 12
@@ -4907,20 +4907,20 @@
           "min": 60
         },
         "origin": {
-          "era": "ancient, pre-colonial",
-          "region": "Sahel / Azawagh Valley, West Africa",
-          "country": "Mali, Niger, Burkina Faso"
+          "era": "древняя, доколониальная",
+          "region": "Сахель / долина Азаваг, Западная Африка",
+          "country": "Мали, Нигер, Буркина-Фасо"
         },
         "coat": {
-          "type": "short",
+          "type": "короткая",
           "colors": [
-            "light sand to dark mahogany (fawn/red)",
-            "brindle",
-            "blue",
-            "black",
-            "parti-color (often predominantly white)"
+            "от светло-песочного до темно-красновато-коричневого (палевый/рыжий)",
+            "тигровый",
+            "голубой",
+            "черный",
+            "пегий (часто преимущественно белый)"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -4929,12 +4929,12 @@
           "grooming": 1,
           "shedding": 2,
           "temperament": [
-            "reserved",
-            "alert",
-            "loyal",
-            "independent",
-            "watchful",
-            "affectionate with family"
+            "сдержанный",
+            "бдительный",
+            "преданный",
+            "независимый",
+            "наблюдательный",
+            "ласковый с семьей"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -4944,13 +4944,13 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "Idi",
-          "Hanshee",
-          "Oska",
-          "Rawondu",
-          "Bareeru",
-          "Wulo",
-          "Tuareg Sloughi"
+          "Иди",
+          "Ханши",
+          "Оска",
+          "Равонду",
+          "Бариру",
+          "Вуло",
+          "Туарегский слюги"
         ],
         "recognized_by": [
           "AKC",
@@ -4961,27 +4961,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/judges/Azawakh_Standard.pdf",
-            "title": "Official Standard of the Azawakh - AKC"
+            "title": "Официальный стандарт азавака - AKC"
           },
           {
             "url": "https://www.ukcdogs.com/azawakh",
-            "title": "Breed Standards: Azawakh | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Азавак | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.royalkennelclub.com/breed-standards/hound/azawakh-imp/",
-            "title": "Azawakh | Breed Standards | The Kennel Club"
+            "title": "Азавак | Стандарты породы | The Kennel Club"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Azawakh",
-            "title": "Azawakh - Wikipedia"
+            "title": "Азавак - Википедия"
           },
           {
             "url": "https://www.petmd.com/dog/breeds/azawakh",
-            "title": "Azawakh Dog Breed Health and Care | PetMD"
+            "title": "Здоровье и уход за породой собак Азавак | PetMD"
           },
           {
             "url": "https://www.akc.org/expert-advice/sports/newest-breed-the-azawakh/",
-            "title": "Meet the AKC's Newest All-Breed Dog Show Campaigner, the Azawakh"
+            "title": "Знакомьтесь с новым участником выставок всех пород AKC - Азавак"
           }
         ],
         "images": [
@@ -5060,7 +5060,7 @@
             "url": "https://images.dogapi.dog/xgk1tk1ie64fwmo9f0tyve561ypd",
             "thumb": "https://images.dogapi.dog/g02zx83d84js3kzmo18hlel4au0h",
             "medium": "https://images.dogapi.dog/v1me1rohao6ou96ngr0yswft37vb",
-            "large": "https://images.dogapi.dog/tgie6s4n0pyw7f04noe0aioeo06r",
+            "large": "https://images.dogapi.dog/tgie6s4n0pyw7f04noeT0aioeo06r",
             "attribution": {
               "author": "Canarian",
               "license": "CC BY-SA 4.0",
@@ -5112,8 +5112,8 @@
       "id": "cb71135b-596c-4943-892a-d0757da0297e",
       "type": "breed",
       "attributes": {
-        "name": "Barbado da Terceira",
-        "description": "The Barbado da Terceira is a large, working breed of dog that originated in the Azores. It is a strong and powerful breed, with a short, wiry coat. Its head is large and round, with small, erect ears. Its legs are strong and muscular, and its tail is usually docked. The Barbado da Terceira is an intelligent and loyal breed, and it makes an excellent family pet. It is an active breed, and it needs plenty of exercise and mental stimulation. It is loyal and affectionate, and it enjoys spending time with its family.",
+        "name": "Барбадо да Терсейра",
+        "description": "Барбадо да Терсейра — крупная рабочая порода собак, зародившаяся на Азорских островах. Это сильная и мощная порода с короткой жесткой шерстью. Голова крупная и круглая, с маленькими стоячими ушами. Лапы сильные и мускулистые, хвост обычно купирован. Барбадо да Терсейра — умная и преданная порода, которая становится отличным домашним питомцем. Это активная порода, которой требуется много физических упражнений и умственной стимуляции. Она предана, ласкова и любит проводить время со своей семьей.",
         "life": {
           "max": 15,
           "min": 12
@@ -5136,20 +5136,20 @@
           "min": 48
         },
         "origin": {
-          "era": "15th–16th century",
-          "region": "Terceira Island, Azores",
-          "country": "Portugal"
+          "era": "15–16 века",
+          "region": "Остров Терсейра, Азоры",
+          "country": "Португалия"
         },
         "coat": {
-          "type": "long",
+          "type": "длинная",
           "colors": [
-            "yellow",
-            "grey",
-            "black",
-            "fawn",
-            "wolf-grey shades"
+            "желтый",
+            "серый",
+            "черный",
+            "палевый",
+            "оттенки волчье-серого"
           ],
-          "length": "long"
+          "length": "длинная"
         },
         "traits": {
           "energy": 4,
@@ -5158,12 +5158,12 @@
           "grooming": 3,
           "shedding": 2,
           "temperament": [
-            "intelligent",
-            "loyal",
-            "cheerful",
-            "willful",
-            "docile",
-            "affectionate"
+            "умный",
+            "преданный",
+            "веселый",
+            "своевольный",
+            "послушный",
+            "ласковый"
           ],
           "trainability": 4,
           "good_with_dogs": 4,
@@ -5180,23 +5180,23 @@
         "sources": [
           {
             "url": "https://en.wikipedia.org/wiki/Barbado_da_Terceira",
-            "title": "Barbado da Terceira - Wikipedia"
+            "title": "Барбадо да Терсейра - Википедия"
           },
           {
             "url": "https://animalia.bio/pets/barbado-da-terceira",
-            "title": "All about Barbado da Terceira breed"
+            "title": "Всё о породе Барбадо да Терсейра"
           },
           {
             "url": "https://www.akc.org/dog-breeds/barbado-da-terceira/",
-            "title": "Barbado da Terceira - Dog Breed Information - AKC"
+            "title": "Барбадо да Терсейра - Информация о породе - AKC"
           },
           {
             "url": "https://animalcorner.org/dog-breeds/barbado-da-terceira/",
-            "title": "Barbado da Terceira - Animal Corner"
+            "title": "Барбадо да Терсейра - Animal Corner"
           },
           {
             "url": "https://barbadodaterceira.com/breed-standard/",
-            "title": "Breed Standard – New World Barbado da Terceira Kennel"
+            "title": "Стандарт породы – New World Barbado da Terceira Kennel"
           }
         ],
         "images": [
@@ -5327,8 +5327,8 @@
       "id": "4a230092-a25e-4efe-8240-a6693b5405f4",
       "type": "breed",
       "attributes": {
-        "name": "Barbet",
-        "description": "The Barbet is an ancient breed of French water dog. They are active, friendly, and highly intelligent, and make great family pets. Barbets have a unique, woolly coat that is curly or wavy and can be any color. They have webbed feet, and are very good swimmers. Barbets bond closely with their family, and do best in homes where they get plenty of attention and exercise.",
+        "name": "Барбет",
+        "description": "Барбет — древняя порода французских водяных собак. Они активны, дружелюбны, очень умны и являются прекрасными семейными питомцами. У барбетов уникальная шерсть, напоминающая шерсть овцы, она кудрявая или волнистая и может быть любого цвета. У них перепонки между пальцами, и они очень хорошие пловцы. Барбеты тесно привязываются к своей семье и лучше всего чувствуют себя в домах, где им уделяют много внимания и обеспечивают достаточную активность.",
         "life": {
           "max": 14,
           "min": 12
@@ -5351,18 +5351,18 @@
           "min": 48
         },
         "origin": {
-          "era": "16th century",
-          "country": "France"
+          "era": "16 век",
+          "country": "Франция"
         },
         "coat": {
-          "type": "curly",
+          "type": "кудрявая",
           "colors": [
-            "black",
-            "gray",
-            "brown",
-            "fawn"
+            "черный",
+            "серый",
+            "коричневый",
+            "палевый"
           ],
-          "length": "long"
+          "length": "длинная"
         },
         "traits": {
           "energy": 4,
@@ -5371,12 +5371,12 @@
           "grooming": 5,
           "shedding": 1,
           "temperament": [
-            "friendly",
-            "intelligent",
-            "joyful",
-            "social",
-            "loyal",
-            "cheerful"
+            "дружелюбный",
+            "умный",
+            "радостный",
+            "общительный",
+            "преданный",
+            "веселый"
           ],
           "trainability": 4,
           "good_with_dogs": 5,
@@ -5386,7 +5386,7 @@
           "good_with_strangers": 4
         },
         "other_names": [
-          "French Water Dog"
+          "Французская водяная собака"
         ],
         "recognized_by": [
           "AKC",
@@ -5397,27 +5397,27 @@
         "sources": [
           {
             "url": "https://www.akc.org/expert-advice/dog-breeds/barbet-2020-new-akc-recognized-breed/",
-            "title": "Meet the Barbet Dog Breed - American Kennel Club"
+            "title": "Знакомьтесь с породой Барбет - American Kennel Club"
           },
           {
             "url": "https://www.barbetclubofamerica.com/breed-standard",
-            "title": "Barbet Breed Standard — Barbet Club of America"
+            "title": "Стандарт породы Барбет — Barbet Club of America"
           },
           {
             "url": "https://www.hickorytavernbarbet.com/akc-barbet-standard.html",
-            "title": "AKC Barbet Standard"
+            "title": "Стандарт Барбета AKC"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Barbet_(dog_breed)",
-            "title": "Barbet (dog breed) - Wikipedia"
+            "title": "Барбет (порода собак) - Википедия"
           },
           {
             "url": "https://www.barbetclubofamerica.com/frequently-asked-questions",
-            "title": "Barbet Frequently Asked Questions — Barbet Club of America"
+            "title,": "Часто задаваемые вопросы о Барбетах — Barbet Club of America"
           },
           {
             "url": "https://www.furrycritter.com/pages/descriptions/dogs/b/barbet.htm",
-            "title": "Barbet - Complete Breed Guide | Furry Critter Network"
+            "title": "Барбет - Полное руководство по породе | Furry Critter Network"
           }
         ],
         "images": [
@@ -5426,7 +5426,7 @@
             "url": "https://images.dogapi.dog/hi5mx8cc2xjawfzu2g6hscj15b16",
             "thumb": "https://images.dogapi.dog/usovxmlqm7ifg8dksjtcpp1w6qc6",
             "medium": "https://images.dogapi.dog/cpwnhj4lo4tu461darqwuscvrz2f",
-            "large": "https://images.dogapi.dog/s3cgzu8qok2103nty1inmplvq6j4",
+            "large": "https://images.dogapi.dog/s3cgzu8qok2103nty1inmplvqH6j4",
             "attribution": {
               "author": "Desaix83, d'après le travail de Pleple2000",
               "license": "CC BY-SA 3.0",
@@ -5480,7 +5480,7 @@
           {
             "id": "334615d8-53f5-4152-aaf2-80a4b6309085",
             "url": "https://images.dogapi.dog/pczjqdpxxqnwayp0551sor7eynww",
-            "thumb": "https://images.dogapi.dog/z1pu1zg21fmh0yl62i6lfzq6x0y6",
+            "thumb": "https://images.dogapi.dog/z1pu1zg21fmh0yl62i6lfzqH6y6",
             "medium": "https://images.dogapi.dog/31s0xuko8uidrhwh0qs05xme54rc",
             "large": "https://images.dogapi.dog/agtcwy4vbt6w82ijh5myb3aaf4a6",
             "attribution": {
@@ -5494,7 +5494,7 @@
           {
             "id": "b665ecf8-31bc-45aa-b6a5-95ddedfe8bb8",
             "url": "https://images.dogapi.dog/jy1rjsb4j1ape4fn9fur9shklf4h",
-            "thumb": "https://images.dogapi.dog/0u4wfzv7f21u2swy91ndplngk2h8",
+            "thumb": "https://images.dogapi.dog/0u4wfzv7f21u2swy91ndplngL2h8",
             "medium": "https://images.dogapi.dog/xr3gyb83c0irfjbnhbr1uusrv6o5",
             "large": "https://images.dogapi.dog/bk8l7lc17jshumh9r6vzn84btuof",
             "attribution": {
@@ -5545,11 +5545,11 @@
       }
     },
     {
-      "id": "edf3d596-e83b-4ba1-972b-d1144a39cf3c",
+      "id": "edf3d596-e83b-4ba1-972b-d114a39cf3c",
       "type": "breed",
       "attributes": {
-        "name": "Basenji",
-        "description": "The Basenji is a small and agile breed of dog that was originally bred in Africa for hunting small game. They are intelligent, independent, and alert, and make excellent companion dogs.",
+        "name": "Басенджи",
+        "description": "Басенджи — небольшая и ловкая порода собак, которая изначально была выведена в Африке для охоты на мелкую дичь. Они умны, независимы и бдительны, и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 16,
           "min": 14
@@ -5572,18 +5572,18 @@
           "min": 38
         },
         "origin": {
-          "region": "Central Africa",
-          "country": "Democratic Republic of the Congo"
+          "region": "Центральная Африка",
+          "country": "Демократическая Республика Конго"
         },
         "coat": {
-          "type": "smooth",
+          "type": "гладкая",
           "colors": [
-            "chestnut red and white",
-            "black and white",
-            "tricolor (black, chestnut red and white)",
-            "brindle and white"
+            "рыже-белый",
+            "черно-белый",
+            "трехцветный (черный, рыжий и белый)",
+            "тигрово-белый"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -5592,12 +5592,12 @@
           "grooming": 1,
           "shedding": 2,
           "temperament": [
-            "independent",
-            "alert",
-            "energetic",
-            "curious",
-            "affectionate with family",
-            "reserved with strangers"
+            "независимый",
+            "бдительный",
+            "энергичный",
+            "любопытный",
+            "ласковый с семьей",
+            "сдержанный с незнакомцами"
           ],
           "trainability": 3,
           "good_with_dogs": 3,
@@ -5607,9 +5607,9 @@
           "good_with_strangers": 2
         },
         "other_names": [
-          "African Barkless Dog",
-          "Congo Dog",
-          "African Bush Dog",
+          "Африканская нелающая собака",
+          "Конголезская собака",
+          "Африканская лесная собака",
           "Ango Angari"
         ],
         "recognized_by": [
@@ -5621,19 +5621,19 @@
         "sources": [
           {
             "url": "https://www.basenji.org/basenji/standard/",
-            "title": "Breed Standard | Basenji Club of America (AKC parent club)"
+            "title": "Стандарт породы | Клуб басенджи Америки (родительский клуб AKC)"
           },
           {
             "url": "https://www.ukcdogs.com/docs/breeds/basenji.pdf",
-            "title": "BASENJI Official UKC Breed Standard"
+            "title": "Официальный стандарт породы БАСЕНДЖИ UKC"
           },
           {
             "url": "https://animalia.bio/pets/basenji",
-            "title": "All about Basenji breed"
+            "title": "Всё о породе басенджи"
           },
           {
             "url": "https://www.akc.org/dog-breeds/basenji/",
-            "title": "Basenji Dog Breed Information - AKC"
+            "title": "Информация о породе собак Басенджи - AKC"
           }
         ],
         "images": [
@@ -5778,8 +5778,8 @@
       "id": "c052b615-9502-407f-b46a-845d246d9f22",
       "type": "breed",
       "attributes": {
-        "name": "Basset Fauve de Bretagne",
-        "description": "The Basset Fauve de Bretagne is a small and playful breed of dog that was originally bred in France for hunting small game. They are intelligent, affectionate, and loyal, and make excellent companion dogs.",
+        "name": "Бассет-фаве-де-бретань",
+        "description": "Бассет-фаве-де-бретань — маленькая и игривая порода собак, которая изначально была выведена во Франции для охоты на мелкую дичь. Они умны, ласковы, преданны и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 15,
           "min": 12
@@ -5802,19 +5802,19 @@
           "min": 32
         },
         "origin": {
-          "era": "19th century",
-          "region": "Brittany",
-          "country": "France"
+          "era": "19 век",
+          "region": "Бретань",
+          "country": "Франция"
         },
         "coat": {
-          "type": "wire",
+          "type": "жесткая",
           "colors": [
-            "fawn",
-            "wheaten",
-            "red wheaten",
-            "golden wheaten"
+            "палевый",
+            "пшеничный",
+            "рыже-пшеничный",
+            "золотисто-пшеничный"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -5823,12 +5823,12 @@
           "grooming": 2,
           "shedding": 2,
           "temperament": [
-            "Affectionate",
-            "Playful",
-            "Courageous",
-            "Intelligent",
-            "Sociable",
-            "Tenacious"
+            "Ласковый",
+            "Игривый",
+            "Смелый",
+            "Умный",
+            "Общительный",
+            "Упорный"
           ],
           "trainability": 3,
           "good_with_dogs": 4,
@@ -5849,35 +5849,35 @@
         "sources": [
           {
             "url": "https://www.dogsglobal.com/breeds/basset-fauve-de-bretagne/FCI-standard",
-            "title": "Basset Fauve de Bretagne FCI-Standard"
+            "title": "Стандарт FCI для бассет-фаве-де-бретань"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Basset_Fauve_de_Bretagne",
-            "title": "Basset Fauve de Bretagne - Wikipedia"
+            "title": "Бассет-фаве-де-бретань - Википедия"
           },
           {
             "url": "https://www.ukcdogs.com/basset-fauve-de-bretagne",
-            "title": "Breed Standards: Basset Fauve de Bretagne | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Бассет-фаве-де-бретань | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.bassetfauvedebretagneclub.com/breed-information/",
-            "title": "Breed Information – Basset Fauve De Bretagne Club"
+            "title": "Информация о породе – Клуб бассет-фаве-де-бретань"
           },
           {
             "url": "https://www.zooplus.co.uk/magazine/dog/dog-breeds/basset-fauve-de-bretagne",
-            "title": "Basset Fauve de Bretagne: Appearance, Temperament and Care | zooplus Magazine"
+            "title": "Бассет-фаве-де-бретань: внешний вид, темперамент и уход | zooplus Magazine"
           },
           {
             "url": "https://www.viovet.co.uk/breed_information/0-275/Basset-Fauve-De-Bretagne",
-            "title": "Basset Fauve De Bretagne | Facts and Information | VioVet"
+            "title": "Бассет-фаве-де-бретань | Факты и информация | VioVet"
           },
           {
             "url": "https://www.uk.pedigree.com/dog-advice/dog-breeds/basset-fauve-de-bretagne",
-            "title": "Basset Fauve De Bretagne | Dog Breeds | PEDIGREE UK"
+            "title": "Бассет-фаве-де-бретань | Породы собак | PEDIGREE UK"
           },
           {
             "url": "https://www.dogzone.com/breeds/basset-fauve-de-bretagne/",
-            "title": "Basset Fauve de Bretagne Breed Information | DogZone.com"
+            "title": "Информация о породе Бассет-фаве-де-бретань | DogZone.com"
           }
         ],
         "images": [
@@ -5996,7 +5996,7 @@
           {
             "id": "c77dd57d-a3be-49eb-b4e8-de82551ed7c1",
             "url": "https://images.dogapi.dog/34bvg7pln2hnm50285o7dy2lmct3",
-            "thumb": "https://images.dogapi.dog/3wh5knoqg4oj7t2ihd9mv34dzrbt",
+            "thumb": "https://images.dogapi.dog/3wh5knoqG4oj7t2ihd9mv34dzrbt",
             "medium": "https://images.dogapi.dog/hg3wibtzn7aa22u867lec80jt846",
             "large": "https://images.dogapi.dog/seftkdh0jf0ubythtawt2pujsc1n",
             "attribution": {
@@ -6036,8 +6036,8 @@
       "id": "3e4912ab-bf3c-40cd-8eb9-be1e5999179b",
       "type": "breed",
       "attributes": {
-        "name": "Basset Hound",
-        "description": "The Basset Hound is a small and playful breed of dog that was originally bred in France for hunting small game. They are intelligent, affectionate, and loyal, and make excellent companion dogs.",
+        "name": "Бассет-хаунд",
+        "description": "Бассет-хаунд — маленькая и игривая порода собак, которая изначально была выведена во Франции для охоты на мелкую дичь. Они умны, ласковы, преданны и являются прекрасными собаками-компаньонами.",
         "life": {
           "max": 14,
           "min": 12
@@ -6060,17 +6060,17 @@
           "min": 28
         },
         "origin": {
-          "region": "Normandy/Artois",
-          "country": "France"
+          "region": "Нормандия/Артуа",
+          "country": "Франция"
         },
         "coat": {
-          "type": "smooth",
+          "type": "гладкая",
           "colors": [
-            "black, white and tan (tricolor)",
-            "tan/lemon and white (bicolor)",
-            "any recognized hound color"
+            "черный, белый и рыжий (трехцветный)",
+            "рыжий/лимонный и белый (двухцветный)",
+            "любой признанный цвет гончих"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 2,
@@ -6079,12 +6079,12 @@
           "grooming": 2,
           "shedding": 3,
           "temperament": [
-            "charming",
-            "patient",
-            "low-key",
-            "stubborn",
-            "affectionate",
-            "devoted"
+            "обаятельный",
+            "терпеливый",
+            "спокойный",
+            "упрямый",
+            "ласковый",
+            "преданный"
           ],
           "trainability": 2,
           "good_with_dogs": 4,
@@ -6106,23 +6106,23 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/BassetHound.pdf",
-            "title": "Official Standard for the Basset Hound (AKC)"
+            "title": "Официальный стандарт для бассет-хаунда (AKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Basset_Hound",
-            "title": "Basset Hound - Wikipedia"
+            "title": "Бассет-хаунд - Википедия"
           },
           {
             "url": "https://www.dogbreedinfo.com/bassethound.htm",
-            "title": "Basset Hound Dog Breed Information and Pictures"
+            "title": "Информация и фотографии породы собак Бассет-хаунд"
           },
           {
             "url": "https://basset-bhca.org/about-bassets/history-of-the-basset-hound/",
-            "title": "History of the Basset Hound - Basset Hound Club of America"
+            "title": "История бассет-хаунда - Клуб бассет-хаундов Америки"
           },
           {
             "url": "https://www.hillspet.com/dog-care/dog-breeds/basset-hound",
-            "title": "Basset Hound Dog Breed - Hill's Pet"
+            "title": "Порода собак Бассет-хаунд - Hill's Pet"
           }
         ],
         "images": [
@@ -6161,7 +6161,7 @@
             "medium": "https://images.dogapi.dog/tm97t4gu5mjrzp1rfaqxvin9dcg1",
             "large": "https://images.dogapi.dog/ntpot38w1vnf6ko7yqqp75ms9dc6",
             "attribution": {
-              "author": "Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue",
+              "author": "Kolforn",
               "license": "CC BY-SA 4.0",
               "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
               "source": "wikimedia_commons",
@@ -6173,7 +6173,7 @@
             "url": "https://images.dogapi.dog/ivpluhz136d2pgyvzkkrinar06ec",
             "thumb": "https://images.dogapi.dog/4iounocqzbt3zv7dq5jnpvxzw9wb",
             "medium": "https://images.dogapi.dog/bx361yacl8ccovqrc17hc7jectl5",
-            "large": "https://images.dogapi.dog/73i5n7ul6vbqwbnqg94dmqr5jhuj",
+            "large": "https://images.dogapi.dog/73i5n7ul6vbqwbnqH94dmqr5jhuj",
             "attribution": {
               "author": "Svenska Mässan from Sweden",
               "license": "CC BY 2.0",
@@ -6199,7 +6199,7 @@
           {
             "id": "897fcba3-5f41-44a5-9c1b-d50ab03a7b69",
             "url": "https://images.dogapi.dog/6tbaq5z7ok1g5fa0jxa0xow3ux2v",
-            "thumb": "https://images.dogapi.dog/8fl5kyev4qvvzfv5sodizpryxmaf",
+            "thumb": "https://images.dogapi.dog/8fl5kyev4qvvzfv5odizpryxmaf",
             "medium": "https://images.dogapi.dog/ebtm2bx7ishzkl8f2qpvm1bpdt22",
             "large": "https://images.dogapi.dog/boqx1x9w2wdujxyauosluf8le4h4",
             "attribution": {
@@ -6215,7 +6215,7 @@
             "url": "https://images.dogapi.dog/qbs0rvdj557ut0sxuxl0zux3qotj",
             "thumb": "https://images.dogapi.dog/qlegujjnihauec6iox4iv0hai6jd",
             "medium": "https://images.dogapi.dog/yihqzlwn93jrvky88wyuvs7obbck",
-            "large": "https://images.dogapi.dog/vzcbt7lq5yflacfng6i1ywr9opq3",
+            "large": "https://images.dogapi.dog/vzcbt7lq5yflacfng6i1ywr0pL6",
             "attribution": {
               "author": "Gmip",
               "license": "CC BY-SA 3.0",
@@ -6267,8 +6267,8 @@
       "id": "406e8454-d350-4187-9788-6d857ee52e06",
       "type": "breed",
       "attributes": {
-        "name": "Bavarian Mountain Scent Hound",
-        "description": "The Bavarian Mountain Scent Hound is a medium-sized breed of dog that was originally bred in Germany for hunting small game. They are intelligent, energetic, and determined, and make excellent hunting dogs.",
+        "name": "Баварская горная гончая",
+        "description": "Баварская горная гончая — собака среднего размера, которая изначально была выведена в Германии для охоты на мелкую дичь. Они умны, энергичны и решительны, и являются отличными охотничьими собаками.",
         "life": {
           "max": 15,
           "min": 12
@@ -6282,21 +6282,11 @@
           "min": 20
         },
         "hypoallergenic": false,
-        "male_height": {
-
-        },
-        "female_height": {
-
-        },
-        "origin": {
-
-        },
-        "coat": {
-
-        },
-        "traits": {
-
-        },
+        "male_height": {},
+        "female_height": {},
+        "origin": {},
+        "coat": {},
+        "traits": {},
         "other_names": [],
         "recognized_by": [],
         "sources": [],
@@ -6362,7 +6352,7 @@
             "url": "https://images.dogapi.dog/gwzdvti6ywlqlthnhrwss9uoaidw",
             "thumb": "https://images.dogapi.dog/l7itbsix3dn0waptiihe038x2rf2",
             "medium": "https://images.dogapi.dog/mgrlzoqz4n21j6h2gi7nxkci5ecq",
-            "large": "https://images.dogapi.dog/s8o34xi9g029h01wqj1rzbe9we13",
+            "large": "https://images.dogapi.dog/s8o34xi9g029h01wq1jrzbe9we13",
             "attribution": {
               "author": "LaurusLonewolf",
               "license": "CC BY-SA 3.0",
@@ -6373,8 +6363,8 @@
           },
           {
             "id": "22a8aa63-268b-4a60-81fc-2cb11e97efd5",
-            "url": "https://images.dogapi.dog/92qshxxbgaps26fsrveqxf9an1lv",
-            "thumb": "https://images.dogapi.dog/x1q4b90h6sewfocr28e3pux2rrn7",
+            "url": "https://images.dogapi.dog///92qshxxbgaps26fsrveqxf9an1lv",
+            "thumb": "https://images.dogapi.dog/x1q4b90h6sewfocr28e3pux2rrH7",
             "medium": "https://images.dogapi.dog/vmzjnbwo8st9wijp2zkj3yvxxyjj",
             "large": "https://images.dogapi.dog/awtwb8ons9eh7hvv18wr8lrks4a9",
             "attribution": {
@@ -6388,7 +6378,7 @@
           {
             "id": "f3cf85f9-a65d-4e4a-bf54-bb6364900c5d",
             "url": "https://images.dogapi.dog/vwc7nw2zksmo85oxvq304yw58f6k",
-            "thumb": "https://images.dogapi.dog/sg6qbacgd7la8cxutcmk4p7hvb1e",
+            "thumb": "https://images.dogapi.dog/sg6qbacgd7la8cxutcmH4p7hvb1e",
             "medium": "https://images.dogapi.dog/ygrplnxyts8xwg0okluzymnp6jz8",
             "large": "https://images.dogapi.dog/6fmpdf18582y5o6235o23c0izql1",
             "attribution": {
@@ -6403,7 +6393,7 @@
             "id": "6729230b-4ac9-475d-9410-e6f2ea1feb97",
             "url": "https://images.dogapi.dog/7zg1pbq8xwvdeumkhdvqggxr9vfc",
             "thumb": "https://images.dogapi.dog/dmtbphy47q2t3x5017fejmubau02",
-            "medium": "https://images.dogapi.dog/j5hxoef3uq6p08zfv349a4cxgjbk",
+            "medium": "https://images.dogapi.dog/j5hxoef3uqH6p08zfv349a4cxgjbk",
             "large": "https://images.dogapi.dog/fnwtexalhsf35fforytmk56yvd3a",
             "attribution": {
               "author": "Canarian",
@@ -6442,8 +6432,8 @@
       "id": "d8621d92-6558-451c-8631-a32e767026a0",
       "type": "breed",
       "attributes": {
-        "name": "Beagle",
-        "description": "The Beagle is a small to medium-sized dog breed that was originally bred for hunting. They are known for their cheerful dispositions and keen sense of smell.",
+        "name": "Бигль",
+        "description": "Бигль — порода собак от маленького до среднего размера, которая изначально была выведена для охоты. Они известны своим жизнерадостным нравом и острым нюхом.",
         "life": {
           "max": 15,
           "min": 12
@@ -6466,20 +6456,20 @@
           "min": 33
         },
         "origin": {
-          "region": "United Kingdom",
-          "country": "England"
+          "region": "Соединенное Королевство",
+          "country": "Англия"
         },
         "coat": {
-          "type": "smooth",
+          "type": "гладкая",
           "colors": [
-            "Tricolor",
-            "Red and White",
-            "Lemon and White",
-            "Black and Tan",
-            "Chocolate Tri",
-            "White and Tan"
+            "Трехцветный",
+            "Рыже-белый",
+            "Лимонно-белый",
+            "Черно-подпалый",
+            "Шоколадный трехцветный",
+            "Бело-рыжий"
           ],
-          "length": "short"
+          "length": "короткая"
         },
         "traits": {
           "energy": 4,
@@ -6488,12 +6478,12 @@
           "grooming": 1,
           "shedding": 3,
           "temperament": [
-            "Curious",
-            "Merry",
-            "Friendly",
-            "Determined",
-            "Excitable",
-            "Gentle"
+            "Любопытный",
+            "Веселый",
+            "Дружелюбный",
+            "Решительный",
+            "Возбудимый",
+            "Нежный"
           ],
           "trainability": 3,
           "good_with_dogs": 5,
@@ -6503,7 +6493,7 @@
           "good_with_strangers": 4
         },
         "other_names": [
-          "English Beagle"
+          "Английский бигль"
         ],
         "recognized_by": [
           "AKC",
@@ -6517,23 +6507,23 @@
         "sources": [
           {
             "url": "https://www.van-marbeagles.com/akc-breed-standard",
-            "title": "AKC Breed Standard | Van-Mar Beagles"
+            "title": "Стандарт породы AKC | Van-Mar Beagles"
           },
           {
             "url": "https://www.ukcdogs.com/beagle",
-            "title": "Breed Standards: Beagle | United Kennel Club (UKC)"
+            "title": "Стандарты породы: Бигль | United Kennel Club (UKC)"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Beagle",
-            "title": "Beagle - Wikipedia"
+            "title": "Бигль - Википедия"
           },
           {
             "url": "https://www.pawlicy.com/blog/beagle-growth-and-weight-chart/",
-            "title": "Beagle Growth & Weight Chart: Everything You Need To Know"
+            "title": "Таблица роста и веса бигля: все, что вам нужно знать"
           },
           {
             "url": "https://caninehabit.com/dog-breed-beagle/",
-            "title": "Dog Breed Profile: Hound – Beagle – Canine Habit"
+            "title": "Профиль породы собак: Гончая – Бигль – Canine Habit"
           }
         ],
         "images": [
@@ -6597,7 +6587,7 @@
             "id": "4dc53a7e-d8c7-4e6e-8f7c-f76dd225851c",
             "url": "https://images.dogapi.dog/kn9t2407v5gtly4i25qheijvow1w",
             "thumb": "https://images.dogapi.dog/3t2abdus21e6b3qnidzn98gwuzbj",
-            "medium": "https://images.dogapi.dog/ft3adm3b5s0grbfvyeuykuxq60i1",
+            "medium": "https://images.dogapi.dog/ft3adm3b5s0grbfvyeuykuxqH60i1",
             "large": "https://images.dogapi.dog/lyymg5s3atl04wmeng8hhvruaxqv",
             "attribution": {
               "author": "Slyronit",
@@ -6625,7 +6615,7 @@
             "id": "1128765d-6591-4d89-b8bc-c6dfc9cfa064",
             "url": "https://images.dogapi.dog/bq8jpzs6va2ndq43jm747ezgza09",
             "thumb": "https://images.dogapi.dog/pwmhe9hm0ipp4aj1bh20es1jn1q6",
-            "medium": "https://images.dogapi.dog/x714q47wp9bjd589dv995n4lkn9e",
+            "medium": "https://images.dogapi.dog/x714q47wpS9bjd589dv995n4lkn9e",
             "large": "https://images.dogapi.dog/lyuqfq0jajm9q2gl80uvyd88lyyj",
             "attribution": {
               "author": "SS2027",
@@ -6650,8 +6640,8 @@
       "id": "62c29679-0420-4de6-ab88-2b3e99c22317",
       "type": "breed",
       "attributes": {
-        "name": "Bearded Collie",
-        "description": "The Bearded Collie is a medium-sized herding dog with a shaggy, thick double coat and a distinctive \"beard\" around the face.",
+        "name": "Бородатая колли",
+        "description": "Бородатая колли — пастушья собака среднего размера с лохматой густой двойной шерстью и характерной «бородой» вокруг морды.",
         "life": {
           "max": 14,
           "min": 12
@@ -6674,20 +6664,20 @@
           "min": 51
         },
         "origin": {
-          "era": "18th century",
-          "region": "Scotland",
-          "country": "United Kingdom"
+          "era": "18 век",
+          "region": "Шотландия",
+          "country": "Соединенное Королевство"
         },
         "coat": {
-          "type": "double",
+          "type": "двойная",
           "colors": [
-            "black",
-            "blue",
-            "brown",
-            "fawn",
-            "with or without white markings"
+            "черный",
+            "голубой",
+            "коричневый",
+            "палевый",
+            "с белыми отметинами или без них"
           ],
-          "length": "medium"
+          "length": "средняя"
         },
         "traits": {
           "energy": 5,
@@ -6696,12 +6686,12 @@
           "grooming": 5,
           "shedding": 3,
           "temperament": [
-            "outgoing",
-            "friendly",
-            "self-confident",
-            "playful",
-            "active",
-            "intelligent"
+            "общительный",
+            "дружелюбный",
+            "уверенный в себе",
+            "игривый",
+            "активный",
+            "умный"
           ],
           "trainability": 4,
           "good_with_dogs": 5,
@@ -6711,9 +6701,9 @@
           "good_with_strangers": 4
         },
         "other_names": [
-          "Beardie",
+          "Бёрди",
+          "Горная колли",
           "Highland Collie",
-          "Mountain Collie",
           "Hairy Mou'ed Collie"
         ],
         "recognized_by": [
@@ -6725,27 +6715,27 @@
         "sources": [
           {
             "url": "https://images.akc.org/pdf/breeds/standards/BeardedCollie.pdf",
-            "title": "Official Standard of the Bearded Collie - AKC"
+            "title": "Официальный стандарт бородатой колли - AKC"
           },
           {
             "url": "https://www.royalkennelclub.com/breed-standards/pastoral/bearded-collie/",
-            "title": "Bearded Collie | Breed Standards | The Kennel Club"
+            "title": "Бородатая колли | Стандарты породы | The Kennel Club"
           },
           {
             "url": "https://en.wikipedia.org/wiki/Bearded_Collie",
-            "title": "Bearded Collie - Wikipedia"
+            "title": "Бородатая колли - Википедия"
           },
           {
             "url": "https://www.westminsterkennelclub.org/breed/bearded-collie/",
-            "title": "Bearded Collie - The Westminster Kennel Club"
+            "title": "Бородатая колли - The Westminster Kennel Club"
           },
           {
             "url": "https://www.ukcdogs.com/bearded-collie",
-            "title": "Breed Standards : Bearded Collie | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Бородатая колли | United Kennel Club (UKC)"
           },
           {
             "url": "https://www.chewy.com/education/dog-breeds/bearded-collie",
-            "title": "Breed Standards : Bearded Collie | United Kennel Club (UKC)"
+            "title": "Стандарты породы : Бородатая колли | United Kennel Club (UKC)"
           }
         ],
         "images": [
@@ -6780,7 +6770,7 @@
           {
             "id": "706e7f29-ebec-4f87-8b61-37a4015606b2",
             "url": "https://images.dogapi.dog/394uhupgqxkbgv3eyzfr15okgfvl",
-            "thumb": "https://images.dogapi.dog/w51ldrps9nwh3mucx6f0r5yi5jv2",
+            "thumb": "https://images.dogapi.dog/w51ldrps9nwh3mucH6f0r5yi5jv2",
             "medium": "https://images.dogapi.dog/ngr8fr216ksyif7tq3brxfvq8tdn",
             "large": "https://images.dogapi.dog/pttj7vx3qd0ioiuauiqlrpc9erov",
             "attribution": {
@@ -6830,7 +6820,7 @@
               "license": "CC BY 2.0",
               "license_url": "https://creativecommons.org/licenses/by/2.0",
               "source": "wikimedia_commons",
-              "source_url": "https://commons.wikimedia.org/wiki/File:2014_Westminster_Kennel_Club_Dog_Show_(12451522713).jpg"
+              "source_url": "https://commons.wikimedia.org/wiki/File:2014_Westminster_Kennel_Club_Dog_Show_(12452158854).jpg"
             }
           },
           {
@@ -6850,7 +6840,7 @@
           {
             "id": "cf4adae2-915d-4b2d-ac00-25d8c0619165",
             "url": "https://images.dogapi.dog/fnt0dk0hg47nj16dxr6gvuer924s",
-            "thumb": "https://images.dogapi.dog/jriiqk9ykkzyjc6coltna98fx0y0",
+            "thumb": "https://images.dogapi.dog/jriiqk9ykkzyjcL6oltn a98fx0y0",
             "medium": "https://images.dogapi.dog/bq4oju91qrw1bjvmvvjpv28pgyze",
             "large": "https://images.dogapi.dog/8pk78n7pwpsop44tvh72s77r9ipc",
             "attribution": {
