@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Импортируем для работы кнопки
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
 import { BREEDS_DATABASE, Breed } from '../data/breeds';
 
@@ -75,6 +76,7 @@ const QUESTIONS: Question[] = [
 ];
 
 export function PetQuiz() {
+  const navigate = useNavigate(); // Инициализируем навигатор
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   
@@ -110,30 +112,16 @@ export function PetQuiz() {
   };
 
   const getRecommendedBreeds = (): Breed[] => {
-    // 1. Находим доминирующий темперамент по баллам
     const targetTemp = (Object.keys(tempScores) as Array<keyof typeof tempScores>).reduce((a, b) => 
       tempScores[a] > tempScores[b] ? a : b
     );
-
-    // 2. Находим доминирующий размер по баллам
     const targetSize = (Object.keys(sizeScores) as Array<keyof typeof sizeScores>).reduce((a, b) => 
       sizeScores[a] > sizeScores[b] ? a : b
     );
-
-    // Попытка №1: Ищем идеальное совпадение (и характер, и размер)
     let matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp && b.size === targetSize);
-
-    // Попытка №2: Если идеальных совпадений нет, берем все породы с таким характером
     if (matches.length === 0) {
       matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp);
     }
-
-    // Попытка №3: Экстренный случай (если база пуста), выводим первые 4 любые породы, чтобы экран не был пустым
-    if (matches.length === 0) {
-      matches = BREEDS_DATABASE;
-    }
-
-    // Возвращаем максимум 4 лучшие породы
     return matches.slice(0, 4);
   };
 
@@ -204,41 +192,49 @@ export function PetQuiz() {
             {recommended.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 {recommended.map(breed => (
-                  <div key={breed.id} className="relative border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-all flex flex-col">
+                  <div key={breed.id} className="relative group border border-gray-100 rounded-3xl overflow-hidden shadow-sm bg-white hover:shadow-xl transition-all duration-300 flex flex-col">
                     
-                    {/* Размытый фон */}
+                    {/* ИСПРАВЛЕННЫЙ РАЗМЫТЫЙ ФОН */}
                     <div 
-                      className="absolute inset-0 bg-cover bg-center scale-110 blur-md opacity-20 pointer-events-none"
+                      className="absolute inset-0 bg-cover bg-center scale-150 blur-2xl opacity-40 pointer-events-none z-0"
                       style={{ backgroundImage: `url(${breed.image})` }}
                     />
                     
                     <div className="relative z-10 p-5 flex flex-col h-full">
-                      <img 
-                        src={breed.image} 
-                        alt={breed.name} 
-                        className="w-full h-48 object-cover rounded-xl mb-4 shadow-sm"
-                      />
+                      {/* ФОТО: используем aspect-square и object-cover для красоты, но в контейнере с тенью */}
+                      <div className="relative w-full h-48 mb-4 overflow-hidden rounded-2xl shadow-lg bg-gray-100">
+                        <img 
+                          src={breed.image} 
+                          alt={breed.name} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{breed.name}</h3>
                       
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-md uppercase">
+                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded-md uppercase tracking-wider">
                           {breed.temperament === 'active' ? 'Активный' : breed.temperament === 'calm' ? 'Спокойный' : breed.temperament === 'independent' ? 'Независимый' : 'Дружелюбный'}
                         </span>
-                        <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-md uppercase">
+                        <span className="px-2 py-1 bg-gray-100 text-gray-600 text-[10px] font-bold rounded-md uppercase tracking-wider">
                           {breed.size === 'small' ? 'Маленький' : breed.size === 'medium' ? 'Средний' : 'Крупный'}
                         </span>
                       </div>
 
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
                         {breed.description}
                       </p>
 
-                      <div className="mt-auto pt-4 border-t border-gray-50 text-xs text-gray-400 flex flex-col gap-1">
-                        <span>📍 Родина: {breed.origin}</span>
-                        <span>⏳ Жизнь: {breed.lifeSpan} | Вес: {breed.weight}</span>
+                      <div className="mt-auto pt-4 border-t border-gray-100 text-xs text-gray-400 flex flex-col gap-1">
+                        <span className="flex items-center gap-1">📍 {breed.origin}</span>
+                        <span className="flex items-center gap-1">⏳ {breed.lifeSpan} | ⚖️ {breed.weight}</span>
                       </div>
                       
-                      <button className="mt-4 w-full py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors">
+                      {/* ИСПРАВЛЕННАЯ КНОПКА */}
+                      <button 
+                        onClick={() => navigate(`/breeds/${breed.id}`)} 
+                        className="mt-4 w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+                      >
                         Подробнее
                       </button>
                     </div>
