@@ -12,7 +12,8 @@ import { BreedDetail } from '@/pages/BreedDetail';
 
 function App() {
   return (
-    <BrowserRouter>
+    // ⬅️ Добавлен параметр basename для корректной работы путей на GitHub Pages
+    <BrowserRouter basename="/gavgavmur2">
       <div className="min-h-screen bg-base-bg flex flex-col">
         <Header />
         <main className="flex-1">
