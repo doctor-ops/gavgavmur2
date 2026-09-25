@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Импортируем для работы кнопки
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
 import { BREEDS_DATABASE, Breed } from '../data/breeds';
+import { Link } from 'react-router-dom';
 
 interface Question {
   id: number;
@@ -245,13 +246,13 @@ export function PetQuiz() {
                         <span className="flex items-center gap-1">⏳ {breed.lifeSpan} | ⚖️ {breed.weight}</span>
                       </div>
                       
-                      {/* ИСПРАВЛЕННАЯ КНОПКА */}
-                      <button 
-                        onClick={() => navigate(`/breeds/${breed.id}`)} 
-                        className="mt-4 w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+                      {/* ИСПРАВЛЕННАЯ ССЫЛКА НА КОМПОНЕНТ LINK ВМЕСТО ONCLICK */}
+                      <Link 
+                        to={`../wiki/${breed.id}`} 
+                        className="mt-4 w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200 text-center block"
                       >
                         Подробнее
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
