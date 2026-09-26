@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { PawPrint, Menu, X } from 'lucide-react';
+import { PawPrint, Menu, X, Cpu } from 'lucide-react'; // Добавили иконку Cpu для гаджетов
 
 const navLinks = [
   { to: '/', label: 'Главная' },
@@ -9,6 +9,8 @@ const navLinks = [
   { to: '/tools/calories', label: 'Калории' },
   { to: '/tools/budget', label: 'Бюджет' },
   { to: '/wiki', label: 'Породы' },
+  // 🐾 НОВАЯ ССЫЛКА НА ГАДЖЕТЫ
+  { to: '/gadgets', label: 'Гаджеты' }, 
 ];
 
 export function Header() {
@@ -37,7 +39,7 @@ export function Header() {
                 className={({ isActive }) =>
                   `px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
                     isActive
-                      ? 'bg-accent text-brand'
+                      ? 'bg-accent text-brand shadow-sm'
                       : 'text-brand-soft hover:bg-brand-light hover:text-white'
                   }`
                 }
