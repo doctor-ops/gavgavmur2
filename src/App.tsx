@@ -10,6 +10,7 @@ import { BudgetCalculator } from '@/pages/BudgetCalculator';
 import { BreedCatalog } from '@/pages/BreedCatalog';
 import { BreedDetail } from '@/pages/BreedDetail';
 import { PetQuiz } from '@/pages/PetQuiz';
+import { PetGadgets } from './pages/PetGadgets';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             <Route path="/wiki" element={<BreedCatalog />} />
             <Route path="/wiki/:id" element={<BreedDetail />} />
             <Route path="/tools/quiz" element={<PetQuiz />} />
-
+            <Route path="/gadgets" element={<PetGadgets />} />
           </Routes>
         </main>
         <Footer />
