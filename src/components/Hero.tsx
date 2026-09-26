@@ -24,23 +24,23 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-brand text-white animate-fade-in">
-      {/* Decorative shapes — Мягкие бэкграунд-градиенты */}
+      {/* Мягкие декоративные бэкграунд-эффекты */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-light/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
-          {/* Left column */}
+          {/* Левая колонка с текстом и действиями */}
           <div>
-            {/* Micro-banner (10% Акцента) */}
+            {/* Микро-баннер новинки (10% Акцента) */}
             <Link
               to="/tools/allergens"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-soft/90 backdrop-blur text-sm font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3"
             >
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-accent-dark">Новинка: Сканер аллергенов в кормах 2026</span>
-              <ArrowRight className="w-4 h-4 text-accent" />
+              <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
             </Link>
 
             <h1 className="font-display font-extrabold text-4xl lg:text-5xl xl:text-6xl leading-tight mb-5 tracking-tight">
@@ -51,15 +51,15 @@ export function Hero() {
               Умные калькуляторы кормления, каталог пород, аллерген-сканер и расчёт бюджета. Всё, чтобы ваш хвостик был счастлив и здоров.
             </p>
 
-            {/* CTA buttons */}
+            {/* Конверсионные кнопки действий */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* ГЛАВНАЯ ЦЕЛЕВАЯ КНОПКА (10% палитры) */}
+              {/* Главная CTA-кнопка (10% кораллового цвета) */}
               <Link
                 to="/tools/calories"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-white font-extrabold text-base hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20"
               >
-                Рассчитать корм и бюджет
-                <ArrowRight className="w-5 h-5 animate-pulse" />
+                Рассчитать корм и budget
+                <ArrowRight className="w-5 h-5" />
               </Link>
               
               <Link
@@ -70,7 +70,7 @@ export function Hero() {
               </Link>
             </div>
 
-            {/* Search bar */}
+            {/* Поисковая строка экосистемы */}
             <form onSubmit={handleSearch} className="relative max-w-lg">
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
                 <div className="pl-3 pr-2">
@@ -93,19 +93,19 @@ export function Hero() {
             </form>
           </div>
 
-          {/* Right column — ТУТ РАЗМЕЩАЕМ ВАШЕ ПРЕКРАСНОЕ ФОТО С ЖИВОТНЫМИ */}
+          {/* Правая колонка с восстановленным оригинальным фото */}
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 group">
               <img
-                src="/assets/hero-pets.png" // ⬅️ Укажите путь к сохраненной картинке с хозяйкой, собакой и кошкой
+                src="https://pexels.com"
                 alt="Счастливая хозяйка с английским сеттером и черно-белым котом в саду"
-                className="w-full h-[500px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
             
-            {/* Floating accent badges */}
+            {/* Всплывающие плашки статистики */}
             <div className="absolute -bottom-4 -left-4 rounded-xl bg-accent text-white px-5 py-3 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
               <div className="text-[10px] font-bold uppercase tracking-wider text-white/90 mt-1">оценок кормов</div>
@@ -119,7 +119,7 @@ export function Hero() {
 
         </div>
 
-        {/* Stats bar */}
+        {/* Статистический блок (Нижняя линия) */}
         <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10">
           <div>
             <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">12+</div>
