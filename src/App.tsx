@@ -4,9 +4,9 @@ import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { Home } from '@/pages/Home';
 import { ImportSubstitution } from '@/pages/ImportSubstitution';
-import { AllergenScanner } from '@/pages/AllergenScanner';
+import { AllergenScanner } from '@///pages/AllergenScanner';
 import { CalorieCalculator } from '@/pages/CalorieCalculator';
-import { BudgetCalculator } from '@///pages/BudgetCalculator';
+import { BudgetCalculator } from '@/pages/BudgetCalculator';
 import { BreedCatalog } from '@/pages/BreedCatalog';
 import { BreedDetail } from '@/pages/BreedDetail';
 import { PetQuiz } from '@/pages/PetQuiz';
@@ -16,7 +16,6 @@ function App() {
   return (
     <BrowserRouter basename="/gavgavmur2">
       <div className="min-h-screen bg-base-bg flex flex-col">
-        {/* Проверяем Header */}
         <Header /> 
         
         <main className="flex-1">
@@ -25,13 +24,9 @@ function App() {
               path="/"
               element={
                 <div className="p-10 text-center">
-                  {/* Оставляем текст, чтобы убедиться, что всё работает */}
-                  <h1 className="text-3xl font-bold text-ink">ГЛАВНАЯ СТРАНИЦА</h1>
-                  {/* 
-                      Если всё работает, постепенно уберите комментарии ниже:
-                      <Hero />
-                      <Home /> 
-                  */}
+                  {/* ПРОБАЕМ ВКЛЮЧИТЬ HERO */}
+                  <Hero />
+                  <h1 className="text-3xl font-bold text-ink mt-10">ГЛАВНАЯ СТРАНИЦА</h1>
                 </div>
               }
             />
@@ -46,7 +41,6 @@ function App() {
           </Routes>
         </main>
         
-        {/* Проверяем Footer */}
         <Footer />
       </div>
     </BrowserRouter>
