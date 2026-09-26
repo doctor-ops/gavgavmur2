@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight } from 'lucide-react';
 
 const services = [
-  // 🤖 10% АКЦЕНТА: Главная конверсионная карточка
+  // 🤖 10% АКЦЕНТА: Главная конверсионная карточка 
   {
     to: '/gadgets',
     icon: Cpu,
