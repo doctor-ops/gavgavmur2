@@ -58,7 +58,7 @@ export function Hero() {
                 to="/tools/calories"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-white font-extrabold text-base hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20"
               >
-                Рассчитать корм и budget
+                Рассчитать корм и бюджет
                 <ArrowRight className="w-5 h-5" />
               </Link>
               
@@ -93,14 +93,18 @@ export function Hero() {
             </form>
           </div>
 
-          {/* Правая колонка с восстановленным оригинальным фото */}
+          {/* Правая колонка с новой стабильной CDN-ссылкой на фото */}
           <div className="relative hidden lg:block">
-            <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 group">
+            <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
               <img
-                src="https://pexels.com"
-                alt="Счастливая хозяйка с английским сеттером и черно-белым котом в саду"
+                src="https://unsplash.com"
+                alt="Счастливая девушка со своей собакой на зеленой лужайке"
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
+                onError={(e) => {
+                  // Фолбэк на случай сбоя сети стоков — мягкая заглушка в цветах сайта
+                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='100%25' height='100%25' fill='%23334155'/%3E%3C/svg%3E";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
@@ -138,4 +142,3 @@ export function Hero() {
     </section>
   );
 }
-
