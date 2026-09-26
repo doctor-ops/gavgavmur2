@@ -1,67 +1,105 @@
 import { Link } from 'react-router-dom';
-import { Replace, ShieldAlert, Calculator, Wallet, ArrowRight } from 'lucide-react';
+import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight } from 'lucide-react';
 
 const services = [
+  // 🤖 10% АКЦЕНТА: Наша главная конверсионная карточка
+  {
+    to: '/gadgets',
+    icon: Cpu,
+    title: 'Гаджеты для животных',
+    desc: 'Умные кормушки, GPS-ошейники и автоматические лотки для питомцев',
+    isAccent: true, // Флаг для применения оранжевой палитры
+  },
   {
     to: '/tools/importozameshenie',
     icon: Replace,
     title: 'Импортозамещение',
     desc: 'Найдите российские альтернативы для иностранных кормов',
-    color: 'bg-brand-soft text-brand',
+    isAccent: false,
   },
   {
     to: '/tools/allergens',
     icon: ShieldAlert,
     title: 'Аллерген-сканер',
-    desc: 'Светофорный анализатор ингредиентов в корме',
-    color: 'bg-warn-light text-warn-dark',
+    desc: 'Светофорный анализатор ингредиентов в составе корма',
+    isAccent: false,
   },
   {
     to: '/tools/calories',
     icon: Calculator,
     title: 'Калькулятор калорий',
     desc: 'Рассчитайте суточную норму корма в ккал и граммах',
-    color: 'bg-safe-light text-safe-dark',
+    isAccent: false,
   },
   {
     to: '/tools/budget',
     icon: Wallet,
     title: 'Калькулятор бюджета',
-    desc: 'Стоимость содержания питомца в месяц и в год',
-    color: 'bg-accent-soft text-accent-dark',
+    desc: 'Стоимость содержания любимого питомца в месяц и в год',
+    isAccent: false,
   },
 ];
 
 export function SmartServices() {
   return (
-    <section className="py-16 lg:py-24 bg-base-bg">
+    // 60% — Фон секции bg-base-bg (Warm Milk)
+    <section className="py-16 lg:py-24 bg-base-bg animate-fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-3">
             Умные сервисы
           </h2>
-          <p className="text-base text-ink-light leading-relaxed">
-            Четыре интерактивных калькулятора, которые помогут выбрать корм, проверить состав и рассчитать бюджет на питомца.
+          <p className="text-base text-ink-soft leading-relaxed">
+            Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Адаптивная сетка: карточка гаджетов занимает 2 колонки на больших экранах для баланса */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => {
             const Icon = s.icon;
+            
             return (
               <Link
                 key={s.to}
                 to={s.to}
-                className="group rounded-2xl bg-base-surface border border-base-muted p-6 hover:shadow-xl hover:border-accent/40 transition-all hover:-translate-y-1"
+                className={`group rounded-xl2 p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                  s.isAccent
+                    ? 'bg-brand text-white border-brand sm:col-span-2 lg:col-span-2' // 30% Бренда для структуры
+                    : 'bg-base-surface border-base-muted hover:border-brand-light/30 shadow-sm' // 60% Поверхности
+                }`}
               >
-                <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon className="w-7 h-7" />
+                <div>
+                  {/* Иконка устройства / сервиса */}
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform ${
+                    s.isAccent
+                      ? 'bg-accent text-white shadow-md shadow-accent/20' // 10% Конверсии
+                      : 'bg-brand-soft/10 text-brand group-hover:bg-brand group-hover:text-white'
+                  }`}>
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  
+                  <h3 className={`font-display font-bold text-xl mb-2.5 ${
+                    s.isAccent ? 'text-white' : 'text-ink group-hover:text-brand'
+                  }`}>
+                    {s.title}
+                  </h3>
+                  
+                  <p className={`text-sm leading-relaxed mb-6 ${
+                    s.isAccent ? 'text-brand-soft' : 'text-ink-soft'
+                  }`}>
+                    {s.desc}
+                  </p>
                 </div>
-                <h3 className="font-display font-bold text-lg text-ink mb-2">{s.title}</h3>
-                <p className="text-sm text-ink-light leading-relaxed mb-4">{s.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:text-accent-dark transition-colors">
-                  Открыть
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
+                {/* Ссылка действия на кнопке */}
+                <span className={`inline-flex items-center gap-1.5 text-sm font-bold pt-2 mt-auto transition-colors ${
+                  s.isAccent 
+                    ? 'text-accent group-hover:text-accent-light' 
+                    : 'text-brand group-hover:text-accent'
+                }`}>
+                  Открыть инструмент
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </span>
               </Link>
             );
