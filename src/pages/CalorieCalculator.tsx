@@ -40,19 +40,19 @@ export function CalorieCalculator() {
       subtitle="Рассчитайте суточную норму калорий (RER/DER) для вашего питомца и переведите её в граммы выбранного корма."
     >
       <div className="grid lg:grid-cols-2 gap-6">
-        {/* Form */}
-        <div className="rounded-2xl bg-base-surface border border-base-muted p-6 space-y-5">
-          {/* Animal type */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">Тип животного</label>
+        {/* Форма ввода данных */}
+        <div className="rounded-2xl bg-base-surface border border-base-muted p-6 space-y-5 shadow-sm">
+          {/* Тип животного */}
+          <div className="space-y-2">
+            <label className="block text-sm font-bold text-ink font-display">Тип животного</label>
             <div className="grid grid-cols-2 gap-2">
               {(['dog', 'cat'] as AnimalType[]).map((a) => (
                 <button
                   key={a}
                   onClick={() => setAnimal(a)}
-                  className={`py-3 rounded-xl text-sm font-semibold transition-all ${
+                  className={`py-3 rounded-xl text-sm font-bold transition-all ${
                     animal === a
-                      ? 'bg-brand text-white'
+                      ? 'bg-brand text-white shadow-md'
                       : 'bg-base-bg text-ink-light hover:bg-base-muted'
                   }`}
                 >
@@ -62,11 +62,12 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Weight */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              Вес: {weight} кг
-            </label>
+          {/* Вес */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <label className="block text-sm font-bold text-ink font-display">Вес</label>
+              <span className="text-sm font-bold text-brand">{weight} кг</span>
+            </div>
             <input
               type="range"
               min={animal === 'dog' ? 1 : 2}
@@ -74,7 +75,7 @@ export function CalorieCalculator() {
               step={0.5}
               value={weight}
               onChange={(e) => setWeight(Number(e.target.value))}
-              className="w-full accent-brand"
+              className="w-full accent-accent" // Используем коралловый акцент для слайдера
             />
             <div className="flex justify-between text-xs text-ink-light mt-1">
               <span>{animal === 'dog' ? '1 кг' : '2 кг'}</span>
@@ -82,11 +83,12 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Age */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              Возраст: {age} {age === 1 ? 'год' : age < 5 ? 'года' : 'лет'}
-            </label>
+          {/* Возраст */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <label className="block text-sm font-bold text-ink font-display">Возраст</label>
+              <span className="text-sm font-bold text-brand">{age} {age === 1 ? 'год' : age < 5 ? 'года' : 'лет'}</span>
+            </div>
             <input
               type="range"
               min={0.5}
@@ -94,26 +96,26 @@ export function CalorieCalculator() {
               step={0.5}
               value={age}
               onChange={(e) => setAge(Number(e.target.value))}
-              className="w-full accent-brand"
+              className="w-full accent-accent"
             />
           </div>
 
-          {/* Sterilization */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">Стерилизация</label>
+          {/* Стерилизация */}
+          <div className="space-y-2">
+            <label className="block text-sm font-bold text-ink font-display">Стерилизация</label>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setSterilized(true)}
-                className={`py-3 rounded-xl text-sm font-semibold transition-all ${
-                  sterilized ? 'bg-brand text-white' : 'bg-base-bg text-ink-light hover:bg-base-muted'
+                className={`py-3 rounded-xl text-sm font-bold transition-all ${
+                  sterilized ? 'bg-brand text-white shadow-md' : 'bg-base-bg text-ink-light hover:bg-base-muted'
                 }`}
               >
                 Да
               </button>
               <button
                 onClick={() => setSterilized(false)}
-                className={`py-3 rounded-xl text-sm font-semibold transition-all ${
-                  !sterilized ? 'bg-brand text-white' : 'bg-base-bg text-ink-light hover:bg-base-muted'
+                className={`py-3 rounded-xl text-sm font-bold transition-all ${
+                  !sterilized ? 'bg-brand text-white shadow-md' : 'bg-base-bg text-ink-light hover:bg-base-muted'
                 }`}
               >
                 Нет
@@ -121,9 +123,9 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Activity */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">Уровень активности</label>
+          {/* Активность */}
+          <div className="space-y-2">
+            <label className="block text-sm font-bold text-ink font-display">Уровень активности</label>
             <div className="grid grid-cols-3 gap-2">
               {([
                 { val: 'low' as Activity, label: 'Низкий' },
@@ -133,9 +135,9 @@ export function CalorieCalculator() {
                 <button
                   key={a.val}
                   onClick={() => setActivity(a.val)}
-                  className={`py-3 rounded-xl text-sm font-semibold transition-all ${
+                  className={`py-3 rounded-xl text-sm font-bold transition-all ${
                     activity === a.val
-                      ? 'bg-brand text-white'
+                      ? 'bg-brand text-white shadow-md'
                       : 'bg-base-bg text-ink-light hover:bg-base-muted'
                   }`}
                 >
@@ -145,13 +147,13 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Food brand */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">Корм</label>
+          {/* Выбор корма */}
+          <div className="space-y-2">
+            <label className="block text-sm font-bold text-ink font-display">Корм</label>
             <select
               value={brandIdx}
               onChange={(e) => setBrandIdx(Number(e.target.value))}
-              className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+              className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all text-sm font-medium"
             >
               {foodBrands.map((b, i) => (
                 <option key={b.name} value={i}>
@@ -162,64 +164,82 @@ export function CalorieCalculator() {
           </div>
         </div>
 
-        {/* Results */}
+        {/* Результаты */}
         <div className="space-y-4">
-          <div className="rounded-2xl bg-brand text-white p-6">
-            <div className="flex items-center gap-2 mb-4">
+          {/* Блок с калориями: Премиальный темный стиль */}
+          <div className="rounded-2xl bg-brand text-white p-6 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
+            
+            <div className="flex items-center gap-2 mb-6 relative z-10">
               <Calculator className="w-5 h-5 text-accent" />
-              <span className="text-sm font-semibold text-brand-soft">Результат расчёта</span>
+              <span className="text-sm font-bold text-brand-soft uppercase tracking-wider">Результат расчёта</span>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-white/10 p-4">
-                <div className="text-xs text-brand-soft mb-1">RER (базовый)</div>
+            <div className="grid grid-cols-2 gap-4 relative z-10">
+              <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/5">
+                <div className="text-xs text-brand-soft mb-1 font-medium">RER (базовый)</div>
                 <div className="font-display font-extrabold text-2xl text-accent">{rer}</div>
                 <div className="text-xs text-brand-soft">ккал/день</div>
               </div>
-              <div className="rounded-xl bg-white/10 p-4">
+              <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/5">
                 <div className="text-xs text-brand-soft mb-1">DER (с поправками)</div>
                 <div className="font-display font-extrabold text-2xl text-accent">{der}</div>
                 <div className="text-xs text-brand-soft">ккал/день</div>
               </div>
             </div>
-            <div className="mt-4 text-xs text-brand-soft leading-relaxed">
-              Коэффициент активности: ×{factor.toFixed(1)}
-              {sterilized && ' · −0.2 (стерилизация)'}
-              {age > 7 && ' · −0.2 (пожилой возраст)'}
-              {age < 1 && ' · +0.3 (молодое животное)'}
+            <div className="mt-4 text-xs text-brand-soft leading-relaxed relative z-10">
+              Коэффициент активности: <span className="font-bold text-white">×{factor.toFixed(1)}</span>
+              {sterilized && ' · <span className="text-accent-light">−0.2 (стерилизация)</span>'}
+              {age > 7 && ' · <span className="text-accent-light">−0.2 (пожилой возраст)</span>'}
+              {age < 1 && ' · <span className="text-accent-light">+0.3 (молодое животное)</span>'}
             </div>
           </div>
 
-          <div className="rounded-2xl bg-accent-soft border border-accent/30 p-6">
-            <div className="flex items-center gap-2 mb-3">
+          {/* Блок с граммовками: Коралловый акцент */}
+          <div className="rounded-2xl bg-accent-soft border border-accent/30 p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
               <Scale className="w-5 h-5 text-accent-dark" />
-              <span className="text-sm font-semibold text-ink">Граммовки: {selectedBrand.name}</span>
+              <span className="text-sm font-bold text-ink font-display">Граммовки: {selectedBrand.name}</span>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-xs text-ink-light mb-1">В день</div>
+              <div className="bg-white/50 rounded-xl p-4 border border-white/50">
+                <div className="text-xs text-ink-light mb-1 font-medium">В день</div>
                 <div className="font-display font-extrabold text-2xl text-accent-dark">{gramsPerDay} г</div>
               </div>
-              <div>
-                <div className="text-xs text-ink-light mb-1">За 1 приём (2×/день)</div>
+              <div className="bg-white/50 rounded-xl p-4 border border-white/50">
+                <div className="text-xs text-ink-light mb-1 font-medium">За 1 приём (2×/день)</div>
                 <div className="font-display font-extrabold text-2xl text-accent-dark">{gramsPerMeal} г</div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-base-surface border border-base-muted p-5">
-            <div className="flex items-center gap-2 mb-2">
+          {/* Информация о корме */}
+          <div className="rounded-2xl bg-base-surface border border-base-muted p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
               <Flame className="w-5 h-5 text-brand" />
-              <span className="text-sm font-semibold text-ink">О корме</span>
+              <span className="text-sm font-bold text-ink font-display">О выбранном корме</span>
             </div>
-            <div className="text-sm text-ink-light space-y-1">
-              <div>Калорийность: {selectedBrand.kcalPer100g} ккал/100г</div>
-              <div>Класс: {selectedBrand.category}</div>
-              <div>Цена: ~{selectedBrand.pricePerKg} ₽/кг</div>
-              <div>Стоимость в день: ~{Math.round((gramsPerDay / 1000) * selectedBrand.pricePerKg)} ₽</div>
+            <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-ink-soft leading-relaxed">
+              <div className="flex justify-between border-b border-base-muted/40 pb-1">
+                <span>Калорийность:</span>
+                <span className="font-bold text-ink">{selectedBrand.kcalPer100g} ккал/100г</span>
+              </div>
+              <div className="flex justify-between border-b border-base-muted/40 pb-1">
+                <span>Класс:</span>
+                <span className="font-bold text-ink">{selectedBrand.category}</span>
+              </div>
+              <div className="flex justify-between border-b border-base-muted/40 pb-1">
+                <span>Цена:</span>
+                <span className="font-bold text-ink">~{selectedBrand.pricePerKg} ₽/кг</span>
+              </div>
+              <div className="flex justify-between border-b border-base-muted/40 pb-1">
+                <span>За день:</span>
+                <span className="font-bold text-accent-dark">~{Math.round((gramsPerDay / 1000) * selectedBrand.pricePerKg)} ₽</span>
+              </div>
             </div>
           </div>
 
-          <div className="rounded-xl bg-warn-light p-4 text-sm text-warn-dark leading-relaxed">
+          {/* Disclaimer */}
+          <div className="rounded-xl bg-warn-light p-4 text-sm text-warn-dark leading-relaxed border border-warn/20">
             Расчёт носит ознакомительный характер. Точные нормы кормления определяет ветеринар с учётом состояния здоровья питомца.
           </div>
         </div>
