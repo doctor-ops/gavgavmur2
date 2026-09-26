@@ -23,7 +23,7 @@ export function ImportSubstitution() {
       title="Импортозамещение кормов"
       subtitle="Найдите проверенные российские альтернативы для зарубежных брендов. База данных регулярно обновляется с учётом доступности на рынке."
     >
-      {/* Search & Filters Panel */}
+      {/* Панель поиска и фильтров: Белый фон для чистоты ввода */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-fade-in">
         <div className="relative flex-1">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-light" />
@@ -32,13 +32,13 @@ export function ImportSubstitution() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Поиск по импортному бренду или отечественному аналогу..."
-            className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-semibold text-sm placeholder-ink-light focus:outline-none focus:border-brand-light focus:ring-2 focus:ring-brand/10 transition-all shadow-sm"
+            className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-semibold text-sm placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all shadow-sm"
           />
         </div>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="px-4 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-bold text-sm focus:outline-none focus:border-brand-light focus:ring-2 focus:ring-brand/10 transition-all shadow-sm cursor-pointer"
+          className="px-4 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-bold text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all shadow-sm cursor-pointer"
         >
           {categories.map((c) => (
             <option key={c} value={c}>{c}</option>
@@ -46,7 +46,7 @@ export function ImportSubstitution() {
         </select>
       </div>
 
-      {/* Results List */}
+      {/* Список результатов */}
       <div className="space-y-6 animate-fade-up">
         {filtered.length === 0 ? (
           <div className="text-center py-16 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
@@ -58,12 +58,12 @@ export function ImportSubstitution() {
           filtered.map((item) => (
             <div key={item.foreignBrand} className="rounded-xl2 bg-base-surface border border-base-muted overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               
-              {/* Foreign brand header (30% Брендовый фон) */}
+              {/* Шапка: Иностранный бренд. Используем bg-brand для создания визуального разделения («проблема») */}
               <div className="flex items-center justify-between flex-wrap gap-4 p-5 bg-brand text-white">
                 <div className="flex items-center gap-3">
-                  {/* Иконка перенаправления с акцентным цветом (10%) */}
+                  {/* Иконка: bg-accent + text-brand (наш премиальный стандарт) */}
                   <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center shadow-sm">
-                    <Replace className="w-5 h-5 text-white" />
+                    <Replace className="w-5 h-5 text-brand" />
                   </div>
                   <div>
                     <h3 className="font-display font-extrabold text-xl tracking-tight">{item.foreignBrand}</h3>
@@ -74,13 +74,13 @@ export function ImportSubstitution() {
                   </div>
                 </div>
                 
-                {/* Строгий тег категории без перегрузки оранжевым */}
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm text-white text-[10px] font-extrabold uppercase tracking-wider border border-white/5">
+                {/* Тег категории: Полупрозрачный белый фон */}
+                <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm text-white text-[10px] font-extrabold uppercase tracking-wider border border-white/10">
                   {item.category}
                 </span>
               </div>
 
-              {/* Russian alternatives container (60% Поверхность) */}
+              {/* Контейнер аналогов: bg-base-surface (белый) */}
               <div className="p-5 bg-base-surface">
                 <div className="text-xs font-bold text-ink-light uppercase tracking-wider mb-3.5 font-display">
                   Доступные отечественные аналоги:
@@ -90,18 +90,20 @@ export function ImportSubstitution() {
                   {item.russianAlternatives.map((alt) => (
                     <div 
                       key={alt.name} 
+                      // Многослойность: bg-base-bg (молочный) внутри белого фона
                       className="p-4 rounded-xl bg-base-bg border border-base-muted/60 hover:border-accent/40 transition-all flex flex-col justify-between group hover:-translate-y-0.5"
                     >
-                      <div>
+                      <div className="mb-3">
                         <div className="flex items-start gap-2 mb-1.5">
                           <Tag className="w-4 h-4 text-brand flex-shrink-0 mt-0.5" />
                           <h4 className="font-bold text-sm text-ink group-hover:text-brand transition-colors leading-tight">
                             {alt.name}
                           </h4>
                         </div>
-                        <div className="text-xs text-brand font-bold mb-2.5 px-6">{alt.brand}</div>
+                        <div className="text-xs text-brand font-bold ml-6">{alt.brand}</div>
                       </div>
                       
+                      {/* Заметка по аналогу: bg-base-surface (белый) внутри молочного фона */}
                       <p className="text-xs text-ink-soft leading-relaxed bg-base-surface border border-base-muted/40 p-2.5 rounded-lg font-normal">
                         {alt.note}
                       </p>
@@ -114,7 +116,7 @@ export function ImportSubstitution() {
         )}
       </div>
 
-      {/* Информационный футер страницы */}
+      {/* Информационный футер: bg-base-surface для чистоты */}
       <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-5 shadow-sm">
         <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
         <p className="text-sm text-ink-soft leading-relaxed font-normal">
