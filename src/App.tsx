@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { Home } from '@/pages/Home';
 import { ImportSubstitution } from '@/pages/ImportSubstitution';
-import { AllergenScanner } from '@///pages/AllergenScanner';
+import { AllergenScanner } from '@/pages/AllergenScanner';
 import { CalorieCalculator } from '@/pages/CalorieCalculator';
 import { BudgetCalculator } from '@/pages/BudgetCalculator';
 import { BreedCatalog } from '@/pages/BreedCatalog';
@@ -24,8 +24,9 @@ function App() {
               path="/"
               element={
                 <div className="p-10 text-center">
-                  {/* ПРОБАЕМ ВКЛЮЧИТЬ HERO */}
                   <Hero />
+                  {/* ПРОБУЕМ ВКЛЮЧИТЬ HOME */}
+                  <Home />
                   <h1 className="text-3xl font-bold text-ink mt-10">ГЛАВНАЯ СТРАНИЦА</h1>
                 </div>
               }
