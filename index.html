@@ -2,14 +2,13 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <!-- ИСПРАВЛЕНО: убран слэш перед vite.svg -->
     <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ГавГавМур — Всё для кошкек и собак </title>
+    <title>ГавГавМур — Всё о кошках и собаках</title>
   </head>
-  <body class="bg-base-bg"> <!-- Добавил фон, чтобы не было вспышки белого при загрузке -->
+  <body class="bg-base-bg">
     <div id="root"></div>
-    <!-- ИСПРАВЛЕНО: путь к скрипту теперь относительный -->
-    <script type="module" src="./src/main.tsx"></script>
+    <!-- ВАЖНО: возвращаем путь /src/main.tsx, чтобы Vite его распознал при сборке -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
