@@ -44,8 +44,8 @@ export function AllergenScanner() {
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
       {/* Input */}
-      <div className="rounded-2xl bg-base-surface border border-base-muted p-6 mb-6">
-        <label className="block text-sm font-semibold text-ink mb-2">
+      <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
+        <label className="block text-sm font-bold text-ink mb-2 font-display">
           Состав корма (через запятую)
         </label>
         <textarea
@@ -53,27 +53,29 @@ export function AllergenScanner() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Например: дегидрированное мясо курицы, рис, кукуруза, куриный жир, свёкла, томат..."
           rows={4}
-          className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all resize-none"
+          className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink placeholder-ink-light focus:outline-none focus:border-brand-light focus:ring-2 focus:ring-brand/10 transition-all resize-none text-sm leading-relaxed"
         />
+        
+        {/* 10% АКЦЕНТА: Конверсионная кнопка действия */}
         <button
           onClick={() => setAnalyzed(true)}
           disabled={ingredients.length === 0}
-          className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-semibold text-sm hover:bg-brand-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-white font-bold text-sm hover:bg-accent-light active:bg-accent-dark shadow-sm hover:shadow transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-accent disabled:hover:shadow-none"
         >
           <Search className="w-4 h-4" />
-          Анализировать
+          Анализировать состав
         </button>
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-3 mb-6">
+      <div className="flex flex-wrap gap-3 mb-8">
         {(Object.keys(allergenLevelMeta) as AllergenLevel[]).map((level) => {
           const meta = allergenLevelMeta[level];
           const Icon = levelIcon[level];
           return (
-            <div key={level} className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl ${meta.bg}`}>
+            <div key={level} className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl ${meta.bg} border border-current/5`}>
               <Icon className={`w-4 h-4 ${meta.color}`} />
-              <span className={`text-sm font-semibold ${meta.color}`}>{meta.label}</span>
+              <span className={`text-xs font-bold ${meta.color}`}>{meta.label}</span>
             </div>
           );
         })}
@@ -83,17 +85,17 @@ export function AllergenScanner() {
       {analyzed && results.length > 0 && (
         <div className="animate-fade-up">
           {/* Overall verdict */}
-          <div className={`rounded-2xl p-5 mb-6 ${overallMeta.bg} border border-current/10`}>
+          <div className={`rounded-xl2 p-5 mb-6 ${overallMeta.bg} border border-current/10`}>
             <div className="flex items-center gap-3">
               <ShieldAlert className={`w-6 h-6 ${overallMeta.color}`} />
               <div>
-                <div className={`font-display font-bold text-lg ${overallMeta.color}`}>
+                <div className={`font-display font-extrabold text-lg ${overallMeta.color}`}>
                   {overall === 'danger' && 'В составе есть опасные ингредиенты'}
                   {overall === 'trigger' && 'В составе есть потенциальные триггеры'}
                   {overall === 'safe' && 'Состав выглядит безопасным'}
                 </div>
-                <div className="text-sm text-ink-light">
-                  {counts.danger} опасных · {counts.trigger} триггеров · {counts.safe} безопасных
+                <div className="text-xs font-medium text-ink-soft mt-0.5">
+                  Найдено: <span className="font-bold">{counts.danger}</span> опасных · <span className="font-bold">{counts.trigger}</span> триггеров · <span className="font-bold">{counts.safe}</span> безопасных
                 </div>
               </div>
             </div>
@@ -107,33 +109,37 @@ export function AllergenScanner() {
               return (
                 <div
                   key={i}
-                  className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ${meta.bg} border border-current/10 cursor-help`}
+                  className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ${meta.bg} border border-current/10 cursor-help transition-all hover:scale-[1.02]`}
                   title={r.note}
                 >
                   <Icon className={`w-4 h-4 ${meta.color}`} />
-                  <span className={`text-sm font-medium ${meta.color}`}>{r.name}</span>
-                  <div className="absolute bottom-full left-0 mb-2 hidden group-hover:block z-10 w-56 p-3 rounded-xl bg-ink text-white text-xs leading-relaxed shadow-xl whitespace-normal">
-                    {r.note}
+                  <span className={`text-sm font-semibold ${meta.color}`}>{r.name}</span>
+                  
+                  {/* Всплывающая подсказка — стилизована под ink (30% бренда) */}
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover:block z-20 w-64 p-3.5 rounded-xl bg-brand text-white text-xs leading-relaxed shadow-xl whitespace-normal pointer-events-none animate-scale-in">
+                    <p className="font-medium">{r.note}</p>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-brand" />
                   </div>
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4">
+          {/* Информационная плашка */}
+          <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-ink-light leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть пояснение. Сканер использует базу из {ingredientDatabase.length} ингредиентов.
-              Если ингредиент не найден — он отмечен зелёным по умолчанию, но уточните его безопасность у ветеринара.
+            <p className="text-sm text-ink-soft leading-relaxed">
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер использует внутреннюю базу из <span className="font-bold text-ink">{ingredientDatabase.length}</span> компонентов.
+              Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию, но мы рекомендуем дополнительно проконсультироваться с ветеринаром.
             </p>
           </div>
         </div>
       )}
 
       {analyzed && results.length === 0 && (
-        <div className="text-center py-12 text-ink-light">
-          <Search className="w-10 h-10 mx-auto mb-3 text-base-muted" />
-          <p>Введите состав корма для анализа.</p>
+        <div className="text-center py-16 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
+          <Search className="w-12 h-12 mx-auto mb-4 text-ink-light opacity-40" />
+          <p className="text-ink-soft font-medium">Введите текстовый состав корма для запуска глубокого анализа.</p>
         </div>
       )}
     </ToolLayout>
