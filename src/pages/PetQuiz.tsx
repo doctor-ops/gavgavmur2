@@ -270,4 +270,4 @@ export function PetQuiz() {
       </div>
     </div>
   );
-}
+} 
