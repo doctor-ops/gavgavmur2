@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight } from 'lucide-react';
 
 const services = [
-  // 🤖 10% АКЦЕНТА: Наша главная конверсионная карточка
+  // 🤖 10% АКЦЕНТА: Главная конверсионная карточка
   {
     to: '/gadgets',
     icon: Cpu,
     title: 'Гаджеты для животных',
     desc: 'Умные кормушки, GPS-ошейники и автоматические лотки для питомцев',
-    isAccent: true, // Флаг для применения оранжевой палитры
+    isAccent: true, 
   },
   {
     to: '/tools/importozameshenie',
@@ -49,12 +49,11 @@ export function SmartServices() {
           <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-3">
             Умные сервисы
           </h2>
-          <p className="text-base text-ink-soft leading-relaxed">
+          <p className="text-base text-ink-light leading-relaxed">
             Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.
           </p>
         </div>
 
-        {/* Адаптивная сетка: карточка гаджетов занимает 2 колонки на больших экранах для баланса */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => {
             const Icon = s.icon;
@@ -65,15 +64,15 @@ export function SmartServices() {
                 to={s.to}
                 className={`group rounded-xl2 p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   s.isAccent
-                    ? 'bg-brand text-white border-brand sm:col-span-2 lg:col-span-2' // 30% Бренда для структуры
-                    : 'bg-base-surface border-base-muted hover:border-brand-light/30 shadow-sm' // 60% Поверхности
+                    ? 'bg-brand text-white border-brand sm:col-span-2 lg:col-span-2' // 30% Брендового цвета
+                    : 'bg-base-surface border-base-muted hover:border-accent/30 shadow-sm' // 60% Белой поверхности
                 }`}
               >
-                <div>
-                  {/* Иконка устройства / сервиса */}
+                <div className="relative z-10">
+                  {/* Иконка: В акцентной карточке — Коралловый, в обычных — Графитовый */}
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform ${
                     s.isAccent
-                      ? 'bg-accent text-white shadow-md shadow-accent/20' // 10% Конверсии
+                      ? 'bg-accent text-brand shadow-md shadow-accent/20' // Контрастный текст внутри иконки
                       : 'bg-brand-soft/10 text-brand group-hover:bg-brand group-hover:text-white'
                   }`}>
                     <Icon className="w-7 h-7" />
@@ -92,7 +91,7 @@ export function SmartServices() {
                   </p>
                 </div>
 
-                {/* Ссылка действия на кнопке */}
+                {/* Ссылка действия */}
                 <span className={`inline-flex items-center gap-1.5 text-sm font-bold pt-2 mt-auto transition-colors ${
                   s.isAccent 
                     ? 'text-accent group-hover:text-accent-light' 
