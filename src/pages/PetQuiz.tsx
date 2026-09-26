@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Импортируем для работы кнопки
+import { useNavigate, Link } from 'react-router-dom';
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
 import { BREEDS_DATABASE, Breed } from '../data/breeds';
-import { Link } from 'react-router-dom';
 
 interface Question {
   id: number;
@@ -77,7 +76,7 @@ const QUESTIONS: Question[] = [
 ];
 
 export function PetQuiz() {
-  const navigate = useNavigate(); // Инициализируем навигатор
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   
@@ -113,167 +112,161 @@ export function PetQuiz() {
   };
 
   const getRecommendedBreeds = (): Breed[] => {
-    // 1. Находим доминирующий темперамент по баллам
     const targetTemp = (Object.keys(tempScores) as Array<keyof typeof tempScores>).reduce((a, b) => 
       tempScores[a] > tempScores[b] ? a : b
     );
-
-    // 2. Находим доминирующий размер по баллам
     const targetSize = (Object.keys(sizeScores) as Array<keyof typeof sizeScores>).reduce((a, b) => 
       sizeScores[a] > sizeScores[b] ? a : b
     );
 
-    // Попытка №1: Ищем идеальное совпадение (и характер, и размер)
     let matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp && b.size === targetSize);
-
-    // Попытка №2: Если идеальных совпадений нет, берем все породы с таким характером
     if (matches.length === 0) {
       matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp);
     }
-
-    // Попытка №3: Экстренный случай (если база пуста), выводим первые 4 любые породы, чтобы экран не был пустым
     if (matches.length === 0) {
       matches = BREEDS_DATABASE;
     }
-
-    // Возвращаем максимум 4 лучшие породы
     return matches.slice(0, 4);
   };
-
 
   const recommended = getRecommendedBreeds();
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-8">
-        
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
-            <Sparkles className="w-6 h-6" />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Психологический тест совместимости</h1>
-            <p className="text-gray-500 text-sm">Анализируем ваш психотип и образ жизни для подбора идеальной породы</p>
-          </div>
-        </div>
-
-        {!showResult ? (
-          <div>
-            <div className="mb-6">
-              <div className="flex justify-between text-sm text-gray-400 mb-2">
-                <span>Вопрос {currentQuestion + 1} из {QUESTIONS.length}</span>
-                <span>{Math.round(((currentQuestion + 1) / QUESTIONS.length) * 100)}%</span>
-              </div>
-              <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div 
-                  className="bg-indigo-600 h-full transition-all duration-300"
-                  style={{ width: `${((currentQuestion + 1) / QUESTIONS.length) * 100}%` }}
-                />
-              </div>
+    // Обертка в bg-base-bg для консистентности
+    <div className="min-h-screen bg-base-bg py-12 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-base-surface rounded-3xl shadow-xl border border-base-muted p-6 md:p-8 animate-fade-in">
+          
+          {/* Header теста */}
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-accent-soft rounded-xl text-accent shadow-sm">
+              <Sparkles className="w-6 h-6" />
             </div>
-
-            <div className="flex items-start gap-3 mb-6 bg-slate-50 p-4 rounded-xl border border-gray-100">
-              <div className="p-2 bg-white rounded-lg shadow-sm text-indigo-600">
-                {QUESTIONS[currentQuestion].icon}
-              </div>
-              <h2 className="text-xl font-bold text-gray-800 pt-1">
-                {QUESTIONS[currentQuestion].text}
-              </h2>
-            </div>
-
-            <div className="grid gap-3">
-              {QUESTIONS[currentQuestion].options.map((option, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleAnswer(option.effects)}
-                  className="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-indigo-500 hover:bg-indigo-50 text-gray-700 font-medium transition-all duration-150 active:scale-[0.99] shadow-sm hover:shadow"
-                >
-                  {option.text}
-                </button>
-              ))}
+            <div>
+              <h1 className="text-2xl font-bold text-ink font-display">Психологический тест совместимости</h1>
+              <p className="text-ink-light text-sm">Анализируем ваш психотип и образ жизни для подбора идеальной породы</p>
             </div>
           </div>
-        ) : (
-          <div className="py-4">
-            <div className="text-center mb-8">
-              <div className="inline-flex p-4 bg-green-50 rounded-full text-green-600 mb-3">
-                <Heart className="w-10 h-10 fill-current" />
+
+          {!showResult ? (
+            <div>
+              {/* Progress Bar */}
+              <div className="mb-8">
+                <div className="flex justify-between text-xs font-bold text-ink-light mb-2 uppercase tracking-wider">
+                  <span>Вопрос {currentQuestion + 1} из {QUESTIONS.length}</span>
+                  <span>{Math.round(((currentQuestion + 1) / QUESTIONS.length) * 100)}%</span>
+                </div>
+                <div className="w-full bg-base-muted h-2 rounded-full overflow-hidden">
+                  <div 
+                    className="bg-accent h-full transition-all duration-500 ease-out"
+                    style={{ width: `${((currentQuestion + 1) / QUESTIONS.length) * 100}%` }}
+                  />
+                </div>
               </div>
-              <h2 className="text-3xl font-black text-gray-900">Ваша психологическая совместимость</h2>
-              <p className="text-gray-500 mt-1 max-w-md mx-auto">
-                Эти породы обладают поведенческими паттернами, которые идеально дополнят вашу повседневность.
-              </p>
-            </div>
 
-            {recommended.length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {recommended.map(breed => (
-                  <div key={breed.id} className="relative group border border-gray-100 rounded-3xl overflow-hidden shadow-sm bg-white hover:shadow-xl transition-all duration-300 flex flex-col">
-                    
-                    {/* ИСПРАВЛЕННЫЙ РАЗМЫТЫЙ ФОН */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center scale-150 blur-2xl opacity-40 pointer-events-none z-0"
-                      style={{ backgroundImage: `url(${breed.image})` }}
-                    />
-                    
-                    <div className="relative z-10 p-5 flex flex-col h-full">
-                      {/* ФОТО: используем aspect-square и object-cover для красоты, но в контейнере с тенью */}
-                      <div className="relative w-full h-48 mb-4 overflow-hidden rounded-2xl shadow-lg bg-gray-100">
-                        <img 
-                          src={breed.image} 
-                          alt={breed.name} 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
+              {/* Question Box */}
+              <div className="flex items-start gap-3 mb-8 bg-base-bg p-5 rounded-2xl border border-base-muted">
+                <div className="p-2.5 bg-base-surface rounded-lg shadow-sm text-brand">
+                  {QUESTIONS[currentQuestion].icon}
+                </div>
+                <h2 className="text-xl font-bold text-ink leading-tight pt-1">
+                  {QUESTIONS[currentQuestion].text}
+                </h2>
+              </div>
 
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{breed.name}</h3>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded-md uppercase tracking-wider">
-                          {breed.temperament === 'active' ? 'Активный' : breed.temperament === 'calm' ? 'Спокойный' : breed.temperament === 'independent' ? 'Независимый' : 'Дружелюбный'}
-                        </span>
-                        <span className="px-2 py-1 bg-gray-100 text-gray-600 text-[10px] font-bold rounded-md uppercase tracking-wider">
-                          {breed.size === 'small' ? 'Маленький' : breed.size === 'medium' ? 'Средний' : 'Крупный'}
-                        </span>
-                      </div>
-
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
-                        {breed.description}
-                      </p>
-
-                      <div className="mt-auto pt-4 border-t border-gray-100 text-xs text-gray-400 flex flex-col gap-1">
-                        <span className="flex items-center gap-1">📍 {breed.origin}</span>
-                        <span className="flex items-center gap-1">⏳ {breed.lifeSpan} | ⚖️ {breed.weight}</span>
-                      </div>
-                      
-                      {/* ИСПРАВЛЕННАЯ ССЫЛКА НА КОМПОНЕНТ LINK ВМЕСТО ONCLICK */}
-                      <Link 
-                        to={`../wiki/${breed.id}`} 
-                        className="mt-4 w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200 text-center block"
-                      >
-                        Подробнее
-                      </Link>
-                    </div>
-                  </div>
+              {/* Options */}
+              <div className="grid gap-3">
+                {QUESTIONS[currentQuestion].options.map((option, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleAnswer(option.effects)}
+                    className="w-full text-left p-4 rounded-xl border border-base-muted hover:border-accent hover:bg-accent-soft/30 text-ink-soft font-medium transition-all duration-150 active:scale-[0.99] shadow-sm hover:shadow-md"
+                  >
+                    {option.text}
+                  </button>
                 ))}
               </div>
-            ) : (
-              <div className="text-center py-12 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                <p className="text-gray-500">
-                  Для вашего редкого сочетания качеств мы рекомендуем заглянуть в общий каталог.
+            </div>
+          ) : (
+            <div className="py-4 animate-scale-in">
+              <div className="text-center mb-10">
+                <div className="inline-flex p-4 bg-accent-soft rounded-full text-accent mb-4 shadow-sm">
+                  <Heart className="w-10 h-10 fill-current" />
+                </div>
+                <h2 className="text-3xl font-black text-ink font-display mb-2">Ваша психологическая совместимость</h2>
+                <p className="text-ink-light mt-1 max-w-md mx-auto leading-relaxed">
+                  Эти породы обладают поведенческими паттернами, которые идеально дополнят вашу повседневность.
                 </p>
               </div>
-            )}
 
-            <button 
-              onClick={restartQuiz}
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-all duration-200"
-            >
-              <RefreshCw className="w-5 h-5" />
-              Пройти заново
-            </button>
-          </div>
-        )}
+              {recommended.length > 0 ? (
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                  {recommended.map(breed => (
+                    <div key={breed.id} className="relative group border border-base-muted rounded-2xl overflow-hidden shadow-sm bg-base-surface hover:shadow-xl transition-all duration-300 flex flex-col">
+                      
+                      {/* Размытый фон для глубины */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center scale-150 blur-2xl opacity-20 pointer-events-none z-0"
+                        style={{ backgroundImage: `url(${breed.image})` }}
+                      />
+                      
+                      <div className="relative z-10 p-5 flex flex-col h-full">
+                        <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl shadow-md bg-base-bg">
+                          <img 
+                            src={breed.image} 
+                            alt={breed.name} 
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+
+                        <h3 className="text-xl font-bold text-ink mb-2 font-display">{breed.name}</h3>
+                        
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <span className="px-2 py-1 bg-brand-soft/20 text-brand text-[10px] font-bold rounded-md uppercase tracking-wider border border-brand/10">
+                            {breed.temperament === 'active' ? 'Активный' : breed.temperament === 'calm' ? 'Спокойный' : breed.temperament === 'independent' ? 'Независимый' : 'Дружелюбный'}
+                          </span>
+                          <span className="px-2 py-1 bg-base-bg text-ink-soft text-[10px] font-bold rounded-md uppercase tracking-wider border border-base-muted">
+                            {breed.size === 'small' ? 'Маленький' : breed.size === 'medium' ? 'Средний' : 'Крупный'}
+                          </span>
+                        </div>
+
+                        <p className="text-ink-soft text-sm mb-4 line-clamp-3 leading-relaxed font-normal">
+                          {breed.description}
+                        </p>
+
+                        <div className="mt-auto pt-4 border-t border-base-muted text-xs text-ink-light flex flex-col gap-1">
+                          <span className="flex items-center gap-1">📍 {breed.origin}</span>
+                          <span className="flex items-center gap-1">⏳ {breed.lifeSpan} | ⚖️ {breed.weight}</span>
+                        </div>
+                        
+                        <Link 
+                          to={`/wiki/${breed.id}`} 
+                          className="mt-4 w-full py-3 bg-accent text-brand rounded-xl text-sm font-bold hover:bg-accent-light transition-all shadow-md hover:shadow-lg text-center block"
+                        >
+                          Подробнее
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12 bg-base-bg rounded-2xl border-2 border-dashed border-base-muted">
+                  <p className="text-ink-soft">
+                    Для вашего редкого сочетания качеств мы рекомендуем заглянуть в общий каталог.
+                  </p>
+                </div>
+              )}
+
+              <button 
+                onClick={restartQuiz}
+                className="flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-brand text-brand font-bold hover:bg-brand hover:text-white transition-all duration-200"
+              >
+                <RefreshCw className="w-5 h-5" />
+                Пройти заново
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
