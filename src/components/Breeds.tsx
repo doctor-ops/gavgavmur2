@@ -42,7 +42,8 @@ export function Breeds() {
   };
 
   return (
-    <section id="breeds" className="py-20 lg:py-28 bg-base-surface">
+    // Изменено на bg-base-bg (молочный), чтобы секция была мягкой
+    <section id="breeds" className="py-20 lg:py-28 bg-base-bg">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-reveal ${revealed ? 'revealed' : ''}`}
@@ -65,8 +66,8 @@ export function Breeds() {
               onClick={() => setFilter(tab.key)}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
                 filter === tab.key
-                  ? 'bg-ink text-white'
-                  : 'bg-base-bg text-ink-soft hover:bg-base-muted border border-base-muted'
+                  ? 'bg-brand text-white shadow-md' // Активный таб теперь в глубоком графитовом
+                  : 'bg-base-surface text-ink-soft hover:bg-base-muted border border-base-muted'
               }`}
             >
               {tab.icon && <tab.icon className="w-4 h-4" />}
@@ -82,7 +83,8 @@ export function Breeds() {
             return (
               <div
                 key={i}
-                className="group rounded-2xl overflow-hidden bg-base-bg border border-base-muted hover:shadow-xl hover:border-honey/30 transition-all hover:-translate-y-1"
+                // Изменено на bg-base-surface (белый), чтобы карточки «всплывали» над молочным фоном
+                className="group rounded-2xl overflow-hidden bg-base-surface border border-base-muted hover:shadow-xl hover:border-accent/40 transition-all hover:-translate-y-1"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img
@@ -93,7 +95,7 @@ export function Breeds() {
                   />
                   <div className="absolute top-3 right-3">
                     <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${
-                      cat ? 'bg-ink/90 text-honey' : 'bg-honey/90 text-white'
+                      cat ? 'bg-brand/90 text-accent' : 'bg-accent/90 text-white'
                     }`}>
                       {cat ? <Cat className="w-3 h-3" /> : <Dog className="w-3 h-3" />}
                       {cat ? t.breeds.cats : t.breeds.dogs}
@@ -110,32 +112,20 @@ export function Breeds() {
 
                   <div className="space-y-2 pt-3 border-t border-base-muted">
                     <div className="flex items-center gap-2 text-xs">
-                      <Heart className="w-3.5 h-3.5 text-honey flex-shrink-0" />
+                      <Heart className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                       <span className="text-ink-light font-semibold w-20">{t.breeds.traits.temperament}:</span>
                       <span className="text-ink-soft">{breed.temperament}</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs">
-                      <Ruler className="w-3.5 h-3.5 text-honey flex-shrink-0" />
+                      <Ruler className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                       <span className="text-ink-light font-semibold w-20">{t.breeds.traits.size}:</span>
                       <span className="text-ink-soft">{breed.size}</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs">
-                      <Clock className="w-3.5 h-3.5 text-honey flex-shrink-0" />
+                      <Clock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                       <span className="text-ink-light font-semibold w-20">{t.breeds.traits.lifespan}:</span>
                       <span className="text-ink-soft">{breed.lifespan}</span>
                     </div>
                     <div className="flex items-start gap-2 text-xs">
-                      <Scissors className="w-3.5 h-3.5 text-honey flex-shrink-0 mt-0.5" />
-                      <span className="text-ink-light font-semibold w-20 flex-shrink-0">{t.breeds.traits.care}:</span>
-                      <span className="text-ink-soft">{breed.care}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
+                      <Scissors className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-ink-light
