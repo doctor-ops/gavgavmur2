@@ -61,8 +61,6 @@ export function Quiz() {
 
   const recommendedDogBreeds = ['Лабрадор-ретривер', 'Корги', 'Немецкая овчарка'];
   const recommendedCatBreeds = ['Британская', 'Мейн-кун', 'Сиамская'];
-  const recommendedEnDog = ['Labrador Retriever', 'Corgi', 'German Shepherd'];
-  const recommendedEnCat = ['British Shorthair', 'Maine Coon', 'Siamese'];
 
   const progress = ((currentQ + 1) / totalQuestions) * 100;
 
@@ -82,13 +80,15 @@ export function Quiz() {
         <div className="rounded-3xl bg-base-surface border border-base-muted shadow-xl overflow-hidden">
           {!started && !finished && (
             <div className="p-8 lg:p-12 text-center">
-              <div className="w-20 h-20 rounded-full bg-honey-soft flex items-center justify-center mx-auto mb-6">
-                <Dog className="w-8 h-8 text-honey inline mr-1" />
-                <Cat className="w-8 h-8 text-ink inline ml-1" />
+              {/* Замена bg-honey-soft на bg-accent-soft */}
+              <div className="w-20 h-20 rounded-full bg-accent-soft flex items-center justify-center mx-auto mb-6">
+                <Dog className="w-8 h-8 text-accent inline mr-1" />
+                <Cat className="w-8 h-8 text-brand inline ml-1" />
               </div>
               <button
                 onClick={handleStart}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-honey text-white font-semibold hover:bg-honey-dark transition-all hover:shadow-lg hover:shadow-honey/30 hover:-translate-y-0.5"
+                // Замена bg-honey на bg-accent
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-brand font-bold hover:bg-accent-light transition-all hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5"
               >
                 {t.quiz.start}
                 <ArrowRight className="w-4 h-4" />
@@ -103,8 +103,9 @@ export function Quiz() {
                   {currentQ + 1} / {totalQuestions}
                 </span>
                 <div className="flex-1 mx-4 h-2 rounded-full bg-base-muted overflow-hidden">
+                  {/* Прогресс-бар в акцентном цвете */}
                   <div
-                    className="h-full bg-honey rounded-full transition-all duration-500"
+                    className="h-full bg-accent rounded-full transition-all duration-500"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
@@ -119,15 +120,16 @@ export function Quiz() {
                   <button
                     key={i}
                     onClick={() => handleSelect(i, option.type)}
+                    // Замена border-honey / bg-honey-soft
                     className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all flex items-center justify-between group ${
                       selected === i
-                        ? 'border-honey bg-honey-soft text-ink'
-                        : 'border-base-muted bg-base-bg text-ink-soft hover:border-ink/30'
+                        ? 'border-accent bg-accent-soft text-ink'
+                        : 'border-base-muted bg-base-bg text-ink-soft hover:border-brand/30'
                     }`}
                   >
                     <span className="font-medium">{option.text}</span>
                     {selected === i && (
-                      <Check className="w-5 h-5 text-honey flex-shrink-0 ml-2" />
+                      <Check className="w-5 h-5 text-accent flex-shrink-0 ml-2" />
                     )}
                   </button>
                 ))}
@@ -145,7 +147,8 @@ export function Quiz() {
                 <button
                   onClick={handleNext}
                   disabled={selected === null}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-ink text-white font-semibold hover:bg-ink-soft transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  // Замена bg-ink на bg-brand
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-semibold hover:bg-brand-light transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {currentQ + 1 < totalQuestions ? t.quiz.next : t.quiz.resultTitle}
                   <ArrowRight className="w-4 h-4" />
@@ -155,52 +158,4 @@ export function Quiz() {
           )}
 
           {finished && (
-            <div className="p-8 lg:p-12 text-center animate-scale-in">
-              <div
-                className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 ${
-                  result === 'dog' ? 'bg-honey-soft' : 'bg-base-muted'
-                }`}
-              >
-                {result === 'dog' ? (
-                  <Dog className="w-12 h-12 text-honey" />
-                ) : (
-                  <Cat className="w-12 h-12 text-ink" />
-                )}
-              </div>
-              <h3 className="font-display font-bold text-3xl text-ink mb-3">
-                {result === 'dog' ? t.quiz.resultDog : t.quiz.resultCat}
-              </h3>
-              <p className="text-ink-light leading-relaxed max-w-lg mx-auto mb-8">
-                {result === 'dog' ? t.quiz.resultDogDesc : t.quiz.resultCatDesc}
-              </p>
-
-              <div className="rounded-2xl bg-base-bg p-6 mb-8 text-left">
-                <h4 className="font-display font-semibold text-ink mb-4 text-center">
-                  {t.quiz.recommendedBreeds}
-                </h4>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {(result === 'dog' ? recommendedDogBreeds : recommendedCatBreeds).map((breed, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-2 rounded-full bg-base-surface border border-honey/30 text-ink font-medium text-sm"
-                    >
-                      {breed}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                onClick={handleRestart}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-base-bg border border-base-muted text-ink font-semibold hover:border-honey hover:text-honey transition-all"
-              >
-                <RotateCcw className="w-4 h-4" />
-                {t.quiz.restart}
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
+            <div className="p-8 lg:p-12 text-center animate-scale-in">*
