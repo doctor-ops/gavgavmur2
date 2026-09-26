@@ -23,17 +23,18 @@ export function Hero() {
   };
 
   return (
+    // Оставляем bg-brand (Глубокий графит) для эффекта "входа"
     <section className="relative overflow-hidden bg-brand text-white animate-fade-in">
-      {/* Мягкие декоративные бэкграунд-эффекты */}
+      {/* Декоративные эффекты: Коралловое свечение и глубокий графит */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-light/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
-          {/* Левая колонка с текстом и действиями */}
-          <div>
-            {/* Микро-баннер новинки (10% Акцента) */}
+          {/* Левая колонка */}
+          <div className="z-10">
+            {/* Микро-баннер: Теплый коралловый фон + темный текст */}
             <Link
               to="/tools/allergens"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-soft/90 backdrop-blur text-sm font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3"
@@ -51,12 +52,12 @@ export function Hero() {
               Умные калькуляторы кормления, каталог пород, аллерген-сканер и расчёт бюджета. Всё, чтобы ваш хвостик был счастлив и здоров.
             </p>
 
-            {/* Конверсионные кнопки действий */}
+            {/* CTA-кнопки */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* Главная CTA-кнопка (10% кораллового цвета) */}
+              {/* Главная кнопка: Коралловый фон + Темный текст (для максимального контраста и премиальности) */}
               <Link
                 to="/tools/calories"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-white font-extrabold text-base hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-brand font-extrabold text-base hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20"
               >
                 Рассчитать корм и бюджет
                 <ArrowRight className="w-5 h-5" />
@@ -70,8 +71,9 @@ export function Hero() {
               </Link>
             </div>
 
-            {/* Поисковая строка экосистемы */}
+            {/* Поисковая строка */}
             <form onSubmit={handleSearch} className="relative max-w-lg">
+              {/* Используем base-surface (белый) для максимальной чистоты ввода */}
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
                 <div className="pl-3 pr-2">
                   <Search className="w-5 h-5 text-ink-light" />
@@ -93,26 +95,25 @@ export function Hero() {
             </form>
           </div>
 
-          {/* Правая колонка с новой стабильной CDN-ссылкой на фото */}
+          {/* Правая колонка с фото */}
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
               <img
-                src="https://unsplash.com"
-                alt="Счастливая девушка со своей собакой на зеленой лужайке"
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
+                alt="Счастливая девушка со своей собакой"
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
                 onError={(e) => {
-                  // Фолбэк на случай сбоя сети стоков — мягкая заглушка в цветах сайта
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='100%25' height='100%25' fill='%23334155'/%3E%3C/svg%3E";
+                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='100%25' height='100%25' fill='%23334155'/%3E%3C/svg%3E";
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
             
-            {/* Всплывающие плашки статистики */}
-            <div className="absolute -bottom-4 -left-4 rounded-xl bg-accent text-white px-5 py-3 shadow-xl transform hover:scale-105 transition-transform duration-300">
+            {/* Плашки статистики */}
+            <div className="absolute -bottom-4 -left-4 rounded-xl bg-accent text-brand px-5 py-3 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-white/90 mt-1">оценок кормов</div>
+              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-soft mt-1">оценок кормов</div>
             </div>
             
             <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
@@ -123,17 +124,17 @@ export function Hero() {
 
         </div>
 
-        {/* Статистический блок (Нижняя линия) */}
+        {/* Статистический блок внизу */}
         <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10">
-          <div>
+          <div className="text-center sm:text-left">
             <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">12+</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">пород в каталоге</div>
           </div>
-          <div>
+          <div className="text-center sm:text-left">
             <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">5</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">умных калькуляторов</div>
           </div>
-          <div>
+          <div className="text-center sm:text-left">
             <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">35+</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">ингредиентов в базе</div>
           </div>
