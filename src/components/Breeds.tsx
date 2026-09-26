@@ -23,7 +23,7 @@ const breedImages: Record<string, string> = {
 };
 
 export function Breeds() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const { ref, revealed } = useReveal<HTMLDivElement>();
   const [filter, setFilter] = useState<'all' | 'dogs' | 'cats'>('all');
 
@@ -42,7 +42,6 @@ export function Breeds() {
   };
 
   return (
-    // Изменено на bg-base-bg (молочный), чтобы секция была мягкой
     <section id="breeds" className="py-20 lg:py-28 bg-base-bg">
       <div
         ref={ref}
@@ -66,7 +65,7 @@ export function Breeds() {
               onClick={() => setFilter(tab.key)}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
                 filter === tab.key
-                  ? 'bg-brand text-white shadow-md' // Активный таб теперь в глубоком графитовом
+                  ? 'bg-brand text-white shadow-md'
                   : 'bg-base-surface text-ink-soft hover:bg-base-muted border border-base-muted'
               }`}
             >
@@ -83,7 +82,6 @@ export function Breeds() {
             return (
               <div
                 key={i}
-                // Изменено на bg-base-surface (белый), чтобы карточки «всплывали» над молочным фоном
                 className="group rounded-2xl overflow-hidden bg-base-surface border border-base-muted hover:shadow-xl hover:border-accent/40 transition-all hover:-translate-y-1"
               >
                 <div className="relative h-56 overflow-hidden">
@@ -128,4 +126,16 @@ export function Breeds() {
                     </div>
                     <div className="flex items-start gap-2 text-xs">
                       <Scissors className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-ink-light
+                      <span className="text-ink-light font-semibold w-20 flex-shrink-0">{t.breeds.traits.care}:</span>
+                      <span className="text-ink-soft">{breed.care}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
