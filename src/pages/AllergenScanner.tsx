@@ -43,7 +43,7 @@ export function AllergenScanner() {
       title="Аллерген-сканер"
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
-      {/* Input */}
+      {/* Input Section: Используем bg-base-surface для выделения формы на молочном фоне */}
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
         <label className="block text-sm font-bold text-ink mb-2 font-display">
           Состав корма (через запятую)
@@ -53,27 +53,28 @@ export function AllergenScanner() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Например: дегидрированное мясо курицы, рис, кукуруза, куриный жир, свёкла, томат..."
           rows={4}
-          className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink placeholder-ink-light focus:outline-none focus:border-brand-light focus:ring-2 focus:ring-brand/10 transition-all resize-none text-sm leading-relaxed"
+          // Замена focus:border-brand-light на focus:border-brand для четкости
+          className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all resize-none text-sm leading-relaxed"
         />
         
-        {/* 10% АКЦЕНТА: Конверсионная кнопка действия */}
+        {/* CTA-кнопка: Используем стандарт bg-accent + text-brand для премиального вида */}
         <button
           onClick={() => setAnalyzed(true)}
           disabled={ingredients.length === 0}
-          className="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-white font-bold text-sm hover:bg-accent-light active:bg-accent-dark shadow-sm hover:shadow transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-accent disabled:hover:shadow-none"
+          className="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-brand font-bold text-sm hover:bg-accent-light active:bg-accent-dark shadow-sm hover:shadow-md transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-accent disabled:hover:shadow-none"
         >
           <Search className="w-4 h-4" />
           Анализировать состав
         </button>
       </div>
 
-      {/* Legend */}
+      {/* Legend: Системные цвета остаются, но мы добавляем им мягкости через border-current/5 */}
       <div className="flex flex-wrap gap-3 mb-8">
         {(Object.keys(allergenLevelMeta) as AllergenLevel[]).map((level) => {
           const meta = allergenLevelMeta[level];
           const Icon = levelIcon[level];
           return (
-            <div key={level} className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl ${meta.bg} border border-current/5`}>
+            <div key={level} className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl ${meta.bg} border border-current/10 transition-opacity hover:opacity-80`}>
               <Icon className={`w-4 h-4 ${meta.color}`} />
               <span className={`text-xs font-bold ${meta.color}`}>{meta.label}</span>
             </div>
@@ -81,11 +82,11 @@ export function AllergenScanner() {
         })}
       </div>
 
-      {/* Results */}
+      {/* Results Section */}
       {analyzed && results.length > 0 && (
         <div className="animate-fade-up">
-          {/* Overall verdict */}
-          <div className={`rounded-xl2 p-5 mb-6 ${overallMeta.bg} border border-current/10`}>
+          {/* Overall verdict: Оставляем системный фон, но усиливаем текст */}
+          <div className={`rounded-xl2 p-5 mb-6 ${overallMeta.bg} border border-current/10 shadow-sm`}>
             <div className="flex items-center gap-3">
               <ShieldAlert className={`w-6 h-6 ${overallMeta.color}`} />
               <div>
@@ -95,7 +96,7 @@ export function AllergenScanner() {
                   {overall === 'safe' && 'Состав выглядит безопасным'}
                 </div>
                 <div className="text-xs font-medium text-ink-soft mt-0.5">
-                  Найдено: <span className="font-bold">{counts.danger}</span> опасных · <span className="font-bold">{counts.trigger}</span> триггеров · <span className="font-bold">{counts.safe}</span> безопасных
+                  Найдено: <span className="font-bold text-ink">{counts.danger}</span> опасных · <span className="font-bold text-ink">{counts.trigger}</span> триггеров · <span className="font-bold text-ink">{counts.safe}</span> безопасных
                 </div>
               </div>
             </div>
@@ -109,13 +110,13 @@ export function AllergenScanner() {
               return (
                 <div
                   key={i}
-                  className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ${meta.bg} border border-current/10 cursor-help transition-all hover:scale-[1.02]`}
+                  className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ${meta.bg} border border-current/10 cursor-help transition-all hover:scale-[1.02] shadow-sm`}
                   title={r.note}
                 >
                   <Icon className={`w-4 h-4 ${meta.color}`} />
                   <span className={`text-sm font-semibold ${meta.color}`}>{r.name}</span>
                   
-                  {/* Всплывающая подсказка — стилизована под ink (30% бренда) */}
+                  {/* Tooltip: bg-brand обеспечивает максимальный контраст с системными цветами */}
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover:block z-20 w-64 p-3.5 rounded-xl bg-brand text-white text-xs leading-relaxed shadow-xl whitespace-normal pointer-events-none animate-scale-in">
                     <p className="font-medium">{r.note}</p>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-brand" />
@@ -125,7 +126,7 @@ export function AllergenScanner() {
             })}
           </div>
 
-          {/* Информационная плашка */}
+          {/* Info Box: bg-base-surface для чистоты */}
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
