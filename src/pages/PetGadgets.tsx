@@ -112,4 +112,4 @@ export const PetGadgets: React.FC = () => {
       </div>
     </div>
   );
-};
+}; 
