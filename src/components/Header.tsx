@@ -18,16 +18,24 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Высота хедера h-24 (96px) для солидности бренда */}
         <div className="flex items-center justify-between h-24">
-          
-          <Link to="/" className="flex items-center group">
-            {/* Высота логотипа h-20 (80px), чтобы он был заметным и читаемым */}
-            <img 
-              src={`${import.meta.env.BASE_URL}logo.png`} 
-              alt="ГавГавМур" 
-              className="h-20 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105" 
-            />
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <img 
+                src={`${import.meta.env.BASE_URL}logo-icon.png`} 
+                alt="Logo" 
+                className="h-14 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+                style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 
+              />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="font-display font-black text-2xl tracking-tighter text-white">
+                ГавГавМур
+              </span>
+              <span className="text-[10px] font-medium text-brand-soft uppercase tracking-widest opacity-80">
+                Счастье в четыре лапы
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -52,7 +60,6 @@ export function Header() {
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center"
-            aria-label="Меню"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
