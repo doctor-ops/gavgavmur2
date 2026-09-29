@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight } from 'lucide-react';
 
 const services = [
-  // 🤖 10% АКЦЕНТА: Главная конверсионная карточка 
   {
     to: '/gadgets',
     icon: Cpu,
     title: 'Гаджеты для животных',
     desc: 'Умные кормушки, GPS-ошейники и автоматические лотки для питомцев',
-    isAccent: true, 
+    isAccent: true,
+    color: 'bg-orange-100 text-orange-600', 
   },
   {
     to: '/tools/importozameshenie',
@@ -16,6 +16,7 @@ const services = [
     title: 'Импортозамещение',
     desc: 'Найдите российские альтернативы для иностранных кормов',
     isAccent: false,
+    color: 'bg-blue-100 text-blue-600', 
   },
   {
     to: '/tools/allergens',
@@ -23,6 +24,7 @@ const services = [
     title: 'Аллерген-сканер',
     desc: 'Светофорный анализатор ингредиентов в составе корма',
     isAccent: false,
+    color: 'bg-green-100 text-green-600', 
   },
   {
     to: '/tools/calories',
@@ -30,6 +32,7 @@ const services = [
     title: 'Калькулятор калорий',
     desc: 'Рассчитайте суточную норму корма в ккал и граммах',
     isAccent: false,
+    color: 'bg-purple-100 text-purple-600', 
   },
   {
     to: '/tools/budget',
@@ -37,12 +40,12 @@ const services = [
     title: 'Калькулятор бюджета',
     desc: 'Стоимость содержания любимого питомца в месяц и в год',
     isAccent: false,
+    color: 'bg-yellow-100 text-yellow-600', 
   },
 ];
 
 export function SmartServices() {
   return (
-    // 60% — Фон секции bg-base-bg (Warm Milk)
     <section className="py-16 lg:py-24 bg-base-bg animate-fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -64,16 +67,15 @@ export function SmartServices() {
                 to={s.to}
                 className={`group rounded-xl2 p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   s.isAccent
-                    ? 'bg-brand text-white border-brand sm:col-span-2 lg:col-span-2' // 30% Брендового цвета
-                    : 'bg-base-surface border-base-muted hover:border-accent/30 shadow-sm' // 60% Белой поверхности
+                    ? 'bg-brand text-white border-brand sm:col-span-2 lg:col-span-2'
+                    : 'bg-base-surface border-base-muted hover:border-accent/30 shadow-sm'
                 }`}
               >
                 <div className="relative z-10">
-                  {/* Иконка: В акцентной карточке — Коралловый, в обычных — Графитовый */}
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform ${
                     s.isAccent
-                      ? 'bg-accent text-brand shadow-md shadow-accent/20' // Контрастный текст внутри иконки
-                      : 'bg-brand-soft/10 text-brand group-hover:bg-brand group-hover:text-white'
+                      ? 'bg-accent text-brand shadow-md shadow-accent/20'
+                      : `${s.color} transition-colors`
                   }`}>
                     <Icon className="w-7 h-7" />
                   </div>
@@ -91,14 +93,13 @@ export function SmartServices() {
                   </p>
                 </div>
 
-                {/* Ссылка действия */}
                 <span className={`inline-flex items-center gap-1.5 text-sm font-bold pt-2 mt-auto transition-colors ${
                   s.isAccent 
                     ? 'text-accent group-hover:text-accent-light' 
                     : 'text-brand group-hover:text-accent'
                 }`}>
-                  Открыть инструмент
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                  {s.isAccent ? 'Подобрать гаджет' : 'Открыть инструмент'}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             );
