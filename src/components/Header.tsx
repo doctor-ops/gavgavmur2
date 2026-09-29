@@ -13,13 +13,12 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(//false);
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-/auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-28">
-          
           <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
               <img 
@@ -29,7 +28,6 @@ export function Header() {
                 style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 
               />
             </div>
-
             <div className="flex flex-col leading-tight">
               <span className="font-display font-black text-3xl tracking-tighter text-white">
                 ГавГавМур
