@@ -43,25 +43,26 @@ export function Hero() {
               Умные калькуляторы кормления, каталог пород, аллерген-сканер и расчёт бюджета. Всё, чтобы ваш хвостик был счастлив и здоров.
             </p>
 
-            {/* ИСПРАВЛЕНО: Переход на вертикальный стек кнопок */}
-            <div className="flex flex-col gap-4 mb-8 max-w-sm">
+            {/* КНОПКИ: Теперь одинаковая ширина 350px и фиксированная высота 50px */}
+            <div className="flex flex-col gap-4 mb-8 w-full max-w-[350px]">
               <Link
                 to="/tools/calories"
-                className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
+                className="flex items-center justify-center gap-3 h-[50px] rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
               >
                 Рассчитать корм и бюджет
-                <ArrowRight className="w-6 h-6" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
               
               <Link
                 to="/tools/quiz"
-                className="inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
+                className="flex items-center justify-center gap-2 h-[50px] rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
               >
                 Подобрать питомца
               </Link>
             </div>
 
-            <form onSubmit={handleSearch} className="relative max-w-lg">
+            {/* ПОИСК: Теперь ширина точно такая же, как у кнопок (350px) */}
+            <form onSubmit={handleSearch} className="relative w-full max-w-[350px]">
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
                 <div className="pl-4 pr-2">
                   <Search className="w-5 h-5 text-ink-light" />
@@ -70,10 +71,13 @@ export function Hero() {
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Название корма или порода (Monge, Корги)..."
+                  placeholder="Название корма или порода..."
                   className="flex-1 py-2 px-1 text-sm text-ink placeholder-ink-light bg-transparent focus:outline-none font-semibold"
                 />
-                <button type="submit" className="px-6 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors whitespace-nowrap shadow-sm">
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors whitespace-nowrap shadow-sm"
+                >
                   Найти
                 </button>
               </div>
@@ -82,13 +86,20 @@ export function Hero() {
 
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
-              <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800" alt="Пет" className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out" loading="lazy" />
+              <img
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
+                alt="Пет"
+                className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
+            
             <div className="absolute -bottom-6 -left-4 rounded-xl bg-accent text-brand px-5 py-3 pb-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-white mt-1">отзывов о кормах</div>
             </div>
+            
             <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl text-brand leading-none">75к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-ink-light mt-1">счастливых хвостов</div>
