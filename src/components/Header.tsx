@@ -25,16 +25,16 @@ export function Header() {
               <img 
                 src={`${import.meta.env.BASE_URL}logo-icon.png`} 
                 alt="ГавГавМур" 
-                className="h-14 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+                className="h-[68px] w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
                 style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 
               />
             </div>
 
             <div className="flex flex-col leading-tight">
-              <span className="font-display font-black text-2xl tracking-tighter text-white">
+              <span className="font-display font-black text-3xl tracking-tighter text-white">
                 ГавГавМур
               </span>
-              <span className="text-[10px] font-medium text-brand-soft uppercase tracking-widest opacity-80">
+              <span className="text-xs font-medium text-brand-soft uppercase tracking-widest opacity-80">
                 Счастье в четыре лапы
               </span>
             </div>
