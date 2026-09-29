@@ -24,16 +24,12 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-brand text-white animate-fade-in">
-      {/* Декоративные эффекты: Коралловое свечение для мягкости */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-light/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:/py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          
-          {/* Левая колонка */}
           <div className="z-10">
-            {/* Микро-баннер: Акцентный коралловый цвет для привлечения внимания */}
             <Link
               to="/tools/allergens"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-soft/90 backdrop-blur text-sm font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3"
@@ -43,40 +39,30 @@ export function Hero() {
               <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
             </Link>
 
-            {/* ЗАГОЛОВОК: Теперь использует Plus Jakarta Sans (через font-display) */}
             <h1 className="font-display font-extrabold text-4xl lg:text-5xl xl:text-6xl leading-tight mb-5 tracking-tight text-white">
               ГавГавМур — экосистема заботы о ваших питомцах
             </h1>
 
-            {/* 
-               ИСПРАВЛЕНИЕ ПО АУДИТУ:
-               1. text-white/80 вместо text-brand-soft (высокий контраст на темном фоне)
-               2. text-lg lg:text-xl (увеличен размер для читаемости)
-               3. leading-loose (увеличен межстрочный интервал для «дыхания» текста)
-            */}
             <p className="text-lg lg:text-xl text-white/80 leading-loose mb-8 max-w-xl font-normal">
               Умные калькуляторы кормления, каталог пород, аллерген-сканер и расчёт бюджета. Всё, чтобы ваш хвостик был счастлив и здоров.
             </p>
 
-            {/* CTA-кнопки: Максимальный фокус на главном действии */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 to="/tools/calories"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-accent text-brand font-extrabold text-base hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
               >
                 Рассчитать корм и бюджет
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-6 h-6" />
               </Link>
-              
               <Link
                 to="/tools/quiz"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 text-white font-bold text-base hover:bg-white/10 transition-all border-2 border-white/20 hover:border-white/40"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60"
               >
-                Подобрать питомца (Тест)
+                Подобрать питомца
               </Link>
             </div>
 
-            {/* Поисковая строка: Чистый белый фон для контраста */}
             <form onSubmit={handleSearch} className="relative max-w-lg">
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
                 <div className="pl-3 pr-2">
@@ -91,7 +77,7 @@ export function Hero() {
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-lg bg-brand text-white font-bold text-sm hover:bg-brand-light transition-colors whitespace-nowrap shadow-sm"
+                  className="px-6 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors whitespace-nowrap shadow-sm"
                 >
                   Найти
                 </button>
@@ -99,40 +85,35 @@ export function Hero() {
             </form>
           </div>
 
-          {/* Правая колонка с фото */}
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
               <img
                 src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
-                alt="Счастливая девушка со своей собакой"
+                alt="Пет"
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
-            
-            {/* Плашки статистики: Текст в цвете бренда для читаемости */}
             <div className="absolute -bottom-4 -left-4 rounded-xl bg-accent text-brand px-5 py-3 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-soft mt-1">оценок кормов</div>
+              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-soft mt-1">отзывов о кормах</div>
             </div>
-            
             <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl text-brand leading-none">75к+</div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-ink-light mt-1">пользователей</div>
+              <div className="text-[10px] font-bold uppercase tracking-wider text-ink-light mt-1">счастливых хвостов</div>
             </div>
           </div>
 
         </div>
 
-        {/* Статистический блок: Акцентный цвет для цифр */}
         <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10">
           <div className="text-center sm:text-left">
             <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">12+</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">пород в каталоге</div>
           </div>
           <div className="text-center sm:text-left">
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-//tight">5</div>
+            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">5</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">умных калькуляторов</div>
           </div>
           <div className="text-center sm:text-left">
