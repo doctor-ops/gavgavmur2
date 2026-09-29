@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-//router-dom'; // ВНИМАНИЕ: исправьте на 'react-router-dom' если будет ошибка
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -18,17 +18,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 
-           ИСПРАВЛЕНИЕ: Увеличил высоту хедера с h-20 до h-24 (96px), 
-           чтобы дать логотипу больше пространства 
-        */}
+        {/* Высота хедера h-24 (96px) для солидности бренда */}
         <div className="flex items-center justify-between h-24">
           
           <Link to="/" className="flex items-center group">
-            {/* 
-               ИСПРАВЛЕНИЕ: Увеличил высоту логотипа с h-12 (48px) до h-20 (80px).
-               Теперь он занимает почти всю высоту панели, становясь заметным и читаемым.
-            */}
+            {/* Высота логотипа h-20 (80px), чтобы он был заметным и читаемым */}
             <img 
               src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="ГавГавМур" 
