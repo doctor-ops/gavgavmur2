@@ -18,16 +18,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          <Link to="/" className="flex items-center gap-3 group">
+        <div className="flex items-center justify-between h-28">
+          
+          <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
               <img 
                 src={`${import.meta.env.BASE_URL}logo-icon.png`} 
-                alt="Logo" 
+                alt="ГавГавМур" 
                 className="h-14 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
                 style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 
               />
             </div>
+
             <div className="flex flex-col leading-tight">
               <span className="font-display font-black text-2xl tracking-tighter text-white">
                 ГавГавМур
@@ -60,6 +62,7 @@ export function Header() {
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center"
+            aria-label="Меню"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
