@@ -13,7 +13,7 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(//false);
 
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
@@ -46,13 +46,14 @@ export function Header() {
                 key={link.to}
                 to={link.to}
                 end={link.to === '/'}
-                className={({ isActive }) =>
-                  `px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-accent text-brand shadow-sm'
-                      : 'text-brand-soft hover:bg-brand-light hover:text-white'
-                  }`
-                }
+                className={({ isActive }) => {
+                  if (isActive) {
+                    return link.to === '/' 
+                      ? 'text-white font-bold' 
+                      : 'bg-accent text-brand shadow-sm px-3.5 py-2 rounded-lg text-sm font-medium transition-all';
+                  }
+                  return 'px-3.5 py-2 rounded-lg text-sm font-medium transition-all text-brand-soft hover:bg-brand-light hover:text-white';
+                }}
               >
                 {link.label}
               </NavLink>
@@ -79,7 +80,9 @@ export function Header() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  isActive ? 'bg-accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
+                  isActive 
+                    ? (link.to === '/' ? 'text-white font-bold' : 'bg-accent text-brand') 
+                    : 'text-brand-soft hover:bg-brand-light hover:text-white'
                 }`
               }
             >
