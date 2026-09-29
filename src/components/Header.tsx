@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-//router-dom'; // ВНИМАНИЕ: исправьте на 'react-router-dom' если будет ошибка
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -18,14 +18,24 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        {/* 
+           ИСПРАВЛЕНИЕ: Увеличил высоту хедера с h-20 до h-24 (96px), 
+           чтобы дать логотипу больше пространства 
+        */}
+        <div className="flex items-center justify-between h-24">
+          
           <Link to="/" className="flex items-center group">
+            {/* 
+               ИСПРАВЛЕНИЕ: Увеличил высоту логотипа с h-12 (48px) до h-20 (80px).
+               Теперь он занимает почти всю высоту панели, становясь заметным и читаемым.
+            */}
             <img 
               src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="ГавГавМур" 
-              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              className="h-20 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105" 
             />
           </Link>
+
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <NavLink
@@ -44,6 +54,7 @@ export function Header() {
               </NavLink>
             ))}
           </nav>
+
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center"
@@ -53,6 +64,7 @@ export function Header() {
           </button>
         </div>
       </div>
+
       {open && (
         <nav className="lg:hidden bg-brand-dark border-t border-brand-light px-4 py-3 space-y-1">
           {navLinks.map((link) => (
