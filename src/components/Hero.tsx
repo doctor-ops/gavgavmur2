@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'; 
-import { Link, useNavigate } from 'react-router-dom'; 
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Search, Sparkles } from 'lucide-react';
 
 export function Hero() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  
   const [heroImage, setHeroImage] = useState('');
 
   useEffect(() => {
     const petImages = [
-      'https://images.unsplash.com/photo-1543466825-79a9caaa6741?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1514888281263-475226346722?auto=format&fit=crop&q=80&w=800'
+      '/hero-dog.webp', 
+      '/hero-cat.webp'  
     ];
     
     const randomIndex = Math.floor(Math.random() * petImages.length);
@@ -36,10 +35,7 @@ export function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div className="z-10">
-            <Link
-              to="/tools/allergens"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-soft/90 backdrop-blur text-sm font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3"
-            >
+            <Link to="/tools/allergens" className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-soft/90 backdrop-blur text-sm font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3">
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-accent-dark">Новинка: Сканер аллергенов в кормах 2026</span>
               <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
@@ -54,17 +50,11 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link
-                to="/tools/calories"
-                className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
-              >
+              <Link to="/tools/calories" className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap">
                 Рассчитать корм и бюджет
                 <ArrowRight className="w-6 h-6" />
               </Link>
-              <Link
-                to="/tools/quiz"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
-              >
+              <Link to="/tools/quiz" className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap">
                 Подобрать питомца
               </Link>
             </div>
@@ -90,7 +80,6 @@ export function Hero() {
 
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
-              {/* ИСПОЛЬЗУЕМ ДИНАМИЧЕСКОЕ ФОТО {heroImage} */}
               <img
                 src={heroImage}
                 alt="Счастливый питомец"
@@ -99,12 +88,10 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
-            
             <div className="absolute -bottom-6 -left-4 rounded-xl bg-accent text-brand px-5 py-3 pb-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-white mt-1">отзывов о кормах</div>
             </div>
-            
             <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl text-brand leading-none">75к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-ink-light mt-1">счастливых хвостов</div>
