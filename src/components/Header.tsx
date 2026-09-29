@@ -17,13 +17,13 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
-      <div className="max-w-7xl mx-/auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-28">
           <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
               <img 
                 src={`${import.meta.env.BASE_URL}logo-icon.png`} 
-                alt="ГавГавМур" 
+                alt="Logo" 
                 className="h-[68px] w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
                 style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 
               />
@@ -44,14 +44,13 @@ export function Header() {
                 key={link.to}
                 to={link.to}
                 end={link.to === '/'}
-                className={({ isActive }) => {
-                  if (isActive) {
-                    return link.to === '/' 
-                      ? 'text-white font-bold' 
-                      : 'bg-accent text-brand shadow-sm px-3.5 py-2 rounded-lg text-sm font-medium transition-all';
-                  }
-                  return 'px-3.5 py-2 rounded-lg text-sm font-medium transition-all text-brand-soft hover:bg-brand-light hover:text-white';
-                }}
+                className={({ isActive }) =>
+                  `px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                    isActive
+                      ? 'bg-accent text-brand shadow-sm'
+                      : 'text-brand-soft hover:bg-brand-light hover:text-white'
+                  }`
+                }
               >
                 {link.label}
               </NavLink>
@@ -78,9 +77,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  isActive 
-                    ? (link.to === '/' ? 'text-white font-bold' : 'bg-accent text-brand') 
-                    : 'text-brand-soft hover:bg-brand-light hover:text-white'
+                  isActive ? 'bg-accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
                 }`
               }
             >
