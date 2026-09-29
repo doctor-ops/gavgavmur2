@@ -48,12 +48,11 @@ export function SmartServices() {
   return (
     <section className="py-16 lg:py-24 bg-base-bg animate-fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx/auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-3">Умные сервисы</h2>
-          <p className="text-base text-ink-soft leading-relaxed">Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.</p>
+          <p className="text-base text-ink-light leading-relaxed">Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.</p>
         </div>
 
-        {/* СЕТКА: Перешли на lg:grid-cols-3 для идеального баланса 2+3 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => {
             const Icon = s.icon;
@@ -63,7 +62,7 @@ export function SmartServices() {
                 to={s.to}
                 className={`group rounded-xl2 p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   s.isAccent
-                    ? 'bg-base-surface text-ink border-base-muted sm:col-span-2 lg:col-span-2 hover:border-accent/30 shadow-sm' 
+                    ? 'bg-base-surface text-ink border-base-muted sm:col-span-2 lg:col-span-2 hover:border-accent/30 shadow-sm'
                     : 'bg-base-surface border-base-muted hover:border-accent/30 shadow-sm'
                 }`}
               >
@@ -73,8 +72,8 @@ export function SmartServices() {
                       ? 'bg-accent text-brand shadow-md shadow-accent/20'
                       : `${s.color} transition-colors`
                   }`}>
-                    {/* УВЕЛИЧЕНО: Иконка теперь w-10 h-10 */}
-                    <Icon className="w-10 h-10" />
+                    {/* ИСПРАВЛЕНО: Единый размер иконок для всех плиток */}
+                    <Icon className="w-8 h-8" />
                   </div>
                   
                   <h3 className={`font-display font-bold text-xl mb-2.5 ${
@@ -87,8 +86,9 @@ export function SmartServices() {
                   </p>
                 </div>
 
+                {/* ИСПРАВЛЕНО: Унифицированный текст ссылки для всех сервисов */}
                 <span className="inline-flex items-center gap-1.5 text-sm font-bold pt-2 mt-auto transition-colors text-accent group-hover:text-accent-light">
-                  {s.isAccent ? 'Подобрать гаджет' : 'Открыть инструмент'}
+                  Открыть инструмент
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
