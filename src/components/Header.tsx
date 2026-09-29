@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-//router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -19,7 +19,6 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
           <Link to="/" className="flex items-center group">
             <img 
               src={`${import.meta.env.BASE_URL}logo.png`} 
@@ -27,7 +26,6 @@ export function Header() {
               className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
             />
           </Link>
-
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <NavLink
@@ -46,7 +44,6 @@ export function Header() {
               </NavLink>
             ))}
           </nav>
-
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center"
@@ -56,7 +53,6 @@ export function Header() {
           </button>
         </div>
       </div>
-
       {open && (
         <nav className="lg:hidden bg-brand-dark border-t border-brand-light px-4 py-3 space-y-1">
           {navLinks.map((link) => (
