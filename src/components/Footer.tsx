@@ -9,7 +9,7 @@ export function Footer() {
           <div className="rounded-2xl bg-brand-dark p-6 border border-brand-light hover:border-accent/50 transition-colors">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 rounded-xl bg-[#229ED9] flex items-center justify-center">
-                <Send className="w-6 h-6 text-white" /> {/* ИСПРАВЛЕНО: теперь самолетик */}
+                <Send className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-lg">Наш Telegram-канал</h3>
@@ -24,7 +24,7 @@ export function Footer() {
               Открыть в Telegram
             </a>
           </div>
-          {/* Блок ВК без изменений */}
+
           <div className="rounded-2xl bg-brand-dark p-6 border border-brand-light hover:border-accent/50 transition-colors">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 rounded-xl bg-[#4A76A8] flex items-center justify-center">
@@ -45,7 +45,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ИСПРАВЛЕНО: Распределяем контент по ширине (justify-between) */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-8 border-t border-brand-light pt-8">
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
@@ -77,6 +76,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </header>
+    </footer>
   );
 }
