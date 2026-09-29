@@ -37,25 +37,18 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* Кнопки теперь одинаковой ширины (flex-1) */}
-              <Link
-                to="/tools/calories"
-                className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
-              >
+              <Link to="/tools/calories" className="flex-1 inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap">
                 Рассчитать корм и бюджет
                 <ArrowRight className="w-6 h-6" />
               </Link>
-              <Link
-                to="/tools/quiz"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
-              >
+              <Link to="/tools/quiz" className="flex-1 inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap">
                 Подобрать питомца
               </Link>
             </div>
 
             <form onSubmit={handleSearch} className="relative max-w-lg">
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
-                <div className="pl-4 pr-2"> {/* Увеличен отступ для лупы */}
+                <div className="pl-4 pr-2">
                   <Search className="w-5 h-5 text-ink-light" />
                 </div>
                 <input
@@ -77,11 +70,13 @@ export function Hero() {
               <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800" alt="Пет" className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
-            {/* Плашки: опущены ниже, текст чисто белый, размер увеличен */}
-            <div className="absolute -bottom-6 -left-4 rounded-xl bg-accent text-brand px-5 py-3 shadow-xl transform hover:scale-105 transition-transform duration-300">
+            
+            {/* ИСПРАВЛЕНО: Опустили ниже (-bottom-6) и добавили pb-4 для воздуха снизу */}
+            <div className="absolute -bottom-6 -left-4 rounded-xl bg-accent text-brand px-5 py-3 pb-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl leading-none">10к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-white mt-1">отзывов о кормах</div>
             </div>
+            
             <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
               <div className="font-display font-black text-xl text-brand leading-none">75к+</div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-ink-light mt-1">счастливых хвостов</div>
