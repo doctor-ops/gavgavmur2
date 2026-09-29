@@ -20,11 +20,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          <Link to="/" className="flex items-center group">
+           <Link to="/" className="flex items-center group">
             <img 
               src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="ГавГавМур" 
-              className="h-12 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+              {/* УДАЛИЛИ brightness-0 invert. Теперь логотип будет в оригинальном цвете */}
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
             />
           </Link>
 
