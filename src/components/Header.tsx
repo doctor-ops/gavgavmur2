@@ -44,13 +44,17 @@ export function Header() {
                 key={link.to}
                 to={link.to}
                 end={link.to === '/'}
-                className={({ isActive }) =>
-                  `px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-accent text-brand shadow-sm'
-                      : 'text-brand-soft hover:bg-brand-light hover:text-white'
-                  }`
-                }
+                className={({ isActive }) => {
+                  if (isActive) {
+                    // Если это Главная — просто белый текст
+                    if (link.to === '/') {
+                      return 'px-3.5 py-2 rounded-lg text-sm font-bold text-white transition-all';
+                    }
+                    // Для всех остальных — оранжевая плашка
+                    return 'px-3.5 py-2 rounded-lg text-sm font-medium bg-accent text-brand shadow-sm transition-all';
+                  }
+                  return 'px-3.5 py-2 rounded-lg text-sm font-medium transition-all text-brand-soft hover:bg-brand-light hover:text-white';
+                }}
               >
                 {link.label}
               </NavLink>
@@ -75,11 +79,14 @@ export function Header() {
               to={link.to}
               end={link.to === '/'}
               onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  isActive ? 'bg-accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
-                }`
-              }
+              className={({ isActive }) => {
+                if (isActive) {
+                  return link.to === '/' 
+                    ? 'block px-4 py-2.5 rounded-lg text-sm font-bold text-white transition-all' 
+                    : 'block px-4 py-2.5 rounded-lg text-sm font-medium bg-accent text-brand transition-all';
+                }
+                return 'block px-4 py-2.5 rounded-lg text-sm font-medium transition-all text-brand-soft hover:bg-brand-light hover:text-white';
+              }}
             >
               {link.label}
             </NavLink>
