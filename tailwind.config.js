@@ -12,7 +12,6 @@ export default {
         },
         
         // Шрифты и текстовые оттенки (Глубокий графит)
-        // Эти цвета отлично работают и на тёплом фоне, создавая сильный контраст
         ink: {
           DEFAULT: '#1E293B', // Slate-800: основной текст
           soft: '#475569',    // Slate-600: второстепенный
@@ -28,7 +27,6 @@ export default {
         },
         
         // 10% — Акцент (Кораллово-оранжевый)
-        // На тёплом фоне коралловый смотрится еще органичнее и мягче
         accent: {
           DEFAULT: '#FF6B4A', 
           light: '#FF856B',   
@@ -36,7 +34,7 @@ export default {
           soft: '#FFEBE7',    
         },
         
-        // Системные статусы (оптимизировано без дублей)
+        // Системные статусы
         success: {
           DEFAULT: '#4CAF50',
           light: '#E8F5E9',
@@ -54,8 +52,10 @@ export default {
         },
       },
       fontFamily: {
+        // Основной текст: Inter (эталон читаемости в IT)
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Manrope"', 'Inter', 'system-ui', 'sans-serif'],
+        // Заголовки: Plus Jakarta Sans (дружелюбный, современный, экспертный)
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         'xl2': '16px',
