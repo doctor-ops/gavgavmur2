@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-//react';
+import { Menu, X } from 'lucide-react'; // ИСПРАВЛЕНО: убраны лишние символы в пути
 
 const navLinks = [
   { to: '/', label: 'Главная' },
@@ -18,16 +18,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20"> {/* Немного увеличил высоту h-16 -> h-20 для логотипа */}
+        <div className="flex items-center justify-between h-20">
           
           <Link to="/" className="flex items-center group">
-            {/* 
-               ЛОГОТИП:
-               - h-12: фиксированная высота, чтобы логотип не «прыгал»
-               - w-auto: ширина подстраивается автоматически
-               - brightness-0 invert: делает черный логотип белым
-               - group-hover:scale-105: легкий эффект при наведении
-            */}
             <img 
               src="/logo.png" 
               alt="ГавГавМур" 
