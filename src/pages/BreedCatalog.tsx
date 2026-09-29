@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react'; // ИСПРАВЛЕНО: добавлен useMemo
 import { Link } from 'react-router-dom';
 import { BREEDS_DATABASE } from '@/data/breeds';
 import { Dog, Cat, ArrowRight, Filter as FilterIcon } from 'lucide-react';
@@ -7,6 +7,7 @@ export function BreedCatalog() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'dog' | 'cat'>('all');
   const [activeTemp, setActiveTemp] = useState<string>('all');
 
+  // Теперь useMemo импортирован, и эта часть кода будет работать!
   const filteredBreeds = useMemo(() => {
     return BREEDS_DATABASE.filter(breed => {
       const matchesType = activeFilter === 'all' || breed.type === activeFilter;
@@ -23,7 +24,6 @@ export function BreedCatalog() {
   };
 
   return (
-    // Добавляем bg-base-bg, чтобы каталог был на молочном фоне
     <div className="min-h-screen bg-base-bg px-4 py-12 animate-fade-in">
       <div className="max-w-7xl mx-auto">
         {/* Шапка каталога */}
@@ -79,18 +79,14 @@ export function BreedCatalog() {
             {filteredBreeds.map((breed) => (
               <div 
                 key={breed.id} 
-                // bg-base-surface для карточек на молочном фоне
                 className="bg-base-surface border border-base-muted rounded-xl2 overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all flex flex-col group hover:-translate-y-1"
               >
-                
-                {/* Контейнер изображения */}
                 <div className="relative h-64 bg-brand-dark overflow-hidden flex items-center justify-center border-b border-base-muted">
                   <div 
                     className="absolute inset-0 bg-cover bg-center scale-110 blur-lg opacity-30 pointer-events-none group-hover:scale-125 transition-all duration-700"
                     style={{ backgroundImage: `url(${breed.image})` }}
                   />
                   <div className="absolute inset-0 bg-brand-dark/30" />
-
                   <img
                     src={breed.image}
                     alt={breed.name}
@@ -107,7 +103,6 @@ export function BreedCatalog() {
                       </span>
                     </div>
 
-                    {/* Инфо-блок: bg-base-bg (молочный) внутри белой карточки */}
                     <div className="space-y-1.5 text-xs text-ink-soft mb-4 bg-base-bg p-3.5 rounded-xl border border-base-muted/60 font-medium">
                       <div className="truncate"><span className="text-ink-light">📍 Происхождение:</span> {breed.origin}</div>
                       <div className="truncate"><span className="text-ink-light">⏳ Жизненный цикл:</span> {breed.lifeSpan}</div>
@@ -119,7 +114,6 @@ export function BreedCatalog() {
                     </p>
                   </div>
 
-                  {/* CTA Кнопка: bg-accent + text-brand (премиальный стандарт) */}
                   <Link
                     to={`/wiki/${breed.id}`}
                     className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light active:bg-accent-dark text-brand font-bold py-3.5 rounded-xl shadow-sm hover:shadow-md transition-all text-sm mt-auto"
@@ -134,7 +128,7 @@ export function BreedCatalog() {
         ) : (
           <div className="text-center py-16 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
             <p className="text-ink-soft font-bold text-lg">Породы с такими фильтрами не найдены.</p>
-            <p className="text-ink-light text-sm mt-1">Попробуйте сбросить параметры фильтрации или выбрать другой темперамент.</p>
+            <p className="text-ink-light text-sm mt-1">Попробуйте сбросить параметры фильтрации.</p>
           </div>
         )}
       </div>
