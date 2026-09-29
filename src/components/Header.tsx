@@ -21,10 +21,6 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           
           <Link to="/" className="flex items-center group">
-            {/* 
-                ИСПРАВЛЕНО: Используем import.meta.env.BASE_URL.
-                Это автоматически превратит путь в /gavgavmur2/logo.png 
-            */}
             <img 
               src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="ГавГавМур" 
@@ -71,7 +67,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  isActive ? 'bg-//accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
+                  isActive ? 'bg-accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
                 }`
               }
             >
