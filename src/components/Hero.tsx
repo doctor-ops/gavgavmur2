@@ -9,8 +9,8 @@ export function Hero() {
 
   useEffect(() => {
     const petImages = [
-      '/hero-dog.jpg', 
-      '/hero-cat.jpg'  
+      `${import.meta.env.BASE_URL}hero-dog.jpg`, 
+      `${import.meta.env.BASE_URL}hero-cat.jpg`  
     ];
     
     const randomIndex = Math.floor(Math.random() * petImages.length);
@@ -24,8 +24,6 @@ export function Hero() {
     const breedMatch = ['корги', 'овчарка', 'лабрадор', 'чихуахуа', 'пудель', 'сиба', 'мейн-кун', 'сиамская', 'британская', 'сфинкс'].find((b) => b.includes(q) || q.includes(b));
     if (breedMatch) { navigate('/wiki'); } else { navigate('/tools/importozameshenie'); }
   };
-
-  if (!heroImage) return null;
 
   return (
     <section className="relative overflow-hidden bg-brand text-white animate-fade-in">
@@ -81,7 +79,7 @@ export function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
               <img
-                src={heroImage}
+                src={heroImage || 'https://via.placeholder.com/800x500?text=Loading...'}
                 alt="Счастливый питомец"
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
