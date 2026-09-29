@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
@@ -23,11 +23,20 @@ function App() {
             <Route
               path="/"
               element={
-                <div className="p-10 text-center">
+                <div className="animate-fade-in">
                   <Hero />
-                  {/* ПРОБУЕМ ВКЛЮЧИТЬ HOME */}
+                  
+                  {/* Маркетинговый переход к сервисам */}
+                  <div className="text-center max-w-3xl mx-auto px-4 py-16">
+                    <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-4">
+                      Полезные статьи и обзоры кормов
+                    </h2>
+                    <p className="text-ink-soft text-base leading-relaxed">
+                      Собрали для вас лучшие рекомендации экспертов и отзывы владельцев, чтобы ваш питомец получал только самое лучшее.
+                    </p>
+                  </div>
+
                   <Home />
-                  <h1 className="text-3xl font-bold text-ink mt-10">ГЛАВНАЯ СТРАНИЦА</h1>
                 </div>
               }
             />
