@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { ArrowRight, Search, Sparkles } from 'lucide-react';
 
 export function Hero() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
+  
+  const [heroImage, setHeroImage] = useState('');
+
+  useEffect(() => {
+    const petImages = [
+      'https://images.unsplash.com/photo-1543466825-79a9caaa6741?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1514888281263-475226346722?auto=format&fit=crop&q=80&w=800'
+    ];
+    
+    const randomIndex = Math.floor(Math.random() * petImages.length);
+    setHeroImage(petImages[randomIndex]);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
     const q = query.trim().toLowerCase();
-    const breedMatch = [
-      'корги', 'овчарка', 'немецкая овчарка', 'лабрадор', 'чихуахуа', 'пудель',
-      'сиба', 'сиба-ину', 'мейн-кун', 'сиамская', 'британская', 'сфинкс',
-      'бенгальская', 'шотландская', 'вислоухая',
-    ].find((b) => b.includes(q) || q.includes(b));
+    const breedMatch = ['корги', 'овчарка', 'лабрадор', 'чихуахуа', 'пудель', 'сиба', 'мейн-кун', 'сиамская', 'британская', 'сфинкс'].find((b) => b.includes(q) || q.includes(b));
     if (breedMatch) { navigate('/wiki'); } else { navigate('/tools/importozameshenie'); }
   };
+
+  if (!heroImage) return null;
 
   return (
     <section className="relative overflow-hidden bg-brand text-white animate-fade-in">
@@ -43,26 +53,23 @@ export function Hero() {
               Умные калькуляторы кормления, каталог пород, аллерген-сканер и расчёт бюджета. Всё, чтобы ваш хвостик был счастлив и здоров.
             </p>
 
-            {/* КНОПКИ: Теперь одинаковая ширина 350px и фиксированная высота 50px */}
-            <div className="flex flex-col gap-4 mb-8 w-full max-w-[350px]">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 to="/tools/calories"
-                className="flex items-center justify-center gap-3 h-[50px] rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
+                className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-accent text-brand font-extrabold text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 whitespace-nowrap"
               >
                 Рассчитать корм и бюджет
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-6 h-6" />
               </Link>
-              
               <Link
                 to="/tools/quiz"
-                className="flex items-center justify-center gap-2 h-[50px] rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/5 text-white/80 font-bold text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 whitespace-nowrap"
               >
                 Подобрать питомца
               </Link>
             </div>
 
-            {/* ПОИСК: Теперь ширина точно такая же, как у кнопок (350px) */}
-            <form onSubmit={handleSearch} className="relative w-full max-w-[350px]">
+            <form onSubmit={handleSearch} className="relative max-w-lg">
               <div className="flex items-center bg-base-surface rounded-xl shadow-xl overflow-hidden p-1.5 border border-base-muted/30">
                 <div className="pl-4 pr-2">
                   <Search className="w-5 h-5 text-ink-light" />
@@ -74,10 +81,7 @@ export function Hero() {
                   placeholder="Название корма или порода..."
                   className="flex-1 py-2 px-1 text-sm text-ink placeholder-ink-light bg-transparent focus:outline-none font-semibold"
                 />
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors whitespace-nowrap shadow-sm"
-                >
+                <button type="submit" className="px-6 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors whitespace-nowrap shadow-sm">
                   Найти
                 </button>
               </div>
@@ -86,9 +90,10 @@ export function Hero() {
 
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
+              {/* ИСПОЛЬЗУЕМ ДИНАМИЧЕСКОЕ ФОТО {heroImage} */}
               <img
-                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
-                alt="Пет"
+                src={heroImage}
+                alt="Счастливый питомец"
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
               />
