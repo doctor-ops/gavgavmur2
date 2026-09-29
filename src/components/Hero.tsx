@@ -9,8 +9,8 @@ export function Hero() {
 
   useEffect(() => {
     const petImages = [
-      '/hero-dog.webp', 
-      '/hero-cat.webp'  
+      '/hero-dog.jpg', 
+      '/hero-cat.jpg'  
     ];
     
     const randomIndex = Math.floor(Math.random() * petImages.length);
