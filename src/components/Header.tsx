@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // ИСПРАВЛЕНО: убраны лишние символы в пути
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { to: '/', label: 'Главная' },
@@ -21,8 +21,12 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           
           <Link to="/" className="flex items-center group">
+            {/* 
+                ИСПРАВЛЕНО: Используем import.meta.env.BASE_URL.
+                Это автоматически превратит путь в /gavgavmur2/logo.png 
+            */}
             <img 
-              src="/logo.png" 
+              src={`${import.meta.env.BASE_URL}logo.png`} 
               alt="ГавГавМур" 
               className="h-12 w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
             />
@@ -67,7 +71,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  isActive ? 'bg-accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
+                  isActive ? 'bg-//accent text-brand' : 'text-brand-soft hover:bg-brand-light hover:text-white'
                 }`
               }
             >
