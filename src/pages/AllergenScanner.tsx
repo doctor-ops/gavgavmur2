@@ -17,14 +17,14 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Улучшенная нормализация
+  // Улучшенная нормализация: удаление акцентов, скобок и спецсимволов
   const normalize = (text: string) => {
     return text
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") // Удаление ударений
+      .replace(/[\u0300-\u036f]/g, "") 
       .toLowerCase()
-      .replace(/[()\[\]{}]/g, '')      // Удаление скобок
-      .replace(/[*_]/g, '')            // Удаление спецсимволов (звездочки и т.д.)
+      .replace(/[()\[\]{}]/g, '')      
+      .replace(/[*_]/g, '')            
       .trim();
   };
 
@@ -48,47 +48,36 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
-  // СКОРРЕКТИРОВАННЫЙ ПЕРЕВОДЧИК
   const translateIngredient = (text: string): string => {
-    // 1. Очистка ТОЛЬКО от процентов. 
-    // Не удаляем все цифры, чтобы сохранить "Витамин B12", "D3"
+    // 1. Очистка от процентов, сохраняя цифры для витаминов (B12, D3)
     let cleaned = text
-      .replace(/\(\d+([.,]\d+)?%\)/g, '') // Удаляет (1.6%)
-      .replace(/\d+([.,]\d+)?%/g, '')    // Удаляет 10%
+      .replace(/\(\d+([.,]\d+)?%\)/g, '') 
+      .replace(/\d+([.,]\d+)?%/g, '')    
       .trim();
 
     let resultText = cleaned;
     const normalizedInput = normalize(cleaned);
 
-    // 2. Сортируем ключи словаря от длинных к коротким (жадный поиск)
+    // 2. Жадный поиск: переводим сначала самые длинные фразы
     const sortedKeys = Object.keys(ingredientTranslations).sort((a, b) => b.length - a.length);
 
     for (const foreign of sortedKeys) {
       const normalizedForeign = normalize(foreign);
-      
-      // Если нормализованный ключ содержится в нормализованном вводе
       if (normalizedInput.includes(normalizedForeign)) {
-        // Создаем регулярное выражение для замены оригинального текста (с учетом регистра)
-        // Чтобы не заменить "рис" внутри слова "криспы", можно добавить проверку границ, 
-        // но для ингредиентов лучше работает простой replace по словарю
         const regex = new RegExp(foreign, 'gi');
         resultText = resultText.replace(regex, ingredientTranslations[foreign]);
       }
     }
 
-    // 3. Финальная очистка результата (удаляем висячие запятые, скобки в конце)
-    let finalResult = normalize(resultText);
-    
-    // Если в словаре есть прямое совпадение для нормализованного ввода — берем его
+    // 3. Прямое совпадение (если жадный поиск не сработал или нужна точность)
     if (ingredientTranslations[normalizedInput]) {
       return ingredientTranslations[normalizedInput];
     }
 
-    // Если мы что-то перевели, возвращаем переведенный текст, иначе очищенный оригинал
-    return resultText === cleaned ? cleaned : resultText;
+    // Финальная очистка от висячих знаков препинания в конце переведенной строки
+    return resultText.replace(/[,.;]$/, '').trim();
   };
 
-  // Расщепление строки состава
   const ingredients = useMemo(() => {
     return input
       .split(/[,;\n]/)
@@ -101,20 +90,23 @@ export function AllergenScanner() {
       const translatedName = translateIngredient(ing);
       const normalizedTranslated = normalize(translatedName);
 
-      // Поиск в базе аллергенов
       const found = ingredientDatabase.find((db) => {
         const normalizedDbName = normalize(db.name);
-        return (
-          normalizedDbName === normalizedTranslated || 
-          normalizedTranslated.includes(normalizedDbName) || 
-          normalizedDbName.includes(normalizedTranslated)
-        );
+        
+        // Точное совпадение
+        if (normalizedDbName === normalizedTranslated) return true;
+        
+        // Частичное совпадение (только если слово достаточно длинное, чтобы избежать ошибок)
+        if (normalizedDbName.length > 3 && normalizedTranslated.includes(normalizedDbName)) return true;
+        if (normalizedTranslated.length > 3 && normalizedDbName.includes(normalizedTranslated)) return true;
+
+        return false;
       });
 
       return {
         name: translatedName,
         level: found?.level || ('safe' as AllergenLevel),
-        note: found?.note || 'Не найден в базе — считается безопасным, но уточните у ветеринара',
+        note: found?.note || 'Ингредиент не найден в базе — считается безопасным, но уточните у ветеринара',
       };
     });
   }, [ingredients]);
@@ -133,7 +125,6 @@ export function AllergenScanner() {
       title="Аллерген-сканер"
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
-      {/* ... (остальная часть JSX остается без изменений) ... */}
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
         <div className="mb-6 relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
