@@ -6,10 +6,31 @@ export interface Ingredient {
   note: string;
 }
 
+/**
+ * СИНХРОНИЗАЦИЯ С tailwind.config.js
+ * danger -> error
+ * trigger -> warning
+ * safe -> success
+ */
 export const allergenLevelMeta: Record<AllergenLevel, { label: string; color: string; bg: string; dot: string }> = {
-  danger: { label: 'Опасно', color: 'text-danger-dark', bg: 'bg-danger-light', dot: 'bg-danger' },
-  trigger: { label: 'Триггер', color: 'text-warn-dark', bg: 'bg-warn-light', dot: 'bg-warn' },
-  safe: { label: 'Безопасно', color: 'text-safe-dark', bg: 'bg-safe-light', dot: 'bg-safe' },
+  danger: { 
+    label: 'Опасно', 
+    color: 'text-error-dark', // соответствует error.dark в конфиге
+    bg: 'bg-error-light',     // соответствует error.light в конфиге
+    dot: 'bg-error',          // соответствует error.DEFAULT в конфиге
+  },
+  trigger: { 
+    label: 'Триггер', 
+    color: 'text-warning-dark', // соответствует warning.dark в конфиге
+    bg: 'bg-warning-light',     // соответствует warning.light в конфиге
+    dot: 'bg-warning',          // соответствует warning.DEFAULT в конфиге
+  },
+  safe: { 
+    label: 'Безопасно', 
+    color: 'text-success-dark', // соответствует success.dark в конфиге
+    bg: 'bg-success-light',     // соответствует success.light в конфиге
+    dot: 'bg-success',          // соответствует success.DEFAULT в конфиге
+  },
 };
 
 export const ingredientDatabase: Ingredient[] = [
