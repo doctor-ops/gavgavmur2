@@ -17,10 +17,6 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  /**
-   * Улучшенная нормализация: 
-   * Удаляет ударения, приводит к нижнему регистру, очищает от скобок и спецсимволов.
-   */
   const normalize = (text: string) => {
     return text
       .normalize("NFD")
@@ -31,7 +27,6 @@ export function AllergenScanner() {
       .trim();
   };
 
-  // Поиск по базе готовых кормов
   const filteredFoods = useMemo(() => {
     if (searchQuery.length < 2) return [];
     const query = searchQuery.toLowerCase();
@@ -52,22 +47,15 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
-  /**
-   * ПРОФЕССИОНАЛЬНЫЙ ПЕРЕВОДЧИК
-   * Справляется с процентами, смешанным языком и опечатками.
-   */
   const translateIngredient = (text: string): string => {
-    // 1. Очистка от процентов, сохраняя цифры для витаминов (B12, D3)
     let cleaned = text
-      .replace(/\(\d+([.,]\d+)?%\)/g, '') // Удаляет (1.6%)
-      .replace(/\d+([.,]\d+)?%/g, '')    // Удаляет 10%
-      .replace(/[★☆*]/g, '')              // Удаляет декоративные звезды
+      .replace(/\(\d+([.,]\d+)?%\)/g, '') 
+      .replace(/\d+([.,]\d+)?%/g, '')    
+      .replace(/[★☆*]/g, '')              
       .trim();
 
     let resultText = cleaned;
     const normalizedInput = normalize(cleaned);
-
-    // 2. Жадный поиск: сначала переводим самые длинные фразы из словаря
     const sortedKeys = Object.keys(ingredientTranslations).sort((a, b) => b.length - a.length);
 
     for (const foreign of sortedKeys) {
@@ -78,17 +66,14 @@ export function AllergenScanner() {
       }
     }
 
-    // 3. Попытка прямого совпадения, если жадный поиск не сработал
     if (resultText === cleaned) {
       const directTranslation = ingredientTranslations[normalizedInput];
       if (directTranslation) return directTranslation;
     }
 
-    // Финальная полировка: удаляем висячие знаки препинания в конце
     return resultText.replace(/[,.;]$/, '').trim();
   };
 
-  // Разбиение состава на отдельные ингредиенты
   const ingredients = useMemo(() => {
     return input
       .split(/[,;\n]/)
@@ -96,7 +81,6 @@ export function AllergenScanner() {
       .filter((s) => s.length > 0);
   }, [input]);
 
-  // Анализ каждого ингредиента через базу данных аллергенов
   const results = useMemo(() => {
     return ingredients.map((ing) => {
       const translatedName = translateIngredient(ing);
@@ -104,14 +88,9 @@ export function AllergenScanner() {
 
       const found = ingredientDatabase.find((db) => {
         const normalizedDbName = normalize(db.name);
-        
-        // Точное совпадение
         if (normalizedDbName === normalizedTranslated) return true;
-        
-        // Частичное совпадение (защита от слишком коротких слов > 3 символов)
         if (normalizedDbName.length > 3 && normalizedTranslated.includes(normalizedDbName)) return true;
         if (normalizedTranslated.length > 3 && normalizedDbName.includes(normalizedTranslated)) return true;
-
         return false;
       });
 
@@ -240,13 +219,12 @@ export function AllergenScanner() {
                   className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl ${meta.bg} border border-current/10 cursor-help transition-all hover:scale-[1.02] shadow-sm`}
                   title={r.note}
                 >
-                  {/* ИКОНКА: теперь с высокой контрастностью и толщиной линий */}
                   <Icon 
+                    stroke="currentColor"
                     className={`w-4 h-4 ${meta.color} stroke-current stroke-[2.5px]`} 
                   />
                   <span className={`text-sm font-semibold ${meta.color}`}>{r.name}</span>
                   
-                  {/* Тултип с подробным пояснением */}
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover:block z-20 w-64 p-3.5 rounded-xl bg-brand text-white text-xs leading-relaxed shadow-xl whitespace-normal pointer-events-none animate-scale-in">
                     <p className="font-medium">{r.note}</p>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-brand" />
