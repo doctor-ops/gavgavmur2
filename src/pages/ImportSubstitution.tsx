@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ToolLayout } from '@/components/ToolLayout';
 import { foodAlternatives } from '@/data/foodAlternatives';
 import { Search, Replace, MapPin, Tag, Info } from 'lucide-react';
@@ -7,23 +7,38 @@ export function ImportSubstitution() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Все');
 
-  const categories = ['Все', ...Array.from(new Set(foodAlternatives.map((f) => f.category)))];
+  // 1. Функция нормализации для точного поиска
+  const normalize = (text: string) => text.toLowerCase().trim();
 
-  const filtered = foodAlternatives.filter((f) => {
-    const matchesQuery =
-      query === '' ||
-      f.foreignBrand.toLowerCase().includes(query.toLowerCase()) ||
-      f.russianAlternatives.some((a) => a.name.toLowerCase().includes(query.toLowerCase()));
-    const matchesCategory = category === 'Все' || f.category === category;
-    return matchesQuery && matchesCategory;
-  });
+  // 2. Извлекаем все уникальные категории для фильтра
+  const categories = useMemo(() => {
+    return ['Все', ...Array.from(new Set(foodAlternatives.map((f) => f.category)))];
+  }, []);
+
+  // 3. Оптимизированная фильтрация списка
+  const filtered = useMemo(() => {
+    return foodAlternatives.filter((f) => {
+      const normQuery = normalize(query);
+      
+      const matchesQuery =
+        normQuery === '' ||
+        normalize(f.foreignBrand).includes(normQuery) ||
+        f.russianAlternatives.some((a) => 
+          normalize(a.name).includes(normQuery) || 
+          normalize(a.brand).includes(normQuery)
+        );
+        
+      const matchesCategory = category === 'Все' || f.category === category;
+      return matchesQuery && matchesCategory;
+    });
+  }, [query, category]);
 
   return (
     <ToolLayout
       title="Импортозамещение кормов"
       subtitle="Найдите проверенные российские альтернативы для зарубежных брендов. База данных регулярно обновляется с учётом доступности на рынке."
     >
-      {/* Панель поиска и фильтров: Белый фон для чистоты ввода */}
+      {/* Панель поиска и фильтров */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-fade-in">
         <div className="relative flex-1">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-light" />
@@ -58,14 +73,13 @@ export function ImportSubstitution() {
           filtered.map((item) => (
             <div key={item.foreignBrand} className="rounded-xl2 bg-base-surface border border-base-muted overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               
-              {/* Шапка: Иностранный бренд. Используем bg-brand для создания визуального разделения («проблема») */}
+              {/* Шапка: Иностранный бренд */}
               <div className="flex items-center justify-between flex-wrap gap-4 p-5 bg-brand text-white">
                 <div className="flex items-center gap-3">
-                  {/* Иконка: bg-accent + text-brand (наш премиальный стандарт) */}
                   <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center shadow-sm">
                     <Replace className="w-5 h-5 text-brand" />
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <h3 className="font-display font-extrabold text-xl tracking-tight">{item.foreignBrand}</h3>
                     <div className="flex items-center gap-1.5 text-xs font-semibold text-brand-soft mt-0.5">
                       <MapPin className="w-3.5 h-3.5" />
@@ -74,13 +88,12 @@ export function ImportSubstitution() {
                   </div>
                 </div>
                 
-                {/* Тег категории: Полупрозрачный белый фон */}
                 <span className="px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm text-white text-[10px] font-extrabold uppercase tracking-wider border border-white/10">
                   {item.category}
                 </span>
               </div>
 
-              {/* Контейнер аналогов: bg-base-surface (белый) */}
+              {/* Контейнер аналогов */}
               <div className="p-5 bg-base-surface">
                 <div className="text-xs font-bold text-ink-light uppercase tracking-wider mb-3.5 font-display">
                   Доступные отечественные аналоги:
@@ -90,7 +103,6 @@ export function ImportSubstitution() {
                   {item.russianAlternatives.map((alt) => (
                     <div 
                       key={alt.name} 
-                      // Многослойность: bg-base-bg (молочный) внутри белого фона
                       className="p-4 rounded-xl bg-base-bg border border-base-muted/60 hover:border-accent/40 transition-all flex flex-col justify-between group hover:-translate-y-0.5"
                     >
                       <div className="mb-3">
@@ -103,7 +115,6 @@ export function ImportSubstitution() {
                         <div className="text-xs text-brand font-bold ml-6">{alt.brand}</div>
                       </div>
                       
-                      {/* Заметка по аналогу: bg-base-surface (белый) внутри молочного фона */}
                       <p className="text-xs text-ink-soft leading-relaxed bg-base-surface border border-base-muted/40 p-2.5 rounded-lg font-normal">
                         {alt.note}
                       </p>
@@ -116,7 +127,7 @@ export function ImportSubstitution() {
         )}
       </div>
 
-      {/* Информационный футер: bg-base-surface для чистоты */}
+      {/* Информационный футер */}
       <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-5 shadow-sm">
         <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
         <p className="text-sm text-ink-soft leading-relaxed font-normal">
@@ -126,4 +137,3 @@ export function ImportSubstitution() {
     </ToolLayout>
   );
 }
-
