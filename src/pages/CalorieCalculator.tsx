@@ -18,9 +18,13 @@ export function CalorieCalculator() {
   const [age, setAge] = useState(3);
   const [sterilized, setSterilized] = useState(false);
   const [activity, setActivity] = useState<Activity>('moderate');
-  const [brandIdx, setBrandIdx] = useState(0);
+  // Используем имя бренда вместо индекса для стабильности данных
+  const [selectedBrandName, setSelectedBrandName] = useState(foodBrands[0]?.name || '');
 
+  // RER - Базовая энергия покоя
   const rer = useMemo(() => Math.round(70 * Math.pow(weight, 0.75)), [weight]);
+
+  // DER - Суточная энергия с поправками
   const factor = useMemo(() => {
     let f = activityFactors[activity];
     if (sterilized) f -= 0.2;
@@ -30,7 +34,13 @@ export function CalorieCalculator() {
   }, [activity, sterilized, age]);
 
   const der = Math.round(rer * factor);
-  const selectedBrand = foodBrands[brandIdx];
+
+  // Поиск выбранного бренда в базе
+  const selectedBrand = useMemo(() => 
+    foodBrands.find(b => b.name === selectedBrandName) || foodBrands[0], 
+    [selectedBrandName]
+  );
+
   const gramsPerDay = Math.round((der / selectedBrand.kcalPer100g) * 100);
   const gramsPerMeal = Math.round(gramsPerDay / 2);
 
@@ -75,7 +85,7 @@ export function CalorieCalculator() {
               step={0.5}
               value={weight}
               onChange={(e) => setWeight(Number(e.target.value))}
-              className="w-full accent-accent" // Используем коралловый акцент для слайдера
+              className="w-full accent-accent"
             />
             <div className="flex justify-between text-xs text-ink-light mt-1">
               <span>{animal === 'dog' ? '1 кг' : '2 кг'}</span>
@@ -151,12 +161,12 @@ export function CalorieCalculator() {
           <div className="space-y-2">
             <label className="block text-sm font-bold text-ink font-display">Корм</label>
             <select
-              value={brandIdx}
-              onChange={(e) => setBrandIdx(Number(e.target.value))}
+              value={selectedBrandName}
+              onChange={(e) => setSelectedBrandName(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all text-sm font-medium"
             >
-              {foodBrands.map((b, i) => (
-                <option key={b.name} value={i}>
+              {foodBrands.map((b) => (
+                <option key={b.name} value={b.name}>
                   {b.name} — {b.kcalPer100g} ккал/100г ({b.category})
                 </option>
               ))}
@@ -166,7 +176,6 @@ export function CalorieCalculator() {
 
         {/* Результаты */}
         <div className="space-y-4">
-          {/* Блок с калориями: Премиальный темный стиль */}
           <div className="rounded-2xl bg-brand text-white p-6 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
             
@@ -186,15 +195,16 @@ export function CalorieCalculator() {
                 <div className="text-xs text-brand-soft">ккал/день</div>
               </div>
             </div>
+            
+            {/* ИСПРАВЛЕННЫЙ БЛОК ПОПРАВОК: теперь это JSX-элементы, а не строки с тегами */}
             <div className="mt-4 text-xs text-brand-soft leading-relaxed relative z-10">
               Коэффициент активности: <span className="font-bold text-white">×{factor.toFixed(1)}</span>
-              {sterilized && ' · <span className="text-accent-light">−0.2 (стерилизация)</span>'}
-              {age > 7 && ' · <span className="text-accent-light">−0.2 (пожилой возраст)</span>'}
-              {age < 1 && ' · <span className="text-accent-light">+0.3 (молодое животное)</span>'}
+              {sterilized && <span className="ml-1 text-accent-light"> · −0.2 (стерилизация)</span>}
+              {age > 7 && <span className="ml-1 text-accent-light"> · −0.2 (пожилой возраст)</span>}
+              {age < 1 && <span className="ml-1 text-accent-light"> · +0.3 (молодое животное)</span>}
             </div>
           </div>
 
-          {/* Блок с граммовками: Коралловый акцент */}
           <div className="rounded-2xl bg-accent-soft border border-accent/30 p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Scale className="w-5 h-5 text-accent-dark" />
@@ -212,7 +222,6 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Информация о корме */}
           <div className="rounded-2xl bg-base-surface border border-base-muted p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-3">
               <Flame className="w-5 h-5 text-brand" />
@@ -238,7 +247,6 @@ export function CalorieCalculator() {
             </div>
           </div>
 
-          {/* Disclaimer */}
           <div className="rounded-xl bg-warn-light p-4 text-sm text-warn-dark leading-relaxed border border-warn/20">
             Расчёт носит ознакомительный характер. Точные нормы кормления определяет ветеринар с учётом состояния здоровья питомца.
           </div>
