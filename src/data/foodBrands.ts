@@ -35,4 +35,9 @@ export const foodBrands: FoodBrand[] = [
   { name: 'Karmy', category: 'Премиум', kcalPer100g: 340, pricePerKg: 450 },
   { name: 'Мираторг Extra Meat', category: 'Премиум', kcalPer100g: 330, pricePerKg: 320 },
   { name: 'Зоогурман', category: 'Премиум', kcalPer100g: 320, pricePerKg: 280 },
+    // БЕЛАРУСЬ
+  { name: 'Belcorn', category: 'Супер-премиум', kcalPer100g: 355, pricePerKg: 420 },
+  { name: 'Smarte', category: 'Супер-премиум', kcalPer100g: 365, pricePerKg: 510 },
+  { name: 'Мясо-Мяу (Беларусь)', category: 'Премиум', kcalPer//100g: 330, pricePerKg: 310 },
+
 ];
