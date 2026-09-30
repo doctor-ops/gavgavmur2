@@ -86,4 +86,57 @@ export const foodAlternatives: FoodAlternative[] = [
       { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум' },
     ],
   },
+  // ==========================================================================
+  // ДОПОЛНЕННЫЕ ДАННЫЕ
+  // ==========================================================================
+  {
+    foreignBrand: 'Josera / Bosch',
+    foreignCountry: 'Германия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Blitz', brand: 'ООО «КормТех»', note: 'Сбалансированные рационы с высоким качеством белка' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, натуральные ингредиенты' },
+      { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Повседневные рационы супер-премиум класса' },
+    ],
+  },
+  {
+    foreignBrand: 'Zignature / Now Fresh',
+    foreignCountry: 'США',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'AlphaPet WOW', brand: 'AlphaPet', note: 'Беззерновой состав, высокое содержание мяса' },
+      { name: 'Savita', brand: 'Savita', note: 'Натуральный состав, без искусственных добавок' },
+      { name: 'Acari Ciar', brand: 'Acari Ciar', note: 'Холистик-линейка с высоким процентом белка' },
+    ],
+  },
+  {
+    foreignBrand: 'Purina One / Perfect Fit',
+    foreignCountry: 'США / Европа',
+    category: 'Премиум',
+    russianAlternatives: [
+      { name: 'Extra Meat', brand: 'Мираторг', note: 'Повышенное содержание мясных компонентов' },
+      { name: 'Probalance', brand: 'ООО «КормТех»', note: 'Доступный премиум сбалансированного состава' },
+      { name: 'Родные корма', brand: 'Родные корма', note: 'Доступный повседневный рацион' },
+    ],
+  },
+  {
+    // Добавляем Brit Care отдельно, так как это супер-премиум сегмент
+    foreignBrand: 'Brit Care',
+    foreignCountry: 'Чехия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Blitz Sensitive', brand: 'ООО «КормТех»', note: 'Гипоаллергенный состав для чувствительных животных' },
+      { name: 'AlphaPet Superpremium', brand: 'AlphaPet', note: 'Сбалансированный состав, контроль минералов' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Высококачественный белок, без лишних добавок' },
+    ],
+  },
+  {
+    foreignBrand: 'Wellness Core',
+    foreignCountry: 'США',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Savarro Holistic', brand: 'Savarro', note: 'Беззерновая формула, натуральные ингредиенты' },
+      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Высокий процент мяса, без злаков' },
+    ],
+  },
 ];
