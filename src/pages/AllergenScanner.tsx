@@ -14,14 +14,14 @@ const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
 export function AllergenScanner() {
   const [input, setInput] = useState('');
   const [analyzed, setAnalyzed] = useState(false);
-  
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const normalizeText = (text: string) => {
+  // 1. ФУНКЦИЯ НОРМАЛИЗАЦИИ (Убирает ударения, спецсимволы, приводит к нижнему регистру)
+  const normalize = (text: string) => {
     return text
-      .normalize("NFD") 
-      .replace(/[\u0300-\u036f]/g, "") 
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .trim();
   };
@@ -46,28 +46,29 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
+  // 2. ИСПРАВЛЕННЫЙ ПЕРЕВОДЧИК
   const translateIngredient = (text: string): string => {
-    let cleaned = text
+    // Очистка от процентов (1.6%) и цифр
+    const cleaned = text
       .replace(/\(\d+([.,]\d+)?%\)/g, '') 
       .replace(/\d+%/g, '')              
       .replace(/\d+/g, '')               
       .trim();
 
-    const normalizedInput = normalizeText(cleaned);
-    let resultText = cleaned;
-    let wasTranslated = false;
+    const normalizedInput = normalize(cleaned);
 
-    Object.entries(ingredientTranslations).forEach(([foreign, russian]) => {
-      const normalizedForeign = normalizeText(foreign);
+    // Ищем в словаре
+    for (const [foreign, russian] of Object.entries(ingredientTranslations)) {
+      const normalizedForeign = normalize(foreign);
       
-      if (normalizedInput.includes(normalizedForeign)) {
-        const regex = new RegExp(foreign, 'gi');
-        resultText = resultText.replace(regex, russian);
-        wasTranslated = true;
+      // Если нормализованный ключ из словаря совпадает с нормализованным вводом
+      // или если ввод содержит этот ключ
+      if (normalizedInput === normalizedForeign || normalizedInput.includes(normalizedForeign)) {
+        return russian; // Возвращаем чистый русский перевод из словаря
       }
-    });
+    }
 
-    return wasTranslated ? resultText : cleaned;
+    return cleaned; // Если перевода нет, возвращаем очищенный оригинал
   };
 
   const ingredients = input
@@ -77,10 +78,11 @@ export function AllergenScanner() {
 
   const results = ingredients.map((ing) => {
     const translatedName = translateIngredient(ing);
-    const normalizedTranslated = normalizeText(translatedName);
+    const normalizedTranslated = normalize(translatedName);
 
+    // 3. ПОИСК В БАЗЕ АЛЛЕРГЕНОВ (тоже через нормализацию)
     const found = ingredientDatabase.find((db) => {
-      const normalizedDbName = normalizeText(db.name);
+      const normalizedDbName = normalize(db.name);
       return (
         normalizedDbName === normalizedTranslated || 
         normalizedDbName.includes(normalizedTranslated) ||
@@ -227,7 +229,7 @@ export function AllergenScanner() {
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер использует умную нормализацию (игнорирует ударения и спецсимволы) и переводит иностранные названия.
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер переводит иностранные названия и использует базу данных аллергенов. 
               Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию.
             </p>
           </div>
