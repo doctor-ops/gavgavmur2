@@ -7,15 +7,15 @@ export function ImportSubstitution() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Все');
 
-  // 1. Функция нормализации для точного поиска (без учета регистра и пробелов)
+  // 1. Функция нормализации для точного поиска
   const normalize = (text: string) => text.toLowerCase().trim();
 
-  // 2. Извлекаем все уникальные категории из базы данных для фильтра
+  // 2. Извлекаем все уникальные категории для фильтра
   const categories = useMemo(() => {
     return ['Все', ...Array.from(new Set(foodAlternatives.map((f) => f.category)))];
   }, []);
 
-  // 3. Оптимизированная фильтрация списка с использованием useMemo
+  // 3. Оптимизированная фильтрация списка
   const filtered = useMemo(() => {
     return foodAlternatives.filter((f) => {
       const normQuery = normalize(query);
@@ -28,7 +28,8 @@ export function ImportSubstitution() {
           normalize(a.brand).includes(normQuery)
         );
         
-      const matchesCategory = category === 'Все' || f.//category === category;
+      // ИСПРАВЛЕНО: убраны лишние слэши 
+      const matchesCategory = category === 'Все' || f.category === category;
       return matchesQuery && matchesCategory;
     });
   }, [query, category]);
@@ -49,7 +50,6 @@ export function ImportSubstitution() {
             placeholder="Поиск по импортному бренду или отечественному аналогу..."
             className="w-full pl-12 pr-12 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-semibold text-sm placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all shadow-sm"
           />
-          {/* Кнопка очистки поиска (появляется только при наличии текста) */}
           {query && (
             <button 
               onClick={() => setQuery('')}
