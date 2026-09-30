@@ -18,6 +18,14 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const normalizeText = (text: string) => {
+    return text
+      .normalize("NFD") 
+      .replace(/[\u0300-\u036f]/g, "") 
+      .toLowerCase()
+      .trim();
+  };
+
   const filteredFoods = useMemo(() => {
     if (searchQuery.length < 2) return [];
     const query = searchQuery.toLowerCase();
@@ -39,24 +47,27 @@ export function AllergenScanner() {
   };
 
   const translateIngredient = (text: string): string => {
-    let cleanedText = text
-      .replace(/\(\d+([.,]\d+)?%\)/g, '')
-      .replace(/\d+%/g, '')             
+    let cleaned = text
+      .replace(/\(\d+([.,]\d+)?%\)/g, '') 
+      .replace(/\d+%/g, '')              
       .replace(/\d+/g, '')               
-      .trim()
-      .toLowerCase();
+      .trim();
 
-    let translatedText = cleanedText;
-    let hasTranslation = false;
+    const normalizedInput = normalizeText(cleaned);
+    let resultText = cleaned;
+    let wasTranslated = false;
 
     Object.entries(ingredientTranslations).forEach(([foreign, russian]) => {
-      if (cleanedText.includes(foreign.toLowerCase())) {
-        translatedText = translatedText.replace(new RegExp(foreign, 'gi'), russian);
-        hasTranslation = true;
+      const normalizedForeign = normalizeText(foreign);
+      
+      if (normalizedInput.includes(normalizedForeign)) {
+        const regex = new RegExp(foreign, 'gi');
+        resultText = resultText.replace(regex, russian);
+        wasTranslated = true;
       }
     });
 
-    return hasTranslation ? translatedText : cleanedText;
+    return wasTranslated ? resultText : cleaned;
   };
 
   const ingredients = input
@@ -66,13 +77,16 @@ export function AllergenScanner() {
 
   const results = ingredients.map((ing) => {
     const translatedName = translateIngredient(ing);
+    const normalizedTranslated = normalizeText(translatedName);
 
-    const found = ingredientDatabase.find(
-      (db) => 
-        db.name.toLowerCase() === translatedName.toLowerCase() || 
-        db.name.toLowerCase().includes(translatedName.toLowerCase()) ||
-        translatedName.toLowerCase().includes(db.name.toLowerCase())
-    );
+    const found = ingredientDatabase.find((db) => {
+      const normalizedDbName = normalizeText(db.name);
+      return (
+        normalizedDbName === normalizedTranslated || 
+        normalizedDbName.includes(normalizedTranslated) ||
+        normalizedTranslated.includes(normalizedDbName)
+      );
+    });
 
     return {
       name: translatedName,
@@ -213,7 +227,7 @@ export function AllergenScanner() {
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически очищает состав от процентов и переводит иностранные названия. 
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер использует умную нормализацию (игнорирует ударения и спецсимволы) и переводит иностранные названия.
               Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию.
             </p>
           </div>
