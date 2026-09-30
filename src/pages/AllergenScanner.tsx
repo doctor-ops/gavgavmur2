@@ -3,6 +3,7 @@ import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info } from 'lucide-react';
 import petFoods from '@/data/petfood_ready.json'; 
+import { ingredientTranslations } from '@/data/ingredient_translations';
 
 const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
   safe: CheckCircle2,
@@ -37,17 +38,27 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
+  const translateIngredient = (text: string): string => {
+    const normalized = text.toLowerCase().trim();
+    return ingredientTranslations[normalized] || text;
+  };
+
   const ingredients = input
     .split(/[,;\n]/)
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 
   const results = ingredients.map((ing) => {
+    const translatedName = translateIngredient(ing);
+
     const found = ingredientDatabase.find(
-      (db) => db.name.toLowerCase() === ing.toLowerCase() || db.name.toLowerCase().includes(ing.toLowerCase())
+      (db) => 
+        db.name.toLowerCase() === translatedName.toLowerCase() || 
+        db.name.toLowerCase().includes(translatedName.toLowerCase())
     );
+
     return {
-      name: ing,
+      name: translatedName,
       level: found?.level || ('safe' as AllergenLevel),
       note: found?.note || 'Не найден в базе — считайте безопасным, но уточните у ветеринара',
     };
@@ -69,7 +80,6 @@ export function AllergenScanner() {
     >
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
         
-        {/* --- НОВЫЙ БЛОК: ПОИСК ПО БАЗЕ --- */}
         <div className="mb-6 relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
             Быстрый поиск по базе кормов
@@ -89,7 +99,6 @@ export function AllergenScanner() {
             />
           </div>
 
-          {/* Выпадающий список с результатами поиска */}
           {showSuggestions && filteredFoods.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
               {filteredFoods.map((food: any) => (
@@ -108,7 +117,6 @@ export function AllergenScanner() {
             </div>
           )}
         </div>
-        {/* --------------------------------- */}
 
         <div className="relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
@@ -191,7 +199,7 @@ export function AllergenScanner() {
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер использует внутреннюю базу из <span className="font-bold text-ink">{ingredientDatabase.length}</span> компонентов.
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически переводит иностранные названия и использует базу из <span className="font-bold text-ink">{ingredientDatabase.length}</span> компонентов.
               Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию, но мы рекомендуем дополнительно проконсультироваться с ветеринаром.
             </p>
           </div>
