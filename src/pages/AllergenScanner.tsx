@@ -17,7 +17,7 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // 1. ФУНКЦИЯ НОРМАЛИЗАЦИИ (Убирает ударения, спецсимволы, приводит к нижнему регистру)
+  // Функция нормализации: убирает ударения (é -> e) и приводит к нижнему регистру
   const normalize = (text: string) => {
     return text
       .normalize("NFD")
@@ -46,29 +46,41 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
-  // 2. ИСПРАВЛЕННЫЙ ПЕРЕВОДЧИК
+  // УМНЫЙ ПЕРЕВОДЧИК
   const translateIngredient = (text: string): string => {
-    // Очистка от процентов (1.6%) и цифр
-    const cleaned = text
+    // 1. Очистка от процентов в скобках (1.6%) и цифр
+    let cleaned = text
       .replace(/\(\d+([.,]\d+)?%\)/g, '') 
       .replace(/\d+%/g, '')              
       .replace(/\d+/g, '')               
       .trim();
 
+    let resultText = cleaned;
     const normalizedInput = normalize(cleaned);
 
-    // Ищем в словаре
-    for (const [foreign, russian] of Object.entries(ingredientTranslations)) {
+    // 2. Сортируем ключи словаря от самых длинных к самым коротким.
+    // Это нужно, чтобы сначала переводились длинные фразы ("мясо и побочные продукты"), 
+    // а потом короткие ("мясо"), иначе перевод будет обрывистым.
+    const sortedKeys = Object.keys(ingredientTranslations).sort((a, b) => b.length - a.length);
+
+    sortedKeys.forEach((foreign) => {
       const normalizedForeign = normalize(foreign);
-      
-      // Если нормализованный ключ из словаря совпадает с нормализованным вводом
-      // или если ввод содержит этот ключ
-      if (normalizedInput === normalizedForeign || normalizedInput.includes(normalizedForeign)) {
-        return russian; // Возвращаем чистый русский перевод из словаря
+      // Если нормализованный ключ из словаря содержится в нормализованном вводе
+      if (normalizedInput.includes(normalizedForeign)) {
+        // Создаем регулярное выражение, которое игнорирует регистр и акценты
+        // Для простоты используем замену оригинального текста
+        const regex = new RegExp(foreign, 'gi');
+        resultText = resultText.replace(regex, ingredientTranslations[foreign]);
       }
+    });
+
+    // Если после всех замен текст остался прежним, пробуем простое прямое совпадение
+    if (resultText === cleaned) {
+      const directTranslation = ingredientTranslations[normalizedInput];
+      if (directTranslation) return directTranslation;
     }
 
-    return cleaned; // Если перевода нет, возвращаем очищенный оригинал
+    return resultText;
   };
 
   const ingredients = input
@@ -80,7 +92,7 @@ export function AllergenScanner() {
     const translatedName = translateIngredient(ing);
     const normalizedTranslated = normalize(translatedName);
 
-    // 3. ПОИСК В БАЗЕ АЛЛЕРГЕНОВ (тоже через нормализацию)
+    // Поиск в базе аллергенов с нормализацией
     const found = ingredientDatabase.find((db) => {
       const normalizedDbName = normalize(db.name);
       return (
@@ -229,7 +241,7 @@ export function AllergenScanner() {
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер переводит иностранные названия и использует базу данных аллергенов. 
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически переводит сложные иностранные термины и очищает состав от технических данных (процентов).
               Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию.
             </p>
           </div>
