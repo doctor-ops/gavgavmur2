@@ -6,6 +6,124 @@ export interface FoodAlternative {
 }
 
 export const foodAlternatives: FoodAlternative[] = [
+  // ==========================================================================
+  // 🌟 ХОЛИСТИКИ (Высокий белок, беззерновые, премиум цена)
+  // ==========================================================================
+  {
+    foreignBrand: 'Acana / Orijen',
+    foreignCountry: 'Канада',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Высокое содержание мяса, беззерновые формулы' },
+      { name: 'Blitz Classic', brand: 'ООО «КормТех»', note: 'Холистик, свежее мясо, без зерна' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, высокое содержание белка' },
+    ],
+  },
+  {
+    foreignBrand: 'Go! Solutions',
+    foreignCountry: 'Канада',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Blitz Holistic', brand: 'ООО «КормТех»', note: 'Беззерновые рационы, высокий белок' },
+      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Холистик-класс, беззерновые формулы' },
+      { name: 'Sirius Holistic', brand: 'Sirius Pet', note: 'Беззерновые, высокое содержание мяса' },
+    ],
+  },
+  {
+    foreignBrand: 'Zignature / Now Fresh',
+    foreignCountry: 'США',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'AlphaPet WOW', brand: 'AlphaPet', note: 'Беззерновой состав, высокое содержание мяса' },
+      { name: 'Savita', brand: 'Savita', note: 'Натуральный состав, без искусственных добавок' },
+      { name: 'Acari Ciar', brand: 'Acari Ciar', note: 'Холистик-линейка с высоким процентом белка' },
+    ],
+  },
+  {
+    foreignBrand: 'Wellness Core',
+    foreignCountry: 'США',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Savarro Holistic', brand: 'Savarro', note: 'Беззерновая формула, натуральные ингредиенты' },
+      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Высокий процент мяса, без злаков' },
+    ],
+  },
+  {
+    foreignBrand: 'Farmina N&D',
+    foreignCountry: 'Италия',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Blitz Holistic', brand: 'ООО «КормТех»', note: 'Высокое качество белка, без зерновых наполнителей' },
+      { name: 'AlphaPet WOW', brand: 'AlphaPet', note: 'Беззерновой рацион с высоким процентом мяса' },
+    ],
+  },
+  {
+    foreignBrand: 'Instinct / Nutrience',
+    foreignCountry: 'США / Канада',
+    category: 'Холистик',
+    russianAlternatives: [
+      { name: 'Savarro', brand: 'Savarro', note: 'Натуральный состав, ориентация на природное питание' },
+      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Беззерновые формулы с высоким содержанием белка' },
+    ],
+  },
+
+  // ==========================================================================
+  // 🎖️ СУПЕР-ПРЕМИУМ (Сбалансированные, гипоаллергенные)
+  // ==========================================================================
+  {
+    foreignBrand: 'Monge',
+    foreignCountry: 'Италия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Savarro', brand: 'Savarro', note: 'Супер-премиум, без искусственных добавок' },
+      { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Линейки супер-премиум для кошек и собак' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, натуральные ингредиенты' },
+    ],
+  },
+  {
+    foreignBrand: 'Grandorf',
+    foreignCountry: 'Италия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, пробиотики в составе' },
+      { name: 'Probalance', brand: 'ООО «КормТех»', note: 'Доступный супер-премиум' },
+      { name: 'Savarro', brand: 'Savarro', note: 'Натуральный состав, без консервантов' },
+    ],
+  },
+  {
+    // Добавляем Brit Care отдельно, так как это супер-премиум сегмент
+    foreignBrand: 'Brit Care',
+    foreignCountry: 'Чехия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Blitz Sensitive', brand: 'ООО «КормТех»', note: 'Гипоаллергенный состав для чувствительных животных' },
+      { name: 'AlphaPet Superpremium', brand: 'AlphaPet', note: 'Сбалансированный состав, контроль минералов' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Высококачественный белок, без лишних добавок' },
+    ],
+  },
+  {
+    foreignBrand: 'Josera / Bosch',
+    foreignCountry: 'Германия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Blitz', brand: 'ООО «КормТех»', note: 'Сбалансированные рационы с высоким качеством белка' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, натуральные ингредиенты' },
+      { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Повседневные рационы супер-премиум класса' },
+    ],
+  },
+  {
+    foreignBrand: 'Sanabelle / Ardenzleben',
+    foreignCountry: 'Германия',
+    category: 'Супер-премиум',
+    russianAlternatives: [
+      { name: 'Savarro', brand: 'Savarro', note: 'Качественный состав, без искусственных красителей' },
+      { name: 'Sirius', brand: 'Sirius Pet', note: 'Натуральный состав, высокие показатели усвояемости' },
+    ],
+  },
+
+  // ==========================================================================
+  // 📦 ПРЕМИУМ И ПОВСЕВДНЕВНЫЕ (Доступный сегмент)
+  // ==========================================================================
   {
     foreignBrand: 'Royal Canin',
     foreignCountry: 'Франция',
@@ -27,56 +145,6 @@ export const foodAlternatives: FoodAlternative[] = [
     ],
   },
   {
-    foreignBrand: 'Acana / Orijen',
-    foreignCountry: 'Канада',
-    category: 'Холистик',
-    russianAlternatives: [
-      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Высокое содержание мяса, беззерновые формулы' },
-      { name: 'Blitz Classic', brand: 'ООО «КормТех»', note: 'Холистик, свежее мясо, без зерна' },
-      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, высокое содержание белка' },
-    ],
-  },
-  {
-    foreignBrand: 'Monge',
-    foreignCountry: 'Италия',
-    category: 'Супер-премиум',
-    russianAlternatives: [
-      { name: 'Savarro', brand: 'Savarro', note: 'Супер-премиум, без искусственных добавок' },
-      { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Линейки супер-премиум для кошек и собак' },
-      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, натуральные ингредиенты' },
-    ],
-  },
-  {
-    foreignBrand: 'Go! Solutions',
-    foreignCountry: 'Канада',
-    category: 'Холистик',
-    russianAlternatives: [
-      { name: 'Blitz Holistic', brand: 'ООО «КормТех»', note: 'Беззерновые рационы, высокий белок' },
-      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Холистик-класс, беззерновые формулы' },
-      { name: 'Sirius Holistic', brand: 'Sirius Pet', note: 'Беззерновые, высокое содержание мяса' },
-    ],
-  },
-  {
-    foreignBrand: 'Grandorf',
-    foreignCountry: 'Италия',
-    category: 'Супер-премиум',
-    russianAlternatives: [
-      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, пробиотики в составе' },
-      { name: 'Probalance', brand: 'ООО «КормТех»', note: 'Доступный супер-премиум' },
-      { name: 'Savarro', brand: 'Savarro', note: 'Натуральный состав, без консервантов' },
-    ],
-  },
-  {
-    foreignBrand: 'Hills',
-    foreignCountry: 'США',
-    category: 'Премиум / Ветеринарная диета',
-    russianAlternatives: [
-      { name: 'Bliss', brand: 'ООО «КормТех»', note: 'Ветеринарные линейки для разных состояний' },
-      { name: 'Probalance Vet', brand: 'ООО «КормТех»', note: 'Лечебные рационы' },
-      { name: 'Best Dinner Vet', brand: 'Завод «Морган»', note: 'Ветеринарные диеты' },
-    ],
-  },
-  {
     foreignBrand: 'Brit',
     foreignCountry: 'Чехия',
     category: 'Премиум',
@@ -84,29 +152,6 @@ export const foodAlternatives: FoodAlternative[] = [
       { name: 'Probalance', brand: 'ООО «КормТех»', note: 'Премиум-класс, доступная цена' },
       { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Линейки для собак и кошек' },
       { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум' },
-    ],
-  },
-  // ==========================================================================
-  // ДОПОЛНЕННЫЕ ДАННЫЕ
-  // ==========================================================================
-  {
-    foreignBrand: 'Josera / Bosch',
-    foreignCountry: 'Германия',
-    category: 'Супер-премиум',
-    russianAlternatives: [
-      { name: 'Blitz', brand: 'ООО «КормТех»', note: 'Сбалансированные рационы с высоким качеством белка' },
-      { name: 'Sirius', brand: 'Sirius Pet', note: 'Супер-премиум, натуральные ингредиенты' },
-      { name: 'Best Dinner', brand: 'Завод «Морган»', note: 'Повседневные рационы супер-премиум класса' },
-    ],
-  },
-  {
-    foreignBrand: 'Zignature / Now Fresh',
-    foreignCountry: 'США',
-    category: 'Холистик',
-    russianAlternatives: [
-      { name: 'AlphaPet WOW', brand: 'AlphaPet', note: 'Беззерновой состав, высокое содержание мяса' },
-      { name: 'Savita', brand: 'Savita', note: 'Натуральный состав, без искусственных добавок' },
-      { name: 'Acari Ciar', brand: 'Acari Ciar', note: 'Холистик-линейка с высоким процентом белка' },
     ],
   },
   {
@@ -120,23 +165,27 @@ export const foodAlternatives: FoodAlternative[] = [
     ],
   },
   {
-    // Добавляем Brit Care отдельно, так как это супер-премиум сегмент
-    foreignBrand: 'Brit Care',
-    foreignCountry: 'Чехия',
-    category: 'Супер-премиум',
+    foreignBrand: 'Pedigree / Felix',
+    foreignCountry: 'США / Европа',
+    category: 'Премиум (Доступный)',
     russianAlternatives: [
-      { name: 'Blitz Sensitive', brand: 'ООО «КормТех»', note: 'Гипоаллергенный состав для чувствительных животных' },
-      { name: 'AlphaPet Superpremium', brand: 'AlphaPet', note: 'Сбалансированный состав, контроль минералов' },
-      { name: 'Sirius', brand: 'Sirius Pet', note: 'Высококачественный белок, без лишних добавок' },
+      { name: 'Зоогурман', brand: 'Зоогурман', note: 'Доступный рацион для ежедневного кормления' },
+      { name: 'Родные корма', brand: 'Родные корма', note: 'Экономичный вариант с базовым набором витаминов' },
+      { name: 'Мираторг', brand: 'Мираторг', note: 'Бюджетная линейка с мясными компонентами' },
     ],
   },
+
+  // ==========================================================================
+  // 🏥 ВЕТЕРИНАРНЫЕ ДИЕТЫ (Специальное питание)
+  // ==========================================================================
   {
-    foreignBrand: 'Wellness Core',
+    foreignBrand: 'Hills',
     foreignCountry: 'США',
-    category: 'Холистик',
+    category: 'Премиум / Ветеринарная диета',
     russianAlternatives: [
-      { name: 'Savarro Holistic', brand: 'Savarro', note: 'Беззерновая формула, натуральные ингредиенты' },
-      { name: 'Best Dinner Holistic', brand: 'Завод «Морган»', note: 'Высокий процент мяса, без злаков' },
+      { name: 'Bliss', brand: 'ООО «КормТех»', note: 'Ветеринарные линейки для разных состояний' },
+      { name: 'Probalance Vet', brand: 'ООО «КормТех»', note: 'Лечебные рационы' },
+      { name: 'Best Dinner Vet', brand: 'Завод «Морган»', note: 'Ветеринарные диеты' },
     ],
   },
 ];
