@@ -1,21 +1,21 @@
 import { useState, useMemo } from 'react';
 import { ToolLayout } from '@/components/ToolLayout';
 import { foodAlternatives } from '@/data/foodAlternatives';
-import { Search, Replace, MapPin, Tag, Info } from 'lucide-react';
+import { Search, Replace, MapPin, Tag, Info, X } from 'lucide-react';
 
 export function ImportSubstitution() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Все');
 
-  // 1. Функция нормализации для точного поиска
+  // 1. Функция нормализации для точного поиска (без учета регистра и пробелов)
   const normalize = (text: string) => text.toLowerCase().trim();
 
-  // 2. Извлекаем все уникальные категории для фильтра
+  // 2. Извлекаем все уникальные категории из базы данных для фильтра
   const categories = useMemo(() => {
     return ['Все', ...Array.from(new Set(foodAlternatives.map((f) => f.category)))];
   }, []);
 
-  // 3. Оптимизированная фильтрация списка
+  // 3. Оптимизированная фильтрация списка с использованием useMemo
   const filtered = useMemo(() => {
     return foodAlternatives.filter((f) => {
       const normQuery = normalize(query);
@@ -28,7 +28,7 @@ export function ImportSubstitution() {
           normalize(a.brand).includes(normQuery)
         );
         
-      const matchesCategory = category === 'Все' || f.category === category;
+      const matchesCategory = category === 'Все' || f.//category === category;
       return matchesQuery && matchesCategory;
     });
   }, [query, category]);
@@ -47,8 +47,17 @@ export function ImportSubstitution() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Поиск по импортному бренду или отечественному аналогу..."
-            className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-semibold text-sm placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all shadow-sm"
+            className="w-full pl-12 pr-12 py-3.5 rounded-xl border border-base-muted bg-base-surface text-ink font-semibold text-sm placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all shadow-sm"
           />
+          {/* Кнопка очистки поиска (появляется только при наличии текста) */}
+          {query && (
+            <button 
+              onClick={() => setQuery('')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-base-bg rounded-full transition-colors"
+            >
+              <X className="w-4 h-4 text-ink-light hover:text-ink" />
+            </button>
+          )}
         </div>
         <select
           value={category}
@@ -64,17 +73,21 @@ export function ImportSubstitution() {
       {/* Список результатов */}
       <div className="space-y-6 animate-fade-up">
         {filtered.length === 0 ? (
-          <div className="text-center py-16 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
-            <Replace className="w-12 h-12 mx-auto mb-4 text-ink-light opacity-30" />
-            <p className="text-ink-soft font-bold text-base">Ничего не найдено по вашему запросу</p>
-            <p className="text-ink-light text-xs mt-1">Проверьте правильность написания бренда или сбросьте фильтр категорий.</p>
+          <div className="text-center py-20 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-base-bg mb-4">
+              <Replace className="w-8 h-8 text-ink-light opacity-40" />
+            </div>
+            <p className="text-ink-soft font-bold text-lg">Ничего не найдено по вашему запросу</p>
+            <p className="text-ink-light text-sm mt-2 max-w-xs mx-auto">
+              Попробуйте изменить запрос или сбросить фильтр категорий.
+            </p>
           </div>
         ) : (
           filtered.map((item) => (
-            <div key={item.foreignBrand} className="rounded-xl2 bg-base-surface border border-base-muted overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div key={item.foreignBrand} className="rounded-xl2 bg-base-surface border border-base-muted overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
               
               {/* Шапка: Иностранный бренд */}
-              <div className="flex items-center justify-between flex-wrap gap-4 p-5 bg-brand text-white">
+              <div className="flex items-center justify-between flex-wrap gap-4 p-5 bg-brand text-white transition-colors group-hover:bg-brand-dark">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center shadow-sm">
                     <Replace className="w-5 h-5 text-brand" />
@@ -103,12 +116,12 @@ export function ImportSubstitution() {
                   {item.russianAlternatives.map((alt) => (
                     <div 
                       key={alt.name} 
-                      className="p-4 rounded-xl bg-base-bg border border-base-muted/60 hover:border-accent/40 transition-all flex flex-col justify-between group hover:-translate-y-0.5"
+                      className="p-4 rounded-xl bg-base-bg border border-base-muted/60 hover:border-accent/40 transition-all flex flex-col justify-between group/item hover:-translate-y-0.5"
                     >
                       <div className="mb-3">
                         <div className="flex items-start gap-2 mb-1.5">
                           <Tag className="w-4 h-4 text-brand flex-shrink-0 mt-0.5" />
-                          <h4 className="font-bold text-sm text-ink group-hover:text-brand transition-colors leading-tight">
+                          <h4 className="font-bold text-sm text-ink group-hover/item:text-brand transition-colors leading-tight">
                             {alt.name}
                           </h4>
                         </div>
