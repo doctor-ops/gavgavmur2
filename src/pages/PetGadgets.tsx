@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { ToolLayout } from '@/components/ToolLayout';
-import { GADGETS_DATA } from '@/data/gadgets';
-import { ShoppingCart } from 'lucide-react';
+import { GADGETS_DATA, Gadget } from '@/data/gadgets';
+import { ShoppingCart, X, Info } from 'lucide-react';
 
 export const PetGadgets: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Все');
-  
+  const [selectedGadget, setSelectedGadget] = useState<Gadget | null>(null);
+
   const categories = useMemo(() => {
     return ['Все', ...Array.from(new Set(GADGETS_DATA.map((g) => g.category)))];
   }, []);
@@ -46,7 +47,6 @@ export const PetGadgets: React.FC = () => {
               key={gadget.id} 
               className="group relative rounded-xl2 bg-base-surface border border-base-muted overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 flex flex-col hover:-translate-y-1"
             >
-              {/* Контейнер изображения */}
               <div className="relative aspect-square w-full bg-base-bg overflow-hidden border-b border-base-muted">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none" />
                 <img 
@@ -69,8 +69,7 @@ export const PetGadgets: React.FC = () => {
                   {gadget.description}
                 </p>
                 
-                {/* Футер с ценой и кнопкой действия */}
-                <div className="flex items-center justify-between pt-4 border-t border-base-muted mt-auto">
+                <div className="flex items-center justify-between pt-4 border-t border-base-muted mt-auto gap-2">
                   <div className="flex flex-col">
                     <span className="text-[10px] text-ink-light font-bold uppercase tracking-tight">Цена:</span>
                     <span className="font-black text-xl text-ink font-display tracking-tight tabular-nums">
@@ -78,11 +77,10 @@ export const PetGadgets: React.FC = () => {
                     </span>
                   </div>
                   <button 
-                    className="bg-accent hover:bg-accent-light active:bg-accent-dark text-brand px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all transform active:scale-95 flex items-center gap-2"
-                    onClick={() => window.open(gadget.link || '#', '_blank')}
+                    onClick={() => setSelectedGadget(gadget)}
+                    className="bg-brand text-white px-4 py-2 rounded-xl text-xs font-bold transition-all hover:bg-brand-dark"
                   >
-                    <ShoppingCart className="w-4 h-4" />
-                    Купить
+                    Подробнее
                   </button>
                 </div>
               </div>
@@ -94,6 +92,65 @@ export const PetGadgets: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* МОДАЛЬНОЕ ОКНО С ПОЛНЫМ ОПИСАНИЕМ */}
+      {selectedGadget && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand/60 backdrop-blur-sm animate-fade-in">
+          <div 
+            className="bg-base-surface w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden animate-scale-in relative flex flex-col lg:flex-row"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Кнопка закрытия */}
+            <button 
+              onClick={() => setSelectedGadget(null)}
+              className="absolute top-4 right-4 z-50 p-2 bg-white/80 backdrop-blur-sm rounded-full text-ink hover:bg-white transition-colors shadow-sm"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Левая часть: Большое фото */}
+            <div className="lg:w-1/2 aspect-square lg:aspect-auto bg-base-bg">
+              <img 
+                src={selectedGadget.image} 
+                alt={selectedGadget.name} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Правая часть: Детали */}
+            <div className="lg:w-1/2 p-8 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand bg-brand-soft/20 px-2 py-1 rounded font-display">
+                  {selectedGadget.category}
+                </span>
+              </div>
+              
+              <h2 className="text-3xl font-display font-extrabold text-ink mb-4 leading-tight">
+                {selectedGadget.name}
+              </h2>
+              
+              <div className="flex items-center gap-2 text-accent-dark font-bold text-2xl mb-6 font-display">
+                {selectedGadget.price}
+              </div>
+              
+              <div className="flex items-start gap-2 mb-6 text-ink-soft leading-relaxed text-sm font-normal">
+                <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
+                <p>{selectedGadget.fullDescription}</p>
+              </div>
+              
+              <div className="mt-auto pt-6 border-t border-base-muted">
+                <button 
+                  onClick={() => window.open(selectedGadget.link || '#', '_blank')}
+                  className="w-full py-4 rounded-2xl bg-accent text-brand font-extrabold text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-3"
+                >
+                  <ShoppingCart className="w-6 h-6" />
+                  Перейти к покупке
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </ToolLayout>
   );
 };
