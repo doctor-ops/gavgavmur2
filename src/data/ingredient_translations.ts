@@ -500,4 +500,19 @@ export const ingredientTranslations: Record<string, string> = {
   "glucose": "глюкоза",
   "dextrose": "декстроза",
   "maltodextrin": "мальтодекстрин",
+  
+    // --- ХИМИЧЕСКИЕ СОЕДИНЕНИЯ (Точные и смешанные) ---
+  "sulfate ferreux monohydraté": "сульфат железа моногидрат",
+  "sulfate de fer monohydrate": "сульфат железа моногидрат",
+  "йодат кальция anhydre": "йодат кальция безводный",
+  "iodate de calcium anhydre": "йодат кальция безводный",
+  "sulfate cuivrique pentahydraté": "сульфат меди пентагидрат",
+  "sulfate de cuivre pentahydraté": "сульфат меди пентагидрат",
+  "sulfate manganeux monohydraté": "сульфат марганца моногидрат",
+  "sulfate de manganèse monohydraté": "сульфат марганца моногидрат",
+  "сульфат цинка monohydraté": "сульфат цинка моногидрат",
+  "sulfate de zinc monohydraté": "сульфат цинка моногидрат",
+  "sélénite de sodium": "селенит натрия",
+  "sodium selenite": "селенит натрия",
+
 };
