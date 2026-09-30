@@ -39,8 +39,24 @@ export function AllergenScanner() {
   };
 
   const translateIngredient = (text: string): string => {
-    const normalized = text.toLowerCase().trim();
-    return ingredientTranslations[normalized] || text;
+    let cleanedText = text
+      .replace(/\(\d+([.,]\d+)?%\)/g, '')
+      .replace(/\d+%/g, '')             
+      .replace(/\d+/g, '')               
+      .trim()
+      .toLowerCase();
+
+    let translatedText = cleanedText;
+    let hasTranslation = false;
+
+    Object.entries(ingredientTranslations).forEach(([foreign, russian]) => {
+      if (cleanedText.includes(foreign.toLowerCase())) {
+        translatedText = translatedText.replace(new RegExp(foreign, 'gi'), russian);
+        hasTranslation = true;
+      }
+    });
+
+    return hasTranslation ? translatedText : cleanedText;
   };
 
   const ingredients = input
@@ -54,7 +70,8 @@ export function AllergenScanner() {
     const found = ingredientDatabase.find(
       (db) => 
         db.name.toLowerCase() === translatedName.toLowerCase() || 
-        db.name.toLowerCase().includes(translatedName.toLowerCase())
+        db.name.toLowerCase().includes(translatedName.toLowerCase()) ||
+        translatedName.toLowerCase().includes(db.name.toLowerCase())
     );
 
     return {
@@ -79,8 +96,6 @@ export function AllergenScanner() {
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
-        
-        {/* Блок поиска по базе кормов */}
         <div className="mb-6 relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
             Быстрый поиск по базе кормов
@@ -100,7 +115,6 @@ export function AllergenScanner() {
             />
           </div>
 
-          {/* Выпадающий список результатов поиска */}
           {showSuggestions && filteredFoods.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
               {filteredFoods.map((food: any) => (
@@ -143,7 +157,6 @@ export function AllergenScanner() {
         </button>
       </div>
 
-      {/* Легенда */}
       <div className="flex flex-wrap gap-3 mb-8">
         {(Object.keys(allergenLevelMeta) as AllergenLevel[]).map((level) => {
           const meta = allergenLevelMeta[level];
@@ -157,7 +170,6 @@ export function AllergenScanner() {
         })}
       </div>
 
-      {/* Секция результатов */}
       {analyzed && results.length > 0 && (
         <div className="animate-fade-up">
           <div className={`rounded-xl2 p-5 mb-6 ${overallMeta.bg} border border-current/10 shadow-sm`}>
@@ -201,8 +213,8 @@ export function AllergenScanner() {
           <div className="mt-8 flex items-start gap-3 rounded-xl bg-base-surface border border-base-muted p-4 shadow-sm">
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
-              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически переводит иностранные названия и использует базу из <span className="font-bold text-ink">{ingredientDatabase.length}</span> компонентов.
-              Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию, но мы рекомендуем дополнительно проконсультироваться с ветеринаром.
+              Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически очищает состав от процентов и переводит иностранные названия. 
+              Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию.
             </p>
           </div>
         </div>
