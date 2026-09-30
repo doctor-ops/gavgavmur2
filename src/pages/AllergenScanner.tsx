@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'; 
-import { ToolLayout } from '@/components/ToolLayout'; 
+import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info } from 'lucide-react';
 import petFoods from '@/data/petfood_ready.json'; 
@@ -58,7 +58,7 @@ export function AllergenScanner() {
     );
 
     return {
-      name: translatedName,
+      name: translatedName, 
       level: found?.level || ('safe' as AllergenLevel),
       note: found?.note || 'Не найден в базе — считайте безопасным, но уточните у ветеринара',
     };
