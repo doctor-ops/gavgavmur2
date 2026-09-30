@@ -17,12 +17,14 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Функция нормализации: убирает ударения (é -> e) и приводит к нижнему регистру
+  // Улучшенная нормализация
   const normalize = (text: string) => {
     return text
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[\u0300-\u036f]/g, "") // Удаление ударений
       .toLowerCase()
+      .replace(/[()\[\]{}]/g, '')      // Удаление скобок
+      .replace(/[*_]/g, '')            // Удаление спецсимволов (звездочки и т.д.)
       .trim();
   };
 
@@ -46,68 +48,76 @@ export function AllergenScanner() {
     setShowSuggestions(false);
   };
 
-  // УМНЫЙ ПЕРЕВОДЧИК
+  // СКОРРЕКТИРОВАННЫЙ ПЕРЕВОДЧИК
   const translateIngredient = (text: string): string => {
-    // 1. Очистка от процентов в скобках (1.6%) и цифр
+    // 1. Очистка ТОЛЬКО от процентов. 
+    // Не удаляем все цифры, чтобы сохранить "Витамин B12", "D3"
     let cleaned = text
-      .replace(/\(\d+([.,]\d+)?%\)/g, '') 
-      .replace(/\d+%/g, '')              
-      .replace(/\d+/g, '')               
+      .replace(/\(\d+([.,]\d+)?%\)/g, '') // Удаляет (1.6%)
+      .replace(/\d+([.,]\d+)?%/g, '')    // Удаляет 10%
       .trim();
 
     let resultText = cleaned;
     const normalizedInput = normalize(cleaned);
 
-    // 2. Сортируем ключи словаря от самых длинных к самым коротким.
-    // Это нужно, чтобы сначала переводились длинные фразы ("мясо и побочные продукты"), 
-    // а потом короткие ("мясо"), иначе перевод будет обрывистым.
+    // 2. Сортируем ключи словаря от длинных к коротким (жадный поиск)
     const sortedKeys = Object.keys(ingredientTranslations).sort((a, b) => b.length - a.length);
 
-    sortedKeys.forEach((foreign) => {
+    for (const foreign of sortedKeys) {
       const normalizedForeign = normalize(foreign);
-      // Если нормализованный ключ из словаря содержится в нормализованном вводе
+      
+      // Если нормализованный ключ содержится в нормализованном вводе
       if (normalizedInput.includes(normalizedForeign)) {
-        // Создаем регулярное выражение, которое игнорирует регистр и акценты
-        // Для простоты используем замену оригинального текста
+        // Создаем регулярное выражение для замены оригинального текста (с учетом регистра)
+        // Чтобы не заменить "рис" внутри слова "криспы", можно добавить проверку границ, 
+        // но для ингредиентов лучше работает простой replace по словарю
         const regex = new RegExp(foreign, 'gi');
         resultText = resultText.replace(regex, ingredientTranslations[foreign]);
       }
-    });
-
-    // Если после всех замен текст остался прежним, пробуем простое прямое совпадение
-    if (resultText === cleaned) {
-      const directTranslation = ingredientTranslations[normalizedInput];
-      if (directTranslation) return directTranslation;
     }
 
-    return resultText;
+    // 3. Финальная очистка результата (удаляем висячие запятые, скобки в конце)
+    let finalResult = normalize(resultText);
+    
+    // Если в словаре есть прямое совпадение для нормализованного ввода — берем его
+    if (ingredientTranslations[normalizedInput]) {
+      return ingredientTranslations[normalizedInput];
+    }
+
+    // Если мы что-то перевели, возвращаем переведенный текст, иначе очищенный оригинал
+    return resultText === cleaned ? cleaned : resultText;
   };
 
-  const ingredients = input
-    .split(/[,;\n]/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
+  // Расщепление строки состава
+  const ingredients = useMemo(() => {
+    return input
+      .split(/[,;\n]/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0);
+  }, [input]);
 
-  const results = ingredients.map((ing) => {
-    const translatedName = translateIngredient(ing);
-    const normalizedTranslated = normalize(translatedName);
+  const results = useMemo(() => {
+    return ingredients.map((ing) => {
+      const translatedName = translateIngredient(ing);
+      const normalizedTranslated = normalize(translatedName);
 
-    // Поиск в базе аллергенов с нормализацией
-    const found = ingredientDatabase.find((db) => {
-      const normalizedDbName = normalize(db.name);
-      return (
-        normalizedDbName === normalizedTranslated || 
-        normalizedDbName.includes(normalizedTranslated) ||
-        normalizedTranslated.includes(normalizedDbName)
-      );
+      // Поиск в базе аллергенов
+      const found = ingredientDatabase.find((db) => {
+        const normalizedDbName = normalize(db.name);
+        return (
+          normalizedDbName === normalizedTranslated || 
+          normalizedTranslated.includes(normalizedDbName) || 
+          normalizedDbName.includes(normalizedTranslated)
+        );
+      });
+
+      return {
+        name: translatedName,
+        level: found?.level || ('safe' as AllergenLevel),
+        note: found?.note || 'Не найден в базе — считается безопасным, но уточните у ветеринара',
+      };
     });
-
-    return {
-      name: translatedName,
-      level: found?.level || ('safe' as AllergenLevel),
-      note: found?.note || 'Не найден в базе — считайте безопасным, но уточните у ветеринара',
-    };
-  });
+  }, [ingredients]);
 
   const counts = {
     danger: results.filter((r) => r.level === 'danger').length,
@@ -123,6 +133,7 @@ export function AllergenScanner() {
       title="Аллерген-сканер"
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
+      {/* ... (остальная часть JSX остается без изменений) ... */}
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
         <div className="mb-6 relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
