@@ -32,7 +32,7 @@ export function AllergenScanner() {
     if (food.ingredients && food.ingredients.trim() !== "") {
       setInput(food.ingredients);
     } else {
-      alert('Состав для этого корма не найден в базе. Пожалуйста, введите его с упаковки вручную.');
+      setInput(''); 
     }
     setSearchQuery('');
     setShowSuggestions(false);
@@ -58,7 +58,7 @@ export function AllergenScanner() {
     );
 
     return {
-      name: translatedName, 
+      name: translatedName,
       level: found?.level || ('safe' as AllergenLevel),
       note: found?.note || 'Не найден в базе — считайте безопасным, но уточните у ветеринара',
     };
@@ -80,6 +80,7 @@ export function AllergenScanner() {
     >
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">
         
+        {/* Блок поиска по базе кормов */}
         <div className="mb-6 relative">
           <label className="block text-sm font-bold text-ink mb-2 font-display">
             Быстрый поиск по базе кормов
@@ -99,6 +100,7 @@ export function AllergenScanner() {
             />
           </div>
 
+          {/* Выпадающий список результатов поиска */}
           {showSuggestions && filteredFoods.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
               {filteredFoods.map((food: any) => (
@@ -141,7 +143,7 @@ export function AllergenScanner() {
         </button>
       </div>
 
-      {/* Legend */}
+      {/* Легенда */}
       <div className="flex flex-wrap gap-3 mb-8">
         {(Object.keys(allergenLevelMeta) as AllergenLevel[]).map((level) => {
           const meta = allergenLevelMeta[level];
@@ -155,7 +157,7 @@ export function AllergenScanner() {
         })}
       </div>
 
-      {/* Results Section */}
+      {/* Секция результатов */}
       {analyzed && results.length > 0 && (
         <div className="animate-fade-up">
           <div className={`rounded-xl2 p-5 mb-6 ${overallMeta.bg} border border-current/10 shadow-sm`}>
