@@ -1,0 +1,1235 @@
+[
+  {
+    "id": "0052742008684",
+    "brand": "Hill's",
+    "line": "Prescription Diet",
+    "name": "Hill ´s Prescription Diet Metabolic Plus Urinary Stress Cat Food",
+    "kcalPer100g": 339
+  },
+  {
+    "id": "0052742169804",
+    "brand": "Hill’s Science Plan",
+    "name": "Hill's Science Plan Adult Light Mini Poulet",
+    "kcalPer100g": 286
+  },
+  {
+    "id": "5998749123058",
+    "brand": "Dreamies",
+    "name": "Лакомые подушечки С курицей",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "5998749133620",
+    "brand": "Waltham",
+    "name": "Catisfactions",
+    "kcalPer100g": 308
+  },
+  {
+    "id": "4048422122470",
+    "brand": "Delights",
+    "name": "8in1 - Friandises Twisted Delights Stick Poulet Pour Chien- X10",
+    "kcalPer100g": 351
+  },
+  {
+    "id": "3065896080007",
+    "brand": "Pedigree",
+    "name": "Pedigree Boeuf 3 / 2",
+    "kcalPer100g": 86
+  },
+  {
+    "id": "3065890038295",
+    "brand": "Pedigree",
+    "name": "Pâté pour chien",
+    "kcalPer100g": 65
+  },
+  {
+    "id": "3065891243001",
+    "brand": "Pedigree",
+    "name": "Terrine Au Terroir",
+    "kcalPer100g": 77
+  },
+  {
+    "id": "5600283057033",
+    "brand": "Cooper's",
+    "name": "Croquette pour chien",
+    "kcalPer100g": 328
+  },
+  {
+    "id": "5600775323653",
+    "brand": "Naturea",
+    "name": "Naturea Lands Cat & Kitten With Meat And Fish 350 GR Cat Grain Free Dry Food",
+    "kcalPer100g": 432
+  },
+  {
+    "id": "3700466259864",
+    "brand": "Apet’iz",
+    "name": "Biscuits pour chien",
+    "kcalPer100g": 76
+  },
+  {
+    "id": "3700664000022",
+    "brand": "Amikinos",
+    "name": "Reference chat",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "3361244000049",
+    "brand": "Mastery",
+    "name": "Zzchat Adult Pref. canard 400G",
+    "kcalPer100g": 312
+  },
+  {
+    "id": "3428460032213",
+    "brand": "Equilibre&instinct",
+    "name": "Pâtée à La Volaille Et Aux Légumes Pour Chat",
+    "kcalPer100g": 94
+  },
+  {
+    "id": "3760185060905",
+    "brand": "octave prestige",
+    "name": "croquette adulte light/stérilisé moyenne et grande race",
+    "kcalPer100g": 320
+  },
+  {
+    "id": "4250078909002",
+    "brand": "Bubimex",
+    "name": "Poissons Séchés 50",
+    "kcalPer100g": 282
+  },
+  {
+    "id": "8714265973154",
+    "brand": "Yarrah",
+    "name": "Pâtée Pour Chat Poulet, Dinde, Légume",
+    "kcalPer100g": 79
+  },
+  {
+    "id": "4008429957116",
+    "brand": "Whiskas",
+    "name": "Whiskas Lamb Tin",
+    "kcalPer100g": 76
+  },
+  {
+    "id": "3480200313105",
+    "brand": "Purina",
+    "line": "ONE",
+    "name": "Purina ONE",
+    "kcalPer100g": 285
+  },
+  {
+    "id": "9003579000359",
+    "brand": "Royal Canin",
+    "name": "Royal Canin - Sachets Urinary Care En Gelée Pour Chat - 12X85G",
+    "kcalPer100g": 64
+  },
+  {
+    "id": "3182550710657",
+    "brand": "Royal Canin",
+    "line": "Breed",
+    "name": "Maine Coon Adult",
+    "kcalPer100g": 303
+  },
+  {
+    "id": "3336025822028",
+    "brand": "Mastery Nutrition",
+    "name": "Aliment pour chat adulte au canard",
+    "kcalPer100g": 312
+  },
+  {
+    "id": "3554745001008",
+    "brand": "Sheba",
+    "name": "Terrine classique",
+    "kcalPer100g": 87
+  },
+  {
+    "id": "8010276020208",
+    "brand": "Farmina",
+    "name": "Grain Free Agneau & Myrtille Adulte à Partir De",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "0813778015288",
+    "brand": "Soulistic",
+    "name": "Harvest Sunrise Chicken & Pumpkin Dinner in Gravy",
+    "kcalPer100g": 84
+  },
+  {
+    "id": "0052742177601",
+    "brand": "Hill's",
+    "name": "Science Diet Adult 7+ Tender Chicken Dinner",
+    "kcalPer100g": 112
+  },
+  {
+    "id": "0052742269801",
+    "brand": "Hill's",
+    "line": "Prescription Diet",
+    "name": "Prescription Diet k/d Feline Pâté with Tuna",
+    "kcalPer100g": 116
+  },
+  {
+    "id": "0780872079051",
+    "brand": "Organix",
+    "name": "Turkey & Spinach Recipe Paté",
+    "kcalPer100g": 109
+  },
+  {
+    "id": "0064992280543",
+    "brand": "Orijen",
+    "name": "Orijen Cat & Kitten",
+    "kcalPer100g": 339
+  },
+  {
+    "id": "3596710359943",
+    "brand": "Auchan",
+    "name": "Mijotés en sauce au poulet, aux pâtes et aux carottes",
+    "kcalPer100g": 66
+  },
+  {
+    "id": "3561963601118",
+    "brand": "Virbac",
+    "name": "Joint & Mobility",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "3700664000015",
+    "brand": "Amikinos",
+    "name": "Amikinos Référence v2.1",
+    "kcalPer100g": 422
+  },
+  {
+    "id": "8002626020013",
+    "brand": "Sabelli",
+    "name": "Burrata in foglia",
+    "kcalPer100g": 421
+  },
+  {
+    "id": "3250391415076",
+    "brand": "Canaillou",
+    "name": "Chargement…",
+    "kcalPer100g": 413
+  },
+  {
+    "id": "5425039486437",
+    "brand": "Edgard & Cooper",
+    "name": "Poulet & saumon",
+    "kcalPer100g": 85
+  },
+  {
+    "id": "4000158744623",
+    "brand": "Miamor",
+    "name": "Feine Beute Pute",
+    "kcalPer100g": 456
+  },
+  {
+    "id": "8033837553106",
+    "brand": "Natural Code",
+    "name": "Caricamento…Natural Code 10",
+    "kcalPer100g": 93
+  },
+  {
+    "id": "4008429142420",
+    "brand": "Sheba",
+    "name": "Nature's Collection in sauce med laks garnert med erter",
+    "kcalPer100g": 84
+  },
+  {
+    "id": "4820083906008",
+    "brand": "OPTIMEAL",
+    "name": "Optimeal for carnivores - Saumon & Crevettes",
+    "kcalPer100g": 93
+  },
+  {
+    "id": "8005852101051",
+    "brand": "Schesir",
+    "name": "schesir natural selection agnello adult smaltimento e toy",
+    "kcalPer100g": 418
+  },
+  {
+    "id": "5060384261782",
+    "brand": "Candy Kittens",
+    "name": "Candy kittens sour watermelon",
+    "kcalPer100g": 341
+  },
+  {
+    "id": "8410136004421",
+    "brand": "Whiskas",
+    "name": "Fisk meny",
+    "kcalPer100g": 77
+  },
+  {
+    "id": "4260358516486",
+    "brand": "Wild Freedom",
+    "name": "cold river - Pollack & Chicken",
+    "kcalPer100g": 95
+  },
+  {
+    "id": "4008429117893",
+    "brand": "Pedigree",
+    "name": "Ranchos Wrap",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "3561963630095",
+    "brand": "Virbac",
+    "name": "Veterinary HPM CAT Urology 2 Dissolution & Prevention",
+    "kcalPer100g": 389
+  },
+  {
+    "id": "5425039486246",
+    "brand": "Edgard & Cooper",
+    "name": "Savoureux dinde & poulet élevés en liberté",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "8606014106732",
+    "brand": "Unknown",
+    "name": "fish trio menù",
+    "kcalPer100g": 85
+  },
+  {
+    "id": "4058172318955",
+    "brand": "DM",
+    "name": "Dein Bestes Senior",
+    "kcalPer100g": 95
+  },
+  {
+    "id": "5998749138311",
+    "brand": "Pedigree",
+    "name": "Tasty minis",
+    "kcalPer100g": 335
+  },
+  {
+    "id": "5998749125540",
+    "brand": "Pedigree",
+    "name": "Pedigree Leckerbissen",
+    "kcalPer100g": 333
+  },
+  {
+    "id": "7896029046296",
+    "brand": "Whiskas",
+    "name": "Whiskas",
+    "kcalPer100g": 90
+  },
+  {
+    "id": "0023100291611",
+    "brand": "Pedigree",
+    "name": "Small Dog Food Roasted Chicken, Rice & Vegetables Flavor",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "4008429116360",
+    "brand": "Pedigree",
+    "name": "Ranchos",
+    "kcalPer100g": 359
+  },
+  {
+    "id": "0046798161219",
+    "brand": "Tropical",
+    "name": "Tropical Granules",
+    "kcalPer100g": 354
+  },
+  {
+    "id": "0811939020409",
+    "brand": "Nulo Freestyle",
+    "name": "Nulo Freestyle Adult Trim Salmon & Lentils Recipe",
+    "kcalPer100g": 336
+  },
+  {
+    "id": "4670033593204",
+    "brand": "Delicana",
+    "name": "Сухой корм для кошек",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "3700215100324",
+    "brand": "Anibio",
+    "name": "Barf complex",
+    "kcalPer100g": 130
+  },
+  {
+    "id": "7613035347755",
+    "brand": "Purina",
+    "line": "Pro Plan",
+    "name": "Proplan",
+    "kcalPer100g": 104
+  },
+  {
+    "id": "4056489162032",
+    "brand": "Orlando",
+    "line": "orlando",
+    "name": "Bocconcini con pollo e tacchino",
+    "kcalPer100g": 76
+  },
+  {
+    "id": "3250391945191",
+    "brand": "Canaillou",
+    "name": "Terrine pour Chaton de la marque Canaillou",
+    "kcalPer100g": 111
+  },
+  {
+    "id": "8033389247188",
+    "brand": "next",
+    "name": "Next Natural",
+    "kcalPer100g": 75
+  },
+  {
+    "id": "8595602527212",
+    "brand": "Carnilove",
+    "name": "Chicken enriched with Thyme",
+    "kcalPer100g": 313
+  },
+  {
+    "id": "5407009640445",
+    "brand": "Edgard & Cooper",
+    "name": "Canard et Poulet frais",
+    "kcalPer100g": 404
+  },
+  {
+    "id": "4062911006096",
+    "brand": "Rosie's Farm",
+    "name": "Tender dinner chicken & salmon (senior)",
+    "kcalPer100g": 96
+  },
+  {
+    "id": "8595602537549",
+    "brand": "Carnilove",
+    "name": "Duck enriched with Catnip",
+    "kcalPer100g": 83
+  },
+  {
+    "id": "4820215364126",
+    "brand": "MyLove",
+    "name": "MyLove bocconcini con vitello in salsa",
+    "kcalPer100g": 77
+  },
+  {
+    "id": "4008429134791",
+    "brand": "Sheba",
+    "name": "Sheba Filets fijne kipreepjes",
+    "kcalPer100g": 67
+  },
+  {
+    "id": "4251276202223",
+    "brand": "dokaz",
+    "name": "hühnerbrust",
+    "kcalPer100g": 339
+  },
+  {
+    "id": "2952350339720",
+    "brand": "Quality sens",
+    "name": "Poulet émincé en bouillon",
+    "kcalPer100g": 62
+  },
+  {
+    "id": "3222476436399",
+    "brand": "Casino",
+    "name": "aliments complets pour chat mousses",
+    "kcalPer100g": 99
+  },
+  {
+    "id": "4008429067891",
+    "brand": "Whiskas",
+    "name": "whiskas  thon terrine",
+    "kcalPer100g": 85
+  },
+  {
+    "id": "4033766697326",
+    "brand": "StarSnack",
+    "name": "Nobby Sport Boat Mix",
+    "kcalPer100g": 106
+  },
+  {
+    "id": "4056489142355",
+    "brand": "Coshida Selection",
+    "name": "Coshida sélection",
+    "kcalPer100g": 300
+  },
+  {
+    "id": "15022703",
+    "brand": "Chrisco",
+    "name": "Tyggeben",
+    "kcalPer100g": 342
+  },
+  {
+    "id": "3662852003119",
+    "brand": "Ziggy",
+    "name": "Croquettes chaton",
+    "kcalPer100g": 412
+  },
+  {
+    "id": "8595639804409",
+    "brand": "yoggies",
+    "name": "100% maso sušené mrazem",
+    "kcalPer100g": 356
+  },
+  {
+    "id": "0758632004865",
+    "brand": "Nature's Animals",
+    "name": "Nature's Animals Handmade Dog Biscuit",
+    "kcalPer100g": 325
+  },
+  {
+    "id": "0642863111372",
+    "brand": "Mars Petcare US",
+    "name": "Feline Greenies Dental Treats Catnip Flavor",
+    "kcalPer100g": 348
+  },
+  {
+    "id": "8595602527441",
+    "brand": "Carnilove",
+    "name": "Fresh carp & trout for adult cats sterilized",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "5600118231133",
+    "brand": "Unknown",
+    "name": "Zen treats",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "5407009640476",
+    "brand": "Edgard & Cooper",
+    "name": "Dinde et Poulet frais",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "5060333433451",
+    "brand": "Applaws",
+    "name": "Mackerel with Sardine in Broth",
+    "kcalPer100g": 91
+  },
+  {
+    "id": "4607052682947",
+    "brand": "Короваево",
+    "name": "Масло сливочное крестьянское",
+    "kcalPer100g": 66
+  },
+  {
+    "id": "0032003301891",
+    "brand": "Edgard & Cooper",
+    "name": "Pâté bio chats adultes saumon et poulet",
+    "kcalPer100g": 112
+  },
+  {
+    "id": "5425039486215",
+    "brand": "Edgard & Cooper",
+    "name": "Canard et Poulet frais",
+    "kcalPer100g": 383
+  },
+  {
+    "id": "3770024561227",
+    "brand": "Ziggy",
+    "name": "Pâtée Chat Senior Sans Céréales Boeuf",
+    "kcalPer100g": 106
+  },
+  {
+    "id": "0300875122228",
+    "brand": "Temptations",
+    "name": "Block Party BBQ",
+    "kcalPer100g": 68
+  },
+  {
+    "id": "8009470059817",
+    "brand": "Monge",
+    "name": "Le Chat Excellence Sterilised Pollo",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "5060122490054",
+    "brand": "Applaws",
+    "name": "Chicken Breast with Cheese",
+    "kcalPer100g": 87
+  },
+  {
+    "id": "7300330049339",
+    "brand": "Bozita",
+    "name": "Nordic Waters Salmon",
+    "kcalPer100g": 79
+  },
+  {
+    "id": "8595602537556",
+    "brand": "Carnilove",
+    "name": "Rich in Pheasant enriched with Raspberry leaves",
+    "kcalPer100g": 84
+  },
+  {
+    "id": "8595602537525",
+    "brand": "Carnilove",
+    "name": "Rich in Turkey enriched with Valerian root",
+    "kcalPer100g": 80
+  },
+  {
+    "id": "8595602537570",
+    "brand": "Carnilove",
+    "name": "Rich in Trout enriched with echinacea for adult cats",
+    "kcalPer100g": 81
+  },
+  {
+    "id": "6091008211288",
+    "brand": "YDOLO",
+    "name": "YDOLO Healthy & Pure Chicken",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "0072554001918",
+    "brand": "Purina",
+    "name": "Frosty Paws Vanilla",
+    "kcalPer100g": 135
+  },
+  {
+    "id": "4660085515309",
+    "brand": "Perfect Fit",
+    "name": "Корм «Курица в соусе» для стерилизованных котов и кошек",
+    "kcalPer100g": 77
+  },
+  {
+    "id": "1040364133852",
+    "brand": "Pedigree",
+    "name": "MARKIES Biscuits Fourrés Pour Chien",
+    "kcalPer100g": 349
+  },
+  {
+    "id": "3616660894537",
+    "brand": "Empreintes",
+    "name": "Terrine riche en dinde et au bœuf pour chat senior",
+    "kcalPer100g": 81
+  },
+  {
+    "id": "3616660894520",
+    "brand": "Empreintes",
+    "name": "Terrine riche en cabillaud et au poulet",
+    "kcalPer100g": 80
+  },
+  {
+    "id": "3616660894513",
+    "brand": "Empreintes",
+    "name": "Terrine riche en volaille et au saumon avec légumes",
+    "kcalPer100g": 80
+  },
+  {
+    "id": "3616660888505",
+    "brand": "Empreintes",
+    "name": "Terrine riche en poulet et au lait pour chaton",
+    "kcalPer100g": 93
+  },
+  {
+    "id": "5407009640452",
+    "brand": "Edgard & Cooper",
+    "name": "Poulet frais",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "5407009640469",
+    "brand": "Edgard & Cooper",
+    "name": "Saumon frais",
+    "kcalPer100g": 404
+  },
+  {
+    "id": "3616660558187",
+    "brand": "Empreintes",
+    "name": "Croquettes poulet sans céréales pour chaton",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "3616660558217",
+    "brand": "Empreintes",
+    "name": "Croquettes poulet sans céréales pour chaton",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "3616660558224",
+    "brand": "Empreintes",
+    "name": "Croquettes saumon sans céréales pour chat adulte stérilisé",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "5056273602781",
+    "brand": "Lily’s Kitchen",
+    "name": "Chicken with Veggies Dry Food",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "5060184243421",
+    "brand": "Lily’s Kitchen",
+    "name": "Kitten Recipe",
+    "kcalPer100g": 401
+  },
+  {
+    "id": "3770024561128",
+    "brand": "Ziggy",
+    "name": "Croquettes Chat Stérilisé Sans Céréales Saumon",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "3770024561135",
+    "brand": "Ziggy",
+    "name": "Croquettes Chat Stérilisé Sans Céréales Saumon",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "3616661050253",
+    "brand": "Empreintes",
+    "name": "Croquettes au saumon pour chaton, sans céréales",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "3616661037254",
+    "brand": "Empreintes",
+    "name": "Croquettes au poulet pour chaton, sans céréales",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "3616661037223",
+    "brand": "Empreintes",
+    "name": "Croquettes au saumon pour chat adulte stérilisé, sans céréales",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "3616661037230",
+    "brand": "Empreintes",
+    "name": "Croquettes au poulet pour chat senior, sans céréales",
+    "kcalPer100g": 360
+  },
+  {
+    "id": "5060184243322",
+    "brand": "Lily’s Kitchen",
+    "name": "Chicken Paté for Kittens",
+    "kcalPer100g": 94
+  },
+  {
+    "id": "4066736009843",
+    "brand": "Terra Felis",
+    "name": "Famousse Dinde",
+    "kcalPer100g": 103
+  },
+  {
+    "id": "3616660558026",
+    "brand": "Empreintes",
+    "name": "Croquettes poulet sans céréales, chiot petite race",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "3760260845113",
+    "brand": "Atavik",
+    "name": "Friandises d'éducation pour chien - Poulet",
+    "kcalPer100g": 435
+  },
+  {
+    "id": "3760260845144",
+    "brand": "Atavik",
+    "name": "Friandises d'éducation pour chien - Saumon",
+    "kcalPer100g": 479
+  },
+  {
+    "id": "3760260844291",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Dinde riche en Sanglier avec potiron",
+    "kcalPer100g": 128
+  },
+  {
+    "id": "3760260845328",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Dinde riche en Sanglier avec potiron",
+    "kcalPer100g": 128
+  },
+  {
+    "id": "3760260845359",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Dinde riche en Sanglier avec potiron",
+    "kcalPer100g": 128
+  },
+  {
+    "id": "3760260844321",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Poulet riche en Chevreuil avec carottes",
+    "kcalPer100g": 95
+  },
+  {
+    "id": "3760260845335",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Poulet riche en Chevreuil avec carottes",
+    "kcalPer100g": 95
+  },
+  {
+    "id": "3760260845366",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Poulet riche en Chevreuil avec carottes",
+    "kcalPer100g": 95
+  },
+  {
+    "id": "3760260844352",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Agneau au Jambon italien avec haricots verts",
+    "kcalPer100g": 124
+  },
+  {
+    "id": "3760260840798",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Agneau au Jambon italien avec haricots verts",
+    "kcalPer100g": 124
+  },
+  {
+    "id": "3760260845342",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Agneau au Jambon italien avec haricots verts",
+    "kcalPer100g": 124
+  },
+  {
+    "id": "3760260845373",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Agneau au Jambon italien avec haricots verts",
+    "kcalPer100g": 124
+  },
+  {
+    "id": "3760260844222",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien Made in France - Poulet & à la Lotte",
+    "kcalPer100g": 92
+  },
+  {
+    "id": "3760260846127",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Canard & Poulet",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260846110",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Saumon riche en Sprat",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260846066",
+    "brand": "Atavik",
+    "name": "Ragoût pour chien - Poulet",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260846073",
+    "brand": "Atavik",
+    "name": "Ragoût pour chien - Sanglier",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260844802",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien Monoprotéine Poulet",
+    "kcalPer100g": 90
+  },
+  {
+    "id": "3760260846080",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien Monoprotéine - Agneau",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260846097",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien Monoprotéine - Saumon",
+    "kcalPer100g": 110
+  },
+  {
+    "id": "3760260846103",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien Monoprotéine - Sanglier",
+    "kcalPer100g": 105
+  },
+  {
+    "id": "3760260844277",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Effilochés - Dinde au saumon",
+    "kcalPer100g": 115
+  },
+  {
+    "id": "3760260844284",
+    "brand": "Atavik",
+    "name": "Pâtée pour chien - Effilochés - Poulet au canard",
+    "kcalPer100g": 119
+  },
+  {
+    "id": "3760260840415",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Cous de poulet",
+    "kcalPer100g": 553
+  },
+  {
+    "id": "3760260842792",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Cous de poulet",
+    "kcalPer100g": 553
+  },
+  {
+    "id": "3760260840422",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Masques de boeuf",
+    "kcalPer100g": 382
+  },
+  {
+    "id": "3760260842808",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Masques de boeuf",
+    "kcalPer100g": 382
+  },
+  {
+    "id": "3760260840439",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Oreilles de porc",
+    "kcalPer100g": 467
+  },
+  {
+    "id": "3760260842662",
+    "brand": "Atavik",
+    "name": "Friandise hygiène dentaire pour chien - Trachée de boeuf",
+    "kcalPer100g": 523
+  },
+  {
+    "id": "3760260842853",
+    "brand": "Atavik",
+    "name": "Friandise hygiène dentaire pour chien - Trachée de boeuf",
+    "kcalPer100g": 523
+  },
+  {
+    "id": "3760260842679",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Queues de boeuf",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "3760260842815",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Queues de boeuf",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "3760260842686",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Herbières de boeuf",
+    "kcalPer100g": 383
+  },
+  {
+    "id": "3760260842822",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Herbières de boeuf",
+    "kcalPer100g": 383
+  },
+  {
+    "id": "3760260844918",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Cous de dinde",
+    "kcalPer100g": 452
+  },
+  {
+    "id": "3760260842839",
+    "brand": "Atavik",
+    "name": "Friandises récompense pour chien - Panse de mouton",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "3760260842877",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Conduits d'oreilles de Porc",
+    "kcalPer100g": 521
+  },
+  {
+    "id": "3760260842907",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Pieds de mouton",
+    "kcalPer100g": 460
+  },
+  {
+    "id": "3760260842914",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Nerfs de boeuf",
+    "kcalPer100g": 351
+  },
+  {
+    "id": "3760260842921",
+    "brand": "Atavik",
+    "name": "Os anti-tartre pour chien - Os de jambon",
+    "kcalPer100g": 458
+  },
+  {
+    "id": "3760260842938",
+    "brand": "Atavik",
+    "name": "Friandises hygiène dentaire pour chien - Sabots de veau",
+    "kcalPer100g": 369
+  },
+  {
+    "id": "3760260842860",
+    "brand": "Atavik",
+    "name": "Friandises récompense pour chien - Cubes de filet de poulet",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "3760260845120",
+    "brand": "Atavik",
+    "name": "Friandises d'éducation pour chien - Boeuf",
+    "kcalPer100g": 469
+  },
+  {
+    "id": "3760260845137",
+    "brand": "Atavik",
+    "name": "Friandises d'éducation pour chien - Foie de boeuf",
+    "kcalPer100g": 435
+  },
+  {
+    "id": "0627975011116",
+    "brand": "FreshPet",
+    "line": "Vital Clean Nutrition",
+    "name": "Chicken & Beef Recipe",
+    "kcalPer100g": 131
+  },
+  {
+    "id": "8429037016563",
+    "brand": "Ownat",
+    "name": "Ownat Grain Free Prime Sterilized",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "3616660558033",
+    "brand": "Empreintes",
+    "name": "Croquettes au poulet sans céréale pour chien adulte sterilisé de petite taille sans céréale ajouté",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "8057592731753",
+    "brand": "Be Fortis",
+    "line": "Be Fortis cat",
+    "name": "Be Fortis sterilised urinary",
+    "kcalPer100g": 82
+  },
+  {
+    "id": "0050000172375",
+    "brand": "Purina",
+    "line": "Fancy Feast",
+    "name": "Fancy Feast Kitten Tender Salmon Feast",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "2000000105333",
+    "brand": "Jack et Dolly",
+    "name": "Croquettes pour chiens adulte au canard",
+    "kcalPer100g": 441
+  },
+  {
+    "id": "3700260210030",
+    "brand": "Brekkies",
+    "name": "Adult à l'agneau et au riz",
+    "kcalPer100g": 419
+  },
+  {
+    "id": "5010394984577",
+    "brand": "Pedigree",
+    "name": "dentastix daily oral care 5-10 kg 105 gr",
+    "kcalPer100g": 129
+  },
+  {
+    "id": "5998749104392",
+    "brand": "Pedigree",
+    "name": "pedigree daily oral care",
+    "kcalPer100g": 301
+  },
+  {
+    "id": "5998749105214",
+    "brand": "Pedigree",
+    "name": "DentaStix Medium Dog Dental Chews 28 Stick",
+    "kcalPer100g": 299
+  },
+  {
+    "id": "5998749108536",
+    "brand": "Whiskas",
+    "name": "Whiskas Temptations Salmon 60g",
+    "kcalPer100g": 411
+  },
+  {
+    "id": "5998749117774",
+    "brand": "Catisfactions",
+    "name": "Snack Chicken",
+    "kcalPer100g": 408
+  },
+  {
+    "id": "7613035839700",
+    "brand": "Purina",
+    "line": "Felix",
+    "name": "Tendres éffilés délicieux duos",
+    "kcalPer100g": 124
+  },
+  {
+    "id": "8717249776390",
+    "brand": "Mr Goodlad",
+    "name": "Training Treats - Chicken & beef",
+    "kcalPer100g": 330
+  },
+  {
+    "id": "9319185007829",
+    "brand": "Fussy Cat",
+    "name": "Slices & jelly",
+    "kcalPer100g": 75
+  },
+  {
+    "id": "8001154000849",
+    "brand": "Almo Nature",
+    "name": "Daily con tonno e salmone",
+    "kcalPer100g": 374
+  },
+  {
+    "id": "3609231847902",
+    "brand": "Carrefour",
+    "name": "RONGEURS HERBIVORES Avec un mélange de céréales Avec des légumes",
+    "kcalPer100g": 90
+  },
+  {
+    "id": "8850011073034",
+    "brand": "Purina",
+    "line": "Fancy Feast",
+    "name": "Fancy Feast Petite Delights Salmon & Tuna Wet Cat Food 50g x 6 pack",
+    "kcalPer100g": 75
+  },
+  {
+    "id": "9900722374346",
+    "brand": "Royal Canin",
+    "name": "Royal Canin Hepatic HF 16 Croquettes Chien",
+    "kcalPer100g": 395
+  },
+  {
+    "id": "0015561526517",
+    "brand": "Care+",
+    "line": "Nutrience",
+    "name": "Care+ Weight management Fresh Chicken Recipe",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "0015561526531",
+    "brand": "Nutrience",
+    "line": "Rolf C. Hagen",
+    "name": "Care+ Hairball Control Fresh Chicken Recipe",
+    "kcalPer100g": 111
+  },
+  {
+    "id": "0023100108322",
+    "brand": "Cesar",
+    "name": "Turkey, Green Beans & Potatoes Dinner In Sauce",
+    "kcalPer100g": 70
+  },
+  {
+    "id": "0064992716240",
+    "brand": "Orijen",
+    "name": "Tundra Stew With Lamb, Duck & Shredded Beef",
+    "kcalPer100g": 110
+  },
+  {
+    "id": "4008429134869",
+    "brand": "Sheba",
+    "name": "Sheba Filets kip met duurzame tonijn",
+    "kcalPer100g": 67
+  },
+  {
+    "id": "8017596136732",
+    "brand": "Radames",
+    "name": "Specialized Junior Croccantini Ricchi in Pollo con Riso",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "3560070728077",
+    "brand": "Carrefour",
+    "name": "Companino vitalive Snacks",
+    "kcalPer100g": 321
+  },
+  {
+    "id": "3560071640736",
+    "brand": "Carrefour",
+    "name": "Nutriprotect",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "3560071640743",
+    "brand": "Carrefour",
+    "name": "Nutriprotect EMBALLAGE MAJORITAIREMENT RECYCLABLE ZIP FERMETURE FRAICHEUR",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "3560071640750",
+    "brand": "Carrefour",
+    "name": "Nutriprotect EMBALLAGE MAJORITAIREMENT RECYCLABLE ZIP FERMETURE FRAICHEUR",
+    "kcalPer100g": 349
+  },
+  {
+    "id": "3560071591205",
+    "brand": "Carrefour",
+    "name": "Companino viatlive SNACK DIGEST + ANTI BOULES DE POILS",
+    "kcalPer100g": 407
+  },
+  {
+    "id": "3560071595777",
+    "brand": "Carrefour",
+    "name": "Companino Vitalive Creamy Tubes",
+    "kcalPer100g": 98
+  },
+  {
+    "id": "3560071640712",
+    "brand": "Carrefour",
+    "name": "Nutriprotect",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "8445290071934",
+    "brand": "YoSoy",
+    "name": "purina One salmone sterilizzati",
+    "kcalPer100g": 67
+  },
+  {
+    "id": "0023100180762",
+    "brand": "Pedigree",
+    "name": "Tasty Biscuits Peanut Butter Bacon Flavor",
+    "kcalPer100g": 344
+  },
+  {
+    "id": "4088600064529",
+    "brand": "Harvest Morn",
+    "line": "Pedigree",
+    "name": "Ranchos",
+    "kcalPer100g": 440
+  },
+  {
+    "id": "5060384261829",
+    "brand": "Pedigree",
+    "name": "Pedigree Tasty Minis Puppy",
+    "kcalPer100g": 341
+  },
+  {
+    "id": "6713302046730",
+    "brand": "Purina Pro Plan",
+    "name": "Pro Plan Veterinary Diets Feline NF Early Care",
+    "kcalPer100g": 412
+  },
+  {
+    "id": "4820255192406",
+    "brand": "М'ясна миска",
+    "name": "Корм для котів Шматочки в соусі м'ясний мікс ТМ «М'ясна миска»",
+    "kcalPer100g": 86
+  },
+  {
+    "id": "0076344107262",
+    "brand": "Wellness Core",
+    "name": "Sterilised original",
+    "kcalPer100g": 348
+  },
+  {
+    "id": "5013919007980",
+    "brand": "Wagg",
+    "name": "All Day Breakfast Yoghurt & Blueberry Bites",
+    "kcalPer100g": 302
+  },
+  {
+    "id": "4008429081767",
+    "brand": "Dreamies",
+    "line": "Waltham",
+    "name": "Dreamies mit Huhn",
+    "kcalPer100g": 408
+  },
+  {
+    "id": "5903769003914",
+    "brand": "John Dog",
+    "name": "John Dog Pure Black Deer",
+    "kcalPer100g": 68
+  }
+]
