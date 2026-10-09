@@ -4,7 +4,7 @@ import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info, HelpCircle } from 'lucide-react';
 import petFoods from 'virtual:petfood-index';
-import { ingredientTranslations } from '@/data/ingredient_translations';
+import { normalizeComposition } from '@/data/normalizeIngredients';
 
 type FoodRecord = {
   id: string;
@@ -79,31 +79,52 @@ const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
   unknown: HelpCircle,
 };
 
+function containsTerm(haystack: string, term: string): boolean {
+  if (!term) return false;
+  let from = 0;
+  while (from <= haystack.length - term.length) {
+    const at = haystack.indexOf(term, from);
+    if (at < 0) return false;
+    const beforeOk = at === 0 || !/\p{L}/u.test(haystack[at - 1]);
+    const afterAt = at + term.length;
+    const afterOk = afterAt >= haystack.length || !/\p{L}/u.test(haystack[afterAt]);
+    if (beforeOk && afterOk) return true;
+    from = at + 1;
+  }
+  return false;
+}
+
 function normalize(text: string) {
   return text
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
+    .replace(/ё/g, 'е')
     .replace(/[()[\]{}]/g, '')
     .replace(/[*_]/g, '')
     .trim();
 }
 
-function escapeRegExp(value: string) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-const translationIndex = Object.keys(ingredientTranslations)
-  .sort((a, b) => b.length - a.length)
-  .map((foreign) => ({
-    normalized: normalize(foreign),
-    regex: new RegExp(escapeRegExp(foreign), 'gi'),
-    translation: ingredientTranslations[foreign],
-  }));
-
-const translationByNormalized = new Map(
-  Object.entries(ingredientTranslations).map(([key, value]) => [normalize(key), value])
-);
+const allergenForms: Record<string, string[]> = {
+  соя: ['соев'],
+  кукуруза: ['кукуруз'],
+  пшеница: ['пшенич'],
+  ячмень: ['ячмен'],
+  овес: ['овся'],
+  курица: ['куриц', 'курин'],
+  говядина: ['говяж', 'говядин'],
+  яйцо: ['яйц', 'яич'],
+  ягненок: ['ягнен', 'ягняч'],
+  индейка: ['индееч', 'индейк'],
+  кролик: ['кролич'],
+  лосось: ['лосос'],
+  тунец: ['тунц'],
+  тыква: ['тыкв'],
+  морковь: ['морков'],
+  яблоко: ['яблоч', 'яблок'],
+  свекла: ['свекл'],
+  чечевица: ['чечевич'],
+};
 
 const normalizedIngredients = ingredientDatabase.map((item) => ({
   ...item,
@@ -116,21 +137,8 @@ function translateIngredient(text: string): string {
     .replace(/\d+([.,]\d+)?%/g, '')
     .replace(/[★☆*]/g, '')
     .trim();
-
-  let resultText = cleaned;
-  const normalizedInput = normalize(cleaned);
-
-  for (const entry of translationIndex) {
-    if (!normalizedInput.includes(entry.normalized)) continue;
-    entry.regex.lastIndex = 0;
-    resultText = resultText.replace(entry.regex, entry.translation);
-  }
-
-  if (resultText === cleaned) {
-    return translationByNormalized.get(normalizedInput) ?? cleaned.replace(/[,.;]$/, '').trim();
-  }
-
-  return resultText.replace(/[,.;]$/, '').trim();
+  const translated = normalizeComposition(cleaned);
+  return translated.replace(/[,.;]$/, '').trim();
 }
 
 export function AllergenScanner() {
@@ -213,9 +221,10 @@ export function AllergenScanner() {
 
       const found = normalizedIngredients.find((db) => {
         if (db.normalized === normalizedTranslated) return true;
-        if (db.normalized.length > 3 && normalizedTranslated.includes(db.normalized)) return true;
-        if (normalizedTranslated.length > 3 && db.normalized.includes(normalizedTranslated)) return true;
-        return false;
+        if (db.normalized.length > 3 && containsTerm(normalizedTranslated, db.normalized)) return true;
+        if (normalizedTranslated.length > 3 && containsTerm(db.normalized, normalizedTranslated)) return true;
+        const forms = allergenForms[db.normalized];
+        return forms?.some((form) => normalizedTranslated.includes(form)) ?? false;
       });
 
       return {
