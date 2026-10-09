@@ -1,8 +1,9 @@
 import { useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
-import { foodBrands } from '@/data/foodBrands';
+import { foodBrands, type FoodBrand } from '@/data/foodBrands';
 import calorieFoods from '@/data/foodCalories.json';
-import { Calculator, Flame, Scale, Search, X } from 'lucide-react';
+import { ArrowRight, Calculator, Flame, Scale, Search, Wallet, X } from 'lucide-react';
 
 type AnimalType = 'dog' | 'cat';
 type Activity = 'low' | 'moderate' | 'high';
@@ -37,6 +38,29 @@ const activityFactors: Record<Activity, number> = {
   moderate: 1.6,
   high: 2.0,
 };
+
+function foldBrand(value: string) {
+  return value.toLowerCase().replace(/['’`]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function priceBrandFor(food: CalorieFood | null, fallback: FoodBrand): FoodBrand {
+  if (!food) return fallback;
+  const name = foldBrand(food.brand);
+  if (name.length < 2 || name === 'unknown') return fallback;
+
+  const exact = foodBrands.find((brand) => foldBrand(brand.name) === name);
+  if (exact) return exact;
+
+  const foodStarts = foodBrands
+    .filter((brand) => name.startsWith(`${foldBrand(brand.name)} `))
+    .sort((a, b) => foldBrand(b.name).length - foldBrand(a.name).length);
+  if (foodStarts[0]) return foodStarts[0];
+
+  const catalogStarts = foodBrands
+    .filter((brand) => foldBrand(brand.name).startsWith(`${name} `))
+    .sort((a, b) => foldBrand(a.name).length - foldBrand(b.name).length);
+  return catalogStarts[0] ?? fallback;
+}
 
 export function CalorieCalculator() {
   const [animal, setAnimal] = useState<AnimalType>('dog');
@@ -89,15 +113,18 @@ export function CalorieCalculator() {
       .slice(0, 8);
   }, [foodQuery]);
 
+  const priceBrand = priceBrandFor(selectedFood, selectedBrand);
   const kcalPer100g = selectedFood?.kcalPer100g ?? selectedBrand.kcalPer100g;
   const portionTitle = selectedFood ? foodTitle(selectedFood) : selectedBrand.name;
   const gramsPerDay = Math.round((der / kcalPer100g) * 100);
   const gramsPerMeal = Math.round(gramsPerDay / 2);
+  const rubPerDay = Math.round((gramsPerDay / 1000) * priceBrand.pricePerKg);
+  const rubPerMonth = rubPerDay * 30;
 
   return (
     <ToolLayout
-      title="Калькулятор калорий"
-      subtitle="Рассчитайте суточную норму калорий (RER/DER) для вашего питомца и переведите её в граммы выбранного корма."
+      title="Корм и бюджет"
+      subtitle="Суточная порция в граммах и оценка расходов на корм. Цена берётся как средняя по марке, это не стоимость конкретной пачки."
     >
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Форма ввода данных */}
@@ -273,8 +300,8 @@ export function CalorieCalculator() {
             )}
             <p className="text-xs text-ink-light leading-relaxed">
               {selectedFood
-                ? `В расчёте ${selectedFood.kcalPer100g} ккал/100г этого корма.`
-                : 'Если корм не выбран, используется средняя калорийность бренда.'}
+                ? `Порция считается по ${selectedFood.kcalPer100g} ккал/100г этого корма. Деньги — оценка по марке «${priceBrand.name}».`
+                : 'Если корм не выбран, калории и цена берутся как среднее по выбранной марке.'}
             </p>
           </div>
 
@@ -345,33 +372,45 @@ export function CalorieCalculator() {
           </div>
 
           <div className="rounded-2xl bg-base-surface border border-base-muted p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <Wallet className="w-5 h-5 text-brand" />
+              <span className="text-sm font-bold text-ink font-display">На корм</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-base-bg p-4 border border-base-muted">
+                <div className="text-xs text-ink-light mb-1 font-medium">В день</div>
+                <div className="font-display font-extrabold text-2xl text-ink">~{rubPerDay.toLocaleString('ru-RU')} ₽</div>
+              </div>
+              <div className="rounded-xl bg-base-bg p-4 border border-base-muted">
+                <div className="text-xs text-ink-light mb-1 font-medium">В месяц</div>
+                <div className="font-display font-extrabold text-2xl text-accent-dark">~{rubPerMonth.toLocaleString('ru-RU')} ₽</div>
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-ink-light leading-relaxed">
+              ~{priceBrand.pricePerKg.toLocaleString('ru-RU')} ₽/кг · оценка по марке «{priceBrand.name}», не цена пачки.
+              {priceBrand.category ? ` Класс: ${priceBrand.category}.` : ''}
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-base-surface border border-base-muted p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-3">
               <Flame className="w-5 h-5 text-brand" />
-              <span className="text-sm font-bold text-ink font-display">О выбранном корме</span>
+              <span className="text-sm font-bold text-ink font-display">Калорийность</span>
             </div>
-            <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-ink-soft leading-relaxed">
-              <div className="flex justify-between border-b border-base-muted/40 pb-1">
-                <span>Калорийность:</span>
-                <span className="font-bold text-ink">{kcalPer100g} ккал/100г</span>
-              </div>
-              {!selectedFood && (
-                <>
-                  <div className="flex justify-between border-b border-base-muted/40 pb-1">
-                    <span>Класс:</span>
-                    <span className="font-bold text-ink">{selectedBrand.category}</span>
-                  </div>
-                  <div className="flex justify-between border-b border-base-muted/40 pb-1">
-                    <span>Цена:</span>
-                    <span className="font-bold text-ink">~{selectedBrand.pricePerKg} ₽/кг</span>
-                  </div>
-                  <div className="flex justify-between border-b border-base-muted/40 pb-1">
-                    <span>За день:</span>
-                    <span className="font-bold text-accent-dark">~{Math.round((gramsPerDay / 1000) * selectedBrand.pricePerKg)} ₽</span>
-                  </div>
-                </>
-              )}
+            <div className="flex justify-between text-sm text-ink-soft border-b border-base-muted/40 pb-1">
+              <span>{selectedFood ? 'Этот корм' : 'Среднее по марке'}</span>
+              <span className="font-bold text-ink">{kcalPer100g} ккал/100г</span>
             </div>
           </div>
+
+          <Link
+            to="/tools/budget"
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-brand text-white font-bold text-sm hover:bg-brand-light transition-all"
+          >
+            <Wallet className="w-4 h-4" />
+            Весь бюджет питомца
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
           <div className="rounded-xl bg-warn-light p-4 text-sm text-warn-dark leading-relaxed border border-warn/20">
             Расчёт носит ознакомительный характер. Точные нормы кормления определяет ветеринар с учётом состояния здоровья питомца.
