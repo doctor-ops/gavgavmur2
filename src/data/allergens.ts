@@ -1,4 +1,4 @@
-export type AllergenLevel = 'danger' | 'trigger' | 'safe';
+export type AllergenLevel = 'danger' | 'trigger' | 'unknown' | 'safe';
 
 export interface Ingredient {
   name: string;
@@ -24,6 +24,12 @@ export const allergenLevelMeta: Record<AllergenLevel, { label: string; color: st
     color: 'text-warning-dark', // соответствует warning.dark в конфиге
     bg: 'bg-warning-light',     // соответствует warning.light в конфиге
     dot: 'bg-warning',          // соответствует warning.DEFAULT в конфиге
+  },
+  unknown: {
+    label: 'Не в базе',
+    color: 'text-ink-soft',
+    bg: 'bg-base-bg',
+    dot: 'bg-ink-light',
   },
   safe: { 
     label: 'Безопасно', 

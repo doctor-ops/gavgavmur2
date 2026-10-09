@@ -3,6 +3,16 @@ import { ToolLayout } from '@/components/ToolLayout';
 import { GADGETS_DATA, Gadget } from '@/data/gadgets';
 import { ShoppingCart, X, Info } from 'lucide-react';
 
+function mediaSrc(src: string) {
+  if (/^https?:/i.test(src)) return src;
+  return `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
+}
+
+function shopUrl(link?: string) {
+  if (!link || !/^https:\/\//i.test(link)) return null;
+  return link;
+}
+
 export const PetGadgets: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Все');
   const [selectedGadget, setSelectedGadget] = useState<Gadget | null>(null);
@@ -16,6 +26,8 @@ export const PetGadgets: React.FC = () => {
       ? GADGETS_DATA 
       : GADGETS_DATA.filter(g => g.category === selectedCategory);
   }, [selectedCategory]);
+
+  const purchaseUrl = shopUrl(selectedGadget?.link);
 
   return (
     <ToolLayout
@@ -50,8 +62,10 @@ export const PetGadgets: React.FC = () => {
               <div className="relative aspect-square w-full bg-base-bg overflow-hidden border-b border-base-muted">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none" />
                 <img 
-                  src={gadget.image} 
-                  alt={gadget.name} 
+                  src={mediaSrc(gadget.image)} 
+                  alt={gadget.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
                 />
                 <div className="absolute top-3 left-3 z-20">
@@ -111,8 +125,9 @@ export const PetGadgets: React.FC = () => {
             {/* Левая часть: Большое фото */}
             <div className="lg:w-1/2 aspect-square lg:aspect-auto bg-base-bg">
               <img 
-                src={selectedGadget.image} 
-                alt={selectedGadget.name} 
+                src={mediaSrc(selectedGadget.image)} 
+                alt={selectedGadget.name}
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -139,13 +154,26 @@ export const PetGadgets: React.FC = () => {
               </div>
               
               <div className="mt-auto pt-6 border-t border-base-muted">
-                <button 
-                  onClick={() => window.open(selectedGadget.link || '#', '_blank')}
-                  className="w-full py-4 rounded-2xl bg-accent text-brand font-extrabold text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-3"
-                >
-                  <ShoppingCart className="w-6 h-6" />
-                  Перейти к покупке
-                </button>
+                {purchaseUrl ? (
+                  <a
+                    href={purchaseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 rounded-2xl bg-accent text-brand font-extrabold text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-3"
+                  >
+                    <ShoppingCart className="w-6 h-6" />
+                    Перейти к покупке
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full py-4 rounded-2xl bg-base-muted text-ink-soft font-extrabold text-lg flex items-center justify-center gap-3 cursor-not-allowed"
+                  >
+                    <ShoppingCart className="w-6 h-6" />
+                    Ссылка на магазин пока не указана
+                  </button>
+                )}
               </div>
             </div>
           </div>

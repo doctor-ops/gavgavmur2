@@ -1,15 +1,81 @@
-import { useState, useMemo } from 'react'; 
+import { useState, useMemo } from 'react';
 import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
-import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info } from 'lucide-react';
-import petFoods from '@/data/petfood_ready.json'; 
+import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info, HelpCircle } from 'lucide-react';
+import petFoods from '@/data/petfood_ready.json';
 import { ingredientTranslations } from '@/data/ingredient_translations';
+
+type FoodRecord = {
+  id?: string;
+  name?: string;
+  brand?: string;
+  search_tags?: string;
+  ingredients?: string;
+  quantity?: string;
+};
+
+const foods = petFoods as FoodRecord[];
 
 const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
   safe: CheckCircle2,
   trigger: AlertTriangle,
   danger: XCircle,
+  unknown: HelpCircle,
 };
+
+function normalize(text: string) {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[()[\]{}]/g, '')
+    .replace(/[*_]/g, '')
+    .trim();
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const translationIndex = Object.keys(ingredientTranslations)
+  .sort((a, b) => b.length - a.length)
+  .map((foreign) => ({
+    normalized: normalize(foreign),
+    regex: new RegExp(escapeRegExp(foreign), 'gi'),
+    translation: ingredientTranslations[foreign],
+  }));
+
+const translationByNormalized = new Map(
+  Object.entries(ingredientTranslations).map(([key, value]) => [normalize(key), value])
+);
+
+const normalizedIngredients = ingredientDatabase.map((item) => ({
+  ...item,
+  normalized: normalize(item.name),
+}));
+
+function translateIngredient(text: string): string {
+  const cleaned = text
+    .replace(/\(\d+([.,]\d+)?%\)/g, '')
+    .replace(/\d+([.,]\d+)?%/g, '')
+    .replace(/[★☆*]/g, '')
+    .trim();
+
+  let resultText = cleaned;
+  const normalizedInput = normalize(cleaned);
+
+  for (const entry of translationIndex) {
+    if (!normalizedInput.includes(entry.normalized)) continue;
+    entry.regex.lastIndex = 0;
+    resultText = resultText.replace(entry.regex, entry.translation);
+  }
+
+  if (resultText === cleaned) {
+    return translationByNormalized.get(normalizedInput) ?? cleaned.replace(/[,.;]$/, '').trim();
+  }
+
+  return resultText.replace(/[,.;]$/, '').trim();
+}
 
 export function AllergenScanner() {
   const [input, setInput] = useState('');
@@ -17,27 +83,24 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const normalize = (text: string) => {
-    return text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") 
-      .toLowerCase()
-      .replace(/[()\[\]{}]/g, '')      
-      .replace(/[*_]/g, '')            
-      .trim();
-  };
-
   const filteredFoods = useMemo(() => {
     if (searchQuery.length < 2) return [];
     const query = searchQuery.toLowerCase();
-    return petFoods.filter((item: any) => 
-      item.name?.toLowerCase().includes(query) || 
-      item.brand?.toLowerCase().includes(query) || 
-      item.search_tags?.toLowerCase().includes(query)
-    ).slice(0, 10);
+    const matches: FoodRecord[] = [];
+    for (const item of foods) {
+      if (
+        item.name?.toLowerCase().includes(query) ||
+        item.brand?.toLowerCase().includes(query) ||
+        item.search_tags?.toLowerCase().includes(query)
+      ) {
+        matches.push(item);
+        if (matches.length === 10) break;
+      }
+    }
+    return matches;
   }, [searchQuery]);
 
-  const handleSelectFood = (food: any) => {
+  const handleSelectFood = (food: FoodRecord) => {
     if (food.ingredients && food.ingredients.trim() !== "") {
       setInput(food.ingredients);
     } else {
@@ -45,33 +108,6 @@ export function AllergenScanner() {
     }
     setSearchQuery('');
     setShowSuggestions(false);
-  };
-
-  const translateIngredient = (text: string): string => {
-    let cleaned = text
-      .replace(/\(\d+([.,]\d+)?%\)/g, '') 
-      .replace(/\d+([.,]\d+)?%/g, '')    
-      .replace(/[★☆*]/g, '')              
-      .trim();
-
-    let resultText = cleaned;
-    const normalizedInput = normalize(cleaned);
-    const sortedKeys = Object.keys(ingredientTranslations).sort((a, b) => b.length - a.length);
-
-    for (const foreign of sortedKeys) {
-      const normalizedForeign = normalize(foreign);
-      if (normalizedInput.includes(normalizedForeign)) {
-        const regex = new RegExp(foreign, 'gi');
-        resultText = resultText.replace(regex, ingredientTranslations[foreign]);
-      }
-    }
-
-    if (resultText === cleaned) {
-      const directTranslation = ingredientTranslations[normalizedInput];
-      if (directTranslation) return directTranslation;
-    }
-
-    return resultText.replace(/[,.;]$/, '').trim();
   };
 
   const ingredients = useMemo(() => {
@@ -86,18 +122,17 @@ export function AllergenScanner() {
       const translatedName = translateIngredient(ing);
       const normalizedTranslated = normalize(translatedName);
 
-      const found = ingredientDatabase.find((db) => {
-        const normalizedDbName = normalize(db.name);
-        if (normalizedDbName === normalizedTranslated) return true;
-        if (normalizedDbName.length > 3 && normalizedTranslated.includes(normalizedDbName)) return true;
-        if (normalizedTranslated.length > 3 && normalizedDbName.includes(normalizedTranslated)) return true;
+      const found = normalizedIngredients.find((db) => {
+        if (db.normalized === normalizedTranslated) return true;
+        if (db.normalized.length > 3 && normalizedTranslated.includes(db.normalized)) return true;
+        if (normalizedTranslated.length > 3 && db.normalized.includes(normalizedTranslated)) return true;
         return false;
       });
 
       return {
         name: translatedName,
-        level: found?.level || ('safe' as AllergenLevel),
-        note: found?.note || 'Ингредиент не найден в базе — считается безопасным, но уточните у ветеринара',
+        level: found?.level ?? ('unknown' as AllergenLevel),
+        note: found?.note ?? 'Ингредиента нет в базе. Это не значит, что он безопасен — уточните состав у ветеринара.',
       };
     });
   }, [ingredients]);
@@ -105,10 +140,12 @@ export function AllergenScanner() {
   const counts = {
     danger: results.filter((r) => r.level === 'danger').length,
     trigger: results.filter((r) => r.level === 'trigger').length,
+    unknown: results.filter((r) => r.level === 'unknown').length,
     safe: results.filter((r) => r.level === 'safe').length,
   };
 
-  const overall = counts.danger > 0 ? 'danger' : counts.trigger > 0 ? 'trigger' : 'safe';
+  const overall: AllergenLevel =
+    counts.danger > 0 ? 'danger' : counts.trigger > 0 ? 'trigger' : counts.unknown > 0 ? 'unknown' : 'safe';
   const overallMeta = allergenLevelMeta[overall];
 
   return (
@@ -138,7 +175,7 @@ export function AllergenScanner() {
 
           {showSuggestions && filteredFoods.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
-              {filteredFoods.map((food: any) => (
+              {filteredFoods.map((food) => (
                 <div 
                   key={food.id} 
                   onClick={() => handleSelectFood(food)}
@@ -200,10 +237,11 @@ export function AllergenScanner() {
                 <div className={`font-display font-extrabold text-lg ${overallMeta.color}`}>
                   {overall === 'danger' && 'В составе есть опасные ингредиенты'}
                   {overall === 'trigger' && 'В составе есть потенциальные триггеры'}
+                  {overall === 'unknown' && 'Часть состава не распознана'}
                   {overall === 'safe' && 'Состав выглядит безопасным'}
                 </div>
                 <div className="text-xs font-medium text-ink-soft mt-0.5">
-                  Найдено: <span className="font-bold text-ink">{counts.danger}</span> опасных · <span className="font-bold text-ink">{counts.trigger}</span> триггеров · <span className="font-bold text-ink">{counts.safe}</span> безопасных
+                  Найдено: <span className="font-bold text-ink">{counts.danger}</span> опасных · <span className="font-bold text-ink">{counts.trigger}</span> триггеров · <span className="font-bold text-ink">{counts.unknown}</span> неизвестных · <span className="font-bold text-ink">{counts.safe}</span> безопасных
                 </div>
               </div>
             </div>
@@ -238,7 +276,7 @@ export function AllergenScanner() {
             <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
             <p className="text-sm text-ink-soft leading-relaxed">
               Наведите курсор на ингредиент, чтобы увидеть подробное пояснение. Сканер автоматически переводит сложные иностранные термины и очищает состав от технических данных (процентов).
-              Если какой-то ингредиент не распознан — он помечается как безопасный по умолчанию.
+              Нераспознанный ингредиент не считается безопасным: его нужно сверить с ветеринаром.
             </p>
           </div>
         </div>

@@ -80,16 +80,14 @@ export function BreedCatalog() {
               <div 
                 key={breed.id} 
                 className="bg-base-surface border border-base-muted rounded-xl2 overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all flex flex-col group hover:-translate-y-1"
+                style={{ contentVisibility: 'auto', containIntrinsicSize: '420px' }}
               >
                 <div className="relative h-64 bg-brand-dark overflow-hidden flex items-center justify-center border-b border-base-muted">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center scale-110 blur-lg opacity-30 pointer-events-none group-hover:scale-125 transition-all duration-700"
-                    style={{ backgroundImage: `url(${breed.image})` }}
-                  />
-                  <div className="absolute inset-0 bg-brand-dark/30" />
                   <img
                     src={breed.image}
                     alt={breed.name}
+                    loading="lazy"
+                    decoding="async"
                     className="relative z-10 max-w-full max-h-full object-contain p-4 group-hover:scale-[1.03] transition-all duration-500"
                   />
                 </div>
