@@ -1,4 +1,4 @@
-import{r as l,j as e,L as x}from"./react-CMjYBvgk.js";import{B as m,b as p}from"./breeds-BR4UdJzX.js";import{c as b,A as h}from"./index-BVq8csyZ.js";import{D as u,C as f}from"./dog-BRdZDRAU.js";/**
+import{r as l,j as e,L as x}from"./react-CMjYBvgk.js";import{B as m,b as p}from"./breeds-BR4UdJzX.js";import{c as b,A as h}from"./index-ACC68StW.js";import{D as u,C as f}from"./dog-Dvh9fKqi.js";/**
  * @license lucide-react v0.446.0 - ISC
  *
  * This source code is licensed under the ISC license.
