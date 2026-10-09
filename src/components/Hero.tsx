@@ -89,30 +89,18 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>
-            <div className="absolute -bottom-6 -left-4 rounded-xl bg-accent text-brand px-5 py-3 pb-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
-              <div className="font-display font-black text-xl leading-none">10к+</div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-white mt-1">отзывов о кормах</div>
-            </div>
-            <div className="absolute -top-4 -right-4 rounded-xl bg-base-surface text-ink px-5 py-3 shadow-xl border border-base-muted transform hover:scale-105 transition-transform duration-300">
-              <div className="font-display font-black text-xl text-brand leading-none">75к+</div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-ink-light mt-1">счастливых хвостов</div>
-            </div>
           </div>
 
         </div>
 
-        <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10">
-          <div className="text-center sm:text-left">
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">12+</div>
+        <div className="flex gap-10 sm:gap-16 mt-16 pt-8 border-t border-white/10">
+          <div>
+            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">70</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">пород в каталоге</div>
           </div>
-          <div className="text-center sm:text-left">
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">5</div>
-            <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">умных калькуляторов</div>
-          </div>
-          <div className="text-center sm:text-left">
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">35+</div>
-            <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">ингредиентов в базе</div>
+          <div>
+            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">2 509</div>
+            <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">кормов в базе</div>
           </div>
         </div>
       </div>
