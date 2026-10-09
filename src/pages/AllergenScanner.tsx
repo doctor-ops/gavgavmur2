@@ -16,6 +16,29 @@ type FoodRecord = {
 
 const foods = petFoods as FoodRecord[];
 
+function ingredientText(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function productKey(item: FoodRecord): string {
+  const brand = item.brand?.trim().toLowerCase() ?? '';
+  const name = item.name?.trim().toLowerCase() ?? '';
+  return `${brand}|${name}`;
+}
+
+const compositionByProduct = new Map<string, string>();
+for (const item of foods) {
+  const text = ingredientText(item.ingredients);
+  const key = productKey(item);
+  if (text && key !== '|' && !compositionByProduct.has(key)) {
+    compositionByProduct.set(key, text);
+  }
+}
+
+function compositionFor(item: FoodRecord): string {
+  return ingredientText(item.ingredients) || compositionByProduct.get(productKey(item)) || '';
+}
+
 const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
   safe: CheckCircle2,
   trigger: AlertTriangle,
@@ -82,31 +105,41 @@ export function AllergenScanner() {
   const [analyzed, setAnalyzed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [missingComposition, setMissingComposition] = useState(false);
 
   const filteredFoods = useMemo(() => {
     if (searchQuery.length < 2) return [];
     const query = searchQuery.toLowerCase();
-    const matches: FoodRecord[] = [];
+    const seen = new Set<string>();
+    const withComposition: FoodRecord[] = [];
+    const withoutComposition: FoodRecord[] = [];
+
     for (const item of foods) {
-      if (
+      const matches =
         item.name?.toLowerCase().includes(query) ||
         item.brand?.toLowerCase().includes(query) ||
-        item.search_tags?.toLowerCase().includes(query)
-      ) {
-        matches.push(item);
-        if (matches.length === 10) break;
-      }
+        item.search_tags?.toLowerCase().includes(query);
+      if (!matches) continue;
+
+      const key = productKey(item);
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      if (compositionFor(item)) withComposition.push(item);
+      else if (withoutComposition.length < 10) withoutComposition.push(item);
+
+      if (withComposition.length === 10) break;
     }
-    return matches;
+
+    return (withComposition.length > 0 ? withComposition : withoutComposition).slice(0, 10);
   }, [searchQuery]);
 
   const handleSelectFood = (food: FoodRecord) => {
-    if (food.ingredients && food.ingredients.trim() !== "") {
-      setInput(food.ingredients);
-    } else {
-      setInput(''); 
-    }
-    setSearchQuery('');
+    const text = compositionFor(food);
+    setInput(text);
+    setAnalyzed(text.length > 0);
+    setMissingComposition(text.length === 0);
+    setSearchQuery(food.name?.trim() || food.brand?.trim() || '');
     setShowSuggestions(false);
   };
 
@@ -167,6 +200,7 @@ export function AllergenScanner() {
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setShowSuggestions(true);
+                setMissingComposition(false);
               }}
               onFocus={() => setShowSuggestions(true)}
               className="w-full pl-10 pr-4 py-3 rounded-xl border border-base-muted bg-base-bg text-ink placeholder-ink-light focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all text-sm"
@@ -176,19 +210,28 @@ export function AllergenScanner() {
           {showSuggestions && filteredFoods.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
               {filteredFoods.map((food) => (
-                <div 
-                  key={food.id} 
+                <button
+                  type="button"
+                  key={`${productKey(food)}-${food.id ?? ''}`}
+                  onMouseDown={(event) => event.preventDefault()}
                   onClick={() => handleSelectFood(food)}
-                  className="px-4 py-3 hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors flex justify-between items-center"
+                  className="w-full text-left px-4 py-3 hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors flex justify-between items-center gap-3"
                 >
                   <div className="text-sm">
                     <span className="font-bold text-brand">{food.brand}</span> 
                     <span className="text-ink ml-2">{food.name}</span>
                   </div>
-                  <span className="text-[10px] text-ink-light bg-base-bg px-2 py-1 rounded-md">{food.quantity}</span>
-                </div>
+                  <span className="text-[10px] text-ink-light bg-base-bg px-2 py-1 rounded-md whitespace-nowrap">
+                    {compositionFor(food) ? (food.quantity || 'есть состав') : 'нет состава'}
+                  </span>
+                </button>
               ))}
             </div>
+          )}
+          {missingComposition && (
+            <p className="mt-2 text-xs text-ink-soft">
+              У этого корма в базе нет состава. Вставьте его с упаковки вручную.
+            </p>
           )}
         </div>
 
