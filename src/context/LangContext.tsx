@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from 'react';
 import { translations, type Lang, type Translation } from '@/i18n/translations';
 
 type LangContextValue = {
@@ -16,11 +16,12 @@ export function LangProvider({ children }: { children: ReactNode }) {
     setLang((prev) => (prev === 'ru' ? 'en' : 'ru'));
   }, []);
 
-  return (
-    <LangContext.Provider value={{ lang, t: translations[lang], setLang, toggleLang }}>
-      {children}
-    </LangContext.Provider>
+  const value = useMemo(
+    () => ({ lang, t: translations[lang], setLang, toggleLang }),
+    [lang, toggleLang]
   );
+
+  return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 }
 
 export function useLang() {

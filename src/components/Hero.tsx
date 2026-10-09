@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Search, Sparkles } from 'lucide-react';
 
 export function Hero() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  const [heroImage, setHeroImage] = useState('');
-
-  useEffect(() => {
+  const [heroImage] = useState(() => {
     const petImages = [
-      `${import.meta.env.BASE_URL}hero-dog.jpg`, 
-      `${import.meta.env.BASE_URL}hero-cat.jpg`  
+      `${import.meta.env.BASE_URL}hero-dog.jpg`,
+      `${import.meta.env.BASE_URL}hero-cat.jpg`,
     ];
-    
-    const randomIndex = Math.floor(Math.random() * petImages.length);
-    setHeroImage(petImages[randomIndex]);
-  }, []);
+    return petImages[Math.floor(Math.random() * petImages.length)];
+  });
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
     const q = query.trim().toLowerCase();
     const breedMatch = ['корги', 'овчарка', 'лабрадор', 'чихуахуа', 'пудель', 'сиба', 'мейн-кун', 'сиамская', 'британская', 'сфинкс'].find((b) => b.includes(q) || q.includes(b));
-    if (breedMatch) { navigate('/wiki'); } else { navigate('/tools/importozameshenie'); }
+    if (breedMatch) {
+      navigate('/wiki');
+      return;
+    }
+    navigate(`/tools/allergens?q=${encodeURIComponent(query.trim())}`);
   };
 
   return (
@@ -79,10 +79,13 @@ export function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative rounded-xl2 overflow-hidden shadow-2xl border-4 border-white/5 bg-brand-light group">
               <img
-                src={heroImage || 'https://via.placeholder.com/800x500?text=Loading...'}
+                src={heroImage}
                 alt="Счастливый питомец"
+                width={800}
+                height={500}
                 className="w-full h-[500px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                loading="lazy"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent pointer-events-none" />
             </div>

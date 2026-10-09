@@ -1,8 +1,4 @@
 import { SmartServices } from '@/components/SmartServices';
-import { Breeds } from '@/components/Breeds';
-import { Care } from '@/components/Care';
-import { FoodTypes } from '@/components/FoodTypes';
-import { Contacts } from '@/components/Contacts';
 
 export function Home() {
   return (

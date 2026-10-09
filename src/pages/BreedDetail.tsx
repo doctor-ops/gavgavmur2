@@ -62,7 +62,9 @@ export function BreedDetail() {
 
             <img 
               src={breed.image} 
-              alt={breed.name} 
+              alt={breed.name}
+              decoding="async"
+              fetchPriority="high"
               className="relative z-10 max-w-full max-h-full object-contain pointer-events-none p-4 group-hover:scale-[1.03] transition-transform duration-500" 
             />
 
