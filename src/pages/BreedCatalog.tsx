@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'; // ИСПРАВЛЕНО: добавлен useMemo
 import { Link } from 'react-router-dom';
-import { BREEDS_DATABASE } from '@/data/breeds';
+import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
 import { Dog, Cat, ArrowRight, Filter as FilterIcon } from 'lucide-react';
 
 export function BreedCatalog() {
@@ -84,7 +84,7 @@ export function BreedCatalog() {
               >
                 <div className="relative h-64 bg-brand-dark overflow-hidden flex items-center justify-center border-b border-base-muted">
                   <img
-                    src={breed.image}
+                    src={breedPhoto(breed.image)}
                     alt={breed.name}
                     loading="lazy"
                     decoding="async"

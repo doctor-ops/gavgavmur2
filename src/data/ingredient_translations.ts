@@ -513,6 +513,5 @@ export const ingredientTranslations: Record<string, string> = {
   "сульфат цинка monohydraté": "сульфат цинка моногидрат",
   "sulfate de zinc monohydraté": "сульфат цинка моногидрат",
   "sélénite de sodium": "селенит натрия",
-  "sodium selenite": "селенит натрия",
 
 };

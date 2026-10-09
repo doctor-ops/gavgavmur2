@@ -2,24 +2,25 @@ import { useState } from 'react';
 import { useLang } from '@/context/LangContext';
 import { useReveal } from '@/hooks/useReveal';
 import { Dog, Cat, MapPin, Heart, Ruler, Clock, Scissors } from 'lucide-react';
+import { breedPhoto } from '@/data/breeds';
 
 const breedImages: Record<string, string> = {
-  'Корги': 'https://images.pexels.com/photos/14730839/pexels-photo-14730839.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Немецкая овчарка': 'https://images.pexels.com/photos/33159007/pexels-photo-33159007.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Лабрадор-ретривер': 'https://images.pexels.com/photos/36678949/pexels-photo-36678949.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Чихуахуа': 'https://images.pexels.com/photos/27858151/pexels-photo-27858151.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Мейн-кун': 'https://images.pexels.com/photos/19523234/pexels-photo-19523234.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Сиамская': 'https://images.pexels.com/photos/33660000/pexels-photo-33660000.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Британская': 'https://images.pexels.com/photos/14311615/pexels-photo-14311615.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Сфинкс': 'https://images.pexels.com/photos/31644050/pexels-photo-31644050.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Corgi': 'https://images.pexels.com/photos/14730839/pexels-photo-14730839.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'German Shepherd': 'https://images.pexels.com/photos/33159007/pexels-photo-33159007.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Labrador Retriever': 'https://images.pexels.com/photos/36678949/pexels-photo-36678949.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Chihuahua': 'https://images.pexels.com/photos/27858151/pexels-photo-27858151.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Maine Coon': 'https://images.pexels.com/photos/19523234/pexels-photo-19523234.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Siamese': 'https://images.pexels.com/photos/33660000/pexels-photo-33660000.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'British Shorthair': 'https://images.pexels.com/photos/14311615/pexels-photo-14311615.jpeg?auto=compress&cs=tinysrgb&w=940',
-  'Sphynx': 'https://images.pexels.com/photos/31644050/pexels-photo-31644050.jpeg?auto=compress&cs=tinysrgb&w=940',
+  'Корги': breedPhoto('breeds/corgi.webp'),
+  'Немецкая овчарка': breedPhoto('breeds/german-shepherd.webp'),
+  'Лабрадор-ретривер': breedPhoto('breeds/labrador.webp'),
+  'Чихуахуа': breedPhoto('breeds/chihuahua.webp'),
+  'Мейн-кун': breedPhoto('breeds/2a0fd047-378e-4452-a6e1-e090ea894e97.webp'),
+  'Сиамская': breedPhoto('breeds/56bd1758-e9fc-4c52-b5bd-282cb4a1b476.webp'),
+  'Британская': breedPhoto('breeds/3fe7ffc2-1815-4340-9992-856af6eaaa4f.webp'),
+  'Сфинкс': breedPhoto('breeds/d87bdc29-66b3-47bf-b1dd-64cf839f1d1f.webp'),
+  'Corgi': breedPhoto('breeds/corgi.webp'),
+  'German Shepherd': breedPhoto('breeds/german-shepherd.webp'),
+  'Labrador Retriever': breedPhoto('breeds/labrador.webp'),
+  'Chihuahua': breedPhoto('breeds/chihuahua.webp'),
+  'Maine Coon': breedPhoto('breeds/2a0fd047-378e-4452-a6e1-e090ea894e97.webp'),
+  'Siamese': breedPhoto('breeds/56bd1758-e9fc-4c52-b5bd-282cb4a1b476.webp'),
+  'British Shorthair': breedPhoto('breeds/3fe7ffc2-1815-4340-9992-856af6eaaa4f.webp'),
+  'Sphynx': breedPhoto('breeds/d87bdc29-66b3-47bf-b1dd-64cf839f1d1f.webp'),
 };
 
 export function Breeds() {

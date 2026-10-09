@@ -22,7 +22,7 @@ export function Header() {
           <Link to="/" className="flex items-center gap-4 group">
             <div className="relative">
               <img 
-                src={`${import.meta.env.BASE_URL}logo-icon.png`} 
+                src={`${import.meta.env.BASE_URL}logo-icon.webp`} 
                 alt="Logo" 
                 className="h-[68px] w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
                 style={{ filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.8))' }} 

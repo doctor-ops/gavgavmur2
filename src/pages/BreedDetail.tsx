@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { BREEDS_DATABASE } from '@/data/breeds';
+import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
 import { ArrowLeft, Dog, Cat, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
 
 export function BreedDetail() {
@@ -56,12 +56,12 @@ export function BreedDetail() {
           <div className="relative h-[350px] md:h-[450px] bg-brand-dark overflow-hidden flex items-center justify-center border-b border-base-muted">
             <div 
               className="absolute inset-0 bg-cover bg-center scale-110 blur-xl opacity-30 pointer-events-none"
-              style={{ backgroundImage: `url(${breed.image})` }}
+              style={{ backgroundImage: `url(${breedPhoto(breed.image)})` }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-brand-dark/10" />
 
             <img 
-              src={breed.image} 
+              src={breedPhoto(breed.image)} 
               alt={breed.name}
               decoding="async"
               fetchPriority="high"
