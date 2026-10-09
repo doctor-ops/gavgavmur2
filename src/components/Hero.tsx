@@ -13,16 +13,21 @@ export function Hero() {
     return petImages[Math.floor(Math.random() * petImages.length)];
   });
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
-    const q = query.trim().toLowerCase();
-    const breedMatch = ['корги', 'овчарка', 'лабрадор', 'чихуахуа', 'пудель', 'сиба', 'мейн-кун', 'сиамская', 'британская', 'сфинкс'].find((b) => b.includes(q) || q.includes(b));
-    if (breedMatch) {
-      navigate('/wiki');
+    const raw = query.trim();
+    if (!raw) return;
+    const { breedsMatching } = await import('@/data/breeds');
+    const matches = breedsMatching(raw);
+    if (matches.length === 1) {
+      navigate(`/wiki/${matches[0].id}`);
       return;
     }
-    navigate(`/tools/allergens?q=${encodeURIComponent(query.trim())}`);
+    if (matches.length > 1) {
+      navigate(`/wiki?q=${encodeURIComponent(raw)}`);
+      return;
+    }
+    navigate(`/tools/allergens?q=${encodeURIComponent(raw)}`);
   };
 
   return (

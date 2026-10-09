@@ -1,20 +1,22 @@
-import { useState, useMemo } from 'react'; // ИСПРАВЛЕНО: добавлен useMemo
-import { Link } from 'react-router-dom';
-import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
+import { useState, useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { BREEDS_DATABASE, breedPhoto, breedsMatching } from '@/data/breeds';
 import { Dog, Cat, ArrowRight, Filter as FilterIcon } from 'lucide-react';
 
 export function BreedCatalog() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const breedQuery = searchParams.get('q')?.trim() ?? '';
   const [activeFilter, setActiveFilter] = useState<'all' | 'dog' | 'cat'>('all');
   const [activeTemp, setActiveTemp] = useState<string>('all');
 
-  // Теперь useMemo импортирован, и эта часть кода будет работать!
   const filteredBreeds = useMemo(() => {
-    return BREEDS_DATABASE.filter(breed => {
+    const byQuery = breedQuery ? breedsMatching(breedQuery) : BREEDS_DATABASE;
+    return byQuery.filter(breed => {
       const matchesType = activeFilter === 'all' || breed.type === activeFilter;
       const matchesTemp = activeTemp === 'all' || breed.temperament === activeTemp;
       return matchesType && matchesTemp;
     });
-  }, [activeFilter, activeTemp]);
+  }, [breedQuery, activeFilter, activeTemp]);
 
   const temperamentLabels: Record<string, string> = {
     active: 'Активный',
@@ -32,6 +34,18 @@ export function BreedCatalog() {
           <p className="text-ink-light text-base leading-relaxed">
             Узнайте всё об особенностях характера, происхождении и требованиях к уходу за вашими будущими питомцами.
           </p>
+          {breedQuery && (
+            <p className="mt-4 text-sm font-semibold text-ink">
+              По запросу «{breedQuery}» найдено {filteredBreeds.length}
+              <button
+                type="button"
+                onClick={() => setSearchParams({})}
+                className="ml-3 font-bold text-brand hover:text-brand-light"
+              >
+                Все породы
+              </button>
+            </p>
+          )}
         </div>
 
         {/* Панель фильтров */}
@@ -125,7 +139,9 @@ export function BreedCatalog() {
           </div>
         ) : (
           <div className="text-center py-16 bg-base-surface rounded-xl2 border border-base-muted shadow-sm">
-            <p className="text-ink-soft font-bold text-lg">Породы с такими фильтрами не найдены.</p>
+            <p className="text-ink-soft font-bold text-lg">
+              {breedQuery ? `По запросу «${breedQuery}» породы не найдены.` : 'Породы с такими фильтрами не найдены.'}
+            </p>
             <p className="text-ink-light text-sm mt-1">Попробуйте сбросить параметры фильтрации.</p>
           </div>
         )}
