@@ -1,3 +1,7 @@
+export function breedPhoto(image: string): string {
+  return `${import.meta.env.BASE_URL}${image}`;
+}
+
 export interface Breed {
   id: string;
   name: string;
@@ -20,7 +24,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "small",
     description: "Аффенпинчер — это маленькая и игривая порода собак, которая изначально была выведена в Германии для охоты на мелкую дичь. Они умны, энергичны, ласковы и являются прекрасными собаками-компаньонами.",
-    image: "https://images.dogapi.dog/21mg55zlym6nq3o6cm56v0itkdad",
+    image: "breeds/036feed0-da8a-42c9-ab9a-57449b530b13.webp",
     lifeSpan: "14–16 лет",
     weight: "4–6 кг",
     origin: "Германия"
@@ -32,7 +36,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "independent",
     size: "large",
     description: "Афганская борзая — крупная и элегантная порода собак, которая изначально была выведена в Афганистане для охоты на мелкую дичь. Они умны, независимы, атлетичны и являются прекрасными собаками-компаньонами.",
-    image: "https://images.dogapi.dog/issmoegbcrewau20uk35f3ivs0nw",
+    image: "breeds/dd9362cc-52e0-462d-b856-fccdcf24b140.webp",
     lifeSpan: "12–14 лет",
     weight: "23–27 кг",
     origin: "Афганистан"
@@ -44,7 +48,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "medium",
     description: "Эйрдейл-терьер — крупная и мощная порода собак, которая изначально была выведена в Англии для охоты на мелкую дичь. Они умны, энергичны и решительны, и являются отличными охотничьими собаками.",
-    image: "https://images.dogapi.dog/bcxbm3snnpr7p7cxexx47lqi56m7",
+    image: "breeds/1460844f-841c-4de8-b788-271aa4d63224.webp",
     lifeSpan: "12–14 лет",
     weight: "20–23 кг",
     origin: "Англия"
@@ -56,7 +60,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "large",
     description: "Акита — крупная, мускулистая порода собак, зародившаяся в Японии. Они известны своей преданностью и мужеством.",
-    image: "https://images.dogapi.dog/gm1pcg0vbtzer9ih4xcrmgkzzf80",
+    image: "breeds/e7e99424-d514-4b56-9f0c-05736f6dd22d.webp",
     lifeSpan: "10–14 лет",
     weight: "35–60 кг",
     origin: "Япония"
@@ -68,7 +72,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "small",
     description: "Аляскинский кли-кай — порода собак от маленького до среднего размера, разработанная на Аляске в 1970-х годах. Это активная и умная порода, преданная и дружелюбная.",
-    image: "https://images.dogapi.dog/xdnhqya6l6s646eds3qfexmpv97a",
+    image: "breeds/667c7359-a739-4f2b-abb4-98867671e375.webp",
     lifeSpan: "12–15 лет",
     weight: "5–10 кг",
     origin: "США"
@@ -80,7 +84,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "large",
     description: "Аляскинский маламут — крупная и мощная ездовая собака с Аляски. Они сильные и трудолюбивые, но при этом дружелюбные и преданные.",
-    image: "https://images.dogapi.dog/wgt6d6ayxwc1l8n1qactqfb6dl17",
+    image: "breeds/5328d59b-b4e4-48e9-98ec-0545c66c4385.webp",
     lifeSpan: "10–14 лет",
     weight: "34–39 кг",
     origin: "США"
@@ -92,7 +96,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "large",
     description: "Американский булдог — крупная и мощная порода собак, которая изначально была выведена в США для работы на фермах. Они умны, преданны, склонны к защите и являются отличными сторожевыми собаками.",
-    image: "https://images.dogapi.dog/aa5mbup4678gd2rt9bts1mlw3l3q",
+    image: "breeds/f72528b5-a5d7-4a17-b709-aba2db722307.webp",
     lifeSpan: "10–12 лет",
     weight: "25–50 кг",
     origin: "США"
@@ -104,7 +108,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "large",
     description: "Американский английский кунхаунд — крупная и атлетичная порода собак, которая изначально была выведена в США для охоты на енотов. Они умны, энергичны и решительны.",
-    image: "https://images.dogapi.dog/onvblmctp4y7d9h3t49xqnjnwh4i",
+    image: "breeds/4524645f-dda7-4031-9272-dee29f5f91ea.webp",
     lifeSpan: "12–14 лет",
     weight: "20–29 кг",
     origin: "США"
@@ -116,7 +120,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Американский эскимо — порода собак от маленького до среднего размера с густой пушистой шерстью белого, кремового или песочного цвета. Известна своим интеллектом.",
-    image: "https://images.dogapi.dog/2cbsj208ar51xaf5scapv425cco1",
+    image: "breeds/e1c0664d-aa61-4c85-970d-6c86ba197bee.webp",
     lifeSpan: "12–15 лет",
     weight: "9–20 кг",
     origin: "США"
@@ -128,7 +132,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "independent",
     size: "large",
     description: "Американский фоксхаунд — крупная и атлетичная порода собак, которая изначально была выведена в США для охоты на лис. Они умны, энергичны и решительны.",
-    image: "https://images.dogapi.dog/j17f71br0ieud05o0gqba0w5fd5u",
+    image: "breeds/8355b9c9-3724-477d-858a-c1c1c0f1743f.webp",
     lifeSpan: "11–13 лет",
     weight: "27–32 кг",
     origin: "США"
@@ -140,7 +144,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "small",
     description: "Американский бесшерстный терьер — порода терьеров от маленького до среднего размера, зародившаяся в США. Это бесшерстная разновидность крысиного терьера.",
-    image: "https://images.dogapi.dog/16ig6nl045xcpktek29bb3kkva4k",
+    image: "breeds/bba868bb-71ce-4e66-9970-861fb5af642f.webp",
     lifeSpan: "12–14 лет",
     weight: "5–7 кг",
     origin: "США"
@@ -152,7 +156,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "large",
     description: "Американская леопардовая гончая — крупная, атлетичная порода собак, которая изначально была выведена для охоты. Они известны своей пятнистой шерстью и острым нюхом.",
-    image: "https://images.dogapi.dog/910imsy08r01j39b21fqmytllcet",
+    image: "breeds/7b1fef86-3fa7-4dd0-92d2-8d7a5524e844.webp",
     lifeSpan: "12–15 лет",
     weight: "20–34 кг",
     origin: "США"
@@ -164,7 +168,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "medium",
     description: "Американский стаффордширский терьер — собака среднего размера, которая изначально выводилась для собачьих боев. Они умны, преданны и склонны к защите.",
-    image: "https://images.dogapi.dog/t3uk9f9fjah8q695hm7ijm4wje3b",
+    image: "breeds/30a056b8-2bbe-4aa9-b874-c511eb2ca775.webp",
     lifeSpan: "12–16 лет",
     weight: "18–40 кг",
     origin: "США"
@@ -176,7 +180,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Американский водяной спаниель — собака среднего размера, которая изначально была выведена в США для охоты на водоплавающую дичь.",
-    image: "https://images.dogapi.dog/veaf40qcaqdi750rmfu8ximkqq71",
+    image: "breeds/46a95f0b-8b66-400d-8323-07084c36fcae.webp",
     lifeSpan: "12–14 лет",
     weight: "15–20 кг",
     origin: "США"
@@ -188,7 +192,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "large",
     description: "Анатолийская овчарка — крупная порода собак-пастухов, зародившаяся в Турции. Это мощная и атлетичная порода с длинной жесткой шерстью.",
-    image: "https://images.dogapi.dog/xkqz82fjpyty95mgqcme1uoe55nb",
+    image: "breeds/c94e50a5-f733-4b15-8b11-54598c949b6f.webp",
     lifeSpan: "11–13 лет",
     weight: "50–70 кг",
     origin: "Турция"
@@ -200,7 +204,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Аппенцеллерский сенненхунд — крупная порода горных собак из Швейцарии. Это мощная и атлетичная порода с густой двойной шерстью.",
-    image: "https://images.dogapi.dog/67yrhuohul38sw8qugrica4y645h",
+    image: "breeds/b56e4273-9ec0-4274-831d-b238225f8fb6.webp",
     lifeSpan: "12–15 лет",
     weight: "22–32 кг",
     origin: "Швейцария"
@@ -212,7 +216,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Австралийский cattle dog — порода собак среднего размера, которая изначально была выведена в Австралии для выпаса и охраны скота.",
-    image: "https://images.dogapi.dog/kvyorjfdviljjfa1f3bq8petjsb6",
+    image: "breeds/0543cf54-a255-402e-84e5-f440cc2a67cc.webp",
     lifeSpan: "12–15 лет",
     weight: "15–23 кг",
     origin: "Австралия"
@@ -224,7 +228,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Австралийский келпи — живая и умная пастушья собака из Австралии. Они активны, дружелюбны и преданы.",
-    image: "https://images.dogapi.dog/3gl7iu0ssm14nhvxtu3yokfbkj3f",
+    image: "breeds/2adf5a19-028d-4993-8044-4571008b6d49.webp",
     lifeSpan: "12–14 лет",
     weight: "16–20 кг",
     origin: "Австралия"
@@ -236,7 +240,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Австралийская овчарка — собака среднего размера с двойной шерстью средней длины. Умная служебная собака, которая любит быть рядом с семьей.",
-    image: "https://images.dogapi.dog/esvhl0omwg9nhe8dr1y70uotbwb9",
+    image: "breeds/03269b7d-c5d6-4a8f-83d1-7a6180d40127.webp",
     lifeSpan: "12–15 лет",
     weight: "20–30 кг",
     origin: "США"
@@ -248,7 +252,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Австралийский короткохвостый cattle dog — пастушья порода собак среднего размера с характерным коротким хвостом и гладкой густой шерстью.",
-    image: "https://images.dogapi.dog/a0uh4km3pqj9vyftqlexde9tbd8h",
+    image: "breeds/6e04f700-c307-4dd5-8d2f-fd346d949cd6.webp",
     lifeSpan: "12–15 лет",
     weight: "15–20 кг",
     origin: "Австралия"
@@ -260,7 +264,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "small",
     description: "Австралийский терьер — маленькая порода терьеров, зародившаяся в Австралии. Это компактная и живая порода с короткой жесткой шерстью.",
-    image: "https://images.dogapi.dog/sy1284txtpzytvuqt7buornbwl4f",
+    image: "breeds/4b3278eb-612a-4e87-b2ab-73174d039514.webp",
     lifeSpan: "11–15 лет",
     weight: "6–7 кг",
     origin: "Австралия"
@@ -272,7 +276,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "independent",
     size: "medium",
     description: "Азавак — небольшая и стройная порода собак, которая изначально была выведена в Африке для охоты и охраны. Они умны и атлетичны.",
-    image: "https://images.dogapi.dog/sbljwlketls4opojox2wnhjg4709",
+    image: "breeds/1ceaee48-1374-4b11-9c66-173cce6f5da5.webp",
     lifeSpan: "12–14 лет",
     weight: "20–25 кг",
     origin: "Мали, Нигер, Буркина-Фасо"
@@ -284,7 +288,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "large",
     description: "Барбадо да Терсейра — крупная рабочая порода собак, зародившаяся на Азорских островах. Сильная порода с короткой жесткой шерстью.",
-    image: "https://images.dogapi.dog/wwyxxktzimwjbdfyheltoeyhh7cc",
+    image: "breeds/cb71135b-596c-4943-892a-d0757da0297e.webp",
     lifeSpan: "12–15 лет",
     weight: "25–30 кг",
     origin: "Португалия"
@@ -296,7 +300,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "medium",
     description: "Барбет — древняя порода французских водяных собак. Активны, дружелюбны и очень умны. Обладают уникальной кудрявой шерстью.",
-    image: "https://images.dogapi.dog/s3cgzu8qok2103nty1inmplvqH6j4",
+    image: "breeds/4a230092-a25e-4efe-8240-a6693b5405f4.webp",
     lifeSpan: "12–14 лет",
     weight: "18–27 кг",
     origin: "Франция"
@@ -308,7 +312,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "independent",
     size: "small",
     description: "Басенджи — небольшая и ловкая порода собак, которая изначально была выведена в Африке для охоты на мелкую дичь. Умны и независимы.",
-    image: "https://images.dogapi.dog/qv5lg4kf7x4jqp1gt263k8z5b3g9",
+    image: "breeds/edf3d596-e83b-4ba1-972b-d114a39cf3c.webp",
     lifeSpan: "14–16 лет",
     weight: "10–11 кг",
     origin: "Демократическая Республика Конго"
@@ -320,7 +324,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "medium",
     description: "Бассет-фаве-де-бретань — маленькая и игривая порода собак, которая изначально была выведена во Франции для охоты на мелкую дичь.",
-    image: "https://images.dogapi.dog/p0c14jbxgmru74bgi10ll9hnw66l",
+    image: "breeds/c052b615-9502-407f-b46a-845d246d9f22.webp",
     lifeSpan: "12–15 лет",
     weight: "14–19 кг",
     origin: "Франция"
@@ -332,7 +336,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "calm",
     size: "large",
     description: "Бассет-хаунд — маленькая и игривая порода собак, которая изначально была выведена во Франции для охоты на мелкую дичь.",
-    image: "https://images.dogapi.dog/czki7jqk0p3lm7338gdd3ng5tmlx",
+    image: "breeds/3e4912ab-bf3c-40cd-8eb9-be1e5999179b.webp",
     lifeSpan: "12–14 лет",
     weight: "23–29 кг",
     origin: "Франция"
@@ -344,7 +348,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "active",
     size: "medium",
     description: "Баварская горная гончая — собака среднего размера, которая изначально была выведена в Германии для охоты на мелкую дичь.",
-    image: "https://images.dogapi.dog/18de6euxz2v3nsw31hypqh74i68m",
+    image: "breeds/406e8454-d350-4187-9788-6d857ee52e06.webp",
     lifeSpan: "12–15 лет",
     weight: "20–30 кг",
     origin: "Германия"
@@ -356,7 +360,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "small",
     description: "Бигль — порода собак от маленького до среднего размера, которая изначально была выведена для охоты. Известны своим жизнерадостным нравом.",
-    image: "https://images.dogapi.dog/ou1q9rowef3bqz03ra2jm2tbw0js",
+    image: "breeds/d8621d92-6558-451c-8631-a32e767026a0.webp",
     lifeSpan: "12–15 лет",
     weight: "9–14 кг",
     origin: "Англия"
@@ -368,7 +372,7 @@ export const BREEDS_DATABASE: Breed[] = [
     temperament: "friendly",
     size: "medium",
     description: "Бородатая колли — пастушья собака среднего размера с лохматой густой двойной шерстью и характерной «бородой» вокруг морды.",
-    image: "https://images.dogapi.dog/3ipjbj9uevnvcs80jekow571xxmq",
+    image: "breeds/62c29679-0420-4de6-ab88-2b3e99c22317.webp",
     lifeSpan: "12–14 лет",
     weight: "20–25 кг",
     origin: "Соединенное Королевство"
@@ -380,7 +384,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "small",
     "description": "Элегантная короткошерстная кошка с тикированным окрасом, напоминающая дикую пуму.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Abyssinian_Cat_Rambo.jpg",
+    "image": "breeds/def76aab-6e55-4df5-9e06-ce6b1c33c87b.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3–5 кг",
     "origin": "Эфиопия"
@@ -392,7 +396,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Гибрид домашней кошки с дикой леопардовой. Имеет роскошный пятнистый или мраморный рисунок с золотистым блеском.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Paintedcats_Red_Glance.jpg",
+    "image": "breeds/f5405a80-0c9d-47c4-9fb4-e56dc13718b0.webp",
     "lifeSpan": "12–15 лет",
     "weight": "4–8 кг",
     "origin": "США"
@@ -404,7 +408,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "independent",
     "size": "large",
     "description": "Коренастая кошка с плотной плюшевой шерстью, круглыми щеками и сдержанным истинно английским характером.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/British_shorthair_category.jpg",
+    "image": "breeds/3fe7ffc2-1815-4340-9992-856af6eaaa4f.webp",
     "lifeSpan": "12–16 лет",
     "weight": "4–8 кг",
     "origin": "Великобритания"
@@ -416,7 +420,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "large",
     "description": "Один из гигантов кошачьего мира. Обладает мощным телом, пушистым воротником, кисточками на ушах и добродушным нравом.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Maine_Coon_cat_by_Tomos.jpg",
+    "image": "breeds/2a0fd047-378e-4452-a6e1-e090ea894e97.webp",
     "lifeSpan": "12–15 лет",
     "weight": "6–12 кг",
     "origin": "США"
@@ -428,7 +432,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "small",
     "description": "Кошачий аналог таксы. Порода со стандартным телом, но сильно укороченными лапками, что не мешает им быстро бегать.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Munchkin_Cat.jpg",
+    "image": "breeds/d0d92832-0981-4a8a-b70c-ffa04c303a33.webp",
     "lifeSpan": "12–14 лет",
     "weight": "2–4 кг",
     "origin": "США"
@@ -440,7 +444,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "independent",
     "size": "medium",
     "description": "Изящная кошка с чистым серебристо-голубым мехом, изумрудными глазами и деликатным, стеснительным характером.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Russian_Blue_Cat.jpg",
+    "image": "breeds/a8bbecd3-bbc6-4959-9d21-d377d17f5838.webp",
     "lifeSpan": "15–20 лет",
     "weight": "3–5.5 кг",
     "origin": "Россия"
@@ -452,7 +456,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "small",
     "description": "Одна из самых маленьких домашних кошек на планете. Имеет огромные глаза, большие уши и окрас «сепия агути».",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Singapura_Cat_Face.jpg",
+    "image": "breeds/1b522847-63b4-47b8-9468-d543fcddda64.webp",
     "lifeSpan": "12–15 лет",
     "weight": "1.5–3 кг",
     "origin": "Сингапур"
@@ -464,7 +468,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "medium",
     "description": "Знаменитая бесшерстная порода. Кожа на ощупь напоминает горячий персик. Обладает собачьим уровнем преданности хозяину.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Canadian_Sphynx.jpg",
+    "image": "breeds/d87bdc29-66b3-47bf-b1dd-64cf839f1d1f.webp",
     "lifeSpan": "12–14 лет",
     "weight": "3.5–6 кг",
     "origin": "Канада"
@@ -476,7 +480,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Элегантная кошка с характерным окрасом колор-поинт и ярко-голубыми глазами. Очень привязана к человеку.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Siam_lilac_point.jpg",
+    "image": "breeds/56bd1758-e9fc-4c52-b5bd-282cb4a1b476.webp",
     "lifeSpan": "15–20 лет",
     "weight": "3–5.5 кг",
     "origin": "Таиланд"
@@ -488,7 +492,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "large",
     "description": "Длинношерстная порода с приплюснутой мордочкой. Предпочитает спокойную домашнюю обстановку.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/White_Persian_Cat.jpg",
+    "image": "breeds/b6699bfd-2ffc-4b8b-a30c-ed34d2198156.webp",
     "lifeSpan": "12–17 лет",
     "weight": "3.5–7 кг",
     "origin": "Иран"
@@ -500,7 +504,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "medium",
     "description": "Главная особенность — характерные загнутые вперед и вниз уши и мягкий круглый силуэт.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Scottish_fold_cat.jpg",
+    "image": "breeds/93880254-35dc-4012-b231-4ff600435c82.webp",
     "lifeSpan": "11–15 лет",
     "weight": "3–6 кг",
     "origin": "Шотландия"
@@ -512,7 +516,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "large",
     "description": "Крупная порода с богатой водоотталкивающей шерстью, развитым подшерстком и отличным здоровьем.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Siberian_cat_lynx_point.jpg",
+    "image": "breeds/f8713100-f98d-4137-ac56-7fa5c117c152.webp",
     "lifeSpan": "12–18 лет",
     "weight": "4.5–9 кг",
     "origin": "Россия"
@@ -524,7 +528,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "large",
     "description": "Подвид сибирской кошки с нарядным окрасом колор-поинт и выразительными голубыми глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Neva_masquerade_cat_female.jpg",
+    "image": "breeds/9ac8d3a9-50ed-4703-be1a-7b411fe43cbc.webp",
     "lifeSpan": "12–18 лет",
     "weight": "4.5–9 кг",
     "origin": "Россия"
@@ -536,7 +540,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "small",
     "description": "Порода с короткой волнистой шерстью, огромными низко посаженными ушами и эльфийским выражением мордочки.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Devon_Rex_Portrait.jpg",
+    "image": "breeds/586771b3-5db5-4927-87ad-30f3585c87d2.webp",
     "lifeSpan": "12–15 лет",
     "weight": "2.5–4.5 кг",
     "origin": "Великобритания"
@@ -548,7 +552,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "small",
     "description": "Изящная кошка на высоких лапах с каракулевой кудрявой шерстью, лишенной остевых волос.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Cornish_Rex_Cat.jpg",
+    "image": "breeds/cf559903-7cb6-409a-9c53-bd1735876e13.webp",
     "lifeSpan": "12–15 лет",
     "weight": "2.5–4.5 кг",
     "origin": "Великобритания"
@@ -560,7 +564,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "large",
     "description": "Крупная аборигенная порода с густой двойной шерстью, пушистым хвостом и развитыми навыками лазания.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Norwegian_Forest_Cat_in_snow.jpg",
+    "image": "breeds/c1988cee-52c4-4b5f-9dba-36dce781aafa.webp",
     "lifeSpan": "14–16 лет",
     "weight": "5–9.5 кг",
     "origin": "Норвегия"
@@ -572,7 +576,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "large",
     "description": "Крупная кошка, которая полностью расслабляется на руках человека. Обладает пушистой шерстью и синими глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Ragdoll_from_Gatos_De_Casa.jpg",
+    "image": "breeds/3d9800ba-c4a8-4afd-840b-081e40bf546b.webp",
     "lifeSpan": "12–15 лет",
     "weight": "4.5–9 кг",
     "origin": "США"
@@ -584,7 +588,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "medium",
     "description": "Кошка с шелковистой шерстью окраса колор-поинт и обязательными идеально белыми «носочками» на лапах.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Birman2.jpg",
+    "image": "breeds/dc7d47bb-8b45-4aa0-8d55-4f975cd237f1.webp",
     "lifeSpan": "12–16 лет",
     "weight": "3.5–6.5 кг",
     "origin": "Мьянма (Бирма)"
@@ -596,7 +600,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Короткошерстная порода с мускулистым телом, шелковой шерстью шоколадных тонов и золотистыми глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Burmese_Cat.jpg",
+    "image": "breeds/2004c8f7-c6e8-4673-8b79-4e55cf758fc7.webp",
     "lifeSpan": "13–15 лет",
     "weight": "3.5–6 кг",
     "origin": "Таиланд"
@@ -608,7 +612,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Кошка, выведенная с целью создать миниатюрную копию черной пантеры с лакированной шерстью и медными глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Bombay_Cat_Jet_Black.jpg",
+    "image": "breeds/1026d442-9f3a-4365-8098-549224b883d7.webp",
     "lifeSpan": "12–16 лет",
     "weight": "3–5.5 кг",
     "origin": "США"
@@ -620,7 +624,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Крупная домашняя кошка, внешне полностью напоминающая дикого камышового кота или оцелота, но без дикой крови.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Ocicat_Ticked_Tabby.jpg",
+    "image": "breeds/921f9f6b-4a94-4b23-b707-5f0df1e04d96.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3.5–7 кг",
     "origin": "США"
@@ -632,7 +636,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "medium",
     "description": "Древняя порода с естественной пятнистой шерстью и удивительной скоростью бега (до 48 км/ч).",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Egyptian_Mau_Bronze.jpg",
+    "image": "breeds/b9b09613-6143-4338-bcbd-293f6a6b44ab.webp",
     "lifeSpan": "13–15 лет",
     "weight": "3–6.5 кг",
     "origin": "Египет"
@@ -644,7 +648,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "medium",
     "description": "Знаменитая кошка с коротким хвостом-помпоном, часто встречающаяся в японском фольклоре (Манеки-неко).",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Japanese_Bobtail_Cat_Mi-ke.jpg",
+    "image": "breeds/c1fc5c10-5126-4090-b459-dcf9919c0a60.webp",
     "lifeSpan": "14–16 лет",
     "weight": "2.5–5 кг",
     "origin": "Япония"
@@ -656,7 +660,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Российская аборигенная порода с хвостом в виде заячьего помпона. Не боится воды и прекрасно ловит рыбу.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Kurilian_Bobtail_Cat.jpg",
+    "image": "breeds/0ddb2878-bd23-4f7e-9726-8c91c36b0b00.webp",
     "lifeSpan": "13–17 лет",
     "weight": "4–7.5 кг",
     "origin": "Россия"
@@ -668,7 +672,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "medium",
     "description": "Уникальная порода с острова Мэн, характерной чертой которой является полное отсутствие хвоста.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Manx_cat.jpg",
+    "image": "breeds/ae3ae7ee-0ad5-4017-9f55-9c93ba95c4f5.webp",
     "lifeSpan": "12–14 лет",
     "weight": "3.5–5.5 кг",
     "origin": "Остров Мэн"
@@ -680,7 +684,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "medium",
     "description": "Длинношерстный вариант абиссинской кошки с роскошным пушистым хвостом и воротником.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Somali_Cat_Ruddy.jpg",
+    "image": "breeds/c9c202cc-225a-42a0-bfa1-8f73a8c6a3eb.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3–5.5 кг",
     "origin": "США"
@@ -692,7 +696,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "medium",
     "description": "Древняя элегантная кошка с сухой шелковистой шерстью, часто белого окраса и с разным цветом глаз.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Turkish_Angora_Cat.jpg",
+    "image": "breeds/8501ab03-190d-4771-9f71-20bbfa0dd19c.webp",
     "lifeSpan": "12–15 лет",
     "weight": "2.5–5 кг",
     "origin": "Турция"
@@ -704,7 +708,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Крупная мускулистая кошка с белоснежной шерстью и цветными отметинами на голове и хвосте. Любит плавать.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Turkish_Van_Cat.jpg",
+    "image": "breeds/e9f14805-d7cc-4792-8774-5a555ba60658.webp",
     "lifeSpan": "13–16 лет",
     "weight": "4.5–9 кг",
     "origin": "Турция"
@@ -716,7 +720,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "large",
     "description": "Идеальная копия персидской кошки, но с короткой густой «плюшевой» шерстью, легкой в уходе.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Exotic_Shorthair_Cat.jpg",
+    "image": "breeds/e819868f-4861-4002-a210-836057f6669e.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3.5–7 кг",
     "origin": "США"
@@ -728,7 +732,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Крупный гибрид домашней кошки и дикого камышового кота (Feliss chaus). Обладает мощной энергетикой.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Chausie_Cat_Abyssinian_Look.jpg",
+    "image": "breeds/b258e3a2-4cff-4b36-a83c-5ec51b1f4c36.webp",
     "lifeSpan": "12–15 лет",
     "weight": "6–11 кг",
     "origin": "США"
@@ -740,7 +744,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "active",
     "size": "large",
     "description": "Гибрид домашней кошки и дикого африканского сервала. Самая высокая и дорогая домашняя порода кошек.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Savannah_Cat_F1.jpg",
+    "image": "breeds/5356b16d-34cf-4890-8d3d-db75fce9e942.webp",
     "lifeSpan": "15–20 лет",
     "weight": "5–12 кг",
     "origin": "США"
@@ -752,7 +756,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Кошка, чьи уши изящно закручены назад в форме небольших рожек, придавая ей удивленный вид.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/American_Curl_Cat.jpg",
+    "image": "breeds/990f639d-baae-4e0c-acbf-360282694f32.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3–5 кг",
     "origin": "США"
@@ -764,7 +768,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Длинношерстная разновидность сиамской кошки. Грациозная, с аквамариновыми глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Balinese_cat.jpg",
+    "image": "breeds/25603717-9c88-428b-ad82-ca4ddf86ad61.webp",
     "lifeSpan": "12–15 лет",
     "weight": "2.5–5 кг",
     "origin": "США"
@@ -776,7 +780,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "large",
     "description": "Старинная французская порода кошек серо-голубого окраса с медными глазами и характерной «улыбкой».",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Chartreux_Cat_Male.jpg",
+    "image": "breeds/31dd646c-c74a-4923-be66-28c2323ba0a2.webp",
     "lifeSpan": "12–15 лет",
     "weight": "4–7 кг",
     "origin": "Франция"
@@ -788,7 +792,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Серебристо-голубая кошка из Таиланда с сердцевидной мордочкой и светящимися зелеными глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Korat_Cat_Green_Eyes.jpg",
+    "image": "breeds/de6c2788-cdfd-4670-b59b-eb6d941f1875.webp",
     "lifeSpan": "15–18 лет",
     "weight": "3–4.5 кг",
     "origin": "Таиланд"
@@ -800,7 +804,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Редкая порода с уникальным насыщенным махагоново-шоколадным цветом шерсти и зелеными глазами.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Havana_Brown_Cat.jpg",
+    "image": "breeds/80ba9ce9-0643-421a-bf9a-3c005f656ccb.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3–5 кг",
     "origin": "Великобритания"
@@ -812,7 +816,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Российская бесшерстная порода с изящным восточным типом телосложения, выведенная в Санкт-Петербурге.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Peterbald_Cat_Nude.jpg",
+    "image": "breeds/d79123bd-36ef-46c6-8e34-96b389d709a2.webp",
     "lifeSpan": "12–15 лет",
     "weight": "3–5.5 кг",
     "origin": "Россия"
@@ -824,7 +828,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Аборигенная российская бесшерстная порода, генетически отличающаяся от канадского сфинкса.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Donskoy_Sphynx_Cat.jpg",
+    "image": "breeds/c8fd9e24-96de-4bfc-9e69-7062391cb6a4.webp",
     "lifeSpan": "12–14 лет",
     "weight": "3.5–6 кг",
     "origin": "Россия"
@@ -836,7 +840,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "friendly",
     "size": "medium",
     "description": "Гармоничный гибрид сиамской и бурманской кошек с аквамариновыми глазами и «норковой» шерстью.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Tonkinese_Cat_Mink.jpg",
+    "image": "breeds/0f356dac-b590-4dd3-9c94-3848ad4c94e5.webp",
     "lifeSpan": "12–16 лет",
     "weight": "3–5.5 кг",
     "origin": "Канада"
@@ -848,7 +852,7 @@ export const BREEDS_DATABASE: Breed[] = [
     "temperament": "calm",
     "size": "large",
     "description": "Порода, напоминающая овечку благодаря густой, сильно вьющейся шерсти. Бывают длинношерстными и короткошерстными.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Selkirk_Rex_Cat_Curly.jpg",
+    "image": "breeds/98ac50ea-0cc9-41a0-b02e-54aeab473d7c.webp",
     "lifeSpan": "12–15 лет",
     "weight": "4–7 кг",
     "origin": "США"

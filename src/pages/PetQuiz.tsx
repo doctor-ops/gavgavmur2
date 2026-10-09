@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
-import { BREEDS_DATABASE, Breed } from '../data/breeds';
+import { BREEDS_DATABASE, breedPhoto, type Breed } from '../data/breeds';
 
 interface Question {
   id: number;
@@ -207,13 +207,13 @@ export function PetQuiz() {
                       {/* Размытый фон для глубины */}
                       <div 
                         className="absolute inset-0 bg-cover bg-center scale-150 blur-2xl opacity-20 pointer-events-none z-0"
-                        style={{ backgroundImage: `url(${breed.image})` }}
+                        style={{ backgroundImage: `url(${breedPhoto(breed.image)})` }}
                       />
                       
                       <div className="relative z-10 p-5 flex flex-col h-full">
                         <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl shadow-md bg-base-bg">
                           <img 
-                            src={breed.image} 
+                            src={breedPhoto(breed.image)} 
                             alt={breed.name} 
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />

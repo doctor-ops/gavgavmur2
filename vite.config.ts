@@ -69,7 +69,7 @@ const contentSecurityPolicy = [
   "script-src 'self'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "img-src 'self' data: blob: https://images.dogapi.dog https://upload.wikimedia.org",
+  "img-src 'self' data: blob:",
   "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
   "form-action 'self'",
 ].join('; ');
