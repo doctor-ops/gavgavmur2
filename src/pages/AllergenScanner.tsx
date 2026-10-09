@@ -9,6 +9,7 @@ type FoodRecord = {
   id?: string;
   name?: string;
   brand?: string;
+  line?: string;
   search_tags?: string;
   ingredients?: string;
   quantity?: string;
@@ -118,6 +119,7 @@ export function AllergenScanner() {
       const matches =
         item.name?.toLowerCase().includes(query) ||
         item.brand?.toLowerCase().includes(query) ||
+        item.line?.toLowerCase().includes(query) ||
         item.search_tags?.toLowerCase().includes(query);
       if (!matches) continue;
 
@@ -218,7 +220,8 @@ export function AllergenScanner() {
                   className="w-full text-left px-4 py-3 hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors flex justify-between items-center gap-3"
                 >
                   <div className="text-sm">
-                    <span className="font-bold text-brand">{food.brand}</span> 
+                    <span className="font-bold text-brand">{food.brand}</span>
+                    {food.line ? <span className="text-ink-soft ml-2">{food.line}</span> : null}
                     <span className="text-ink ml-2">{food.name}</span>
                   </div>
                   <span className="text-[10px] text-ink-light bg-base-bg px-2 py-1 rounded-md whitespace-nowrap">
