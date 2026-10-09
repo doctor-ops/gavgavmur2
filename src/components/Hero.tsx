@@ -100,7 +100,7 @@ export function Hero() {
 
         <div className="flex gap-10 sm:gap-16 mt-16 pt-8 border-t border-white/10">
           <div>
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">70</div>
+            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">152</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">пород в каталоге</div>
           </div>
           <div>
