@@ -858,3 +858,19 @@ export const BREEDS_DATABASE: Breed[] = [
     "origin": "США"
   }
 ];
+
+function foldBreedQuery(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[‐‑‒–—−-]/g, ' ')
+    .replace(/[()«»"'`]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function breedsMatching(query: string): Breed[] {
+  const needle = foldBreedQuery(query);
+  if (needle.length < 3) return [];
+  return BREEDS_DATABASE.filter((breed) => foldBreedQuery(breed.name).includes(needle));
+}
