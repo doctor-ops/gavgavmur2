@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info, HelpCircle } from 'lucide-react';
@@ -38,6 +39,38 @@ for (const item of foods) {
 
 function compositionFor(item: FoodRecord): string {
   return ingredientText(item.ingredients) || compositionByProduct.get(productKey(item)) || '';
+}
+
+function searchFoods(query: string): FoodRecord[] {
+  const normalized = query.trim().toLowerCase();
+  if (normalized.length < 2) return [];
+  const seen = new Set<string>();
+  const withComposition: FoodRecord[] = [];
+  const withoutComposition: FoodRecord[] = [];
+
+  for (const item of foods) {
+    const matches =
+      item.name?.toLowerCase().includes(normalized) ||
+      item.brand?.toLowerCase().includes(normalized) ||
+      item.line?.toLowerCase().includes(normalized) ||
+      item.search_tags?.toLowerCase().includes(normalized);
+    if (!matches) continue;
+
+    const key = productKey(item);
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    if (compositionFor(item)) withComposition.push(item);
+    else if (withoutComposition.length < 10) withoutComposition.push(item);
+
+    if (withComposition.length === 10) break;
+  }
+
+  return (withComposition.length > 0 ? withComposition : withoutComposition).slice(0, 10);
+}
+
+function foodLabel(food: FoodRecord): string {
+  return food.name?.trim() || food.brand?.trim() || '';
 }
 
 const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
@@ -102,48 +135,44 @@ function translateIngredient(text: string): string {
 }
 
 export function AllergenScanner() {
+  const [searchParams] = useSearchParams();
+  const queryParam = searchParams.get('q')?.trim() ?? '';
   const [input, setInput] = useState('');
   const [analyzed, setAnalyzed] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(queryParam);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [missingComposition, setMissingComposition] = useState(false);
+  const appliedQuery = useRef('');
+  const selectedLabel = useRef('');
 
-  const filteredFoods = useMemo(() => {
-    if (searchQuery.length < 2) return [];
-    const query = searchQuery.toLowerCase();
-    const seen = new Set<string>();
-    const withComposition: FoodRecord[] = [];
-    const withoutComposition: FoodRecord[] = [];
-
-    for (const item of foods) {
-      const matches =
-        item.name?.toLowerCase().includes(query) ||
-        item.brand?.toLowerCase().includes(query) ||
-        item.line?.toLowerCase().includes(query) ||
-        item.search_tags?.toLowerCase().includes(query);
-      if (!matches) continue;
-
-      const key = productKey(item);
-      if (seen.has(key)) continue;
-      seen.add(key);
-
-      if (compositionFor(item)) withComposition.push(item);
-      else if (withoutComposition.length < 10) withoutComposition.push(item);
-
-      if (withComposition.length === 10) break;
-    }
-
-    return (withComposition.length > 0 ? withComposition : withoutComposition).slice(0, 10);
-  }, [searchQuery]);
+  const filteredFoods = useMemo(() => searchFoods(searchQuery), [searchQuery]);
 
   const handleSelectFood = (food: FoodRecord) => {
     const text = compositionFor(food);
+    const label = foodLabel(food);
+    selectedLabel.current = label;
     setInput(text);
     setAnalyzed(text.length > 0);
     setMissingComposition(text.length === 0);
-    setSearchQuery(food.name?.trim() || food.brand?.trim() || '');
+    setSearchQuery(label);
     setShowSuggestions(false);
   };
+
+  useEffect(() => {
+    if (!queryParam || appliedQuery.current === queryParam) return;
+    appliedQuery.current = queryParam;
+    const best = searchFoods(queryParam)[0];
+    if (!best) {
+      selectedLabel.current = '';
+      setSearchQuery(queryParam);
+      setInput('');
+      setAnalyzed(false);
+      setMissingComposition(true);
+      setShowSuggestions(false);
+      return;
+    }
+    handleSelectFood(best);
+  }, [queryParam]);
 
   const ingredients = useMemo(() => {
     return input
@@ -200,7 +229,10 @@ export function AllergenScanner() {
               placeholder="Например: Forza10, Purina..." 
               value={searchQuery}
               onChange={(e) => {
-                setSearchQuery(e.target.value);
+                const next = e.target.value;
+                if (selectedLabel.current && next === '') return;
+                if (next !== selectedLabel.current) selectedLabel.current = '';
+                setSearchQuery(next);
                 setShowSuggestions(true);
                 setMissingComposition(false);
               }}
@@ -215,7 +247,10 @@ export function AllergenScanner() {
                 <button
                   type="button"
                   key={`${productKey(food)}-${food.id ?? ''}`}
-                  onMouseDown={(event) => event.preventDefault()}
+                  onPointerDown={(event) => {
+                    event.preventDefault();
+                    handleSelectFood(food);
+                  }}
                   onClick={() => handleSelectFood(food)}
                   className="w-full text-left px-4 py-3 hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors flex justify-between items-center gap-3"
                 >

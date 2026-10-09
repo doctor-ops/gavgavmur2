@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { ToolLayout } from '@/components/ToolLayout';
 import { foodBrands } from '@/data/foodBrands';
 import calorieFoods from '@/data/foodCalories.json';
@@ -39,6 +39,7 @@ export function CalorieCalculator() {
   const [foodQuery, setFoodQuery] = useState('');
   const [selectedFoodId, setSelectedFoodId] = useState('');
   const [showFoods, setShowFoods] = useState(false);
+  const selectedLabel = useRef('');
 
   // RER - Базовая энергия покоя
   const rer = useMemo(() => Math.round(70 * Math.pow(weight, 0.75)), [weight]);
@@ -204,8 +205,13 @@ export function CalorieCalculator() {
                 value={foodQuery}
                 placeholder="Название или бренд, например Felix"
                 onChange={(event) => {
-                  setFoodQuery(event.target.value);
-                  setSelectedFoodId('');
+                  const next = event.target.value;
+                  if (selectedLabel.current && next === '') return;
+                  if (next !== selectedLabel.current) {
+                    selectedLabel.current = '';
+                    setSelectedFoodId('');
+                  }
+                  setFoodQuery(next);
                   setShowFoods(true);
                 }}
                 onFocus={() => setShowFoods(true)}
@@ -216,6 +222,7 @@ export function CalorieCalculator() {
                   type="button"
                   aria-label="Сбросить корм"
                   onClick={() => {
+                    selectedLabel.current = '';
                     setFoodQuery('');
                     setSelectedFoodId('');
                     setShowFoods(false);
@@ -232,10 +239,19 @@ export function CalorieCalculator() {
                   <button
                     type="button"
                     key={food.id}
-                    onMouseDown={(event) => event.preventDefault()}
-                    onClick={() => {
+                    onPointerDown={(event) => {
+                      event.preventDefault();
+                      const label = foodTitle(food);
+                      selectedLabel.current = label;
                       setSelectedFoodId(food.id);
-                      setFoodQuery(foodTitle(food));
+                      setFoodQuery(label);
+                      setShowFoods(false);
+                    }}
+                    onClick={() => {
+                      const label = foodTitle(food);
+                      selectedLabel.current = label;
+                      setSelectedFoodId(food.id);
+                      setFoodQuery(label);
                       setShowFoods(false);
                     }}
                     className="w-full text-left px-4 py-3 text-sm hover:bg-base-bg border-b border-base-muted/40 last:border-b-0"

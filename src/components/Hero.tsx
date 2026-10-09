@@ -18,7 +18,11 @@ export function Hero() {
     if (!query.trim()) return;
     const q = query.trim().toLowerCase();
     const breedMatch = ['корги', 'овчарка', 'лабрадор', 'чихуахуа', 'пудель', 'сиба', 'мейн-кун', 'сиамская', 'британская', 'сфинкс'].find((b) => b.includes(q) || q.includes(b));
-    if (breedMatch) { navigate('/wiki'); } else { navigate('/tools/importozameshenie'); }
+    if (breedMatch) {
+      navigate('/wiki');
+      return;
+    }
+    navigate(`/tools/allergens?q=${encodeURIComponent(query.trim())}`);
   };
 
   return (
