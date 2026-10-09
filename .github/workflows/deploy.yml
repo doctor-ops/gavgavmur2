@@ -6,7 +6,7 @@ on:
       - main # Убедитесь, что ваша основная ветка называется main
 
 permissions:
-  contents: write
+  contents: write # действие деплоя пушит сборку в ветку gh-pages
 
 jobs:
   build-and-deploy:
@@ -14,11 +14,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Setup Node.js
-        # ИСПРАВЛЕНО: было actions/tools/node@v4 -> стало actions/setup-node@v4
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: 'npm'
@@ -30,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           folder: dist # Папка, которую генерирует Vite
           branch: gh-pages # Ветка для деплоя

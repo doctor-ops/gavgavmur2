@@ -66,20 +66,6 @@ export function Contacts() {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-xs text-white/60 mb-3">{t.contacts.socialLabel}</p>
-                <div className="flex gap-3">
-                  {['VK', 'TG', 'YT'].map((s) => (
-                    <a
-                      key={s}
-                      href="#"
-                      className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent flex items-center justify-center text-sm font-bold transition-colors hover:text-white"
-                    >
-                      {s}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 

@@ -1,50 +1,10 @@
 import { Link } from 'react-router-dom';
-import { PawPrint, Send, Users } from 'lucide-react';
+import { PawPrint } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-brand text-white pt-16 pb-8 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <div className="rounded-2xl bg-brand-dark p-6 border border-brand-light hover:border-accent/50 transition-colors">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 rounded-xl bg-[#229ED9] flex items-center justify-center">
-                <Send className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg">Наш Telegram-канал</h3>
-                <p className="text-sm text-brand-soft">Бот с умными калькуляторами прямо в Telegram</p>
-              </div>
-            </div>
-            <p className="text-sm text-brand-soft mb-4 leading-relaxed">
-              Подпишитесь, чтобы получать советы по уходу, новости и пользоваться калькуляторами кормления внутри мессенджера.
-            </p>
-            <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-brand font-semibold text-sm hover:bg-accent-light transition-colors">
-              <Send className="w-4 h-4" />
-              Открыть в Telegram
-            </a>
-          </div>
-
-          <div className="rounded-2xl bg-brand-dark p-6 border border-brand-light hover:border-accent/50 transition-colors">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 rounded-xl bg-[#4A76A8] flex items-center justify-center">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg">Наша группа ВК</h3>
-                <p className="text-sm text-brand-soft">Виджет сообщества ВКонтакте</p>
-              </div>
-            </div>
-            <p className="text-sm text-brand-soft mb-4 leading-relaxed">
-              Присоединяйтесь к нашему сообществу — конкурсы, советы заводчиков, истории владельцев и ответы ветеринаров.
-            </p>
-            <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-brand font-semibold text-sm hover:bg-accent-light transition-colors">
-              <Users className="w-4 h-4" />
-              Перейти в группу
-            </a>
-          </div>
-        </div>
-
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-8 border-t border-brand-light pt-8">
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">

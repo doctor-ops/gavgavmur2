@@ -3,23 +3,28 @@ import { useSearchParams } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info, HelpCircle } from 'lucide-react';
-import petFoods from '@/data/petfood_ready.json';
+import petFoods from 'virtual:petfood-index';
 import { ingredientTranslations } from '@/data/ingredient_translations';
 
 type FoodRecord = {
-  id?: string;
+  id: string;
   name?: string;
   brand?: string;
   line?: string;
   search_tags?: string;
-  ingredients?: string;
-  quantity?: string;
 };
 
 const foods = petFoods as FoodRecord[];
 
-function ingredientText(value: unknown): string {
-  return typeof value === 'string' ? value.trim() : '';
+let compositionsPromise: Promise<Record<string, string>> | null = null;
+
+function loadCompositions(): Promise<Record<string, string>> {
+  if (!compositionsPromise) {
+    compositionsPromise = import('virtual:petfood-compositions').then(
+      (mod) => mod.default
+    );
+  }
+  return compositionsPromise;
 }
 
 function productKey(item: FoodRecord): string {
@@ -28,45 +33,28 @@ function productKey(item: FoodRecord): string {
   return `${brand}|${name}`;
 }
 
-const compositionByProduct = new Map<string, string>();
-for (const item of foods) {
-  const text = ingredientText(item.ingredients);
-  const key = productKey(item);
-  if (text && key !== '|' && !compositionByProduct.has(key)) {
-    compositionByProduct.set(key, text);
-  }
-}
-
-function compositionFor(item: FoodRecord): string {
-  return ingredientText(item.ingredients) || compositionByProduct.get(productKey(item)) || '';
-}
-
 function searchFoods(query: string): FoodRecord[] {
   const normalized = query.trim().toLowerCase();
   if (normalized.length < 2) return [];
   const seen = new Set<string>();
-  const withComposition: FoodRecord[] = [];
-  const withoutComposition: FoodRecord[] = [];
+  const matches: FoodRecord[] = [];
 
   for (const item of foods) {
-    const matches =
+    const hit =
       item.name?.toLowerCase().includes(normalized) ||
       item.brand?.toLowerCase().includes(normalized) ||
       item.line?.toLowerCase().includes(normalized) ||
       item.search_tags?.toLowerCase().includes(normalized);
-    if (!matches) continue;
+    if (!hit) continue;
 
     const key = productKey(item);
     if (seen.has(key)) continue;
     seen.add(key);
-
-    if (compositionFor(item)) withComposition.push(item);
-    else if (withoutComposition.length < 10) withoutComposition.push(item);
-
-    if (withComposition.length === 10) break;
+    matches.push(item);
+    if (matches.length === 10) break;
   }
 
-  return (withComposition.length > 0 ? withComposition : withoutComposition).slice(0, 10);
+  return matches;
 }
 
 function productName(food: FoodRecord): string {
@@ -153,25 +141,46 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState(queryParam);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [missingComposition, setMissingComposition] = useState(false);
+  const [compositionLoading, setCompositionLoading] = useState(false);
   const appliedQuery = useRef('');
   const selectedLabel = useRef('');
   const ignoreSearchChange = useRef(false);
+  const selectSeq = useRef(0);
 
   const filteredFoods = useMemo(() => searchFoods(searchQuery), [searchQuery]);
 
   const handleSelectFood = (food: FoodRecord) => {
-    const text = compositionFor(food);
     const label = productName(food);
+    const seq = ++selectSeq.current;
     ignoreSearchChange.current = true;
     selectedLabel.current = label;
-    setInput(text);
-    setAnalyzed(text.length > 0);
-    setMissingComposition(text.length === 0);
     setSearchQuery(label);
     setShowSuggestions(false);
+    setInput('');
+    setAnalyzed(false);
+    setMissingComposition(false);
+    setCompositionLoading(true);
     window.setTimeout(() => {
       ignoreSearchChange.current = false;
     }, 150);
+
+    void loadCompositions()
+      .then((map) => {
+        if (selectSeq.current !== seq) return;
+        const text = map[food.id] ?? '';
+        setInput(text);
+        setAnalyzed(text.length > 0);
+        setMissingComposition(text.length === 0);
+      })
+      .catch(() => {
+        if (selectSeq.current !== seq) return;
+        setInput('');
+        setAnalyzed(false);
+        setMissingComposition(true);
+      })
+      .finally(() => {
+        if (selectSeq.current === seq) setCompositionLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -275,7 +284,10 @@ export function AllergenScanner() {
               ))}
             </div>
           )}
-          {missingComposition && (
+          {compositionLoading && (
+            <p className="mt-2 text-xs text-ink-soft">Загрузка состава…</p>
+          )}
+          {missingComposition && !compositionLoading && (
             <p className="mt-2 text-xs text-ink-soft">
               У этого корма в базе нет состава. Вставьте его с упаковки вручную.
             </p>
