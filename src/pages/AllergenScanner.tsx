@@ -69,8 +69,19 @@ function searchFoods(query: string): FoodRecord[] {
   return (withComposition.length > 0 ? withComposition : withoutComposition).slice(0, 10);
 }
 
-function foodLabel(food: FoodRecord): string {
-  return food.name?.trim() || food.brand?.trim() || '';
+function productName(food: FoodRecord): string {
+  let name = food.name?.trim() || '';
+  const stripPrefix = (source: string, token?: string) => {
+    const part = token?.trim();
+    if (!part || part.toLowerCase() === 'unknown' || part.length < 2) return source;
+    const escaped = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const next = source.replace(new RegExp(`^${escaped}\\s*[-–—:·|/]*\\s*`, 'i'), '').trim();
+    return next.length >= 2 ? next : source;
+  };
+  name = stripPrefix(name, food.brand);
+  name = stripPrefix(name, food.line);
+  name = stripPrefix(name, food.brand);
+  return name;
 }
 
 const levelIcon: Record<AllergenLevel, typeof CheckCircle2> = {
@@ -144,18 +155,23 @@ export function AllergenScanner() {
   const [missingComposition, setMissingComposition] = useState(false);
   const appliedQuery = useRef('');
   const selectedLabel = useRef('');
+  const ignoreSearchChange = useRef(false);
 
   const filteredFoods = useMemo(() => searchFoods(searchQuery), [searchQuery]);
 
   const handleSelectFood = (food: FoodRecord) => {
     const text = compositionFor(food);
-    const label = foodLabel(food);
+    const label = productName(food);
+    ignoreSearchChange.current = true;
     selectedLabel.current = label;
     setInput(text);
     setAnalyzed(text.length > 0);
     setMissingComposition(text.length === 0);
     setSearchQuery(label);
     setShowSuggestions(false);
+    window.setTimeout(() => {
+      ignoreSearchChange.current = false;
+    }, 150);
   };
 
   useEffect(() => {
@@ -230,8 +246,11 @@ export function AllergenScanner() {
               value={searchQuery}
               onChange={(e) => {
                 const next = e.target.value;
-                if (selectedLabel.current && next === '') return;
-                if (next !== selectedLabel.current) selectedLabel.current = '';
+                const inputType = (e.nativeEvent as InputEvent).inputType;
+                const userCleared = inputType === 'deleteContentBackward' || inputType === 'deleteContentForward';
+                if (ignoreSearchChange.current) return;
+                if (selectedLabel.current && next === '' && !userCleared) return;
+                selectedLabel.current = '';
                 setSearchQuery(next);
                 setShowSuggestions(true);
                 setMissingComposition(false);
@@ -242,26 +261,16 @@ export function AllergenScanner() {
           </div>
 
           {showSuggestions && filteredFoods.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden animate-fade-up">
+            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-base-muted rounded-xl shadow-xl z-50 overflow-hidden">
               {filteredFoods.map((food) => (
                 <button
                   type="button"
                   key={`${productKey(food)}-${food.id ?? ''}`}
-                  onPointerDown={(event) => {
-                    event.preventDefault();
-                    handleSelectFood(food);
-                  }}
+                  onMouseDown={(event) => event.preventDefault()}
                   onClick={() => handleSelectFood(food)}
-                  className="w-full text-left px-4 py-3 hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors flex justify-between items-center gap-3"
+                  className="w-full text-left px-4 py-3 text-sm text-ink hover:bg-base-surface cursor-pointer border-b border-base-muted last:border-none transition-colors"
                 >
-                  <div className="text-sm">
-                    <span className="font-bold text-brand">{food.brand}</span>
-                    {food.line ? <span className="text-ink-soft ml-2">{food.line}</span> : null}
-                    <span className="text-ink ml-2">{food.name}</span>
-                  </div>
-                  <span className="text-[10px] text-ink-light bg-base-bg px-2 py-1 rounded-md whitespace-nowrap">
-                    {compositionFor(food) ? (food.quantity || 'есть состав') : 'нет состава'}
-                  </span>
+                  {productName(food)}
                 </button>
               ))}
             </div>

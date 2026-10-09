@@ -18,8 +18,18 @@ type CalorieFood = {
 const foods = calorieFoods as CalorieFood[];
 
 function foodTitle(food: CalorieFood) {
-  const brand = food.brand && food.brand !== 'Unknown' ? food.brand : '';
-  return [brand, food.line, food.name].filter(Boolean).join(' · ');
+  let name = food.name.trim();
+  const stripPrefix = (source: string, token?: string) => {
+    const part = token?.trim();
+    if (!part || part.toLowerCase() === 'unknown' || part.length < 2) return source;
+    const escaped = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const next = source.replace(new RegExp(`^${escaped}\\s*[-–—:·|/]*\\s*`, 'i'), '').trim();
+    return next.length >= 2 ? next : source;
+  };
+  name = stripPrefix(name, food.brand);
+  name = stripPrefix(name, food.line);
+  name = stripPrefix(name, food.brand);
+  return name;
 }
 
 const activityFactors: Record<Activity, number> = {
@@ -40,6 +50,7 @@ export function CalorieCalculator() {
   const [selectedFoodId, setSelectedFoodId] = useState('');
   const [showFoods, setShowFoods] = useState(false);
   const selectedLabel = useRef('');
+  const ignoreSearchChange = useRef(false);
 
   // RER - Базовая энергия покоя
   const rer = useMemo(() => Math.round(70 * Math.pow(weight, 0.75)), [weight]);
@@ -206,11 +217,12 @@ export function CalorieCalculator() {
                 placeholder="Название или бренд, например Felix"
                 onChange={(event) => {
                   const next = event.target.value;
-                  if (selectedLabel.current && next === '') return;
-                  if (next !== selectedLabel.current) {
-                    selectedLabel.current = '';
-                    setSelectedFoodId('');
-                  }
+                  const inputType = (event.nativeEvent as InputEvent).inputType;
+                  const userCleared = inputType === 'deleteContentBackward' || inputType === 'deleteContentForward';
+                  if (ignoreSearchChange.current) return;
+                  if (selectedLabel.current && next === '' && !userCleared) return;
+                  selectedLabel.current = '';
+                  setSelectedFoodId('');
                   setFoodQuery(next);
                   setShowFoods(true);
                 }}
@@ -239,20 +251,17 @@ export function CalorieCalculator() {
                   <button
                     type="button"
                     key={food.id}
-                    onPointerDown={(event) => {
-                      event.preventDefault();
-                      const label = foodTitle(food);
-                      selectedLabel.current = label;
-                      setSelectedFoodId(food.id);
-                      setFoodQuery(label);
-                      setShowFoods(false);
-                    }}
+                    onMouseDown={(event) => event.preventDefault()}
                     onClick={() => {
                       const label = foodTitle(food);
+                      ignoreSearchChange.current = true;
                       selectedLabel.current = label;
                       setSelectedFoodId(food.id);
                       setFoodQuery(label);
                       setShowFoods(false);
+                      window.setTimeout(() => {
+                        ignoreSearchChange.current = false;
+                      }, 150);
                     }}
                     className="w-full text-left px-4 py-3 text-sm hover:bg-base-bg border-b border-base-muted/40 last:border-b-0"
                   >
