@@ -97,6 +97,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
+        chunkFileNames(chunkInfo) {
+          const rawName = chunkInfo.name.replace(/^_+/, '');
+          return `assets/${rawName}-[hash].js`;
+        },
         manualChunks(id) {
           if (!id.includes('node_modules')) return;
           if (id.includes('react-router') || id.includes('react-dom') || id.includes('/react/')) {

@@ -20,9 +20,12 @@ let compositionsPromise: Promise<Record<string, string>> | null = null;
 
 function loadCompositions(): Promise<Record<string, string>> {
   if (!compositionsPromise) {
-    compositionsPromise = import('virtual:petfood-compositions').then(
-      (mod) => mod.default
-    );
+    compositionsPromise = import('virtual:petfood-compositions')
+      .then((mod) => mod.default)
+      .catch((error) => {
+        compositionsPromise = null;
+        throw error;
+      });
   }
   return compositionsPromise;
 }
@@ -149,6 +152,7 @@ export function AllergenScanner() {
   const [searchQuery, setSearchQuery] = useState(queryParam);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [missingComposition, setMissingComposition] = useState(false);
+  const [compositionLoadFailed, setCompositionLoadFailed] = useState(false);
   const [compositionLoading, setCompositionLoading] = useState(false);
   const appliedQuery = useRef('');
   const selectedLabel = useRef('');
@@ -167,6 +171,7 @@ export function AllergenScanner() {
     setInput('');
     setAnalyzed(false);
     setMissingComposition(false);
+    setCompositionLoadFailed(false);
     setCompositionLoading(true);
     window.setTimeout(() => {
       ignoreSearchChange.current = false;
@@ -184,7 +189,8 @@ export function AllergenScanner() {
         if (selectSeq.current !== seq) return;
         setInput('');
         setAnalyzed(false);
-        setMissingComposition(true);
+        setMissingComposition(false);
+        setCompositionLoadFailed(true);
       })
       .finally(() => {
         if (selectSeq.current === seq) setCompositionLoading(false);
@@ -295,6 +301,11 @@ export function AllergenScanner() {
           )}
           {compositionLoading && (
             <p className="mt-2 text-xs text-ink-soft">Загрузка состава…</p>
+          )}
+          {compositionLoadFailed && !compositionLoading && (
+            <p className="mt-2 text-xs text-ink-soft">
+              Не удалось загрузить базу составов. Обновите страницу.
+            </p>
           )}
           {missingComposition && !compositionLoading && (
             <p className="mt-2 text-xs text-ink-soft">
