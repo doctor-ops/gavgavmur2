@@ -1,22 +1,63 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { BREEDS_DATABASE, breedPhoto, breedsMatching } from '@/data/breeds';
-import { Dog, Cat, ArrowRight, Filter as FilterIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Cat, Dog, Filter as FilterIcon, Search } from 'lucide-react';
+
+const pageSize = 9;
 
 export function BreedCatalog() {
   const [searchParams, setSearchParams] = useSearchParams();
   const breedQuery = searchParams.get('q')?.trim() ?? '';
+  const requestedPage = Number(searchParams.get('page') ?? '1');
   const [activeFilter, setActiveFilter] = useState<'all' | 'dog' | 'cat'>('all');
   const [activeTemp, setActiveTemp] = useState<string>('all');
+  const [draftQuery, setDraftQuery] = useState(breedQuery);
+  const [searchHint, setSearchHint] = useState('');
+  const listRef = useRef<HTMLDivElement>(null);
+  const skipScroll = useRef(true);
+
+  const setCatalogParams = (changes: { q?: string; page?: number }) => {
+    const next = new URLSearchParams(searchParams);
+    if ('q' in changes) {
+      const value = changes.q?.trim() ?? '';
+      if (value) next.set('q', value);
+      else next.delete('q');
+      next.delete('page');
+    }
+    if (changes.page !== undefined && !('q' in changes)) {
+      if (changes.page <= 1) next.delete('page');
+      else next.set('page', String(changes.page));
+    }
+    setSearchParams(next);
+  };
 
   const filteredBreeds = useMemo(() => {
-    const byQuery = breedQuery ? breedsMatching(breedQuery) : BREEDS_DATABASE;
+    const byQuery = breedQuery.length >= 3 ? breedsMatching(breedQuery) : BREEDS_DATABASE;
     return byQuery.filter(breed => {
       const matchesType = activeFilter === 'all' || breed.type === activeFilter;
       const matchesTemp = activeTemp === 'all' || breed.temperament === activeTemp;
       return matchesType && matchesTemp;
     });
   }, [breedQuery, activeFilter, activeTemp]);
+
+  const pageCount = Math.max(1, Math.ceil(filteredBreeds.length / pageSize));
+  const currentPage = Number.isFinite(requestedPage) && requestedPage > 0
+    ? Math.min(Math.floor(requestedPage), pageCount)
+    : 1;
+  const pageStart = (currentPage - 1) * pageSize;
+  const visibleBreeds = filteredBreeds.slice(pageStart, pageStart + pageSize);
+
+  useEffect(() => {
+    setDraftQuery(breedQuery);
+  }, [breedQuery]);
+
+  useEffect(() => {
+    if (skipScroll.current) {
+      skipScroll.current = false;
+      return;
+    }
+    listRef.current?.scrollIntoView({ block: 'start' });
+  }, [currentPage]);
 
   const temperamentLabels: Record<string, string> = {
     active: 'Активный',
@@ -34,19 +75,57 @@ export function BreedCatalog() {
           <p className="text-ink-light text-base leading-relaxed">
             Узнайте всё об особенностях характера, происхождении и требованиях к уходу за вашими будущими питомцами.
           </p>
-          {breedQuery && (
-            <p className="mt-4 text-sm font-semibold text-ink">
-              По запросу «{breedQuery}» найдено {filteredBreeds.length}
+          <p className="mt-4 text-sm font-semibold text-ink">
+            {breedQuery.length >= 3
+              ? `По запросу «${breedQuery}» найдено ${filteredBreeds.length}`
+              : `В каталоге ${filteredBreeds.length}`}
+            {breedQuery && (
               <button
                 type="button"
-                onClick={() => setSearchParams({})}
+                onClick={() => {
+                  setDraftQuery('');
+                  setSearchHint('');
+                  setCatalogParams({ q: '' });
+                }}
                 className="ml-3 font-bold text-brand hover:text-brand-light"
               >
                 Все породы
               </button>
-            </p>
-          )}
+            )}
+          </p>
         </div>
+
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            const value = draftQuery.trim();
+            if (value.length > 0 && value.length < 3) {
+              setSearchHint('Введите хотя бы 3 буквы — поиск идёт по всему каталогу.');
+              return;
+            }
+            setSearchHint('');
+            setCatalogParams({ q: value });
+          }}
+          className="mb-6"
+        >
+          <div className="flex items-center bg-base-surface rounded-xl border border-base-muted shadow-sm p-1.5">
+            <Search className="w-5 h-5 text-ink-light ml-3" />
+            <input
+              type="search"
+              value={draftQuery}
+              onChange={(event) => {
+                setDraftQuery(event.target.value);
+                setSearchHint('');
+              }}
+              placeholder="Порода во всём каталоге, например сфинкс"
+              className="flex-1 py-2.5 px-3 text-sm text-ink placeholder-ink-light bg-transparent focus:outline-none font-semibold"
+            />
+            <button type="submit" className="px-5 py-2.5 rounded-lg bg-accent text-brand font-bold text-sm hover:bg-accent-light transition-colors">
+              Найти
+            </button>
+          </div>
+          {searchHint && <p className="mt-2 text-sm text-ink-light">{searchHint}</p>}
+        </form>
 
         {/* Панель фильтров */}
         <div className="bg-base-surface border border-base-muted rounded-xl2 p-5 shadow-sm mb-10 flex flex-col sm:flex-row gap-4 items-center justify-between">
@@ -58,7 +137,10 @@ export function BreedCatalog() {
             ].map((filter) => (
               <button
                 key={filter.id}
-                onClick={() => setActiveFilter(filter.id as any)}
+                onClick={() => {
+                  setActiveFilter(filter.id as 'all' | 'dog' | 'cat');
+                  setCatalogParams({ page: 1 });
+                }}
                 className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 flex-1 sm:flex-none ${
                   activeFilter === filter.id 
                     ? 'bg-brand text-white shadow-md' 
@@ -75,7 +157,10 @@ export function BreedCatalog() {
             <span className="text-xs font-bold text-ink-light uppercase tracking-wider font-display">Характер:</span>
             <select
               value={activeTemp}
-              onChange={(e) => setActiveTemp(e.target.value)}
+              onChange={(e) => {
+                setActiveTemp(e.target.value);
+                setCatalogParams({ page: 1 });
+              }}
               className="bg-base-bg border border-base-muted rounded-xl px-3 py-2.5 text-sm font-semibold text-ink outline-none focus:border-brand transition-colors min-w-[160px]"
             >
               <option value="all">Любой темперамент</option>
@@ -88,13 +173,13 @@ export function BreedCatalog() {
         </div>
 
         {/* Список карточек */}
-        {filteredBreeds.length > 0 ? (
+        <div ref={listRef} className="scroll-mt-32">
+        {visibleBreeds.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredBreeds.map((breed) => (
+            {visibleBreeds.map((breed) => (
               <div 
                 key={breed.id} 
                 className="bg-base-surface border border-base-muted rounded-xl2 overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/30 transition-all flex flex-col group hover:-translate-y-1"
-                style={{ contentVisibility: 'auto', containIntrinsicSize: '420px' }}
               >
                 <div className="relative h-64 bg-brand-dark overflow-hidden flex items-center justify-center border-b border-base-muted">
                   <img
@@ -145,6 +230,42 @@ export function BreedCatalog() {
             <p className="text-ink-light text-sm mt-1">Попробуйте сбросить параметры фильтрации.</p>
           </div>
         )}
+        {pageCount > 1 && (
+          <nav aria-label="Страницы пород" className="mt-10 flex flex-wrap items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCatalogParams({ page: currentPage - 1 })}
+              disabled={currentPage === 1}
+              className="inline-flex items-center gap-1 px-4 py-2.5 rounded-xl text-sm font-bold bg-base-surface border border-base-muted text-ink disabled:opacity-40"
+            >
+              <ArrowLeft className="w-4 h-4" /> Назад
+            </button>
+            {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
+              <button
+                type="button"
+                key={page}
+                onClick={() => setCatalogParams({ page })}
+                aria-current={page === currentPage ? 'page' : undefined}
+                className={`min-w-10 px-3 py-2.5 rounded-xl text-sm font-bold border ${
+                  page === currentPage
+                    ? 'bg-brand text-white border-brand'
+                    : 'bg-base-surface text-ink border-base-muted hover:border-brand/30'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setCatalogParams({ page: currentPage + 1 })}
+              disabled={currentPage === pageCount}
+              className="inline-flex items-center gap-1 px-4 py-2.5 rounded-xl text-sm font-bold bg-base-surface border border-base-muted text-ink disabled:opacity-40"
+            >
+              Дальше <ArrowRight className="w-4 h-4" />
+            </button>
+          </nav>
+        )}
+        </div>
       </div>
     </div>
   );
