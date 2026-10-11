@@ -3,13 +3,14 @@
     "id": "0052742008684",
     "brand": "Hill's",
     "line": "Prescription Diet",
-    "name": "Hill ´s Prescription Diet Metabolic Plus Urinary Stress Cat Food",
+    "name": "Prescription Diet Metabolic Plus Urinary Stress Cat Food",
     "kcalPer100g": 339
   },
   {
     "id": "0052742169804",
-    "brand": "Hill’s Science Plan",
-    "name": "Hill's Science Plan Adult Light Mini Poulet",
+    "brand": "Hill's",
+    "line": "Science Plan",
+    "name": "Science Plan Adult Light Mini Poulet",
     "kcalPer100g": 286
   },
   {
@@ -33,7 +34,7 @@
   {
     "id": "3065896080007",
     "brand": "Pedigree",
-    "name": "Pedigree Boeuf 3 / 2",
+    "name": "Boeuf 3 / 2",
     "kcalPer100g": 86
   },
   {
@@ -57,12 +58,12 @@
   {
     "id": "5600775323653",
     "brand": "Naturea",
-    "name": "Naturea Lands Cat & Kitten With Meat And Fish 350 GR Cat Grain Free Dry Food",
+    "name": "Lands Cat & Kitten With Meat And Fish 350 GR Cat Grain Free Dry Food",
     "kcalPer100g": 432
   },
   {
     "id": "3700466259864",
-    "brand": "Apet’iz",
+    "brand": "Apet'iz",
     "name": "Biscuits pour chien",
     "kcalPer100g": 76
   },
@@ -87,7 +88,7 @@
   {
     "id": "3760185060905",
     "brand": "octave prestige",
-    "name": "croquette adulte light/stérilisé moyenne et grande race",
+    "name": "Croquette adulte light/stérilisé moyenne et grande race",
     "kcalPer100g": 320
   },
   {
@@ -105,20 +106,20 @@
   {
     "id": "4008429957116",
     "brand": "Whiskas",
-    "name": "Whiskas Lamb Tin",
+    "name": "Lamb Tin",
     "kcalPer100g": 76
   },
   {
     "id": "3480200313105",
     "brand": "Purina",
     "line": "ONE",
-    "name": "Purina ONE",
+    "name": "ONE",
     "kcalPer100g": 285
   },
   {
     "id": "9003579000359",
     "brand": "Royal Canin",
-    "name": "Royal Canin - Sachets Urinary Care En Gelée Pour Chat - 12X85G",
+    "name": "Sachets Urinary Care En Gelée Pour Chat - 12X85G",
     "kcalPer100g": 64
   },
   {
@@ -174,7 +175,7 @@
   {
     "id": "0064992280543",
     "brand": "Orijen",
-    "name": "Orijen Cat & Kitten",
+    "name": "Cat & Kitten",
     "kcalPer100g": 339
   },
   {
@@ -192,7 +193,7 @@
   {
     "id": "3700664000015",
     "brand": "Amikinos",
-    "name": "Amikinos Référence v2.1",
+    "name": "Référence v2.1",
     "kcalPer100g": 422
   },
   {
@@ -234,19 +235,19 @@
   {
     "id": "4820083906008",
     "brand": "OPTIMEAL",
-    "name": "Optimeal for carnivores - Saumon & Crevettes",
+    "name": "For carnivores - Saumon & Crevettes",
     "kcalPer100g": 93
   },
   {
     "id": "8005852101051",
     "brand": "Schesir",
-    "name": "schesir natural selection agnello adult smaltimento e toy",
+    "name": "Natural selection agnello adult smaltimento e toy",
     "kcalPer100g": 418
   },
   {
     "id": "5060384261782",
     "brand": "Candy Kittens",
-    "name": "Candy kittens sour watermelon",
+    "name": "Sour watermelon",
     "kcalPer100g": 341
   },
   {
@@ -258,7 +259,7 @@
   {
     "id": "4260358516486",
     "brand": "Wild Freedom",
-    "name": "cold river - Pollack & Chicken",
+    "name": "Cold river - Pollack & Chicken",
     "kcalPer100g": 95
   },
   {
@@ -281,8 +282,8 @@
   },
   {
     "id": "8606014106732",
-    "brand": "Unknown",
-    "name": "fish trio menù",
+    "brand": "fish trio",
+    "name": "Menù",
     "kcalPer100g": 85
   },
   {
@@ -300,7 +301,7 @@
   {
     "id": "5998749125540",
     "brand": "Pedigree",
-    "name": "Pedigree Leckerbissen",
+    "name": "Leckerbissen",
     "kcalPer100g": 333
   },
   {
@@ -324,13 +325,13 @@
   {
     "id": "0046798161219",
     "brand": "Tropical",
-    "name": "Tropical Granules",
+    "name": "Granules",
     "kcalPer100g": 354
   },
   {
     "id": "0811939020409",
     "brand": "Nulo Freestyle",
-    "name": "Nulo Freestyle Adult Trim Salmon & Lentils Recipe",
+    "name": "Adult Trim Salmon & Lentils Recipe",
     "kcalPer100g": 336
   },
   {
@@ -368,7 +369,7 @@
   {
     "id": "8033389247188",
     "brand": "next",
-    "name": "Next Natural",
+    "name": "Natural",
     "kcalPer100g": 75
   },
   {
@@ -398,19 +399,19 @@
   {
     "id": "4820215364126",
     "brand": "MyLove",
-    "name": "MyLove bocconcini con vitello in salsa",
+    "name": "Bocconcini con vitello in salsa",
     "kcalPer100g": 77
   },
   {
     "id": "4008429134791",
     "brand": "Sheba",
-    "name": "Sheba Filets fijne kipreepjes",
+    "name": "Filets fijne kipreepjes",
     "kcalPer100g": 67
   },
   {
     "id": "4251276202223",
     "brand": "dokaz",
-    "name": "hühnerbrust",
+    "name": "Hühnerbrust",
     "kcalPer100g": 339
   },
   {
@@ -422,13 +423,13 @@
   {
     "id": "3222476436399",
     "brand": "Casino",
-    "name": "aliments complets pour chat mousses",
+    "name": "Aliments complets pour chat mousses",
     "kcalPer100g": 99
   },
   {
     "id": "4008429067891",
     "brand": "Whiskas",
-    "name": "whiskas  thon terrine",
+    "name": "Thon terrine",
     "kcalPer100g": 85
   },
   {
@@ -464,7 +465,7 @@
   {
     "id": "0758632004865",
     "brand": "Nature's Animals",
-    "name": "Nature's Animals Handmade Dog Biscuit",
+    "name": "Handmade Dog Biscuit",
     "kcalPer100g": 325
   },
   {
@@ -481,7 +482,7 @@
   },
   {
     "id": "5600118231133",
-    "brand": "Unknown",
+    "brand": "Zen treats",
     "name": "Zen treats",
     "kcalPer100g": 370
   },
@@ -566,7 +567,7 @@
   {
     "id": "6091008211288",
     "brand": "YDOLO",
-    "name": "YDOLO Healthy & Pure Chicken",
+    "name": "Healthy & Pure Chicken",
     "kcalPer100g": 364
   },
   {
@@ -643,13 +644,13 @@
   },
   {
     "id": "5056273602781",
-    "brand": "Lily’s Kitchen",
+    "brand": "Lily's Kitchen",
     "name": "Chicken with Veggies Dry Food",
     "kcalPer100g": 392
   },
   {
     "id": "5060184243421",
-    "brand": "Lily’s Kitchen",
+    "brand": "Lily's Kitchen",
     "name": "Kitten Recipe",
     "kcalPer100g": 401
   },
@@ -691,7 +692,7 @@
   },
   {
     "id": "5060184243322",
-    "brand": "Lily’s Kitchen",
+    "brand": "Lily's Kitchen",
     "name": "Chicken Paté for Kittens",
     "kcalPer100g": 94
   },
@@ -981,7 +982,7 @@
   {
     "id": "8429037016563",
     "brand": "Ownat",
-    "name": "Ownat Grain Free Prime Sterilized",
+    "name": "Grain Free Prime Sterilized",
     "kcalPer100g": 387
   },
   {
@@ -994,7 +995,7 @@
     "id": "8057592731753",
     "brand": "Be Fortis",
     "line": "Be Fortis cat",
-    "name": "Be Fortis sterilised urinary",
+    "name": "Sterilised urinary",
     "kcalPer100g": 82
   },
   {
@@ -1019,13 +1020,13 @@
   {
     "id": "5010394984577",
     "brand": "Pedigree",
-    "name": "dentastix daily oral care 5-10 kg 105 gr",
+    "name": "Dentastix daily oral care 5-10 kg 105 gr",
     "kcalPer100g": 129
   },
   {
     "id": "5998749104392",
     "brand": "Pedigree",
-    "name": "pedigree daily oral care",
+    "name": "Daily oral care",
     "kcalPer100g": 301
   },
   {
@@ -1037,7 +1038,7 @@
   {
     "id": "5998749108536",
     "brand": "Whiskas",
-    "name": "Whiskas Temptations Salmon 60g",
+    "name": "Temptations Salmon 60g",
     "kcalPer100g": 411
   },
   {
@@ -1087,14 +1088,14 @@
   {
     "id": "9900722374346",
     "brand": "Royal Canin",
-    "name": "Royal Canin Hepatic HF 16 Croquettes Chien",
+    "name": "Hepatic HF 16 Croquettes Chien",
     "kcalPer100g": 395
   },
   {
     "id": "0015561526517",
     "brand": "Care+",
     "line": "Nutrience",
-    "name": "Care+ Weight management Fresh Chicken Recipe",
+    "name": "Weight management Fresh Chicken Recipe",
     "kcalPer100g": 363
   },
   {
@@ -1119,7 +1120,7 @@
   {
     "id": "4008429134869",
     "brand": "Sheba",
-    "name": "Sheba Filets kip met duurzame tonijn",
+    "name": "Filets kip met duurzame tonijn",
     "kcalPer100g": 67
   },
   {
@@ -1173,7 +1174,7 @@
   {
     "id": "8445290071934",
     "brand": "YoSoy",
-    "name": "purina One salmone sterilizzati",
+    "name": "Purina One salmone sterilizzati",
     "kcalPer100g": 67
   },
   {
@@ -1192,19 +1193,19 @@
   {
     "id": "5060384261829",
     "brand": "Pedigree",
-    "name": "Pedigree Tasty Minis Puppy",
+    "name": "Tasty Minis Puppy",
     "kcalPer100g": 341
   },
   {
     "id": "6713302046730",
-    "brand": "Purina Pro Plan",
+    "brand": "Purina",
     "name": "Pro Plan Veterinary Diets Feline NF Early Care",
     "kcalPer100g": 412
   },
   {
     "id": "4820255192406",
     "brand": "М'ясна миска",
-    "name": "Корм для котів Шматочки в соусі м'ясний мікс ТМ «М'ясна миска»",
+    "name": "Шматочки в соусі м'ясний мікс ТМ «М'ясна миска»",
     "kcalPer100g": 86
   },
   {
@@ -1223,13 +1224,2407 @@
     "id": "4008429081767",
     "brand": "Dreamies",
     "line": "Waltham",
-    "name": "Dreamies mit Huhn",
+    "name": "Mit Huhn",
     "kcalPer100g": 408
   },
   {
     "id": "5903769003914",
     "brand": "John Dog",
-    "name": "John Dog Pure Black Deer",
+    "name": "Pure Black Deer",
     "kcalPer100g": 68
+  },
+  {
+    "id": "feedsmart-6495",
+    "brand": "Rawival",
+    "name": "North Sea's Finest «Лосось и сельдь» для взрослых собак карликовых и мелких пород",
+    "kcalPer100g": 427.2
+  },
+  {
+    "id": "feedsmart-6414",
+    "brand": "JJ-SPORT",
+    "name": "«Океан» с рыбой для активных и спортивных взрослых собак",
+    "kcalPer100g": 348
+  },
+  {
+    "id": "feedsmart-6392",
+    "brand": "JJ-SPORT",
+    "name": "«Спринт» с говядиной для активных и спортивных взрослых собак",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-6389",
+    "brand": "Будь здоров",
+    "name": "С ягнёнком для взрослых собак",
+    "kcalPer100g": 360
+  },
+  {
+    "id": "feedsmart-6367",
+    "brand": "Наш рацион",
+    "name": "«С индейкой» для собак",
+    "kcalPer100g": 358
+  },
+  {
+    "id": "8009470004732",
+    "brand": "Monge",
+    "name": "BWild Adult Dog All Breeds Anatra — Duck with Potatoes Grain Free",
+    "kcalPer100g": 430
+  },
+  {
+    "id": "8009470011990",
+    "brand": "Monge",
+    "name": "BWild Adult Dog All Breeds Wild Boar Low Grain",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "8009470011983",
+    "brand": "Monge",
+    "name": "BWild Puppy & Junior All Breeds Deer Low Grain",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "4680368268531",
+    "brand": "GRANDIN",
+    "name": "Adult Dog Medium & Large Breeds Lamb Grain Free",
+    "kcalPer100g": 341.2
+  },
+  {
+    "id": "4680368189614",
+    "brand": "GRANDIN",
+    "name": "Adult Dog Medium & Large Breeds Lamb Grain Free",
+    "kcalPer100g": 341.2
+  },
+  {
+    "id": "4680368268555",
+    "brand": "GRANDIN",
+    "name": "Adult Dog Medium & Large Breeds Lamb Grain Free",
+    "kcalPer100g": 341.2
+  },
+  {
+    "id": "feedsmart-6146",
+    "brand": "Alleva",
+    "name": "Holistic Adult Dog Mini Chicken & Duck + Aloe Vera & Ginseng Grain Free",
+    "kcalPer100g": 391.4
+  },
+  {
+    "id": "feedsmart-6101",
+    "brand": "Prolife",
+    "name": "Dual Fresh Adult Dog Medium Large Fresh Buffalo, Fresh Lamb & Rice",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-6088",
+    "brand": "Boreal",
+    "name": "Original Dog All Breeds All Life Stages Turkey Formula",
+    "kcalPer100g": 376.5
+  },
+  {
+    "id": "feedsmart-6068",
+    "brand": "Dynasty",
+    "name": "Small Dog Regular",
+    "kcalPer100g": 374
+  },
+  {
+    "id": "feedsmart-6056",
+    "brand": "Sirius",
+    "name": "Platinum Special Line Hypoallergenic «Утка с овощами»",
+    "kcalPer100g": 373
+  },
+  {
+    "id": "feedsmart-5959",
+    "brand": "Alleva",
+    "name": "Holistic Puppy Mini Chicken & Duck + Aloe Vera & Ginseng Grain Free",
+    "kcalPer100g": 418.1
+  },
+  {
+    "id": "feedsmart-5893",
+    "brand": "Karmy",
+    "name": "Adult Dog Medium «Индейка»",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-5892",
+    "brand": "Karmy",
+    "name": "Adult Dog Mini «Телятина»",
+    "kcalPer100g": 391
+  },
+  {
+    "id": "feedsmart-5891",
+    "brand": "Karmy",
+    "name": "Adult Dog Sensitive Medium & Maxi «Лосось»",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-5890",
+    "brand": "Karmy",
+    "name": "Adult Dog Hypoallergenic Medium & Maxi «Ягнёнок»",
+    "kcalPer100g": 360
+  },
+  {
+    "id": "feedsmart-5889",
+    "brand": "Karmy",
+    "name": "Adult Dog Hypoallergenic Mini «Ягнёнок»",
+    "kcalPer100g": 391
+  },
+  {
+    "id": "feedsmart-5887",
+    "brand": "Karmy",
+    "name": "Adult Dog Sensitive Mini «Лосось»",
+    "kcalPer100g": 391
+  },
+  {
+    "id": "feedsmart-5886",
+    "brand": "Karmy",
+    "name": "Adult Dog Medium «Телятина»",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-5885",
+    "brand": "Karmy",
+    "name": "Junior Maxi «Индейка»",
+    "kcalPer100g": 389
+  },
+  {
+    "id": "feedsmart-5884",
+    "brand": "Karmy",
+    "name": "Junior Medium «Индейка»",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "feedsmart-5883",
+    "brand": "Karmy",
+    "name": "Starter «Индейка»",
+    "kcalPer100g": 394
+  },
+  {
+    "id": "feedsmart-5864",
+    "brand": "Brit",
+    "name": "Fresh Puppy Healthy Growth — Fresh Chicken and Potato",
+    "kcalPer100g": 408
+  },
+  {
+    "id": "feedsmart-5835",
+    "brand": "NOW FRESH",
+    "name": "Puppy Turkey, Salmon & Duck Grain Free",
+    "kcalPer100g": 374.6
+  },
+  {
+    "id": "feedsmart-5820",
+    "brand": "Kasiks",
+    "name": "Dog Free Range Lamb Meal Formula Grain Free",
+    "kcalPer100g": 322.5
+  },
+  {
+    "id": "feedsmart-5812",
+    "brand": "Satisfaction",
+    "name": "Nature Adult Dog Salmon Grain Free Hypoallergenic",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-5792",
+    "brand": "First Mate",
+    "name": "Dog Australian Lamb Meal Formula",
+    "kcalPer100g": 325.8
+  },
+  {
+    "id": "feedsmart-5764",
+    "brand": "DailyDog",
+    "name": "Adult Large Breed Lamb and Rice",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "feedsmart-5763",
+    "brand": "Bisko",
+    "name": "«Суперпремиум» с бараниной для взрослых собак средних и крупных пород",
+    "kcalPer100g": 402
+  },
+  {
+    "id": "feedsmart-5719",
+    "brand": "Wellness",
+    "name": "Core Adult Dog Small Breed Original Turkey Grain Free Hypoallergenic",
+    "kcalPer100g": 359
+  },
+  {
+    "id": "feedsmart-5673",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Dog Mini Boar & Apple Grain Free",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "feedsmart-5656",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Puppy Mini Spelt, Oats, Chicken & Pomegranate Low Grain",
+    "kcalPer100g": 392.3
+  },
+  {
+    "id": "feedsmart-5643",
+    "brand": "Brit",
+    "name": "Premium By Nature Sport Chicken",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-5638",
+    "brand": "Brit",
+    "name": "Puppy Large Breed Growth & Joints Fresh Beef with Pumpkin",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-5612",
+    "brand": "Frais",
+    "name": "Adult Dog Lamb",
+    "kcalPer100g": 335
+  },
+  {
+    "id": "feedsmart-5596",
+    "brand": "Brit",
+    "name": "Care Adult Dog Large Breed Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-5589",
+    "brand": "Almo Nature",
+    "name": "Alternative Adult Dog XS/S Fresh Lamb",
+    "kcalPer100g": 353
+  },
+  {
+    "id": "feedsmart-5540",
+    "brand": "Frais",
+    "name": "Baby Dog Lamb",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "feedsmart-5528",
+    "brand": "Black Olympus",
+    "name": "Dog Adult Lamb & Brown Rice",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-5518",
+    "brand": "Живая сила",
+    "name": "«Живая сила — Юнга»",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-5510",
+    "brand": "Brit",
+    "name": "Care Adult Dog Mini Light & Sterilised Rabbit & Salmon Grain Free Hypoallergenic",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-5500",
+    "brand": "Isegrim",
+    "name": "Adult Dog Green Hills Duck, Berries & Wild Herbs",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-5496",
+    "brand": "Ambrosia",
+    "name": "Adult Dog Buffalo & Fresh Mackerel Grain Free",
+    "kcalPer100g": 395
+  },
+  {
+    "id": "feedsmart-5492",
+    "brand": "NOW FRESH",
+    "name": "Adult Dog Fish — Fresh Trout, Salmon & Herring",
+    "kcalPer100g": 356
+  },
+  {
+    "id": "feedsmart-5421",
+    "brand": "Brit",
+    "name": "Premium By Nature Junior XL Extra Large Breeds Chicken",
+    "kcalPer100g": 386
+  },
+  {
+    "id": "feedsmart-5418",
+    "brand": "GO!",
+    "name": "Solutions Carnivore Adult Dog Chicken, Turkey + Duck Grain Free",
+    "kcalPer100g": 395.1
+  },
+  {
+    "id": "feedsmart-5417",
+    "brand": "Monge",
+    "name": "Daily Line Adult Dog Medium Rich in Chicken",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-5396",
+    "brand": "Greenheart-Premiums",
+    "name": "Anti Allergy Lamb Hypoallergenic & Gluten Free",
+    "kcalPer100g": 393.2
+  },
+  {
+    "id": "0815260003247",
+    "brand": "NOW FRESH",
+    "name": "Dog Adult Red Meat Grain Free",
+    "kcalPer100g": 370.1
+  },
+  {
+    "id": "feedsmart-5392",
+    "brand": "Porcelan",
+    "name": "Estrudo Security Adult Dog Beef & Hemoglobin",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "feedsmart-5331",
+    "brand": "Planet Pet Society",
+    "name": "Adult Dog Mini Chicken & Rice",
+    "kcalPer100g": 430
+  },
+  {
+    "id": "feedsmart-5329",
+    "brand": "Planet Pet Society",
+    "name": "Adult Dog Salmon Grain Free",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "feedsmart-5325",
+    "brand": "Karmy",
+    "name": "Adult Dog Mini «Индейка»",
+    "kcalPer100g": 391
+  },
+  {
+    "id": "feedsmart-5324",
+    "brand": "Karmy",
+    "name": "Adult Dog Active Medium & Maxi «Индейка»",
+    "kcalPer100g": 386
+  },
+  {
+    "id": "feedsmart-5318",
+    "brand": "Karmy",
+    "name": "Junior Mini «Индейка»",
+    "kcalPer100g": 396.3
+  },
+  {
+    "id": "feedsmart-5315",
+    "brand": "Karmy",
+    "name": "Adult Dog Maxi «Индейка»",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-5296",
+    "brand": "Ontario",
+    "name": "Adult Dog Large Breed 7 Fish & Rice Hypoallergenic",
+    "kcalPer100g": 377
+  },
+  {
+    "id": "feedsmart-5274",
+    "brand": "Grand Dog",
+    "name": "Sensitiv «Ягнёнок / Рис»",
+    "kcalPer100g": 389.1
+  },
+  {
+    "id": "feedsmart-5244",
+    "brand": "Naturea",
+    "name": "Dog Wetlands Duck Grain Free",
+    "kcalPer100g": 368
+  },
+  {
+    "id": "feedsmart-5243",
+    "brand": "Inukshuk",
+    "name": "26/16",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "feedsmart-5241",
+    "brand": "Yummi",
+    "name": "Premium Quality — «Мясное ассорти»",
+    "kcalPer100g": 360
+  },
+  {
+    "id": "feedsmart-5225",
+    "brand": "Nutram",
+    "name": "Sound Balanced Wellness® S9 Adult Dog Lamb & Pearled Barley, Peas & Butternut Squash",
+    "kcalPer100g": 385.5
+  },
+  {
+    "id": "feedsmart-5219",
+    "brand": "Wealthy & Healthy",
+    "name": "Be Healthy! Lamb Grain Free",
+    "kcalPer100g": 35.2
+  },
+  {
+    "id": "feedsmart-5197",
+    "brand": "Родные корма",
+    "name": "Знатные — корм со 100% курицей для взрослых собак",
+    "kcalPer100g": 13.5
+  },
+  {
+    "id": "8595602540792",
+    "brand": "Brit",
+    "name": "Care Endurance Duck & Rice Hypoallergenic",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-5151",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Dog Maxi Lamb & Blueberry Grain Free",
+    "kcalPer100g": 375.6
+  },
+  {
+    "id": "feedsmart-5112",
+    "brand": "1st Choice",
+    "name": "Puppy Toy & Small Breeds Healthy Skin & Coat Lamb & Fish",
+    "kcalPer100g": 336
+  },
+  {
+    "id": "feedsmart-5111",
+    "brand": "Karmy",
+    "name": "Adult Dog Maxi «Телятина»",
+    "kcalPer100g": 376
+  },
+  {
+    "id": "feedsmart-5110",
+    "brand": "ИмпериалАС",
+    "name": "«Natural ИмпериАЛ» Duck & Rice",
+    "kcalPer100g": 398
+  },
+  {
+    "id": "feedsmart-5068",
+    "brand": "Живая сила",
+    "name": "Живая cила Sport Med",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-5067",
+    "brand": "Живая сила",
+    "name": "Sport Light",
+    "kcalPer100g": 335
+  },
+  {
+    "id": "feedsmart-5010",
+    "brand": "Carnilove",
+    "name": "Adult Dog Duck & Pheasant Grain Free",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-4998",
+    "brand": "DailyDog",
+    "name": "Adult Small Breed Lamb and Rice",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "8595602508945",
+    "brand": "Carnilove",
+    "name": "Puppy Salmon & Turkey Grain Free",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-4961",
+    "brand": "Mera",
+    "name": "Dog Pure Adult Dog Sensitive Duck & Potato Grain Free",
+    "kcalPer100g": 382.1
+  },
+  {
+    "id": "feedsmart-4959",
+    "brand": "Genesis Pure Canada",
+    "name": "Green Highland Puppy",
+    "kcalPer100g": 400.4
+  },
+  {
+    "id": "feedsmart-4939",
+    "brand": "Summit",
+    "name": "Holistic Original Large Breed Chicken Meal, Lamb Meal, Salmon Meal («3 Meat»)",
+    "kcalPer100g": 383.7
+  },
+  {
+    "id": "feedsmart-4916",
+    "brand": "Bisko",
+    "name": "«Премиум» с говядиной для взрослых собак средних и крупных пород",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-4908",
+    "brand": "Chicopee",
+    "name": "Pro-Nature-Line Puppy All Breeds Lamb & Rice",
+    "kcalPer100g": 382
+  },
+  {
+    "id": "7896048914989",
+    "brand": "Guabi Natural",
+    "name": "Puppy Mini",
+    "kcalPer100g": 396
+  },
+  {
+    "id": "feedsmart-4817",
+    "brand": "Chicopee",
+    "name": "Classic Nature Line Puppy All Breeds Lamb & Rice",
+    "kcalPer100g": 378.9
+  },
+  {
+    "id": "feedsmart-4795",
+    "brand": "Brit",
+    "name": "Premium By Nature Junior Large Breed Chicken",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-4779",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Dog Turkey Grain Free, Potato Free",
+    "kcalPer100g": 409.8
+  },
+  {
+    "id": "feedsmart-4775",
+    "brand": "Pronature",
+    "name": "Original 26 Puppy Lamb & Rice",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-4768",
+    "brand": "Pronature",
+    "name": "Original 27 Puppy Chicken",
+    "kcalPer100g": 425
+  },
+  {
+    "id": "feedsmart-4767",
+    "brand": "Pronature",
+    "name": "Original 22 Adult Dog Lamb & Rice",
+    "kcalPer100g": 389
+  },
+  {
+    "id": "feedsmart-4754",
+    "brand": "Monge",
+    "name": "Daily Line Puppy & Junior Maxi Rich in Chicken",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "feedsmart-4743",
+    "brand": "Greenheart-Premiums",
+    "name": "Large Breed / Sportline Summerstyle — Rich in Fish",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-4716",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Dog Duck",
+    "kcalPer100g": 364.9
+  },
+  {
+    "id": "0064992180126",
+    "brand": "Orijen",
+    "name": "Puppy Grain Free",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-4657",
+    "brand": "Родные корма",
+    "name": "Всех пород (20/10)",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-4656",
+    "brand": "ИмпериалАС",
+    "name": "С говядиной для собак средних и крупных пород",
+    "kcalPer100g": 368
+  },
+  {
+    "id": "feedsmart-4599",
+    "brand": "Pronature",
+    "name": "Holistic Dog Adult Skin & Coat Atlantic Salmon & Brown Rice",
+    "kcalPer100g": 395
+  },
+  {
+    "id": "feedsmart-4594",
+    "brand": "Pronature",
+    "name": "Holistic Adult Dog Duck & Orange Grain Free",
+    "kcalPer100g": 433
+  },
+  {
+    "id": "feedsmart-4592",
+    "brand": "Pronature",
+    "name": "Holistic Puppy Chicken & Sweet Potato",
+    "kcalPer100g": 414
+  },
+  {
+    "id": "feedsmart-4579",
+    "brand": "Зооменю-Органик",
+    "name": "«Зооменю-Органик Профессионал» — корм «Ягнёнок Юниор 25/13»",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-4554",
+    "brand": "Gina",
+    "name": "Elite Puppy Large Breed Salmon & Potato",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "feedsmart-4553",
+    "brand": "Chicopee",
+    "name": "Holistic Nature Line Adult Dog Active Salmon & Potato Grain Free",
+    "kcalPer100g": 398.8
+  },
+  {
+    "id": "feedsmart-4552",
+    "brand": "Chicopee",
+    "name": "Holistic Nature Line Adult Dog Ostrich & Potato Grain Free",
+    "kcalPer100g": 336.9
+  },
+  {
+    "id": "feedsmart-4551",
+    "brand": "Chicopee",
+    "name": "Holistic Nature Line Puppy Lamb & Potato Grain Free",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "feedsmart-4550",
+    "brand": "Chicopee",
+    "name": "Holistic Nature Line Adult Dog Lamb & Potato Grain Free",
+    "kcalPer100g": 373.9
+  },
+  {
+    "id": "feedsmart-4526",
+    "brand": "Orijen",
+    "name": "Senior Dog Grain Free",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "feedsmart-4524",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Dog Pollock Grain Free, Potato Free",
+    "kcalPer100g": 402.2
+  },
+  {
+    "id": "0064992281342",
+    "brand": "Orijen",
+    "name": "Dog Six Fish Grain Free",
+    "kcalPer100g": 386
+  },
+  {
+    "id": "0064992181123",
+    "brand": "Orijen",
+    "name": "Puppy Large Grain Free",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "0064992186708",
+    "brand": "Orijen",
+    "name": "Adult Dog Fit & Trim Grain Free",
+    "kcalPer100g": 353
+  },
+  {
+    "id": "feedsmart-4493",
+    "brand": "Genesis Pure Canada",
+    "name": "Adult Dog Broad Meadow Grain Free",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-4439",
+    "brand": "Orijen",
+    "name": "Original Grain Free",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-4437",
+    "brand": "ИмпериалАС",
+    "name": "С ягнёнком — «Универсал» для собак крупных и средних пород",
+    "kcalPer100g": 396
+  },
+  {
+    "id": "feedsmart-4435",
+    "brand": "Acana",
+    "name": "Singles Pacific Pilchard Grain Free",
+    "kcalPer100g": 339.3
+  },
+  {
+    "id": "feedsmart-4432",
+    "brand": "Acana",
+    "name": "Heritage Puppy Large Breed Grain Free",
+    "kcalPer100g": 337.5
+  },
+  {
+    "id": "feedsmart-4426",
+    "brand": "Acana",
+    "name": "Heritage Senior Grain Free",
+    "kcalPer100g": 332.5
+  },
+  {
+    "id": "feedsmart-4425",
+    "brand": "Acana",
+    "name": "Heritage Puppy Small Breed Grain Free",
+    "kcalPer100g": 366
+  },
+  {
+    "id": "feedsmart-4407",
+    "brand": "ZooRing",
+    "name": "Puppy & Junior 3 — «Мясо молодых бычков и рис с глюкозамином и хондроитином»",
+    "kcalPer100g": 421
+  },
+  {
+    "id": "feedsmart-4381",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Dog Mini Fish & Orange Grain Free",
+    "kcalPer100g": 377.4
+  },
+  {
+    "id": "feedsmart-4254",
+    "brand": "Brit",
+    "name": "Care Junior Large Breed Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-4179",
+    "brand": "Pronature",
+    "name": "Original 26 Adult Dog Small & Medium Breeds Chicken",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-4027",
+    "brand": "Acana",
+    "name": "Classics Dog Wild Coast",
+    "kcalPer100g": 349.3
+  },
+  {
+    "id": "feedsmart-4025",
+    "brand": "Satisfaction",
+    "name": "Nature Adult Dog Lamb Grain Free Hypoallergenic",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-4016",
+    "brand": "Brit",
+    "name": "Premium Junior Small Breed Chicken + 5 Herbs",
+    "kcalPer100g": 439.7
+  },
+  {
+    "id": "feedsmart-4006",
+    "brand": "Bosch",
+    "name": "Soft Adult Maxi Wild Boar & Sweet Potato Grain Free",
+    "kcalPer100g": 330
+  },
+  {
+    "id": "feedsmart-3987",
+    "brand": "Almo Nature",
+    "name": "Holistic Adult Dog S Chicken & Rice",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-3941",
+    "brand": "Pronature",
+    "name": "Original 19 Senior, Mature, Less Active Dog Chicken",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "8009470011518",
+    "brand": "Monge",
+    "name": "Speciality Line Puppy & Junior All Breeds Lamb & Rice",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-3897",
+    "brand": "Monge",
+    "name": "Speciality Line Adult Dog Mini Lamb, Rice & Potatoes",
+    "kcalPer100g": 402
+  },
+  {
+    "id": "5010251745440",
+    "brand": "The Best",
+    "name": "С говядиной",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "0815260000772",
+    "brand": "GO!",
+    "name": "Daily Defence Dog Chicken",
+    "kcalPer100g": 388.9
+  },
+  {
+    "id": "feedsmart-3749",
+    "brand": "Grandorf",
+    "name": "Adult Mini 4 Meat & Brown Rice Hypoallergenic",
+    "kcalPer100g": 411.1
+  },
+  {
+    "id": "feedsmart-3725",
+    "brand": "Brit",
+    "name": "Care Adult Dog Small Breed Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-3671",
+    "brand": "Acana",
+    "name": "Heritage Sport & Agility Grain Free",
+    "kcalPer100g": 372.5
+  },
+  {
+    "id": "feedsmart-3594",
+    "brand": "Monge",
+    "name": "Speciality Adult Dog Salmon & Tuna Hypoallergenic",
+    "kcalPer100g": 394
+  },
+  {
+    "id": "4680265092918",
+    "brand": "Brit",
+    "name": "Premium Adult Large Breed Chicken",
+    "kcalPer100g": 414.4
+  },
+  {
+    "id": "feedsmart-3416",
+    "brand": "Ontario",
+    "name": "Adult Dog Large Breed Lamb & Rice",
+    "kcalPer100g": 362
+  },
+  {
+    "id": "feedsmart-3415",
+    "brand": "Supra",
+    "name": "Frost Puppy SB — Small & Medium Breed",
+    "kcalPer100g": 403.6
+  },
+  {
+    "id": "5404009576033",
+    "brand": "Grandorf",
+    "name": "Puppy All Breeds Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 427
+  },
+  {
+    "id": "5407007850860",
+    "brand": "Grandorf",
+    "name": "Puppy All Breeds Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 427
+  },
+  {
+    "id": "feedsmart-3393",
+    "brand": "GO!",
+    "name": "Limited Ingredient Diet Sensitivity+Shine Dog Salmon, Grain Free, Potato Free",
+    "kcalPer100g": 408.4
+  },
+  {
+    "id": "feedsmart-3391",
+    "brand": "Happy Dog",
+    "name": "Flocken Vollkost — Classic Flakes",
+    "kcalPer100g": 368
+  },
+  {
+    "id": "feedsmart-3353",
+    "brand": "NOW FRESH",
+    "name": "Dog Adult Grain Free",
+    "kcalPer100g": 359.8
+  },
+  {
+    "id": "feedsmart-3322",
+    "brand": "Acana",
+    "name": "Singles Yorkshire Pork Grain-Free",
+    "kcalPer100g": 339.3
+  },
+  {
+    "id": "feedsmart-3321",
+    "brand": "Acana",
+    "name": "Singles Grass-Fed Lamb Grain-Free",
+    "kcalPer100g": 339.3
+  },
+  {
+    "id": "feedsmart-3311",
+    "brand": "Acana",
+    "name": "Singles Free-Run Duck Grain-Free",
+    "kcalPer100g": 339.3
+  },
+  {
+    "id": "feedsmart-3280",
+    "brand": "GO!",
+    "name": "Daily Defence Lamb Meal Recipe",
+    "kcalPer100g": 409.8
+  },
+  {
+    "id": "8001541004696",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Dog Salmon",
+    "kcalPer100g": 356.1
+  },
+  {
+    "id": "8606014102581",
+    "brand": "Farmina",
+    "name": "Ecopet Natural Lamb",
+    "kcalPer100g": 346.3
+  },
+  {
+    "id": "8606014105575",
+    "brand": "Farmina",
+    "name": "Ecopet Natural Lamb",
+    "kcalPer100g": 346.3
+  },
+  {
+    "id": "8010276025227",
+    "brand": "Farmina",
+    "name": "Fun Dog Mix",
+    "kcalPer100g": 313.4
+  },
+  {
+    "id": "feedsmart-3239",
+    "brand": "Hau Hau Champion",
+    "name": "Adult Dog Small Salmon & Potato",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-3228",
+    "brand": "Рэкс",
+    "name": "Мелких пород",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-3222",
+    "brand": "Bab'in",
+    "name": "Agi Plus Mini Adult Canard",
+    "kcalPer100g": 366
+  },
+  {
+    "id": "feedsmart-3220",
+    "brand": "Farmina",
+    "name": "Cibau Sensitive Fish Adult Medium & Maxi",
+    "kcalPer100g": 354
+  },
+  {
+    "id": "feedsmart-3214",
+    "brand": "Forza10",
+    "name": "Maintenance Adult Mini Fish",
+    "kcalPer100g": 353.4
+  },
+  {
+    "id": "feedsmart-3192",
+    "brand": "Acana",
+    "name": "Regionals Wild Prairie Dog Grain Free",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-3146",
+    "brand": "Acana",
+    "name": "Regionals Grasslands Dog Grain-Free",
+    "kcalPer100g": 381
+  },
+  {
+    "id": "feedsmart-3133",
+    "brand": "Acana",
+    "name": "Regionals Pacifica Dog Grain-Free",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "0064992560119",
+    "brand": "Acana",
+    "name": "Classics Prairie Poultry",
+    "kcalPer100g": 349.3
+  },
+  {
+    "id": "feedsmart-2940",
+    "brand": "Almo Nature",
+    "name": "Classic Dog Chicken Fillet",
+    "kcalPer100g": 53.2
+  },
+  {
+    "id": "feedsmart-2873",
+    "brand": "Brit",
+    "name": "Care Adult Small & Medium Salmon & Potato Grain Free",
+    "kcalPer100g": 376
+  },
+  {
+    "id": "4680265050024",
+    "brand": "Brit",
+    "name": "Premium Dog Lamb & Rice",
+    "kcalPer100g": 389.1
+  },
+  {
+    "id": "4015598013529",
+    "brand": "Bosch",
+    "name": "Mini Light",
+    "kcalPer100g": 320
+  },
+  {
+    "id": "feedsmart-2508",
+    "brand": "Хороший Хозяин",
+    "name": "Корм с говядиной для взрослых собак",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-2473",
+    "brand": "Grandorf",
+    "name": "Adult Mini Lamb & Rice",
+    "kcalPer100g": 411
+  },
+  {
+    "id": "feedsmart-2446",
+    "brand": "Gina",
+    "name": "Elite Dog Light Lamb & Rice",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-2403",
+    "brand": "Gina",
+    "name": "Elite Adult Dog Duck & Potato Grain Free",
+    "kcalPer100g": 338
+  },
+  {
+    "id": "feedsmart-2380",
+    "brand": "NOW FRESH",
+    "name": "Small Breed Grain Free",
+    "kcalPer100g": 374.1
+  },
+  {
+    "id": "feedsmart-2366",
+    "brand": "GO!",
+    "name": "Sensitivity + Shine Dog Venison Grain Free",
+    "kcalPer100g": 402.2
+  },
+  {
+    "id": "feedsmart-2359",
+    "brand": "Leader Balans",
+    "name": "Adult All Breeds «Говядина, Греча и Рис»",
+    "kcalPer100g": 388
+  },
+  {
+    "id": "5407007850952",
+    "brand": "Grandorf",
+    "name": "Adult Maxi Lamb & Rice",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "5407007852963",
+    "brand": "Grandorf",
+    "name": "Adult All Breeds Duck & Potato Hypoallergenic Grain Free",
+    "kcalPer100g": 412
+  },
+  {
+    "id": "feedsmart-2309",
+    "brand": "Monge",
+    "name": "Daily Line Senior Dog Mini Rich in Chicken",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-2308",
+    "brand": "Monge",
+    "name": "Daily Line Adult Dog Extra Small Rich in Chicken",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "feedsmart-2307",
+    "brand": "Monge",
+    "name": "Daily Line Adult Dog Maxi Rich in Chicken",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-2300",
+    "brand": "Monge",
+    "name": "Daily Line Adult Dog Mini Rich in Chicken",
+    "kcalPer100g": 405
+  },
+  {
+    "id": "feedsmart-2254",
+    "brand": "PRO PAC",
+    "name": "Ultimates Dog Chicken & Brown Rice",
+    "kcalPer100g": 357
+  },
+  {
+    "id": "5407007852734",
+    "brand": "Grandorf",
+    "name": "Junior All Breeds Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 426.5
+  },
+  {
+    "id": "feedsmart-2246",
+    "brand": "Frank's ProGold",
+    "name": "Sensitive 22/12",
+    "kcalPer100g": 330.5
+  },
+  {
+    "id": "feedsmart-2194",
+    "brand": "Golden Eagle",
+    "name": "Holistic Health Dog Duck with Oatmeal 22/13",
+    "kcalPer100g": 356
+  },
+  {
+    "id": "feedsmart-2193",
+    "brand": "Golden Eagle",
+    "name": "Holistic Health Dog Salmon with Oatmeal 22/12",
+    "kcalPer100g": 358
+  },
+  {
+    "id": "4260262763594",
+    "brand": "Wolfsblut",
+    "name": "Adult Dog Green Valley Grain Free",
+    "kcalPer100g": 359
+  },
+  {
+    "id": "feedsmart-2142",
+    "brand": "Wolfsblut",
+    "name": "Adult Dog Grey Peak Grain Free",
+    "kcalPer100g": 358
+  },
+  {
+    "id": "feedsmart-2117",
+    "brand": "Guabi Natural",
+    "name": "Adult Dog Large & Giant",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-2109",
+    "brand": "Safari",
+    "name": "Adult Dog Midi Lamb",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "feedsmart-2108",
+    "brand": "Bozita",
+    "name": "Naturals Original Adult Dog",
+    "kcalPer100g": 339
+  },
+  {
+    "id": "feedsmart-1988",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Dog Light Mini & Medium Chicken & Pomegranate Low Grain",
+    "kcalPer100g": 391.2
+  },
+  {
+    "id": "feedsmart-1958",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Dog Lamb & Blueberry Low Grain",
+    "kcalPer100g": 429.4
+  },
+  {
+    "id": "feedsmart-1931",
+    "brand": "Зооменю-Органик",
+    "name": "«Зооменю» — корм «Органик Мини Говядина+Рубец 26/17» для собак мелких пород.",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "4607126774530",
+    "brand": "Наша марка",
+    "name": "Корм с ягнёнком и рисом для взрослых собак.",
+    "kcalPer100g": 334
+  },
+  {
+    "id": "4607126776008",
+    "brand": "Наша марка",
+    "name": "Корм с ягнёнком и рисом для взрослых собак.",
+    "kcalPer100g": 334
+  },
+  {
+    "id": "feedsmart-1644",
+    "brand": "Скиф",
+    "name": "Корм с ягнёнком и рисом для собак",
+    "kcalPer100g": 389
+  },
+  {
+    "id": "feedsmart-1618",
+    "brand": "Organix",
+    "name": "Adult Dog Lamb",
+    "kcalPer100g": 346
+  },
+  {
+    "id": "feedsmart-1617",
+    "brand": "Guabi Natural",
+    "name": "Adult Dog Mini",
+    "kcalPer100g": 387.5
+  },
+  {
+    "id": "feedsmart-1519",
+    "brand": "Pronature",
+    "name": "Holistic Senior, Mature, Less Active Dog Oceanic White Fish & Wild Rice",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-1511",
+    "brand": "Pronature",
+    "name": "Holistic Adult Dog Indoor & Outdoor Turkey & Cranberries",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-1484",
+    "brand": "Pronature",
+    "name": "Original 25 Adult Dog Chicken",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "feedsmart-1404",
+    "brand": "Acana",
+    "name": "Heritage Puppy & Junior Grain-Free",
+    "kcalPer100g": 366
+  },
+  {
+    "id": "0064992512118",
+    "brand": "Acana",
+    "name": "Heritage Light & Fit Grain-Free",
+    "kcalPer100g": 307
+  },
+  {
+    "id": "0064992541118",
+    "brand": "Acana",
+    "name": "Adult Dog",
+    "kcalPer100g": 351
+  },
+  {
+    "id": "0064992523602",
+    "brand": "Acana",
+    "name": "Heritage Adult Small Breed Grain-Free",
+    "kcalPer100g": 351
+  },
+  {
+    "id": "0064992521110",
+    "brand": "Acana",
+    "name": "Heritage Adult Large Breed Grain-Free",
+    "kcalPer100g": 337.5
+  },
+  {
+    "id": "feedsmart-6498",
+    "brand": "Rawival",
+    "name": "Gifts of Land & Sea для взрослых кошек «Курица и рыба»",
+    "kcalPer100g": 426.3
+  },
+  {
+    "id": "feedsmart-6416",
+    "brand": "Будь здоров",
+    "name": "С индейкой для взрослых кастрированных кошек",
+    "kcalPer100g": 378
+  },
+  {
+    "id": "feedsmart-6388",
+    "brand": "Будь здоров",
+    "name": "С телятиной для взрослых кошек",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "feedsmart-6366",
+    "brand": "Наш рацион",
+    "name": "«С говядиной» для кошек",
+    "kcalPer100g": 374
+  },
+  {
+    "id": "8009470012782",
+    "brand": "Monge",
+    "name": "BWild Adult Cat Hare Low Grain",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "feedsmart-6278",
+    "brand": "Monge",
+    "name": "BWild Adult Cat Sterilised Tuna with Peas Grain Free",
+    "kcalPer100g": 375.5
+  },
+  {
+    "id": "feedsmart-6270",
+    "brand": "Wellness",
+    "name": "Core Adult Cat Ocean Salmon with Tuna Grain Free Hypoallergenic",
+    "kcalPer100g": 365.9
+  },
+  {
+    "id": "feedsmart-6266",
+    "brand": "Prolife",
+    "name": "Lifestyle Adult Cat Rich in Fresh Chicken & Rice",
+    "kcalPer100g": 387.5
+  },
+  {
+    "id": "feedsmart-6234",
+    "brand": "Alleva",
+    "name": "Holistic Adult Cat Hairball Chicken & Duck + Sugarcane Fiber & Aloe Vera Grain Free",
+    "kcalPer100g": 373.7
+  },
+  {
+    "id": "feedsmart-6219",
+    "brand": "Alleva",
+    "name": "Holistic Kitten Chicken & Duck + Aloe Vera & Ginseng Grain Free",
+    "kcalPer100g": 417.4
+  },
+  {
+    "id": "4624837890960",
+    "brand": "Alleva",
+    "name": "Equilibrium Adult Cat Sterilized Fish",
+    "kcalPer100g": 360.5
+  },
+  {
+    "id": "8002754101165",
+    "brand": "Alleva",
+    "name": "Equilibrium Adult Cat Sterilized Fish",
+    "kcalPer100g": 360.5
+  },
+  {
+    "id": "feedsmart-6190",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Neutered Cat Quail, Pumpkin and Pomegranate Grain Free",
+    "kcalPer100g": 363.1
+  },
+  {
+    "id": "8010276040145",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Cat Ocean Herring and Orange Grain Free",
+    "kcalPer100g": 420.4
+  },
+  {
+    "id": "feedsmart-6149",
+    "brand": "Alleva",
+    "name": "Holistic Adult Cat Chicken & Duck + Aloe Vera & Ginseng Grain Free",
+    "kcalPer100g": 404.5
+  },
+  {
+    "id": "feedsmart-6143",
+    "brand": "Pureluxe",
+    "name": "Cat Senior, Less Active, Overweight Turkey, Turkey Meal & Salmon Grain Free",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "feedsmart-6141",
+    "brand": "Riverwood",
+    "name": "Cat Adult Outdoor Free Run Duck & Reindeer with Wild Boar Grain Free",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "feedsmart-6132",
+    "brand": "Riverwood",
+    "name": "Cat Sterilised Free Range Venison & Lamb with Wild Boar Grain Free",
+    "kcalPer100g": 368
+  },
+  {
+    "id": "feedsmart-6083",
+    "brand": "Prolife",
+    "name": "Adult Cat Sterilised Sensitive Rich in Fresh Pork & Rice",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "feedsmart-6066",
+    "brand": "Karmy",
+    "name": "Adult Cat Hair & Skin",
+    "kcalPer100g": 398.5
+  },
+  {
+    "id": "4680265049844",
+    "brand": "Brit",
+    "name": "Premium Cat Sterilised — Salmon with Chicken and Chicken Liver",
+    "kcalPer100g": 361
+  },
+  {
+    "id": "feedsmart-6036",
+    "brand": "Prolife",
+    "name": "Exigent Adult Cat Wild Boar, Quail, Pheasant & Potato",
+    "kcalPer100g": 409
+  },
+  {
+    "id": "feedsmart-6015",
+    "brand": "Bravery",
+    "name": "Adult Cat Sterilized Salmon Grain Free",
+    "kcalPer100g": 357.5
+  },
+  {
+    "id": "feedsmart-5998",
+    "brand": "Dibaq Naturalmente Mejor",
+    "name": "Kitten Rich in Chicken with Rice",
+    "kcalPer100g": 353.2
+  },
+  {
+    "id": "feedsmart-5960",
+    "brand": "Alleva",
+    "name": "Holistic Adult Cats Neutered Chicken & Duck + Sugarcane Fiber & Ginseng Grain Free",
+    "kcalPer100g": 364
+  },
+  {
+    "id": "feedsmart-5894",
+    "brand": "Carnilove",
+    "name": "Adult Cat Sterilised Fresh Carp & Trout Grain Free",
+    "kcalPer100g": 363
+  },
+  {
+    "id": "feedsmart-5861",
+    "brand": "Gina",
+    "name": "Kitten 33",
+    "kcalPer100g": 412
+  },
+  {
+    "id": "feedsmart-5797",
+    "brand": "Chicopee",
+    "name": "Holistic Nature Line Cat Sterilized Poultry & Liver No Grain",
+    "kcalPer100g": 350.1
+  },
+  {
+    "id": "feedsmart-5778",
+    "brand": "Alleva",
+    "name": "Holistic Adult Cats Lamb & Venison + Hemp & Ginseng Grain Free",
+    "kcalPer100g": 402
+  },
+  {
+    "id": "feedsmart-5729",
+    "brand": "Pureluxe",
+    "name": "Kitten Chicken, Chickpeas & Salmon Grain Free",
+    "kcalPer100g": 383.5
+  },
+  {
+    "id": "4602009466755",
+    "brand": "Sirius",
+    "name": "«Лосось и рис»",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "4630169560617",
+    "brand": "Sirius",
+    "name": "«Лосось и рис»",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-5674",
+    "brand": "Gemon",
+    "name": "Cat Urinary Chicken & Rice",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "8009470056182",
+    "brand": "Monge",
+    "name": "Natural Adult Cat Sterilised Duck",
+    "kcalPer100g": 376
+  },
+  {
+    "id": "8850477002746",
+    "brand": "Me-O",
+    "name": "Sterile Cat",
+    "kcalPer100g": 348.8
+  },
+  {
+    "id": "feedsmart-5539",
+    "brand": "Ontario",
+    "name": "Adult Cat Sterilized Salmon",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-5515",
+    "brand": "Lazzaro",
+    "name": "Kitten Turkey & Rice Hypoallergenic",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-5513",
+    "brand": "Gina",
+    "name": "Adult Cat Rabbit & Rice",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "4680368268654",
+    "brand": "Grandin Adult",
+    "name": "Cat Beef Grain Free",
+    "kcalPer100g": 409.1
+  },
+  {
+    "id": "4680368189645",
+    "brand": "Grandin Adult",
+    "name": "Cat Beef Grain Free",
+    "kcalPer100g": 409.1
+  },
+  {
+    "id": "4680368268678",
+    "brand": "Grandin Adult",
+    "name": "Cat Beef Grain Free",
+    "kcalPer100g": 409.1
+  },
+  {
+    "id": "feedsmart-5447",
+    "brand": "One & Only",
+    "name": "Kitten Turkey & Brown Rice Monoprotein Hypoallergenic",
+    "kcalPer100g": 430
+  },
+  {
+    "id": "feedsmart-5441",
+    "brand": "Karmy",
+    "name": "Adult Cat «Гусь»",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-5416",
+    "brand": "Organix",
+    "name": "Adult Cat Lamb",
+    "kcalPer100g": 388
+  },
+  {
+    "id": "feedsmart-5407",
+    "brand": "GO!",
+    "name": "Solutions Carnivore Lamb + Wild Boar Grain Free",
+    "kcalPer100g": 414.7
+  },
+  {
+    "id": "feedsmart-5406",
+    "brand": "Genesis Pure Canada",
+    "name": "Adult Cat My Green Field Sensitive",
+    "kcalPer100g": 406
+  },
+  {
+    "id": "feedsmart-5395",
+    "brand": "Ontario",
+    "name": "Adult Cat Sensitive Duck & Lamb",
+    "kcalPer100g": 413.2
+  },
+  {
+    "id": "feedsmart-5389",
+    "brand": "Organix",
+    "name": "Kitten Turkey",
+    "kcalPer100g": 411.5
+  },
+  {
+    "id": "5407007853632",
+    "brand": "Grandorf",
+    "name": "Adult Cat Sterilized Rabbit & Brown Rice Hypoallergenic",
+    "kcalPer100g": 408.3
+  },
+  {
+    "id": "feedsmart-5330",
+    "brand": "Planet Pet Society",
+    "name": "Kitten Chicken",
+    "kcalPer100g": 445
+  },
+  {
+    "id": "feedsmart-5273",
+    "brand": "Schesir",
+    "name": "Adult Cat with Lamb",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-5224",
+    "brand": "Karmy",
+    "name": "Adult Cat Sterilized «Индейка»",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "feedsmart-5214",
+    "brand": "Родные корма",
+    "name": "Корм «Барашек 26/12» для взрослых кошек",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-5204",
+    "brand": "Prime Ever",
+    "name": "Cat 1B — Tuna Topped With Crab Meat",
+    "kcalPer100g": 60
+  },
+  {
+    "id": "feedsmart-5199",
+    "brand": "Родные корма",
+    "name": "Корм «Курица 30/14» для взрослых стерилизованных кошек и кастрированных котов",
+    "kcalPer100g": 386
+  },
+  {
+    "id": "feedsmart-5195",
+    "brand": "Genesis Pure Canada",
+    "name": "Adult Cat My Gentle Hill Urinary Grain Free",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "feedsmart-5194",
+    "brand": "Carnilove",
+    "name": "Adult Cat Hairball Control Duck & Pheasant Grain Free",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-5158",
+    "brand": "DailyCat Adult",
+    "name": "Turkey & Rice",
+    "kcalPer100g": 323
+  },
+  {
+    "id": "feedsmart-5136",
+    "brand": "Karmy",
+    "name": "Adult Cat Sensitive «Индейка»",
+    "kcalPer100g": 399
+  },
+  {
+    "id": "feedsmart-5135",
+    "brand": "Karmy",
+    "name": "Adult Cat Sterilized «Утка»",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "8010276030467",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Prime Neutered Cat Chicken & Pomegranate Grain Free",
+    "kcalPer100g": 335
+  },
+  {
+    "id": "feedsmart-5126",
+    "brand": "Brit",
+    "name": "Care Cat Lucky I'm Vital Adult — Chicken & Rice Hypoallergenic",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "4680368268562",
+    "brand": "Grandin Kitten",
+    "name": "Chicken Grain Free с курицей и печенью",
+    "kcalPer100g": 430.6
+  },
+  {
+    "id": "4680368189652",
+    "brand": "Grandin Kitten",
+    "name": "Chicken Grain Free с курицей и печенью",
+    "kcalPer100g": 430.6
+  },
+  {
+    "id": "4680368268586",
+    "brand": "Grandin Kitten",
+    "name": "Chicken Grain Free с курицей и печенью",
+    "kcalPer100g": 430.6
+  },
+  {
+    "id": "feedsmart-4907",
+    "brand": "Chicopee",
+    "name": "Adult Cat Castrate",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-4905",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Adult Cat Lamb & Blueberry Grain Free",
+    "kcalPer100g": 391.5
+  },
+  {
+    "id": "feedsmart-4895",
+    "brand": "Pronature",
+    "name": "Life Cat Fit Deboned Chicken",
+    "kcalPer100g": 359.9
+  },
+  {
+    "id": "feedsmart-4846",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Cat Pollock Grain Free",
+    "kcalPer100g": 423.2
+  },
+  {
+    "id": "feedsmart-4843",
+    "brand": "Safari",
+    "name": "Kitten",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "feedsmart-4757",
+    "brand": "Родные корма",
+    "name": "Корм «Курица 26/12» для взрослых кошек",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-4753",
+    "brand": "Родные корма",
+    "name": "Корм «Телятина 26/12» для взрослых кошек",
+    "kcalPer100g": 372
+  },
+  {
+    "id": "feedsmart-4741",
+    "brand": "Nutram",
+    "name": "Total Grain-Free® T22 Cats & Kittens Turkey, Chicken & Duck",
+    "kcalPer100g": 395.5
+  },
+  {
+    "id": "feedsmart-4740",
+    "brand": "Organix",
+    "name": "Adult Cat Chicken, Duck, Salmon",
+    "kcalPer100g": 376
+  },
+  {
+    "id": "feedsmart-4688",
+    "brand": "NOW",
+    "name": "Fresh Adult Cat Fish Recipe Grain Free",
+    "kcalPer100g": 398.8
+  },
+  {
+    "id": "feedsmart-4672",
+    "brand": "ZooRing",
+    "name": "Adult Cat Goose",
+    "kcalPer100g": 395
+  },
+  {
+    "id": "feedsmart-4649",
+    "brand": "Organix",
+    "name": "Adult Cat with Fresh Salmon",
+    "kcalPer100g": 347
+  },
+  {
+    "id": "feedsmart-4631",
+    "brand": "Supra",
+    "name": "Frost Adult Cat Neutered or Indoor",
+    "kcalPer100g": 370.5
+  },
+  {
+    "id": "4630169560846",
+    "brand": "Sirius",
+    "name": "Для стерилизованных кошек и котов",
+    "kcalPer100g": 374
+  },
+  {
+    "id": "4630169562741",
+    "brand": "Sirius",
+    "name": "Для стерилизованных кошек и котов",
+    "kcalPer100g": 374
+  },
+  {
+    "id": "feedsmart-4587",
+    "brand": "Pronature",
+    "name": "Holistic Adult Cat Indoor Skin & Coat Atlantic Salmon & Brown Rice",
+    "kcalPer100g": 433
+  },
+  {
+    "id": "8429037017560",
+    "brand": "Grandin Cat",
+    "name": "Sterilized Chicken Grain Free",
+    "kcalPer100g": 378.7
+  },
+  {
+    "id": "8595237015597",
+    "brand": "Grandin Cat",
+    "name": "Sterilized Chicken Grain Free",
+    "kcalPer100g": 378.7
+  },
+  {
+    "id": "8800000159263",
+    "brand": "Grandin Cat",
+    "name": "Sterilized Chicken Grain Free",
+    "kcalPer100g": 378.7
+  },
+  {
+    "id": "8009470011914",
+    "brand": "Monge",
+    "name": "Natural Adult Cat Urinary Rich in Chicken",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-4438",
+    "brand": "Pronature",
+    "name": "Holistic Adult Cat Nordiko Grain Free",
+    "kcalPer100g": 434
+  },
+  {
+    "id": "feedsmart-4436",
+    "brand": "Orijen",
+    "name": "Cat & Kitten Grain Free",
+    "kcalPer100g": 416
+  },
+  {
+    "id": "8009470004862",
+    "brand": "Monge",
+    "name": "Natural Kitten Rich in Chicken",
+    "kcalPer100g": 422
+  },
+  {
+    "id": "feedsmart-4322",
+    "brand": "Wellness",
+    "name": "Core Adult Cat Sterilised Salmon Grain Free Hypoallergenic",
+    "kcalPer100g": 350.9
+  },
+  {
+    "id": "4630169560853",
+    "brand": "Sirius",
+    "name": "Для котят",
+    "kcalPer100g": 401
+  },
+  {
+    "id": "4630169562734",
+    "brand": "Sirius",
+    "name": "Для котят",
+    "kcalPer100g": 401
+  },
+  {
+    "id": "feedsmart-4162",
+    "brand": "Pronature",
+    "name": "Holistic Adult Cat Indoor Turkey & Cranberries",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "feedsmart-4054",
+    "brand": "Orijen",
+    "name": "Cat Six Fish Grain Free",
+    "kcalPer100g": 412
+  },
+  {
+    "id": "4680265049073",
+    "brand": "Brit",
+    "name": "Premium Cat Indoor — Delicate Chicken with Chicken Liver",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "4680265049639",
+    "brand": "Brit",
+    "name": "Premium Cat Indoor — Delicate Chicken with Chicken Liver",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "feedsmart-4018",
+    "brand": "Зооменю-Органик Профессионал",
+    "name": "Корм «Утка + Лосось Универсал 30/14» для взрослых кошек",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "feedsmart-4005",
+    "brand": "Brit",
+    "name": "Care Cat Daisy I've to Control My Weight Turkey & Rice",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "feedsmart-3931",
+    "brand": "Pronature",
+    "name": "Holistic Kitten Chicken & Sweet Potato",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "feedsmart-3880",
+    "brand": "Wellness",
+    "name": "Core Adult Cat Original Turkey with Chicken Grain Free Hypoallergenic",
+    "kcalPer100g": 357.5
+  },
+  {
+    "id": "8009470056267",
+    "brand": "Monge",
+    "name": "Natural Cat Sterilized Chicken",
+    "kcalPer100g": 359
+  },
+  {
+    "id": "feedsmart-3780",
+    "brand": "Gina",
+    "name": "Elite Adult Cat Sensitive Hypoallergenic",
+    "kcalPer100g": 388
+  },
+  {
+    "id": "feedsmart-3732",
+    "brand": "Gina",
+    "name": "Elite Adult Cat Salmon Grain Free",
+    "kcalPer100g": 368
+  },
+  {
+    "id": "8009470011938",
+    "brand": "Monge",
+    "name": "Natural Adult Cat Rich in Chicken",
+    "kcalPer100g": 395
+  },
+  {
+    "id": "feedsmart-3681",
+    "brand": "GO!",
+    "name": "Daily Defence Cat Chicken",
+    "kcalPer100g": 460.4
+  },
+  {
+    "id": "feedsmart-3675",
+    "brand": "Gina",
+    "name": "Elite Kitten Complete",
+    "kcalPer100g": 463
+  },
+  {
+    "id": "feedsmart-3674",
+    "brand": "Brit",
+    "name": "Care Tobby I'm a Large Cat — Duck & Chicken Grain-Free Hypoallergenic",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-3656",
+    "brand": "Brit",
+    "name": "Care Cat Monty I'm Living Indoor — Chicken & Rice Hypoallergenic",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-3651",
+    "brand": "Orijen",
+    "name": "Cat Fit & Trim Grain Free",
+    "kcalPer100g": 371
+  },
+  {
+    "id": "feedsmart-3496",
+    "brand": "Forza10",
+    "name": "Regular Diet Fish",
+    "kcalPer100g": 349.8
+  },
+  {
+    "id": "8009470081573",
+    "brand": "Monge",
+    "name": "Adult Cat Hairball",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-3484",
+    "brand": "Forza10",
+    "name": "Mr. Fruit Adult Cat Indoor Chicken with Dried Orange Fruits",
+    "kcalPer100g": 374.5
+  },
+  {
+    "id": "feedsmart-3483",
+    "brand": "Gina",
+    "name": "Elite Cat Active Grain Free",
+    "kcalPer100g": 409
+  },
+  {
+    "id": "feedsmart-3463",
+    "brand": "Nutram",
+    "name": "Ideal Solution Support® I12 Weight Control Cat Chicken, Pearled Barley & Split Pea",
+    "kcalPer100g": 356
+  },
+  {
+    "id": "feedsmart-3447",
+    "brand": "Nutram",
+    "name": "Total Grain-Free® T24 Cats & Kittens Trout & Salmon",
+    "kcalPer100g": 392
+  },
+  {
+    "id": "4015598010177",
+    "brand": "Sanabelle",
+    "name": "Sterilized",
+    "kcalPer100g": 361
+  },
+  {
+    "id": "3859893008863",
+    "brand": "ProSeries",
+    "name": "Holistic Kitten",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "4680265049851",
+    "brand": "Brit",
+    "name": "Premium Adult Cat — Delicate Salmon and Salmon Gravy",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "4015598025898",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Sensitive Lamb & Rice",
+    "kcalPer100g": 416
+  },
+  {
+    "id": "4015598025973",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Sensitive Poultry",
+    "kcalPer100g": 416
+  },
+  {
+    "id": "8009470005111",
+    "brand": "Monge",
+    "name": "Natural Cat Indoor Rich in Chicken",
+    "kcalPer100g": 384
+  },
+  {
+    "id": "feedsmart-3373",
+    "brand": "Nutram",
+    "name": "Ideal Solution Support® I17 Indoor Cat Chicken, Rolled Oats & Whole Eggs",
+    "kcalPer100g": 375.5
+  },
+  {
+    "id": "feedsmart-3372",
+    "brand": "Nutram",
+    "name": "Sound Balanced Wellness®S1 Kitten Chicken, Salmon & Green Lentil",
+    "kcalPer100g": 391.5
+  },
+  {
+    "id": "feedsmart-3362",
+    "brand": "Schesir",
+    "name": "Adult Cat Chicken",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-3355",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Neutered Cat Spelt, Oats, Chicken & Pomegranate Low Grain",
+    "kcalPer100g": 331
+  },
+  {
+    "id": "feedsmart-3348",
+    "brand": "Gina",
+    "name": "Elite Adult Cat Sterilized",
+    "kcalPer100g": 365
+  },
+  {
+    "id": "feedsmart-3340",
+    "brand": "Forza10",
+    "name": "Mr. Fruit Neutered Cat Chicken with Dried Yellow Fruits",
+    "kcalPer100g": 341.7
+  },
+  {
+    "id": "feedsmart-3323",
+    "brand": "Carnilove",
+    "name": "Kitten Salmon & Turkey Grain-Free",
+    "kcalPer100g": 415
+  },
+  {
+    "id": "4015598025959",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Light",
+    "kcalPer100g": 346
+  },
+  {
+    "id": "feedsmart-3276",
+    "brand": "Brit",
+    "name": "Care Cat Cheeky I'm Living Outdoor Venison & Rice",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-3267",
+    "brand": "Carnilove",
+    "name": "Adult Cat Sterilised Lamb & Wild Boar Grain-Free",
+    "kcalPer100g": 369
+  },
+  {
+    "id": "feedsmart-3248",
+    "brand": "Nutram",
+    "name": "Sound Balanced Wellness® S5 Adult & Senior Chicken, Salmon & Split Pea",
+    "kcalPer100g": 378.5
+  },
+  {
+    "id": "feedsmart-3227",
+    "brand": "Cat Fit",
+    "name": "Kitten Fit",
+    "kcalPer100g": 400
+  },
+  {
+    "id": "feedsmart-3212",
+    "brand": "Safari",
+    "name": "Adult Cat Chicken",
+    "kcalPer100g": 355
+  },
+  {
+    "id": "feedsmart-3114",
+    "brand": "Acana",
+    "name": "Regionals Grasslands Cat Grain-Free",
+    "kcalPer100g": 404
+  },
+  {
+    "id": "feedsmart-3081",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Dental",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-3052",
+    "brand": "Acana",
+    "name": "Regionals Wild Prairie Cat Grain-Free",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-2976",
+    "brand": "Acana",
+    "name": "Regionals Pacifica Cat Grain-Free",
+    "kcalPer100g": 408
+  },
+  {
+    "id": "feedsmart-2971",
+    "brand": "GO!",
+    "name": "Sensitivity+Shine Cat Duck Grain Free",
+    "kcalPer100g": 422.2
+  },
+  {
+    "id": "feedsmart-2968",
+    "brand": "Golden Eagle",
+    "name": "Holistic Health Adult Cat",
+    "kcalPer100g": 388
+  },
+  {
+    "id": "feedsmart-2960",
+    "brand": "NOW",
+    "name": "Fresh Kitten Grain Free",
+    "kcalPer100g": 394.7
+  },
+  {
+    "id": "feedsmart-2850",
+    "brand": "Farmina",
+    "name": "Natural & Delicious Kitten Chicken & Pomegranate Grain Free",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "8595602540891",
+    "brand": "Brit",
+    "name": "Care Crazy I'm Kitten — Chicken & Rice",
+    "kcalPer100g": 440
+  },
+  {
+    "id": "feedsmart-2536",
+    "brand": "Almo Nature",
+    "name": "Legend Kitten Chicken",
+    "kcalPer100g": 101
+  },
+  {
+    "id": "feedsmart-2535",
+    "brand": "Forza10",
+    "name": "Maintenance Cat Fish",
+    "kcalPer100g": 349.4
+  },
+  {
+    "id": "feedsmart-2525",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Poultry",
+    "kcalPer100g": 385
+  },
+  {
+    "id": "4015598025591",
+    "brand": "Sanabelle",
+    "name": "Kitten+",
+    "kcalPer100g": 416
+  },
+  {
+    "id": "feedsmart-2483",
+    "brand": "Bab'in",
+    "name": "Agi Plus Adult 1+ Rich in Duck",
+    "kcalPer100g": 383.5
+  },
+  {
+    "id": "feedsmart-2480",
+    "brand": "1st Choice",
+    "name": "Cat Senior Mature or Less Active Chicken",
+    "kcalPer100g": 353.4
+  },
+  {
+    "id": "feedsmart-2472",
+    "brand": "Happy Cat",
+    "name": "Senior Best Аge 10+",
+    "kcalPer100g": 381
+  },
+  {
+    "id": "feedsmart-2463",
+    "brand": "Grandorf",
+    "name": "Cat Sensitive White Fish & Potato Hypoallergenic Grain Free",
+    "kcalPer100g": 417.1
+  },
+  {
+    "id": "feedsmart-2415",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Trout",
+    "kcalPer100g": 387
+  },
+  {
+    "id": "4015598026130",
+    "brand": "Sanabelle",
+    "name": "Adult Cat Grande",
+    "kcalPer100g": 406
+  },
+  {
+    "id": "feedsmart-2252",
+    "brand": "Grandorf",
+    "name": "Cat Indoor 4 Meat & Brown Rice Hypoallergenic",
+    "kcalPer100g": 410.7
+  },
+  {
+    "id": "feedsmart-2250",
+    "brand": "Gina",
+    "name": "Cat 33 Denmark",
+    "kcalPer100g": 502.5
+  },
+  {
+    "id": "5404009500403",
+    "brand": "Grandorf",
+    "name": "Kitten Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 449
+  },
+  {
+    "id": "5407007851195",
+    "brand": "Grandorf",
+    "name": "Kitten Lamb & Rice Hypoallergenic",
+    "kcalPer100g": 449
+  },
+  {
+    "id": "feedsmart-2237",
+    "brand": "Brit",
+    "name": "Care Cat Cocco I'm Gourmand — Duck & Salmon Grain Free",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-2235",
+    "brand": "NOW",
+    "name": "Fresh Adult Cat Grain Free",
+    "kcalPer100g": 386.2
+  },
+  {
+    "id": "feedsmart-2230",
+    "brand": "Gina",
+    "name": "Elite Cat Sterilized",
+    "kcalPer100g": 408
+  },
+  {
+    "id": "feedsmart-2229",
+    "brand": "Gina",
+    "name": "Cat 30 Denmark",
+    "kcalPer100g": 487
+  },
+  {
+    "id": "feedsmart-2228",
+    "brand": "Brit",
+    "name": "Care Cat Lilly I've Sensitive Digestion — Lamb & Salmon Grain Free",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "feedsmart-2221",
+    "brand": "Guabi Natural",
+    "name": "Cat Sterilized",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-2217",
+    "brand": "Brit",
+    "name": "Care Cat Sunny I've Beautiful Hair Salmon & Rice",
+    "kcalPer100g": 420
+  },
+  {
+    "id": "feedsmart-2202",
+    "brand": "GO!",
+    "name": "Fit+Free Cat Chicken, Turkey, Duck Grain Free",
+    "kcalPer100g": 429.8
+  },
+  {
+    "id": "feedsmart-2192",
+    "brand": "Savarra",
+    "name": "Adult Cat Lamb & Rice",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "feedsmart-2166",
+    "brand": "Grandorf",
+    "name": "Adult Cat Sterilized 4 Meat & Brown Rice Hypoallergenic",
+    "kcalPer100g": 408.3
+  },
+  {
+    "id": "feedsmart-1959",
+    "brand": "Almo Nature",
+    "name": "Adult Sterilised Cat Beef & Rice",
+    "kcalPer100g": 350
+  },
+  {
+    "id": "feedsmart-1525",
+    "brand": "Whiskas",
+    "name": "«Вкусные подушечки с нежным паштетом» — ассорти с курицей, уткой и индейкой",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-1522",
+    "brand": "Whiskas",
+    "name": "«Вкусные подушечки с нежным паштетом» — ассорти с говядиной, ягненком и кроликом",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-1520",
+    "brand": "Whiskas",
+    "name": "«Вкусные подушечки с нежным паштетом» — обед с лососем",
+    "kcalPer100g": 370
+  },
+  {
+    "id": "feedsmart-1516",
+    "brand": "Pronature",
+    "name": "Holistic Senior, Mature, Less Active Cat Oceanic White Fish & Wild Rice",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-1513",
+    "brand": "Pronature",
+    "name": "Holistic Adult Cat Duck & Orange Grain Free",
+    "kcalPer100g": 433
+  },
+  {
+    "id": "feedsmart-1492",
+    "brand": "Pronature",
+    "name": "Original 30 Kitten Chicken",
+    "kcalPer100g": 431
+  },
+  {
+    "id": "feedsmart-1491",
+    "brand": "Pronature",
+    "name": "Original 28 Adult Cat Seafood Delight Salmon and Herring",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "feedsmart-1490",
+    "brand": "Pronature",
+    "name": "Original 28 Adult Cat Meat Fiesta Chicken, Salmon and Lamb",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "feedsmart-1489",
+    "brand": "Pronature",
+    "name": "Original 28 Adult Cat Chicken",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "feedsmart-1487",
+    "brand": "Pronature",
+    "name": "Original 27 Senior, Mature, Less Active Cat Chicken",
+    "kcalPer100g": 424
+  },
+  {
+    "id": "4001967140118",
+    "brand": "Happy Cat",
+    "name": "Supreme Weide-Lamm",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "feedsmart-1431",
+    "brand": "Happy Cat",
+    "name": "Sensitive Organic Poultry",
+    "kcalPer100g": 393
+  },
+  {
+    "id": "4001967140583",
+    "brand": "Happy Cat",
+    "name": "Supreme Atlantic Salmon",
+    "kcalPer100g": 394
+  },
+  {
+    "id": "feedsmart-1414",
+    "brand": "1st Choice",
+    "name": "Cat Adult Weight Control Chicken",
+    "kcalPer100g": 318.7
+  },
+  {
+    "id": "feedsmart-1390",
+    "brand": "1st Choice",
+    "name": "Cat Adult Indoor Vitality Chicken",
+    "kcalPer100g": 368.5
+  },
+  {
+    "id": "feedsmart-1389",
+    "brand": "1st Choice",
+    "name": "Cat Adult Sterilized Chicken Grain Free",
+    "kcalPer100g": 376.2
+  },
+  {
+    "id": "feedsmart-1388",
+    "brand": "1st Choice",
+    "name": "Cat Adult Hypoallergenic Duck Grain Free",
+    "kcalPer100g": 327.4
+  },
+  {
+    "id": "feedsmart-5568",
+    "brand": "Monge",
+    "name": "Natural Dog Adult All Breeds Duck and Potatoes Grain Free",
+    "kcalPer100g": 430
+  },
+  {
+    "id": "8009470000123",
+    "brand": "Monge",
+    "name": "BWild Adult Dog All Breeds Ostrich",
+    "kcalPer100g": 430
+  },
+  {
+    "id": "8410031936506",
+    "brand": "The Best",
+    "name": "С бараниной",
+    "kcalPer100g": 390
+  },
+  {
+    "id": "feedsmart-6277",
+    "brand": "Monge",
+    "name": "BWild Adult Cat Salmon with Peas Grain Free",
+    "kcalPer100g": 405.8
+  },
+  {
+    "id": "feedsmart-6217",
+    "brand": "Monge",
+    "name": "BWild Adult Cat Anchovies Low Grain",
+    "kcalPer100g": 410.5
+  },
+  {
+    "id": "feedsmart-3682",
+    "brand": "Brit",
+    "name": "Premium Adult Cat Delicate Chicken & Chicken Liver",
+    "kcalPer100g": 380
+  },
+  {
+    "id": "feedsmart-3292",
+    "brand": "Brit",
+    "name": "Premium Kitten — Delicate Chicken with Salmon Gravy",
+    "kcalPer100g": 410
+  },
+  {
+    "id": "8595602540747",
+    "brand": "Brit",
+    "name": "Care Cat Missy Sterilised Chicken & Rice",
+    "kcalPer100g": 375
+  },
+  {
+    "id": "8010276021021",
+    "brand": "Farmina",
+    "name": "Fun Cat Meat",
+    "kcalPer100g": 335
+  },
+  {
+    "id": "feedsmart-2244",
+    "brand": "Brit",
+    "name": "Premium Cat Sterilised Chicken & Chicken Liver",
+    "kcalPer100g": 360
+  },
+  {
+    "id": "4001967080902",
+    "brand": "Happy Cat",
+    "name": "Sterilised",
+    "kcalPer100g": 355
   }
 ]

@@ -104,7 +104,7 @@ export function Hero() {
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">пород в каталоге</div>
           </div>
           <div>
-            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">2 509</div>
+            <div className="font-display font-black text-2xl lg:text-3xl text-accent tracking-tight">3 686</div>
             <div className="text-xs font-bold text-brand-soft uppercase tracking-wider mt-1">кормов в базе</div>
           </div>
         </div>
