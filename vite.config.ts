@@ -88,7 +88,7 @@ function contentSecurityPolicyPlugin(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), petfoodSplit(), contentSecurityPolicyPlugin()],
-  base: '/gavgavmur2/',
+  base: '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

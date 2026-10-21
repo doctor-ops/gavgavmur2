@@ -38,7 +38,7 @@ function PageFallback() {
 
 function App() {
   return (
-    <BrowserRouter basename="/gavgavmur2">
+    <BrowserRouter>
       <div className="min-h-screen bg-base-bg flex flex-col">
         <Header />
         <main className="flex-1">
