@@ -109,21 +109,26 @@ export const PetGadgets: React.FC = () => {
 
       {/* МОДАЛЬНОЕ ОКНО С ПОЛНЫМ ОПИСАНИЕМ */}
       {selectedGadget && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand/60 backdrop-blur-sm animate-fade-in">
+        /* ИСПРАВЛЕНО: Добавлен overflow-y-auto для оверлея, чтобы при 150% зуме на старых телефонах модалка прокручивалась скроллом */
+        <div 
+          className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-2 sm:p-4 bg-brand/60 backdrop-blur-sm overflow-y-auto"
+          onClick={() => setSelectedGadget(null)}
+        >
           <div 
-            className="bg-base-surface w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden animate-scale-in relative flex flex-col lg:flex-row"
+            className="bg-base-surface w-full max-w-4xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden animate-scale-in relative flex flex-col md:flex-row my-auto max-h-none md:max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Кнопка закрытия */}
             <button 
               onClick={() => setSelectedGadget(null)}
-              className="absolute top-4 right-4 z-50 p-2 bg-white/80 backdrop-blur-sm rounded-full text-ink hover:bg-white transition-colors shadow-sm"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-50 p-2 bg-white/90 backdrop-blur-sm rounded-full text-ink hover:bg-white transition-colors shadow-md active:scale-95"
             >
               <X className="w-5 h-5" />
             </button>
-
+      
             {/* Левая часть: Большое фото */}
-            <div className="lg:w-1/2 aspect-square lg:aspect-auto bg-base-bg">
+            {/* ИСПРАВЛЕНО: Ограничена максимальная высота картинки на телефонах до 40% от экрана, чтобы она не вытесняла текст */}
+            <div className="w-full md:w-1/2 max-h-[40vh] md:max-h-none aspect-square md:aspect-auto bg-base-bg flex-shrink-0">
               <img 
                 src={mediaSrc(selectedGadget.image)} 
                 alt={selectedGadget.name}
@@ -131,46 +136,48 @@ export const PetGadgets: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-
+      
             {/* Правая часть: Детали */}
-            <div className="lg:w-1/2 p-8 flex flex-col">
+            {/* ИСПРАВЛЕНО: Добавлен внутренний скролл для текстовой части на смартфонах (max-h-[45vh] overflow-y-auto) */}
+            <div className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col min-h-0 max-h-[45vh] md:max-h-none overflow-y-auto md:overflow-visible">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand bg-brand-soft/20 px-2 py-1 rounded font-display">
                   {selectedGadget.category}
                 </span>
               </div>
               
-              <h2 className="text-3xl font-display font-extrabold text-ink mb-4 leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-extrabold text-ink mb-3 leading-tight break-words">
                 {selectedGadget.name}
               </h2>
               
-              <div className="flex items-center gap-2 text-accent-dark font-bold text-2xl mb-6 font-display">
+              <div className="flex items-center gap-2 text-accent-dark font-bold text-xl sm:text-2xl mb-4 font-display">
                 {selectedGadget.price}
               </div>
               
-              <div className="flex items-start gap-2 mb-6 text-ink-soft leading-relaxed text-sm font-normal">
-                <Info className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <p>{selectedGadget.fullDescription}</p>
+              <div className="flex items-start gap-2 mb-5 text-ink-soft leading-relaxed text-xs sm:text-sm font-normal">
+                <Info className="w-4 h-4 sm:w-5 sm:h-5 text-brand flex-shrink-0 mt-0.5" />
+                <p className="break-words">{selectedGadget.fullDescription}</p>
               </div>
               
-              <div className="mt-auto pt-6 border-t border-base-muted">
+              {/* ИСПРАВЛЕНО: Кнопка жестко прибита к нижней части текстового блока и не уезжает */}
+              <div className="mt-auto pt-4 border-t border-base-muted flex-shrink-0">
                 {purchaseUrl ? (
                   <a
                     href={purchaseUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-4 rounded-2xl bg-accent text-brand font-extrabold text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-3"
+                    className="w-full py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-accent text-brand font-extrabold text-sm sm:text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-2 sm:gap-3"
                   >
-                    <ShoppingCart className="w-6 h-6" />
+                    <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
                     Перейти к покупке
                   </a>
                 ) : (
                   <button
                     type="button"
                     disabled
-                    className="w-full py-4 rounded-2xl bg-base-muted text-ink-soft font-extrabold text-lg flex items-center justify-center gap-3 cursor-not-allowed"
+                    className="w-full py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-base-muted text-ink-soft font-extrabold text-sm sm:text-lg flex items-center justify-center gap-2 sm:gap-3 cursor-not-allowed"
                   >
-                    <ShoppingCart className="w-6 h-6" />
+                    <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
                     Ссылка на магазин пока не указана
                   </button>
                 )}
