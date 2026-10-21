@@ -1,12 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy to Timeweb
 
 on:
   push:
     branches:
       - main # Убедитесь, что ваша основная ветка называется main
-
-permissions:
-  contents: write # действие деплоя пушит сборку в ветку gh-pages
 
 jobs:
   build-and-deploy:
@@ -14,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -28,8 +25,12 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+      # ИСПРАВЛЕНО: Вместо GitHub Pages отправляем файлы по FTP на Timeweb
+      - name: Sync files via FTP to Timeweb
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
-          folder: dist # Папка, которую генерирует Vite
-          branch: gh-pages # Ветка для деплоя
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/                  # Папка сборки Vite
+          server-dir: ./gavgavmur/public_html/ # Точный путь к сайту на Timeweb
