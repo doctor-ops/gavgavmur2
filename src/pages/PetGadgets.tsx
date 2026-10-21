@@ -84,9 +84,9 @@ export const PetGadgets: React.FC = () => {
                 </p>
                 
                 <div className="flex items-center justify-between pt-4 border-t border-base-muted mt-auto gap-2">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col min-w-0 flex-1">
                     <span className="text-[10px] text-ink-light font-bold uppercase tracking-tight">Цена:</span>
-                    <span className="font-black text-xl text-ink font-display tracking-tight tabular-nums">
+                    <span className="font-black text-sm sm:text-base text-ink font-display tracking-tight tabular-nums whitespace-nowrap overflow-hidden text-ellipsis">
                       {gadget.price}
                     </span>
                   </div>
