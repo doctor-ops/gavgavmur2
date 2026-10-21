@@ -109,7 +109,6 @@ export const PetGadgets: React.FC = () => {
 
       {/* МОДАЛЬНОЕ ОКНО С ПОЛНЫМ ОПИСАНИЕМ */}
       {selectedGadget && (
-        /* ИСПРАВЛЕНО: Добавлен overflow-y-auto для оверлея, чтобы при 150% зуме на старых телефонах модалка прокручивалась скроллом */
         <div 
           className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-2 sm:p-4 bg-brand/60 backdrop-blur-sm overflow-y-auto"
           onClick={() => setSelectedGadget(null)}
@@ -125,9 +124,8 @@ export const PetGadgets: React.FC = () => {
             >
               <X className="w-5 h-5" />
             </button>
-      
+
             {/* Левая часть: Большое фото */}
-            {/* ИСПРАВЛЕНО: Ограничена максимальная высота картинки на телефонах до 40% от экрана, чтобы она не вытесняла текст */}
             <div className="w-full md:w-1/2 max-h-[40vh] md:max-h-none aspect-square md:aspect-auto bg-base-bg flex-shrink-0">
               <img 
                 src={mediaSrc(selectedGadget.image)} 
@@ -136,13 +134,11 @@ export const PetGadgets: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-      
+
             {/* Правая часть: Детали */}
-            {/* ИСПРАВЛЕНО: flex-col теперь имеет фиксированную/максимальную высоту и не растягивается бесконечно */}
             <div className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col max-h-[55vh] md:max-h-[90vh] bg-base-surface">
               
-              {/* ВЕРХНЯЯ ЧАСТЬ: СКРОЛЛИРУЕМАЯ (Название, цена и описание) */}
-              {/* ИСПРАВЛЕНО: overflow-y-auto добавлен только сюда. Кнопка ниже не скроллится! */}
+              {/* ВЕРХНЯЯ ЧАСТЬ: СКРОЛЛИРУЕМАЯ (Название и описание) */}
               <div className="flex-1 overflow-y-auto pr-1 mb-4 min-h-0 space-y-3">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand bg-brand-soft/20 px-2 py-1 rounded font-display">
@@ -154,15 +150,13 @@ export const PetGadgets: React.FC = () => {
                   {selectedGadget.name}
                 </h2>
                 
-                {/* Длинное описание: теперь скроллится только этот блок, если букв слишком много */}
                 <div className="flex items-start gap-2 text-ink-soft leading-relaxed text-xs sm:text-sm font-normal pt-2">
                   <Info className="w-4 h-4 sm:w-5 sm:h-5 text-brand flex-shrink-0 mt-0.5" />
                   <p className="break-words">{selectedGadget.fullDescription}</p>
                 </div>
               </div>
               
-              {/* НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ И ЗАКРЕПЛЕННАЯ (Цена и Кнопка покупки) */}
-              {/* ИСПРАВЛЕНО: Этот блок всегда находится внизу экрана и виден без скролла */}
+              {/* НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ И ЗАКРЕПЛЕННАЯ (Цена и Кнопка) */}
               <div className="pt-4 border-t border-base-muted flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-base-surface flex-shrink-0">
                 <div className="flex flex-col min-w-0">
                   <span className="text-[10px] text-ink-light font-bold uppercase tracking-tight">Цена товара:</span>
@@ -170,7 +164,7 @@ export const PetGadgets: React.FC = () => {
                     {selectedGadget.price}
                   </span>
                 </div>
-            
+
                 <div className="flex-1 sm:flex-initial">
                   {purchaseUrl ? (
                     <a
@@ -194,8 +188,9 @@ export const PetGadgets: React.FC = () => {
                   )}
                 </div>
               </div>
-            
+
             </div>
+          </div>
         </div>
       )}
     </ToolLayout>
