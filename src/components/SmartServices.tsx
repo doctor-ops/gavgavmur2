@@ -46,50 +46,53 @@ const services = [
 
 export function SmartServices() {
   return (
-    <section className="py-16 lg:py-24 bg-base-bg animate-fade-up">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-3">Умные сервисы</h2>
-          <p className="text-base text-ink-light leading-relaxed">Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.</p>
+    <section className="py-12 lg:py-24 bg-base-bg animate-fade-up overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-ink mb-3 break-words">
+            Умные сервисы
+          </h2>
+          <p className="text-sm sm:text-base text-ink-light leading-relaxed">
+            Интерактивные инструменты и калькуляторы, которые помогут выбрать гаджеты, проверить состав корма и рассчитать бюджет на питомца.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ИСПРАВЛЕНО: Безопасная сетка, которая гарантированно переходит в 1 колонку при сильном зуме */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
           {services.map((s) => {
             const Icon = s.icon;
             return (
               <Link
                 key={s.to}
                 to={s.to}
-                className={`group rounded-xl2 p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                className={`group rounded-xl2 p-5 sm:p-6 border transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between w-full min-w-0 ${
                   s.isAccent
-                    ? 'bg-base-surface text-ink border-base-muted sm:col-span-2 lg:col-span-2 hover:border-accent/30 shadow-sm'
+                    ? 'bg-base-surface text-ink border-base-muted md:col-span-2 lg:col-span-2 hover:border-accent/30 shadow-sm'
                     : 'bg-base-surface border-base-muted hover:border-accent/30 shadow-sm'
                 }`}
               >
-                <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform ${
+                <div className="relative z-10 w-full min-w-0">
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform ${
                     s.isAccent
                       ? 'bg-accent text-brand shadow-md shadow-accent/20'
-                      : `${s.color} transition-colors`
+                      : `\${s.color} transition-colors`
                   }`}>
-                    {/* ИСПРАВЛЕНО: Единый размер иконок для всех плиток */}
-                    <Icon className="w-8 h-8" />
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   
-                  <h3 className={`font-display font-bold text-xl mb-2.5 ${
+                  <h3 className={`font-display font-bold text-lg sm:text-xl mb-2 break-words ${
                     s.isAccent ? 'text-ink' : 'text-ink group-hover:text-brand'
                   }`}>
                     {s.title}
                   </h3>
-                  <p className="text-sm leading-relaxed mb-6 text-ink-soft">
+                  <p className="text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 text-ink-soft break-words">
                     {s.desc}
                   </p>
                 </div>
 
-                {/* ИСПРАВЛЕНО: Унифицированный текст ссылки для всех сервисов */}
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold pt-2 mt-auto transition-colors text-accent group-hover:text-accent-light">
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold pt-2 mt-auto transition-colors text-accent group-hover:text-accent-light">
                   Открыть инструмент
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             );
