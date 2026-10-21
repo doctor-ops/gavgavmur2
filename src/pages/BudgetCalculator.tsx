@@ -135,34 +135,37 @@ export function BudgetCalculator() {
           {/* Cost adjustments */}
           <div className="space-y-3">
             <div className="text-sm font-bold text-ink pt-4 border-t border-base-muted font-display">Корректировка расходов (₽/мес)</div>
-            {costs.map((c) => {
-              const Icon = c.icon;
-              return (
-                <div key={c.key} className="flex items-center justify-between gap-3 p-3 rounded-xl bg-base-bg border border-base-muted transition-colors hover:border-brand/20">
-                  <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                    <div className="w-9 h-9 rounded-lg bg-brand-soft/30 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-brand" />
+              {costs.map((c) => {
+                const Icon = c.icon;
+                return (
+                  <div key={c.key} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-xl bg-base-bg border border-base-muted transition-colors hover:border-brand/20 w-full min-w-0">
+                    <div className="flex items-center gap-2 w-full min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-brand-soft/30 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-brand" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-ink font-medium break-words leading-tight">{c.label}</span>
                     </div>
-                    <span className="text-sm text-ink font-medium truncate">{c.label}</span>
+                    
+                    <div className="flex items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-0 border-base-muted/40 w-full sm:w-auto flex-shrink-0">
+                      <button
+                        onClick={() => adjustCost(c.key, -100)}
+                        className="w-8 h-8 rounded-lg bg-base-muted hover:bg-base-muted/80 flex items-center justify-center flex-shrink-0 transition-colors active:scale-95"
+                      >
+                        <Minus className="w-3.5 h-3.5 text-ink" />
+                      </button>
+                      <span className="font-bold text-xs sm:text-sm text-ink min-w-[75px] text-center whitespace-nowrap px-1">
+                        {c.monthly.toLocaleString()} ₽
+                      </span>
+                      <button
+                        onClick={() => adjustCost(c.key, 100)}
+                        className="w-8 h-8 rounded-lg bg-brand-soft hover:bg-brand-light flex items-center justify-center flex-shrink-0 transition-colors active:scale-95"
+                      >
+                        <Plus className="w-3.5 h-3.5 text-brand" />
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => adjustCost(c.key, -100)}
-                      className="w-8 h-8 rounded-lg bg-base-muted hover:bg-base-muted/80 flex items-center justify-center flex-shrink-0 transition-colors"
-                    >
-                      <Minus className="w-4 h-4 text-ink" />
-                    </button>
-                    <span className="font-bold text-sm text-ink w-20 text-center">{c.monthly.toLocaleString()} ₽</span>
-                    <button
-                      onClick={() => adjustCost(c.key, 100)}
-                      className="w-8 h-8 rounded-lg bg-brand-soft hover:bg-brand-light flex items-center justify-center flex-shrink-0 transition-colors"
-                    >
-                      <Plus className="w-4 h-4 text-brand" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
 
