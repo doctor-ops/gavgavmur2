@@ -35,14 +35,16 @@ export const PetGadgets: React.FC = () => {
       subtitle="Умные технологичные устройства, которые сделают уход за питомцем проще, а его жизнь — безопаснее и счастливее."
     >
       {/* Фильтры категорий */}
-      <div className="flex justify-center gap-2 mb-12 overflow-x-auto pb-4 animate-fade-in">
+      {/* ИСПРАВЛЕНО: Добавлены flex-nowrap для удержания кнопок в линию, scrollbar-hidden и корректные отступы */}
+      <div className="w-full overflow-x-auto pb-3 mb-8 flex items-center justify-start sm:justify-center gap-2 max-w-full no-scrollbar touch-pan-x flex-nowrap px-4 sm:px-0">
         {categories.map(cat => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 whitespace-nowrap ${
+            {/* ИСПРАВЛЕНО: Добавлен flex-shrink-0, чтобы кнопки не сжимались, уменьшены паддинги на мобильных */}
+            className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
               selectedCategory === cat 
-                ? 'bg-brand text-white shadow-lg scale-105' 
+                ? 'bg-brand text-white shadow-md scale-102' 
                 : 'bg-base-surface text-ink-soft border border-base-muted hover:bg-base-muted hover:text-ink'
             }`}
           >
@@ -138,52 +140,64 @@ export const PetGadgets: React.FC = () => {
             </div>
       
             {/* Правая часть: Детали */}
-            {/* ИСПРАВЛЕНО: Добавлен внутренний скролл для текстовой части на смартфонах (max-h-[45vh] overflow-y-auto) */}
-            <div className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col min-h-0 max-h-[45vh] md:max-h-none overflow-y-auto md:overflow-visible">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand bg-brand-soft/20 px-2 py-1 rounded font-display">
-                  {selectedGadget.category}
-                </span>
+            {/* ИСПРАВЛЕНО: flex-col теперь имеет фиксированную/максимальную высоту и не растягивается бесконечно */}
+            <div className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col max-h-[55vh] md:max-h-[90vh] bg-base-surface">
+              
+              {/* ВЕРХНЯЯ ЧАСТЬ: СКРОЛЛИРУЕМАЯ (Название, цена и описание) */}
+              {/* ИСПРАВЛЕНО: overflow-y-auto добавлен только сюда. Кнопка ниже не скроллится! */}
+              <div className="flex-1 overflow-y-auto pr-1 mb-4 min-h-0 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand bg-brand-soft/20 px-2 py-1 rounded font-display">
+                    {selectedGadget.category}
+                  </span>
+                </div>
+                
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-extrabold text-ink leading-tight break-words">
+                  {selectedGadget.name}
+                </h2>
+                
+                {/* Длинное описание: теперь скроллится только этот блок, если букв слишком много */}
+                <div className="flex items-start gap-2 text-ink-soft leading-relaxed text-xs sm:text-sm font-normal pt-2">
+                  <Info className="w-4 h-4 sm:w-5 sm:h-5 text-brand flex-shrink-0 mt-0.5" />
+                  <p className="break-words">{selectedGadget.fullDescription}</p>
+                </div>
               </div>
               
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-extrabold text-ink mb-3 leading-tight break-words">
-                {selectedGadget.name}
-              </h2>
-              
-              <div className="flex items-center gap-2 text-accent-dark font-bold text-xl sm:text-2xl mb-4 font-display">
-                {selectedGadget.price}
+              {/* НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ И ЗАКРЕПЛЕННАЯ (Цена и Кнопка покупки) */}
+              {/* ИСПРАВЛЕНО: Этот блок всегда находится внизу экрана и виден без скролла */}
+              <div className="pt-4 border-t border-base-muted flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-base-surface flex-shrink-0">
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[10px] text-ink-light font-bold uppercase tracking-tight">Цена товара:</span>
+                  <span className="text-xl sm:text-2xl font-display font-black text-accent-dark tracking-tight whitespace-nowrap">
+                    {selectedGadget.price}
+                  </span>
+                </div>
+            
+                <div className="flex-1 sm:flex-initial">
+                  {purchaseUrl ? (
+                    <a
+                      href={purchaseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:px-6 py-3 rounded-xl bg-accent text-brand font-extrabold text-sm sm:text-base shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap"
+                    >
+                      <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+                      Купить гаджет
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      className="w-full sm:px-6 py-3 rounded-xl bg-base-muted text-ink-soft font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 cursor-not-allowed whitespace-nowrap"
+                    >
+                      <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+                      Нет ссылки
+                    </button>
+                  )}
+                </div>
               </div>
-              
-              <div className="flex items-start gap-2 mb-5 text-ink-soft leading-relaxed text-xs sm:text-sm font-normal">
-                <Info className="w-4 h-4 sm:w-5 sm:h-5 text-brand flex-shrink-0 mt-0.5" />
-                <p className="break-words">{selectedGadget.fullDescription}</p>
-              </div>
-              
-              {/* ИСПРАВЛЕНО: Кнопка жестко прибита к нижней части текстового блока и не уезжает */}
-              <div className="mt-auto pt-4 border-t border-base-muted flex-shrink-0">
-                {purchaseUrl ? (
-                  <a
-                    href={purchaseUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-accent text-brand font-extrabold text-sm sm:text-lg shadow-lg hover:bg-accent-light transition-all transform active:scale-95 flex items-center justify-center gap-2 sm:gap-3"
-                  >
-                    <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
-                    Перейти к покупке
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    disabled
-                    className="w-full py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-base-muted text-ink-soft font-extrabold text-sm sm:text-lg flex items-center justify-center gap-2 sm:gap-3 cursor-not-allowed"
-                  >
-                    <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
-                    Ссылка на магазин пока не указана
-                  </button>
-                )}
-              </div>
+            
             </div>
-          </div>
         </div>
       )}
     </ToolLayout>
