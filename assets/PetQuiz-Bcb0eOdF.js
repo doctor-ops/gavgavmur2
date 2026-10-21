@@ -1,4 +1,4 @@
-import{u as k,r as c,j as e,L as z}from"./react-CMjYBvgk.js";import{breedPhoto as b,BREEDS_DATABASE as x}from"./breeds-DEMD8XXN.js";import{c as r,b as S}from"./index-XsFdSqOh.js";import{H as C,S as M}from"./shield-check-DU1WxHr_.js";/**
+import{u as k,r as c,j as e,L as z}from"./react-CMjYBvgk.js";import{breedPhoto as b,BREEDS_DATABASE as x}from"./breeds-DEMD8XXN.js";import{c as r,b as S}from"./index-C37K9DRh.js";import{H as C,S as M}from"./shield-check-DBjxVGbu.js";/**
  * @license lucide-react v0.446.0 - ISC
  *
  * This source code is licensed under the ISC license.
