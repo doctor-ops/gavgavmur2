@@ -9,6 +9,7 @@ export function Hero() {
     const petImages = [
       `${import.meta.env.BASE_URL}hero-dog.jpg`,
       `${import.meta.env.BASE_URL}hero-cat.jpg`,
+      `${import.meta.env.BASE_URL}hero_human_dog.jpg`,
     ];
     return petImages[Math.floor(Math.random() * petImages.length)];
   });
