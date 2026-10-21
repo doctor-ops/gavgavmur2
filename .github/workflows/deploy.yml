@@ -27,7 +27,7 @@ jobs:
 
       # ИСПРАВЛЕНО: Вместо GitHub Pages отправляем файлы по FTP на Timeweb
       - name: Sync files via FTP to Timeweb
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
