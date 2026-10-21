@@ -35,13 +35,11 @@ export const PetGadgets: React.FC = () => {
       subtitle="Умные технологичные устройства, которые сделают уход за питомцем проще, а его жизнь — безопаснее и счастливее."
     >
       {/* Фильтры категорий */}
-      {/* ИСПРАВЛЕНО: Добавлены flex-nowrap для удержания кнопок в линию, scrollbar-hidden и корректные отступы */}
       <div className="w-full overflow-x-auto pb-3 mb-8 flex items-center justify-start sm:justify-center gap-2 max-w-full no-scrollbar touch-pan-x flex-nowrap px-4 sm:px-0">
         {categories.map(cat => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            {/* ИСПРАВЛЕНО: Добавлен flex-shrink-0, чтобы кнопки не сжимались, уменьшены паддинги на мобильных */}
             className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
               selectedCategory === cat 
                 ? 'bg-brand text-white shadow-md scale-102' 
