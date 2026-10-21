@@ -1,9 +1,20 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { Home } from '@/pages/Home';
+
+// ИСПРАВЛЕНО: Компонент для автоматического сброса прокрутки вверх при смене страниц
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const ImportSubstitution = lazy(() =>
   import('@/pages/ImportSubstitution').then((m) => ({ default: m.ImportSubstitution }))
@@ -39,6 +50,9 @@ function PageFallback() {
 function App() {
   return (
     <BrowserRouter>
+      {/* ИСПРАВЛЕНО: Добавлен скролл-менеджер сразу после BrowserRouter */}
+      <ScrollToTop />
+
       <div className="min-h-screen bg-base-bg flex flex-col">
         <Header />
         <main className="flex-1">
