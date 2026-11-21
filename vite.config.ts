@@ -72,11 +72,12 @@ function buildContentSecurityPolicy(withMetrika: boolean): string {
     // Вебвизору нужны фреймы и воркеры с mc.yandex.ru и blob:.
     withMetrika ? "frame-src blob: https://mc.yandex.ru https://mc.yandex.com" : "frame-src 'none'",
     withMetrika ? "child-src blob: https://mc.yandex.ru https://mc.yandex.com" : "",
-    `script-src 'self'${ym}`,
+    // Cloudflare Web Analytics: скрипт вставляет сам Cloudflare, данные уходят на cloudflareinsights.com.
+    `script-src 'self' https://static.cloudflareinsights.com${ym}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     `img-src 'self' data: blob:${ym}`,
-    `connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com${ym}${withMetrika ? " wss://mc.yandex.ru wss://mc.yandex.com" : ""}`,
+    `connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cloudflareinsights.com${ym}${withMetrika ? " wss://mc.yandex.ru wss://mc.yandex.com" : ""}`,
     "form-action 'self'",
   ].filter(Boolean).join("; ");
 }
