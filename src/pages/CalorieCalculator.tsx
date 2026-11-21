@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
+import { AppPromoCard } from '@/components/AppPromo';
 import { foodBrands, type FoodBrand } from '@/data/foodBrands';
 import calorieFoods from '@/data/foodCalories.json';
 import { ArrowRight, Calculator, Flame, Scale, Search, Wallet, X } from 'lucide-react';
@@ -417,6 +418,18 @@ export function CalorieCalculator() {
           </div>
         </div>
       </div>
+
+      <AppPromoCard
+        placement="calorie_result"
+        title="Сохраните норму в профиле питомца"
+        text="В приложении ГавГавМур рацион, прививки и обработки от паразитов хранятся в одном ветпаспорте, а напоминания не дадут пропустить процедуру."
+        points={[
+          'Калькулятор рациона всегда под рукой',
+          'График прививок с учётом возраста',
+          'Напоминания о вакцинации и обработках',
+          'Работает без интернета',
+        ]}
+      />
     </ToolLayout>
   );
 }

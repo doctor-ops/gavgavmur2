@@ -1,0 +1,38 @@
+# Настройки веб-сервера (Apache, Timeweb) для gavgavmur.ru.
+# Каждый блок обёрнут в <IfModule>: если модуль на хостинге отключён,
+# блок просто пропускается, и сайт не падает с ошибкой 500.
+
+# --- Редирект http -> https ---------------------------------------------
+# Сайт стоит за Cloudflare, поэтому протокол посетителя проверяем по
+# заголовку CF-Visitor. Простая проверка %{HTTPS} здесь дала бы
+# бесконечный редирект, если Cloudflare ходит к серверу по http.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:CF-Visitor} "\"scheme\":\"http\"" [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Заголовки безопасности ----------------------------------------------
+<IfModule mod_headers.c>
+  # Браузер год будет открывать сайт только по https.
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Запрет встраивать сайт в чужие страницы (защита от кликджекинга).
+  # Основная CSP задана тегом <meta> в index.html, а frame-ancestors
+  # работает только как заголовок.
+  Header always set Content-Security-Policy "frame-ancestors 'none'"
+  Header always set X-Frame-Options "DENY"
+  # Браузер не будет угадывать тип файла.
+  Header always set X-Content-Type-Options "nosniff"
+  # На внешние сайты уходит только домен, без полного адреса страницы.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Сайту не нужны камера, микрофон, геолокация и платёжные API.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always unset X-Powered-By
+</IfModule>
+
+# --- Адреса страниц приложения -------------------------------------------
+# Для известных страниц сборка создаёт папки с index.html (/wiki/, /app/ ...).
+# Любой другой адрес отдаём через index.html: React покажет нужную страницу,
+# а код ответа останется 404, чтобы поисковики не индексировали мусорные адреса.
+ErrorDocument 404 /index.html

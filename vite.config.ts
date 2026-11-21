@@ -1,7 +1,8 @@
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'node:fs';
 import { fileURLToPath, URL } from 'node:url';
+import { seoPlugin } from './seo-plugin';
 
 const petfoodFile = fileURLToPath(new URL('./src/data/petfood_ready.json', import.meta.url));
 
@@ -61,20 +62,24 @@ function petfoodSplit(): Plugin {
   };
 }
 
-const contentSecurityPolicy = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "object-src 'none'",
-  "frame-src 'none'",
-  "script-src 'self'",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' https://fonts.gstatic.com",
-  "img-src 'self' data: blob:",
-  "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
-  "form-action 'self'",
-].join('; ');
+// Яндекс Метрика добавляется в CSP, только если задан VITE_YM_ID.
+function buildContentSecurityPolicy(withMetrika: boolean): string {
+  const ym = withMetrika ? " https://mc.yandex.ru https://mc.yandex.com https://yastatic.net" : "";
+  return [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "frame-src 'none'",
+    `script-src 'self'${ym}`,
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    `img-src 'self' data: blob:${ym}`,
+    `connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com${ym}`,
+    "form-action 'self'",
+  ].join("; ");
+}
 
-function contentSecurityPolicyPlugin(): Plugin {
+function contentSecurityPolicyPlugin(contentSecurityPolicy: string): Plugin {
   return {
     name: 'content-security-policy',
     apply: 'build',
@@ -86,8 +91,11 @@ function contentSecurityPolicyPlugin(): Plugin {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), petfoodSplit(), contentSecurityPolicyPlugin()],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_');
+  const csp = buildContentSecurityPolicy(Boolean(env.VITE_YM_ID));
+  return {
+  plugins: [react(), petfoodSplit(), contentSecurityPolicyPlugin(csp), seoPlugin()],
   base: '/',
   resolve: {
     alias: {
@@ -110,4 +118,5 @@ export default defineConfig({
       },
     },
   },
+  };
 });

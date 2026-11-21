@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight } from 'lucide-react';
+import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight, Smartphone } from 'lucide-react';
 
 const services = [
   {
@@ -97,6 +97,26 @@ export function SmartServices() {
               </Link>
             );
           })}
+
+          {/* Мобильное приложение: ведёт на внутреннюю страницу /app (польза для SEO) */}
+          <Link
+            to="/app"
+            className="group md:col-span-2 lg:col-span-3 rounded-xl2 p-6 sm:p-8 bg-brand text-white shadow-xl hover:-translate-y-1 transition-all flex flex-col md:flex-row md:items-center gap-5 w-full min-w-0"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-accent text-brand flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+              <Smartphone className="w-7 h-7" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl mb-1.5">Приложение ГавГавМур для Android</h3>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                Электронный ветпаспорт, напоминания о прививках, сканер состава корма по фото и карта ветклиник. Бесплатно в RuStore.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent text-brand font-extrabold text-sm shrink-0 group-hover:bg-accent-light transition-colors">
+              Подробнее о приложении
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
         </div>
       </div>
     </section>

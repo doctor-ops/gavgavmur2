@@ -1,6 +1,9 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from '@/components/Header';
+import { AndroidAppBanner } from '@/components/AndroidAppBanner';
+import { RouteSeo } from '@/components/Seo';
+import { initAnalytics, trackPageView } from '@/lib/analytics';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { Home } from '@/pages/Home';
@@ -39,6 +42,32 @@ const PetGadgets = lazy(() =>
   import('@/pages/PetGadgets').then((m) => ({ default: m.PetGadgets }))
 );
 
+const AppLanding = lazy(() =>
+  import('@/pages/AppLanding').then((m) => ({ default: m.AppLanding }))
+);
+
+// Отправляет просмотр страницы в Метрику при каждой смене маршрута.
+function AnalyticsTracker() {
+  const location = useLocation();
+  const previous = useRef<string | undefined>(document.referrer || undefined);
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    const url = window.location.href;
+    // Даём Helmet обновить document.title перед отправкой хита.
+    const timer = window.setTimeout(() => {
+      trackPageView(url, previous.current);
+      previous.current = url;
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, location.search]);
+
+  return null;
+}
+
 function PageFallback() {
   return (
     <div className="min-h-[40vh] flex items-center justify-center text-sm font-medium text-ink-soft">
@@ -52,7 +81,8 @@ function App() {
     <BrowserRouter>
       {/* ИСПРАВЛЕНО: Добавлен скролл-менеджер сразу после BrowserRouter */}
       <ScrollToTop />
-
+      <AnalyticsTracker />
+      <RouteSeo />
       <div className="min-h-screen bg-base-bg flex flex-col">
         <Header />
         <main className="flex-1">
@@ -75,10 +105,12 @@ function App() {
               <Route path="/wiki/:id" element={<BreedDetail />} />
               <Route path="/tools/quiz" element={<PetQuiz />} />
               <Route path="/gadgets" element={<PetGadgets />} />
+              <Route path="/app" element={<AppLanding />} />
             </Routes>
           </Suspense>
         </main>
         <Footer />
+        <AndroidAppBanner />
       </div>
     </BrowserRouter>
   );

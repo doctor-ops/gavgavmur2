@@ -15,3 +15,8 @@ declare module 'virtual:petfood-compositions' {
   const compositions: Record<string, string>;
   export default compositions;
 }
+
+interface ImportMetaEnv {
+  /** Номер счётчика Яндекс Метрики. Без него аналитика не подключается. */
+  readonly VITE_YM_ID?: string;
+}

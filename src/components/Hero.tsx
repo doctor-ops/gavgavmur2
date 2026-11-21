@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Search, Sparkles } from 'lucide-react';
-import { Helmet } from 'react-helmet-async'; // ИМПОРТИРУЕМ HELMET ДЛЯ SEO
+import { RuStoreBadge } from '@/components/AppPromo';
 
 export function Hero() {
   const navigate = useNavigate();
@@ -35,10 +35,7 @@ export function Hero() {
   return (
     <>
       {/* МЕТА-ТЕГИ ДЛЯ УСПЕШНОЙ ВЫДАЧИ В ПОИСКОВИКАХ */}
-      <Helmet>
-        <title>ГавГавМур — Экосистема заботы о питомцах: калькуляторы, корма и породы</title>
-        <meta name="description" content="Информационный портал о домашних животных ГавГавМур. Умные калькуляторы кормления, подробный каталог пород кошек и собак, сканер аллергенов в кормах и расчет бюджета." />
-      </Helmet>
+      {/* Заголовок и описание главной задаются в src/seo/meta.ts (STATIC_PAGES, путь "/") */}
 
       <section className="relative overflow-hidden bg-brand text-white animate-fade-in w-full">
         {/* Декоративные фоновые элементы */}
@@ -85,6 +82,14 @@ export function Hero() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 lg:px-8 lg:py-5 rounded-xl bg-white/5 text-white/80 font-bold text-base lg:text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 text-center"
                 >
                   Подобрать питомца
+                </Link>
+              </div>
+
+              {/* Приглашение в мобильное приложение */}
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+                <RuStoreBadge placement="hero" variant="light" />
+                <Link to="/app" className="text-sm text-brand-soft hover:text-white transition-colors max-w-[16rem] leading-snug">
+                  Ветпаспорт и сканер корма по фото — в приложении для Android
                 </Link>
               </div>
 

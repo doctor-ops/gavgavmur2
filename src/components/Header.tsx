@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Smartphone } from 'lucide-react';
+import { RuStoreLink } from '@/components/AppPromo';
 
 const navLinks = [
   { to: '/', label: 'Главная' },
@@ -59,6 +60,13 @@ export function Header() {
                 {link.label}
               </NavLink>
             ))}
+            <Link
+              to="/app"
+              className="ml-2 hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-bold bg-white text-brand hover:bg-accent transition-all shadow-sm"
+            >
+              <Smartphone className="w-4 h-4" />
+              Приложение
+            </Link>
           </nav>
 
           <button
@@ -91,6 +99,14 @@ export function Header() {
               {link.label}
             </NavLink>
           ))}
+          <RuStoreLink
+            placement="mobile_menu"
+            onClick={() => setOpen(false)}
+            className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-extrabold bg-accent text-brand"
+          >
+            <Smartphone className="w-4 h-4" />
+            Скачать приложение в RuStore
+          </RuStoreLink>
         </nav>
       )}
     </header>

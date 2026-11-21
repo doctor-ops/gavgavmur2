@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PawPrint, Mail } from 'lucide-react';
+import { RuStoreBadge } from '@/components/AppPromo';
 
 export function Footer() {
   return (
@@ -37,6 +38,8 @@ export function Footer() {
             <h4 className="font-semibold text-xs sm:text-sm mb-1 text-accent uppercase tracking-wider">Разделы</h4>
             <ul className="space-y-2 text-sm text-brand-soft">
               <li><Link to="/wiki" className="hover:text-white transition-colors block py-0.5">Каталог пород</Link></li>
+              <li><Link to="/gadgets" className="hover:text-white transition-colors block py-0.5">Гаджеты</Link></li>
+              <li><Link to="/app" className="hover:text-white transition-colors block py-0.5">Мобильное приложение</Link></li>
               <li><Link to="/" className="hover:text-white transition-colors block py-0.5">Главная</Link></li>
             </ul>
           </div>
@@ -52,6 +55,10 @@ export function Footer() {
               >
                 info@gavgavmur.ru
               </a>
+            </div>
+            <div className="mt-4">
+              <div className="text-xs text-brand-soft mb-2">Приложение для Android</div>
+              <RuStoreBadge placement="footer" variant="light" />
             </div>
           </div>
 

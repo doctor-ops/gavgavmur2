@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
+import { AppPromoCard } from '@/components/AppPromo';
 import { ingredientDatabase, allergenLevelMeta, type AllergenLevel } from '@/data/allergens';
 import { Search, ShieldAlert, CheckCircle2, AlertTriangle, XCircle, Info, HelpCircle } from 'lucide-react';
 import petFoods from 'virtual:petfood-index';
@@ -401,6 +402,18 @@ export function AllergenScanner() {
               Нераспознанный ингредиент не считается безопасным: его нужно сверить с ветеринаром.
             </p>
           </div>
+
+          <AppPromoCard
+            placement="allergen_result"
+            title="Проверяйте корм прямо в магазине"
+            text="В приложении ГавГавМур не нужно перепечатывать состав: наведите камеру на этикетку, и сканер сверит ингредиенты с аллергиями вашего питомца."
+            points={[
+              'Распознавание этикетки по фото',
+              'Учёт аллергенов из профиля питомца',
+              'Ветпаспорт и напоминания о прививках',
+              'Бесплатно, для Android',
+            ]}
+          />
         </div>
       )}
 

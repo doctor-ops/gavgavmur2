@@ -2,6 +2,9 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
 import { ArrowLeft, Dog, Cat, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Seo } from '@/components/Seo';
+import { AppPromoCard } from '@/components/AppPromo';
+import { absoluteUrl, breedMeta, canonicalUrl } from '@/seo/meta';
 
 export function BreedDetail() {
   const { id } = useParams<{ id: string }>();
@@ -12,6 +15,14 @@ export function BreedDetail() {
     return (
       // Обертка bg-base-bg для консистентности фона
       <div className="min-h-screen bg-base-bg flex items-center justify-center p-4">
+        <Seo
+          meta={{
+            path: `/wiki/${id ?? ''}`,
+            title: 'Порода не найдена | ГавГавМур',
+            description: 'Запрашиваемая порода отсутствует в каталоге ГавГавМур.',
+          }}
+          noindex
+        />
         <div className="max-w-xl mx-auto text-center animate-fade-in">
           <div className="inline-flex p-4 bg-warn-light text-warn-dark rounded-full mb-4">
             <HelpCircle className="w-12 h-12" />
@@ -38,9 +49,22 @@ export function BreedDetail() {
     friendly: 'Дружелюбный'
   };
 
+  const meta = breedMeta(breed);
+  const isPuppy = breed.type === 'dog';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Каталог пород', item: canonicalUrl('/wiki') },
+      { '@type': 'ListItem', position: 3, name: breed.name, item: canonicalUrl(meta.path) },
+    ],
+  };
+
   return (
     // Оборачиваем в bg-base-bg для мягкого фона страницы
     <div className="min-h-screen bg-base-bg py-12 px-4 animate-fade-in">
+      <Seo meta={meta} jsonLd={jsonLd} />
       <div className="max-w-4xl mx-auto">
         {/* Кнопка назад — аккуратный бренд-элемент */}
         <Link 
@@ -118,6 +142,18 @@ export function BreedDetail() {
             </div>
           </div>
         </div>
+
+        <AppPromoCard
+          placement="breed_detail"
+          title={`Ветпаспорт для ${isPuppy ? 'щенка' : 'котёнка'} породы «${breed.name}»`}
+          text={`Заведите профиль питомца в приложении ГавГавМур: график прививок с учётом возраста, напоминания об обработках и проверка корма на аллергены по фото.`}
+          points={[
+            'График вакцинации и напоминания',
+            'Сканер состава корма камерой',
+            'Карта ветклиник и груминга рядом',
+            'Бесплатно, для Android',
+          ]}
+        />
       </div>
     </div>
   );
