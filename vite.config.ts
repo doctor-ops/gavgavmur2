@@ -69,14 +69,16 @@ function buildContentSecurityPolicy(withMetrika: boolean): string {
     "default-src 'self'",
     "base-uri 'self'",
     "object-src 'none'",
-    "frame-src 'none'",
+    // Вебвизору нужны фреймы и воркеры с mc.yandex.ru и blob:.
+    withMetrika ? "frame-src blob: https://mc.yandex.ru https://mc.yandex.com" : "frame-src 'none'",
+    withMetrika ? "child-src blob: https://mc.yandex.ru https://mc.yandex.com" : "",
     `script-src 'self'${ym}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     `img-src 'self' data: blob:${ym}`,
-    `connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com${ym}`,
+    `connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com${ym}${withMetrika ? " wss://mc.yandex.ru wss://mc.yandex.com" : ""}`,
     "form-action 'self'",
-  ].join("; ");
+  ].filter(Boolean).join("; ");
 }
 
 function contentSecurityPolicyPlugin(contentSecurityPolicy: string): Plugin {

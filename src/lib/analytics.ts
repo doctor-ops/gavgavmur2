@@ -35,6 +35,7 @@ export function initAnalytics(): void {
     clickmap: true,
     trackLinks: true,
     accurateTrackBounce: true,
+    webvisor: true,
   });
 }
 
