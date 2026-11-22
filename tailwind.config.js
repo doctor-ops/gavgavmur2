@@ -54,8 +54,8 @@ export default {
       fontFamily: {
         // Основной текст: Inter (эталон читаемости в IT)
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        // Заголовки: Plus Jakarta Sans (дружелюбный, современный, экспертный)
-        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        // Заголовки: Manrope (геометрический, как Plus Jakarta Sans, но с кириллицей)
+        display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         'xl2': '16px',
