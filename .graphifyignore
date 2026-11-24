@@ -1,0 +1,16 @@
+build/
+**/build/
+.gradle/
+.idea/
+**/generated/
+**/*_Impl.kt
+**/Dagger*.java
+**/Hilt_*.java
+**/src/*/res/drawable*/
+**/src/*/res/mipmap*/
+**/src/*/res/raw/
+**/src/*/assets/
+*.png
+*.jpg
+*.webp
+*.svg
