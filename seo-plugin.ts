@@ -12,6 +12,7 @@ import {
   absoluteUrl,
   appJsonLd,
   breedMeta,
+  breedPath,
   canonicalUrl,
   type PageMeta,
 } from './src/seo/meta';
@@ -29,14 +30,14 @@ const escapeHtml = (value: string) =>
 const safeJson = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
 
 const mainLinks: Array<[string, string]> = [
-  ['/tools/allergens', 'Аллерген-сканер состава корма'],
-  ['/tools/calories', 'Калькулятор нормы корма'],
-  ['/tools/importozameshenie', 'Российские аналоги кормов'],
-  ['/tools/budget', 'Калькулятор бюджета на питомца'],
-  ['/tools/quiz', 'Тест: какую породу выбрать'],
-  ['/wiki', 'Каталог пород кошек и собак'],
-  ['/gadgets', 'Гаджеты для питомцев'],
-  ['/app', 'Мобильное приложение для Android'],
+  ['/tools/allergens/', 'Аллерген-сканер состава корма'],
+  ['/tools/calories/', 'Калькулятор нормы корма'],
+  ['/tools/importozameshenie/', 'Российские аналоги кормов'],
+  ['/tools/budget/', 'Калькулятор бюджета на питомца'],
+  ['/tools/quiz/', 'Тест: какую породу выбрать'],
+  ['/wiki/', 'Каталог пород кошек и собак'],
+  ['/gadgets/', 'Гаджеты для питомцев'],
+  ['/app/', 'Мобильное приложение для Android'],
 ];
 
 const linkList = (links: Array<[string, string]>) =>
@@ -65,7 +66,7 @@ function headTags(meta: PageMeta, jsonLd?: unknown): string {
 function staticBody(meta: PageMeta): string {
   let extra = '';
   if (meta.path === '/wiki') {
-    extra = linkList(BREEDS_DATABASE.map((b) => [`/wiki/${b.id}`, b.name]));
+    extra = linkList(BREEDS_DATABASE.map((b) => [breedPath(b), b.name]));
   } else if (meta.path === '/app') {
     extra = `<p><a href="${escapeHtml(RUSTORE_URL)}">Скачать ГавГавМур в RuStore</a></p>`;
   }
@@ -81,7 +82,7 @@ function breedBody(breed: Breed): string {
     `<li>Срок жизни: ${escapeHtml(breed.lifeSpan)}</li>`,
     `<li>Средний вес: ${escapeHtml(breed.weight)}</li>`,
     '</ul>',
-    '<p><a href="/wiki">Все породы</a> · <a href="/app">Ветпаспорт в приложении ГавГавМур</a></p>',
+    '<p><a href="/wiki/">Все породы</a> · <a href="/app/">Ветпаспорт в приложении ГавГавМур</a></p>',
   ].join('');
 }
 
@@ -95,6 +96,23 @@ function breadcrumbs(breed: Breed, meta: PageMeta) {
       { '@type': 'ListItem', position: 3, name: breed.name, item: canonicalUrl(meta.path) },
     ],
   };
+}
+
+// Хостинг не позволяет настроить 301 через .htaccess, поэтому на старых адресах
+// (по UUID) остаётся мгновенный meta refresh — Google считает его постоянным редиректом.
+function redirectPage(url: string, title: string): string {
+  const href = escapeHtml(url);
+  return `<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>${escapeHtml(title)}</title>
+  <meta http-equiv="refresh" content="0; url=${href}" />
+  <link rel="canonical" href="${href}" />
+</head>
+<body><a href="${href}">${escapeHtml(title)}</a></body>
+</html>
+`;
 }
 
 function render(template: string, meta: PageMeta, body: string, jsonLd?: unknown): string {
@@ -130,19 +148,24 @@ export function seoPlugin(): Plugin {
         pages.push(meta);
       }
 
+      const slugs = new Set<string>();
       for (const breed of BREEDS_DATABASE) {
+        if (!/^[a-z0-9-]+$/.test(breed.slug) || slugs.has(breed.slug)) {
+          throw new Error(`seo-prerender: неверный или повторный slug «${breed.slug}»`);
+        }
+        slugs.add(breed.slug);
         const meta = breedMeta(breed);
         write(meta.path, render(template, meta, breedBody(breed), breadcrumbs(breed, meta)));
+        write(`/wiki/${breed.id}`, redirectPage(canonicalUrl(meta.path), meta.title));
         pages.push(meta);
       }
 
-      const today = new Date().toISOString().slice(0, 10);
       const sitemap = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         ...pages.map(
           (p) =>
-            `  <url><loc>${escapeHtml(canonicalUrl(p.path))}</loc><lastmod>${today}</lastmod><priority>${(p.priority ?? 0.5).toFixed(1)}</priority></url>`
+            `  <url><loc>${escapeHtml(canonicalUrl(p.path))}</loc>${p.updated ? `<lastmod>${p.updated}</lastmod>` : ''}<priority>${(p.priority ?? 0.5).toFixed(1)}</priority></url>`
         ),
         '</urlset>',
         '',

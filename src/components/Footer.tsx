@@ -27,9 +27,9 @@ export function Footer() {
           <div className="flex flex-col gap-2">
             <h4 className="font-semibold text-xs sm:text-sm mb-1 text-accent uppercase tracking-wider">Умные сервисы</h4>
             <ul className="space-y-2 text-sm text-brand-soft">
-              <li><Link to="/tools/importozameshenie" className="hover:text-white transition-colors block py-0.5">Импортозамещение</Link></li>
-              <li><Link to="/tools/allergens" className="hover:text-white transition-colors block py-0.5">Аллерген-сканер</Link></li>
-              <li><Link to="/tools/calories" className="hover:text-white transition-colors block py-0.5">Калории</Link></li>
+              <li><Link to="/tools/importozameshenie/" className="hover:text-white transition-colors block py-0.5">Импортозамещение</Link></li>
+              <li><Link to="/tools/allergens/" className="hover:text-white transition-colors block py-0.5">Аллерген-сканер</Link></li>
+              <li><Link to="/tools/calories/" className="hover:text-white transition-colors block py-0.5">Калории</Link></li>
             </ul>
           </div>
 
@@ -37,9 +37,9 @@ export function Footer() {
           <div className="flex flex-col gap-2">
             <h4 className="font-semibold text-xs sm:text-sm mb-1 text-accent uppercase tracking-wider">Разделы</h4>
             <ul className="space-y-2 text-sm text-brand-soft">
-              <li><Link to="/wiki" className="hover:text-white transition-colors block py-0.5">Каталог пород</Link></li>
-              <li><Link to="/gadgets" className="hover:text-white transition-colors block py-0.5">Гаджеты</Link></li>
-              <li><Link to="/app" className="hover:text-white transition-colors block py-0.5">Мобильное приложение</Link></li>
+              <li><Link to="/wiki/" className="hover:text-white transition-colors block py-0.5">Каталог пород</Link></li>
+              <li><Link to="/gadgets/" className="hover:text-white transition-colors block py-0.5">Гаджеты</Link></li>
+              <li><Link to="/app/" className="hover:text-white transition-colors block py-0.5">Мобильное приложение</Link></li>
               <li><Link to="/" className="hover:text-white transition-colors block py-0.5">Главная</Link></li>
             </ul>
           </div>

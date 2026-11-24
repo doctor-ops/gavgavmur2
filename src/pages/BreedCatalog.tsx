@@ -2,8 +2,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { BREEDS_DATABASE, breedPhoto, breedsMatching } from '@/data/breeds';
 import { ArrowLeft, ArrowRight, Cat, Dog, Filter as FilterIcon, Search } from 'lucide-react';
+import { breedPath, findStaticPage } from '@/seo/meta';
 
 const pageSize = 9;
+
+const breedIndex = (['dog', 'cat'] as const).map((type) => ({
+  type,
+  label: type === 'dog' ? 'Породы собак' : 'Породы кошек',
+  breeds: BREEDS_DATABASE.filter((b) => b.type === type).sort((a, b) => a.name.localeCompare(b.name, 'ru')),
+}));
 
 export function BreedCatalog() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,6 +36,14 @@ export function BreedCatalog() {
       else next.set('page', String(changes.page));
     }
     setSearchParams(next);
+  };
+
+  const pageHref = (page: number) => {
+    const next = new URLSearchParams(searchParams);
+    if (page <= 1) next.delete('page');
+    else next.set('page', String(page));
+    const query = next.toString();
+    return query ? `/wiki/?${query}` : '/wiki/';
   };
 
   const filteredBreeds = useMemo(() => {
@@ -71,7 +86,7 @@ export function BreedCatalog() {
       <div className="max-w-7xl mx-auto">
         {/* Шапка каталога */}
         <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h1 className="text-4xl font-extrabold text-ink mb-3 font-display tracking-tight">Wikipedia пород</h1>
+          <h1 className="text-4xl font-extrabold text-ink mb-3 font-display tracking-tight">{findStaticPage('/wiki')?.h1}</h1>
           <p className="text-ink-light text-base leading-relaxed">
             Узнайте всё об особенностях характера, происхождении и требованиях к уходу за вашими будущими питомцами.
           </p>
@@ -212,7 +227,7 @@ export function BreedCatalog() {
                   </div>
 
                   <Link
-                    to={`/wiki/${breed.id}`}
+                    to={breedPath(breed)}
                     className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light active:bg-accent-dark text-brand font-bold py-3.5 rounded-xl shadow-sm hover:shadow-md transition-all text-sm mt-auto"
                   >
                     Подробнее о породе
@@ -241,19 +256,18 @@ export function BreedCatalog() {
               <ArrowLeft className="w-4 h-4" /> Назад
             </button>
             {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
-              <button
-                type="button"
+              <Link
                 key={page}
-                onClick={() => setCatalogParams({ page })}
+                to={pageHref(page)}
                 aria-current={page === currentPage ? 'page' : undefined}
-                className={`min-w-10 px-3 py-2.5 rounded-xl text-sm font-bold border ${
+                className={`min-w-10 px-3 text-center py-2.5 rounded-xl text-sm font-bold border ${
                   page === currentPage
                     ? 'bg-brand text-white border-brand'
                     : 'bg-base-surface text-ink border-base-muted hover:border-brand/30'
                 }`}
               >
                 {page}
-              </button>
+              </Link>
             ))}
             <button
               type="button"
@@ -266,6 +280,24 @@ export function BreedCatalog() {
           </nav>
         )}
         </div>
+
+        {/* Полный список: ссылки на все породы доступны без пагинации */}
+        <section className="mt-16">
+          {breedIndex.map(({ type, label, breeds }) => (
+            <div key={type} className="mb-10">
+              <h2 className="text-2xl font-extrabold text-ink mb-4 font-display">{label}</h2>
+              <ul className="columns-1 sm:columns-2 lg:columns-4 gap-6 text-sm">
+                {breeds.map((breed) => (
+                  <li key={breed.id} className="break-inside-avoid">
+                    <Link to={breedPath(breed)} className="block py-1 text-ink-soft hover:text-brand">
+                      {breed.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
       </div>
     </div>
   );

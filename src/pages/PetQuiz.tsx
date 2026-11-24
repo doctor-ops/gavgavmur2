@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
+import { breedPath } from '@/seo/meta';
 import { BREEDS_DATABASE, breedPhoto, type Breed } from '../data/breeds';
 
 interface Question {
@@ -240,7 +241,7 @@ export function PetQuiz() {
                         </div>
                         
                         <Link 
-                          to={`/wiki/${breed.id}`} 
+                          to={breedPath(breed)} 
                           className="mt-4 w-full py-3 bg-accent text-brand rounded-xl text-sm font-bold hover:bg-accent-light transition-all shadow-md hover:shadow-lg text-center block"
                         >
                           Подробнее

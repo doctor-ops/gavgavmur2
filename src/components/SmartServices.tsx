@@ -3,7 +3,7 @@ import { Replace, ShieldAlert, Calculator, Wallet, Cpu, ArrowRight, Smartphone }
 
 const services = [
   {
-    to: '/gadgets',
+    to: '/gadgets/',
     icon: Cpu,
     title: 'Гаджеты для животных',
     desc: 'Умные кормушки, GPS-ошейники и автоматические лотки для питомцев',
@@ -11,7 +11,7 @@ const services = [
     color: 'bg-orange-100 text-orange-600', 
   },
   {
-    to: '/tools/importozameshenie',
+    to: '/tools/importozameshenie/',
     icon: Replace,
     title: 'Импортозамещение',
     desc: 'Найдите российские альтернативы для иностранных кормов',
@@ -19,7 +19,7 @@ const services = [
     color: 'bg-blue-100 text-blue-600', 
   },
   {
-    to: '/tools/allergens',
+    to: '/tools/allergens/',
     icon: ShieldAlert,
     title: 'Аллерген-сканер',
     desc: 'Светофорный анализатор ингредиентов в составе корма',
@@ -27,7 +27,7 @@ const services = [
     color: 'bg-green-100 text-green-600', 
   },
   {
-    to: '/tools/calories',
+    to: '/tools/calories/',
     icon: Calculator,
     title: 'Калькулятор калорий',
     desc: 'Рассчитайте суточную норму корма в ккал и граммах',
@@ -35,7 +35,7 @@ const services = [
     color: 'bg-purple-100 text-purple-600', 
   },
   {
-    to: '/tools/budget',
+    to: '/tools/budget/',
     icon: Wallet,
     title: 'Калькулятор бюджета',
     desc: 'Стоимость содержания любимого питомца в месяц и в год',
@@ -100,7 +100,7 @@ export function SmartServices() {
 
           {/* Мобильное приложение: ведёт на внутреннюю страницу /app (польза для SEO) */}
           <Link
-            to="/app"
+            to="/app/"
             className="group md:col-span-2 lg:col-span-3 rounded-xl2 p-6 sm:p-8 bg-brand text-white shadow-xl hover:-translate-y-1 transition-all flex flex-col md:flex-row md:items-center gap-5 w-full min-w-0"
           >
             <div className="w-14 h-14 rounded-2xl bg-accent text-brand flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">

@@ -116,7 +116,7 @@ export function AppLanding() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <RuStoreBadge placement="app_page" variant="light" />
-            <Link to="/tools/allergens" className="text-sm font-bold text-brand-soft hover:text-white underline underline-offset-4">
+            <Link to="/tools/allergens/" className="text-sm font-bold text-brand-soft hover:text-white underline underline-offset-4">
               Попробовать сканер на сайте
             </Link>
           </div>

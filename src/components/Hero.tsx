@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Search, Sparkles } from 'lucide-react';
+import { breedPath } from '@/seo/meta';
 import { RuStoreBadge } from '@/components/AppPromo';
 
 export function Hero() {
@@ -22,14 +23,14 @@ export function Hero() {
     const { breedsMatching } = await import('@/data/breeds');
     const matches = breedsMatching(raw);
     if (matches.length === 1) {
-      navigate(`/wiki/${matches[0].id}`);
+      navigate(breedPath(matches[0]));
       return;
     }
     if (matches.length > 1) {
-      navigate(`/wiki?q=${encodeURIComponent(raw)}`);
+      navigate(`/wiki/?q=${encodeURIComponent(raw)}`);
       return;
     }
-    navigate(`/tools/allergens?q=${encodeURIComponent(raw)}`);
+    navigate(`/tools/allergens/?q=${encodeURIComponent(raw)}`);
   };
 
   return (
@@ -50,7 +51,7 @@ export function Hero() {
               
               {/* Кнопка о сканере аллергенов: теперь крупнее на десктопе (lg:text-base) */}
               <Link 
-                to="/tools/allergens" 
+                to="/tools/allergens/" 
                 className="group inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 lg:px-5 lg:py-2.5 rounded-full bg-accent-soft/90 backdrop-blur text-xs sm:text-sm lg:text-base font-bold mb-6 hover:bg-accent-soft transition-all hover:gap-3 max-w-full"
               >
                 <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-accent shrink-0" />
@@ -71,14 +72,14 @@ export function Hero() {
               {/* Блок кнопок: на мобильных в стек во всю ширину, начиная с планшетов inline */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto">
                 <Link 
-                  to="/tools/calories" 
+                  to="/tools/calories/" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-4 lg:px-8 lg:py-5 rounded-xl bg-accent text-brand font-extrabold text-base lg:text-lg hover:bg-accent-light active:bg-accent-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/20 text-center"
                 >
                   <span>Рассчитать корм и бюджет</span>
                   <ArrowRight className="w-5 h-5 lg:w-6 sm:h-6 shrink-0" />
                 </Link>
                 <Link 
-                  to="/tools/quiz" 
+                  to="/tools/quiz/" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 lg:px-8 lg:py-5 rounded-xl bg-white/5 text-white/80 font-bold text-base lg:text-lg hover:bg-white/10 transition-all border-2 border-white/30 hover:border-white/60 text-center"
                 >
                   Подобрать питомца
@@ -88,7 +89,7 @@ export function Hero() {
               {/* Приглашение в мобильное приложение */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
                 <RuStoreBadge placement="hero" variant="light" />
-                <Link to="/app" className="text-sm text-brand-soft hover:text-white transition-colors max-w-[16rem] leading-snug">
+                <Link to="/app/" className="text-sm text-brand-soft hover:text-white transition-colors max-w-[16rem] leading-snug">
                   Ветпаспорт и сканер корма по фото — в приложении для Android
                 </Link>
               </div>

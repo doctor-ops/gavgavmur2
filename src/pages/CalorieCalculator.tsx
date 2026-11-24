@@ -405,7 +405,7 @@ export function CalorieCalculator() {
           </div>
 
           <Link
-            to="/tools/budget"
+            to="/tools/budget/"
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-brand text-white font-bold text-sm hover:bg-brand-light transition-all"
           >
             <Wallet className="w-4 h-4" />

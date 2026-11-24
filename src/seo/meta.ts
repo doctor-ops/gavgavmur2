@@ -13,6 +13,8 @@ export interface PageMeta {
   h1: string;
   image?: string;
   priority?: number;
+  // Дата последнего реального изменения содержимого (для sitemap).
+  updated?: string;
 }
 
 export const APP_DESCRIPTION =
@@ -69,6 +71,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/wiki',
+    updated: '2026-11-24',
     title: 'Каталог пород кошек и собак: 152 породы с фото и описанием | ГавГавМур',
     h1: 'Каталог пород кошек и собак',
     description:
@@ -97,8 +100,11 @@ export function findStaticPage(pathname: string): PageMeta | undefined {
   return STATIC_PAGES.find((p) => p.path === normalized);
 }
 
+// Обновлять вручную при изменении данных о породах.
+const BREEDS_UPDATED = '2026-10-09';
+
 export interface BreedLike {
-  id: string;
+  slug: string;
   name: string;
   type: 'cat' | 'dog';
   description: string;
@@ -112,10 +118,15 @@ function clip(text: string, max: number): string {
   return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,.;:—-]+$/, '') + '…';
 }
 
+export function breedPath(breed: { slug: string }): string {
+  return `/wiki/${breed.slug}/`;
+}
+
 export function breedMeta(breed: BreedLike): PageMeta {
   const kind = breed.type === 'dog' ? 'собак' : 'кошек';
   return {
-    path: `/wiki/${breed.id}`,
+    path: breedPath(breed),
+    updated: BREEDS_UPDATED,
     title: `${breed.name}: описание породы ${kind}, характер, вес и срок жизни | ГавГавМур`,
     h1: breed.name,
     description: clip(breed.description, 160),

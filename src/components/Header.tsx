@@ -5,12 +5,12 @@ import { RuStoreLink } from '@/components/AppPromo';
 
 const navLinks = [
   { to: '/', label: 'Главная' },
-  { to: '/tools/importozameshenie', label: 'Импортозамещение' },
-  { to: '/tools/allergens', label: 'Аллерген-сканер' },
-  { to: '/tools/calories', label: 'Калории' },
-  { to: '/tools/budget', label: 'Бюджет' },
-  { to: '/wiki', label: 'Породы' },
-  { to: '/gadgets', label: 'Гаджеты' }, 
+  { to: '/tools/importozameshenie/', label: 'Импортозамещение' },
+  { to: '/tools/allergens/', label: 'Аллерген-сканер' },
+  { to: '/tools/calories/', label: 'Калории' },
+  { to: '/tools/budget/', label: 'Бюджет' },
+  { to: '/wiki/', label: 'Породы' },
+  { to: '/gadgets/', label: 'Гаджеты' }, 
 ];
 
 export function Header() {
@@ -61,7 +61,7 @@ export function Header() {
               </NavLink>
             ))}
             <Link
-              to="/app"
+              to="/app/"
               className="ml-2 hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-bold bg-white text-brand hover:bg-accent transition-all shadow-sm"
             >
               <Smartphone className="w-4 h-4" />

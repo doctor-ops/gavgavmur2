@@ -34,7 +34,7 @@ export function AndroidAppBanner() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  if (!visible || pathname === '/app') return null;
+  if (!visible || pathname.replace(/\/+$/, '') === '/app') return null;
 
   const close = () => {
     remember();

@@ -4,6 +4,8 @@ export function breedPhoto(image: string): string {
 
 export interface Breed {
   id: string;
+  // Адрес страницы породы: /wiki/<slug>/. После публикации не менять.
+  slug: string;
   name: string;
   type: 'cat' | 'dog';
   temperament: 'active' | 'calm' | 'independent' | 'friendly';
@@ -19,6 +21,7 @@ export const BREEDS_DATABASE: Breed[] = [
 
   {
     id: "036feed0-da8a-42c9-ab9a-57449b530b13",
+    slug: "affenpincher",
     name: "Аффенпинчер",
     type: "dog",
     temperament: "friendly",
@@ -31,6 +34,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "dd9362cc-52e0-462d-b856-fccdcf24b140",
+    slug: "afganskaya-borzaya",
     name: "Афганская борзая",
     type: "dog",
     temperament: "independent",
@@ -43,6 +47,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "1460844f-841c-4de8-b788-271aa4d63224",
+    slug: "eyrdeyl-terer",
     name: "Эйрдейл-терьер",
     type: "dog",
     temperament: "friendly",
@@ -55,6 +60,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e7e99424-d514-4b56-9f0c-05736f6dd22d",
+    slug: "akita-inu",
     name: "Акита-ину",
     type: "dog",
     temperament: "active",
@@ -67,6 +73,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "667c7359-a739-4f2b-abb4-98867671e375",
+    slug: "alyaskinskiy-kli-kay",
     name: "Аляскинский кли-кай",
     type: "dog",
     temperament: "active",
@@ -79,6 +86,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "5328d59b-b4e4-48e9-98ec-0545c66c4385",
+    slug: "alyaskinskiy-malamut",
     name: "Аляскинский маламут",
     type: "dog",
     temperament: "friendly",
@@ -91,6 +99,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f72528b5-a5d7-4a17-b709-aba2db722307",
+    slug: "amerikanskiy-buldog",
     name: "Американский булдог",
     type: "dog",
     temperament: "friendly",
@@ -103,6 +112,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4524645f-dda7-4031-9272-dee29f5f91ea",
+    slug: "amerikanskiy-angliyskiy-kunkhaund",
     name: "Американский английский кунхаунд",
     type: "dog",
     temperament: "active",
@@ -115,6 +125,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e1c0664d-aa61-4c85-970d-6c86ba197bee",
+    slug: "amerikanskiy-eskimo",
     name: "Американский эскимо",
     type: "dog",
     temperament: "active",
@@ -127,6 +138,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "8355b9c9-3724-477d-858a-c1c1c0f1743f",
+    slug: "amerikanskiy-fokskhaund",
     name: "Американский фоксхаунд",
     type: "dog",
     temperament: "independent",
@@ -139,6 +151,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "bba868bb-71ce-4e66-9970-861fb5af642f",
+    slug: "amerikanskiy-bessherstnyy-terer",
     name: "Американский бесшерстный терьер",
     type: "dog",
     temperament: "active",
@@ -151,6 +164,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "7b1fef86-3fa7-4dd0-92d2-8d7a5524e844",
+    slug: "amerikanskaya-leopardovaya-gonchaya",
     name: "Американская леопардовая гончая",
     type: "dog",
     temperament: "friendly",
@@ -163,6 +177,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "30a056b8-2bbe-4aa9-b874-c511eb2ca775",
+    slug: "amerikanskiy-staffordshirskiy-terer",
     name: "Американский стаффордширский терьер",
     type: "dog",
     temperament: "friendly",
@@ -175,6 +190,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "46a95f0b-8b66-400d-8323-07084c36fcae",
+    slug: "amerikanskiy-vodyanoy-spaniel",
     name: "Американский водяной спаниель",
     type: "dog",
     temperament: "active",
@@ -187,6 +203,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "c94e50a5-f733-4b15-8b11-54598c949b6f",
+    slug: "anatoliyskaya-ovcharka",
     name: "Анатолийская овчарка",
     type: "dog",
     temperament: "active",
@@ -199,6 +216,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "b56e4273-9ec0-4274-831d-b238225f8fb6",
+    slug: "appentsellerskiy-sennenkhund",
     name: "Аппенцеллерский сенненхунд",
     type: "dog",
     temperament: "active",
@@ -211,11 +229,12 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "0543cf54-a255-402e-84e5-f440cc2a67cc",
-    name: "Австралийский cattle dog",
+    slug: "avstraliyskaya-pastushya-sobaka",
+    name: "Австралийская пастушья собака",
     type: "dog",
     temperament: "active",
     size: "medium",
-    description: "Австралийский cattle dog — порода собак среднего размера, которая изначально была выведена в Австралии для выпаса и охраны скота.",
+    description: "Австралийская пастушья собака (австралийский хилер) — порода собак среднего размера, которая изначально была выведена в Австралии для выпаса и охраны скота.",
     image: "breeds/0543cf54-a255-402e-84e5-f440cc2a67cc.webp",
     lifeSpan: "12–15 лет",
     weight: "15–23 кг",
@@ -223,6 +242,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "2adf5a19-028d-4993-8044-4571008b6d49",
+    slug: "avstraliyskiy-kelpi",
     name: "Австралийский келпи",
     type: "dog",
     temperament: "active",
@@ -235,6 +255,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "03269b7d-c5d6-4a8f-83d1-7a6180d40127",
+    slug: "avstraliyskaya-ovcharka",
     name: "Австралийская овчарка",
     type: "dog",
     temperament: "active",
@@ -247,11 +268,12 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "6e04f700-c307-4dd5-8d2f-fd346d949cd6",
-    name: "Австралийский короткохвостый cattle dog",
+    slug: "avstraliyskaya-korotkokhvostaya-pastushya-sobaka",
+    name: "Австралийская короткохвостая пастушья собака",
     type: "dog",
     temperament: "active",
     size: "medium",
-    description: "Австралийский короткохвостый cattle dog — пастушья порода собак среднего размера с характерным коротким хвостом и гладкой густой шерстью.",
+    description: "Австралийская короткохвостая пастушья собака — порода собак среднего размера с характерным коротким хвостом и гладкой густой шерстью.",
     image: "breeds/6e04f700-c307-4dd5-8d2f-fd346d949cd6.webp",
     lifeSpan: "12–15 лет",
     weight: "15–20 кг",
@@ -259,6 +281,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4b3278eb-612a-4e87-b2ab-73174d039514",
+    slug: "avstraliyskiy-terer",
     name: "Австралийский терьер",
     type: "dog",
     temperament: "active",
@@ -271,6 +294,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "1ceaee48-1374-4b11-9c66-173cce6f5da5",
+    slug: "azavak",
     name: "Азавак",
     type: "dog",
     temperament: "independent",
@@ -283,6 +307,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "cb71135b-596c-4943-892a-d0757da0297e",
+    slug: "barbado-da-terseyra",
     name: "Барбадо да Терсейра",
     type: "dog",
     temperament: "friendly",
@@ -295,6 +320,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4a230092-a25e-4efe-8240-a6693b5405f4",
+    slug: "barbet",
     name: "Барбет",
     type: "dog",
     temperament: "friendly",
@@ -307,6 +333,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "edf3d596-e83b-4ba1-972b-d114a39cf3c",
+    slug: "basendzhi",
     name: "Басенджи",
     type: "dog",
     temperament: "independent",
@@ -319,6 +346,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "c052b615-9502-407f-b46a-845d246d9f22",
+    slug: "basset-fave-de-bretan",
     name: "Бассет-фаве-де-бретань",
     type: "dog",
     temperament: "friendly",
@@ -331,6 +359,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "3e4912ab-bf3c-40cd-8eb9-be1e5999179b",
+    slug: "basset-khaund",
     name: "Бассет-хаунд",
     type: "dog",
     temperament: "calm",
@@ -343,6 +372,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "406e8454-d350-4187-9788-6d857ee52e06",
+    slug: "bavarskaya-gornaya-gonchaya",
     name: "Баварская горная гончая",
     type: "dog",
     temperament: "active",
@@ -355,6 +385,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "d8621d92-6558-451c-8631-a32e767026a0",
+    slug: "bigl",
     name: "Бигль",
     type: "dog",
     temperament: "friendly",
@@ -367,6 +398,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "62c29679-0420-4de6-ab88-2b3e99c22317",
+    slug: "borodataya-kolli",
     name: "Бородатая колли",
     type: "dog",
     temperament: "friendly",
@@ -379,6 +411,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "6d1a517b-83bf-497b-8b4d-a238c24eded2",
+    slug: "nemetskaya-ovcharka",
     name: "Немецкая овчарка",
     type: "dog",
     temperament: "active",
@@ -391,6 +424,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ba0e86e0-719b-4472-adf7-9fa7e73e59e8",
+    slug: "vostochnoevropeyskaya-ovcharka",
     name: "Восточноевропейская овчарка",
     type: "dog",
     temperament: "active",
@@ -403,6 +437,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "b38f36cf-1f31-45d4-9262-547c7fd7142d",
+    slug: "belgiyskaya-ovcharka-malinua",
     name: "Бельгийская овчарка малинуа",
     type: "dog",
     temperament: "active",
@@ -415,6 +450,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "2b2fc9f7-d1a3-4fa3-8ab7-93955881977d",
+    slug: "belaya-shveytsarskaya-ovcharka",
     name: "Белая швейцарская овчарка",
     type: "dog",
     temperament: "friendly",
@@ -427,6 +463,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e5d3a1a1-a5bd-4bd8-a562-b727af2389db",
+    slug: "gollandskaya-ovcharka",
     name: "Голландская овчарка",
     type: "dog",
     temperament: "active",
@@ -439,6 +476,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "93bd3548-9349-412f-a12c-f287c3a52dec",
+    slug: "kolli-dlinnosherstnaya",
     name: "Колли длинношёрстная",
     type: "dog",
     temperament: "friendly",
@@ -451,6 +489,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "1b2628ae-6136-4b71-a49b-f4e694bb35f8",
+    slug: "border-kolli",
     name: "Бордер-колли",
     type: "dog",
     temperament: "active",
@@ -463,6 +502,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f34d4e6c-b2cb-44d1-9d52-f9ab2770e55e",
+    slug: "shelti",
     name: "Шелти",
     type: "dog",
     temperament: "active",
@@ -475,6 +515,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "84b54e7a-6e5a-41a7-8e5e-37038e7f0f90",
+    slug: "bobteyl",
     name: "Бобтейл",
     type: "dog",
     temperament: "friendly",
@@ -487,6 +528,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "a5a47445-747c-44a8-83df-b5ef42d0409b",
+    slug: "briar",
     name: "Бриар",
     type: "dog",
     temperament: "active",
@@ -499,6 +541,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "bb14cb9d-5d5e-478b-a4bd-2e6cd76adf24",
+    slug: "boseron",
     name: "Босерон",
     type: "dog",
     temperament: "active",
@@ -511,6 +554,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "600f3e96-54eb-4f24-81ad-44866c24fa24",
+    slug: "velsh-korgi-pembrok",
     name: "Вельш-корги пемброк",
     type: "dog",
     temperament: "friendly",
@@ -523,6 +567,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "72148882-0a63-4edf-b25c-c6169693d576",
+    slug: "velsh-korgi-kardigan",
     name: "Вельш-корги кардиган",
     type: "dog",
     temperament: "friendly",
@@ -535,6 +580,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "8a2401bf-4777-4bf2-a95b-0d8b307bebb3",
+    slug: "labrador-retriver",
     name: "Лабрадор-ретривер",
     type: "dog",
     temperament: "friendly",
@@ -547,6 +593,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "23dd3550-52d9-4330-a270-e292296f4b4e",
+    slug: "zolotistyy-retriver",
     name: "Золотистый ретривер",
     type: "dog",
     temperament: "friendly",
@@ -559,6 +606,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "670660a3-2291-418b-a60d-4daf88424dbc",
+    slug: "chikhuakhua",
     name: "Чихуахуа",
     type: "dog",
     temperament: "independent",
@@ -571,6 +619,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "780e162f-b600-4a42-b537-404da53f825b",
+    slug: "russkiy-toy",
     name: "Русский той",
     type: "dog",
     temperament: "friendly",
@@ -583,6 +632,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "48b5ff2e-dca6-4db7-b248-f05db81c522e",
+    slug: "yorkshirskiy-terer",
     name: "Йоркширский терьер",
     type: "dog",
     temperament: "friendly",
@@ -595,6 +645,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "43a3b0ed-714f-47fa-9b8c-e7376ef3d163",
+    slug: "taksa",
     name: "Такса",
     type: "dog",
     temperament: "friendly",
@@ -607,6 +658,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "80a15750-e20d-470f-9f06-4382d4e34549",
+    slug: "dzhek-rassel-terer",
     name: "Джек-рассел-терьер",
     type: "dog",
     temperament: "active",
@@ -619,6 +671,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "11fe90ed-2068-4cd4-9eb1-39cfbb4d2913",
+    slug: "vest-khaylend-uayt-terer",
     name: "Вест-хайленд-уайт-терьер",
     type: "dog",
     temperament: "friendly",
@@ -631,6 +684,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "6e795a7c-a246-4c1f-b943-a045a11847d9",
+    slug: "tsvergshnautser",
     name: "Цвергшнауцер",
     type: "dog",
     temperament: "active",
@@ -643,6 +697,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "5a2cf2c7-c98d-4a0d-8774-a752129149f7",
+    slug: "mittelshnautser",
     name: "Миттельшнауцер",
     type: "dog",
     temperament: "active",
@@ -655,6 +710,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f32e5e86-c9aa-4564-be45-31c5fb1cf935",
+    slug: "korolevskiy-pudel",
     name: "Королевский пудель",
     type: "dog",
     temperament: "active",
@@ -667,6 +723,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "3670dd4d-e0d9-4c69-b3cd-23dec782bb74",
+    slug: "karlikovyy-pudel",
     name: "Карликовый пудель",
     type: "dog",
     temperament: "active",
@@ -679,6 +736,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "25a5003c-0bd0-435a-a3c5-caf14da1bea0",
+    slug: "frantsuzskiy-buldog",
     name: "Французский бульдог",
     type: "dog",
     temperament: "friendly",
@@ -691,6 +749,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "5567be32-46f5-4b1e-9e76-5a76bead6e39",
+    slug: "boston-terer",
     name: "Бостон-терьер",
     type: "dog",
     temperament: "friendly",
@@ -703,6 +762,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "cc8e118e-de74-4a33-beaf-7afa21fc20d3",
+    slug: "rotveyler",
     name: "Ротвейлер",
     type: "dog",
     temperament: "calm",
@@ -715,6 +775,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "d6b665cd-8e3b-40e2-ab78-61048fc7f0e1",
+    slug: "doberman",
     name: "Доберман",
     type: "dog",
     temperament: "active",
@@ -727,6 +788,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "3481a54b-6c90-47ae-b866-1f4c9d374d33",
+    slug: "nemetskiy-dog",
     name: "Немецкий дог",
     type: "dog",
     temperament: "friendly",
@@ -739,6 +801,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "c579899a-0d6f-45a9-a6df-9303737de497",
+    slug: "bokser",
     name: "Боксёр",
     type: "dog",
     temperament: "active",
@@ -751,6 +814,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4e1196fb-98cf-429a-9b01-bd8bf1d31109",
+    slug: "kane-korso",
     name: "Кане-корсо",
     type: "dog",
     temperament: "calm",
@@ -763,6 +827,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f4c87918-aac0-41c7-b891-a0beef94e497",
+    slug: "senbernar",
     name: "Сенбернар",
     type: "dog",
     temperament: "calm",
@@ -775,6 +840,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "0ae6fc34-35ed-4e24-b55f-ab715798c0ff",
+    slug: "nyufaundlend",
     name: "Ньюфаундленд",
     type: "dog",
     temperament: "calm",
@@ -787,6 +853,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "56eea5fc-0638-4b5a-975f-3381b0e66896",
+    slug: "bernskiy-zennenkhund",
     name: "Бернский зенненхунд",
     type: "dog",
     temperament: "calm",
@@ -799,6 +866,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "d9db4629-a4cb-4845-acf0-5d335e4fc35b",
+    slug: "leonberger",
     name: "Леонбергер",
     type: "dog",
     temperament: "calm",
@@ -811,6 +879,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "aab3bc98-4c9c-4866-b0c4-f280aa9db51c",
+    slug: "chernyy-terer",
     name: "Чёрный терьер",
     type: "dog",
     temperament: "calm",
@@ -823,6 +892,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "9293b05b-f4c2-4ff6-a527-07686ecc97bb",
+    slug: "zapadnosibirskaya-layka",
     name: "Западносибирская лайка",
     type: "dog",
     temperament: "active",
@@ -835,6 +905,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ad8d53c6-eafd-415d-bd5b-2bf73a5afd8e",
+    slug: "sibirskiy-khaski",
     name: "Сибирский хаски",
     type: "dog",
     temperament: "active",
@@ -847,6 +918,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "9ba5b64d-f2b5-46a9-b2a1-5f53a96fdbe2",
+    slug: "siba-inu",
     name: "Сиба-ину",
     type: "dog",
     temperament: "independent",
@@ -859,6 +931,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "b75531d7-2c3c-48be-82a1-28b356f55b7a",
+    slug: "dalmatin",
     name: "Далматин",
     type: "dog",
     temperament: "active",
@@ -871,6 +944,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "bbe098c7-f88a-407a-b08c-6a2d0c3ca8b6",
+    slug: "staffordshirskiy-bulterer",
     name: "Стаффордширский бультерьер",
     type: "dog",
     temperament: "friendly",
@@ -883,6 +957,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "2e4a63e0-ffec-49af-a301-52341db8d513",
+    slug: "angliyskiy-koker-spaniel",
     name: "Английский кокер-спаниель",
     type: "dog",
     temperament: "friendly",
@@ -895,6 +970,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "aad87e70-6258-46c7-9a3d-8c75ddc17273",
+    slug: "kavaler-king-charlz-spaniel",
     name: "Кавалер-кинг-чарльз-спаниель",
     type: "dog",
     temperament: "friendly",
@@ -907,6 +983,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "938dfd37-504c-47da-aeb6-66072591e338",
+    slug: "veymaraner",
     name: "Веймаранер",
     type: "dog",
     temperament: "active",
@@ -919,6 +996,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "efe575a4-67db-4283-b1a8-1b61cb714896",
+    slug: "russkaya-psovaya-borzaya",
     name: "Русская псовая борзая",
     type: "dog",
     temperament: "independent",
@@ -931,6 +1009,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "36edc169-ae91-4bd7-a789-72562812f764",
+    slug: "uippet",
     name: "Уиппет",
     type: "dog",
     temperament: "active",
@@ -943,6 +1022,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f48e5ebf-23fe-408c-8e5d-4858df4274b7",
+    slug: "levretka",
     name: "Левретка",
     type: "dog",
     temperament: "friendly",
@@ -955,6 +1035,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "a104b1b3-02d1-4cd9-b89c-b4f5a45c075e",
+    slug: "bishon-frize",
     name: "Бишон фризе",
     type: "dog",
     temperament: "friendly",
@@ -967,6 +1048,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e8204a06-aeec-402f-8fb4-7c6713b69e22",
+    slug: "maltiyskaya-bolonka",
     name: "Мальтийская болонка",
     type: "dog",
     temperament: "friendly",
@@ -979,6 +1061,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4b166c34-9c57-4155-8a3f-3884d766ce88",
+    slug: "pekines",
     name: "Пекинес",
     type: "dog",
     temperament: "independent",
@@ -991,6 +1074,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ef7dc46a-5c54-435e-a663-0a1756cab3d7",
+    slug: "pomeranskiy-shpits",
     name: "Померанский шпиц",
     type: "dog",
     temperament: "active",
@@ -1003,6 +1087,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f30c099d-27bb-460c-aebf-4382e6defb99",
+    slug: "yaponskiy-khin",
     name: "Японский хин",
     type: "dog",
     temperament: "calm",
@@ -1015,6 +1100,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "56213825-f383-4c13-952d-2692a7192b7b",
+    slug: "rizenshnautser",
     name: "Ризеншнауцер",
     type: "dog",
     temperament: "active",
@@ -1027,6 +1113,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "b98304fc-1ed4-4e6d-82b5-d8dc4fa97531",
+    slug: "angliyskiy-buldog",
     name: "Английский бульдог",
     type: "dog",
     temperament: "calm",
@@ -1039,6 +1126,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "05bfd1ab-3a18-4258-9b7d-313ae2f27c0b",
+    slug: "mops",
     name: "Мопс",
     type: "dog",
     temperament: "friendly",
@@ -1051,6 +1139,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ab28827f-c699-4c24-961f-81737f6f3eed",
+    slug: "kavkazskaya-ovcharka",
     name: "Кавказская овчарка",
     type: "dog",
     temperament: "independent",
@@ -1063,6 +1152,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "87fc4cae-226f-45dc-adbd-cc8d35c4ecdd",
+    slug: "sredneaziatskaya-ovcharka",
     name: "Среднеазиатская овчарка",
     type: "dog",
     temperament: "independent",
@@ -1075,6 +1165,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "a46e22d4-32b9-4695-aa9d-b0dc76733fa4",
+    slug: "yuzhnorusskaya-ovcharka",
     name: "Южнорусская овчарка",
     type: "dog",
     temperament: "independent",
@@ -1087,6 +1178,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "1350ecc5-fe15-4a5f-8a46-d93350f1783b",
+    slug: "samoed",
     name: "Самоед",
     type: "dog",
     temperament: "friendly",
@@ -1099,6 +1191,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "7b75d83a-aa0e-4e7e-81d7-d11a1036ff36",
+    slug: "chau-chau",
     name: "Чау-чау",
     type: "dog",
     temperament: "independent",
@@ -1111,6 +1204,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "300cdca9-e616-41be-b4af-c49a0e45991a",
+    slug: "sharpey",
     name: "Шарпей",
     type: "dog",
     temperament: "independent",
@@ -1123,6 +1217,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "2b0183dc-d21b-4834-92d7-b9dc184e5816",
+    slug: "bulterer",
     name: "Бультерьер",
     type: "dog",
     temperament: "active",
@@ -1135,6 +1230,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ca071a1f-0c84-47ba-bce2-b6d3ac04132a",
+    slug: "irlandskiy-setter",
     name: "Ирландский сеттер",
     type: "dog",
     temperament: "active",
@@ -1147,6 +1243,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "7d5207c6-f498-4bce-9f2a-e00ac9f3d8a3",
+    slug: "kurtskhaar",
     name: "Курцхаар",
     type: "dog",
     temperament: "active",
@@ -1159,6 +1256,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e2c65404-e302-443a-85b3-0cb239a6db25",
+    slug: "rodeziyskiy-ridzhbek",
     name: "Родезийский риджбек",
     type: "dog",
     temperament: "independent",
@@ -1171,6 +1269,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "db357b41-91b8-4d4a-a877-23d3e2ad30a7",
+    slug: "shi-ttsu",
     name: "Ши-тцу",
     type: "dog",
     temperament: "friendly",
@@ -1183,6 +1282,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "fe82fab7-6ef8-412c-86f8-95e9059070d7",
+    slug: "papiyon",
     name: "Папийон",
     type: "dog",
     temperament: "friendly",
@@ -1195,6 +1295,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "e472d2e1-2356-4591-a338-74e0d0712b95",
+    slug: "kitayskaya-khokhlataya",
     name: "Китайская хохлатая",
     type: "dog",
     temperament: "friendly",
@@ -1207,6 +1308,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "def76aab-6e55-4df5-9e06-ce6b1c33c87b",
+    "slug": "abissinskaya-koshka",
     "name": "Абиссинская кошка",
     "type": "cat",
     "temperament": "active",
@@ -1219,6 +1321,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "f5405a80-0c9d-47c4-9fb4-e56dc13718b0",
+    "slug": "bengalskaya-koshka",
     "name": "Бенгальская кошка",
     "type": "cat",
     "temperament": "active",
@@ -1231,6 +1334,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "3fe7ffc2-1815-4340-9992-856af6eaaa4f",
+    "slug": "britanskaya-korotkosherstnaya",
     "name": "Британская короткошерстная",
     "type": "cat",
     "temperament": "independent",
@@ -1243,6 +1347,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "2a0fd047-378e-4452-a6e1-e090ea894e97",
+    "slug": "meyn-kun",
     "name": "Мейн-кун",
     "type": "cat",
     "temperament": "friendly",
@@ -1255,6 +1360,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "d0d92832-0981-4a8a-b70c-ffa04c303a33",
+    "slug": "manchkin",
     "name": "Манчкин",
     "type": "cat",
     "temperament": "friendly",
@@ -1267,6 +1373,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "a8bbecd3-bbc6-4959-9d21-d377d17f5838",
+    "slug": "russkaya-golubaya-koshka",
     "name": "Русская голубая кошка",
     "type": "cat",
     "temperament": "independent",
@@ -1279,6 +1386,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "1b522847-63b4-47b8-9468-d543fcddda64",
+    "slug": "singapurskaya-koshka",
     "name": "Сингапурская кошка",
     "type": "cat",
     "temperament": "calm",
@@ -1291,6 +1399,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "d87bdc29-66b3-47bf-b1dd-64cf839f1d1f",
+    "slug": "sfinks",
     "name": "Сфинкс (Канадский сфинкс)",
     "type": "cat",
     "temperament": "active",
@@ -1303,6 +1412,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "56bd1758-e9fc-4c52-b5bd-282cb4a1b476",
+    "slug": "siamskaya-koshka",
     "name": "Сиамская кошка",
     "type": "cat",
     "temperament": "friendly",
@@ -1315,6 +1425,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "b6699bfd-2ffc-4b8b-a30c-ed34d2198156",
+    "slug": "persidskaya-koshka",
     "name": "Персидская кошка",
     "type": "cat",
     "temperament": "calm",
@@ -1327,6 +1438,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "93880254-35dc-4012-b231-4ff600435c82",
+    "slug": "shotlandskaya-visloukhaya",
     "name": "Шотландская вислоухая (Скоттиш-фолд)",
     "type": "cat",
     "temperament": "calm",
@@ -1339,6 +1451,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "f8713100-f98d-4137-ac56-7fa5c117c152",
+    "slug": "sibirskaya-koshka",
     "name": "Сибирская кошка",
     "type": "cat",
     "temperament": "friendly",
@@ -1351,6 +1464,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "9ac8d3a9-50ed-4703-be1a-7b411fe43cbc",
+    "slug": "nevskaya-maskaradnaya",
     "name": "Невская маскарадная",
     "type": "cat",
     "temperament": "friendly",
@@ -1363,6 +1477,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "586771b3-5db5-4927-87ad-30f3585c87d2",
+    "slug": "devon-reks",
     "name": "Девон-рекс",
     "type": "cat",
     "temperament": "friendly",
@@ -1375,6 +1490,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "cf559903-7cb6-409a-9c53-bd1735876e13",
+    "slug": "kornish-reks",
     "name": "Корниш-рекс",
     "type": "cat",
     "temperament": "active",
@@ -1387,6 +1503,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "c1988cee-52c4-4b5f-9dba-36dce781aafa",
+    "slug": "norvezhskaya-lesnaya-koshka",
     "name": "Норвежская лесная кошка",
     "type": "cat",
     "temperament": "friendly",
@@ -1399,6 +1516,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "3d9800ba-c4a8-4afd-840b-081e40bf546b",
+    "slug": "regdoll",
     "name": "Рэгдолл",
     "type": "cat",
     "temperament": "friendly",
@@ -1411,6 +1529,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "dc7d47bb-8b45-4aa0-8d55-4f975cd237f1",
+    "slug": "birmanskaya-koshka",
     "name": "Бирманская кошка (Священная бирма)",
     "type": "cat",
     "temperament": "calm",
@@ -1423,6 +1542,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "2004c8f7-c6e8-4673-8b79-4e55cf758fc7",
+    "slug": "burmanskaya-koshka",
     "name": "Бурманская кошка (Бурма)",
     "type": "cat",
     "temperament": "friendly",
@@ -1435,6 +1555,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "1026d442-9f3a-4365-8098-549224b883d7",
+    "slug": "bombeyskaya-koshka",
     "name": "Бомбейская кошка",
     "type": "cat",
     "temperament": "friendly",
@@ -1447,6 +1568,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "921f9f6b-4a94-4b23-b707-5f0df1e04d96",
+    "slug": "otsiket",
     "name": "Оцикет",
     "type": "cat",
     "temperament": "active",
@@ -1459,6 +1581,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "b9b09613-6143-4338-bcbd-293f6a6b44ab",
+    "slug": "egipetskiy-mau",
     "name": "Египетский мау",
     "type": "cat",
     "temperament": "active",
@@ -1471,6 +1594,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "c1fc5c10-5126-4090-b459-dcf9919c0a60",
+    "slug": "yaponskiy-bobteyl",
     "name": "Японский бобтейл",
     "type": "cat",
     "temperament": "active",
@@ -1483,6 +1607,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "0ddb2878-bd23-4f7e-9726-8c91c36b0b00",
+    "slug": "kurilskiy-bobteyl",
     "name": "Курильский бобтейл",
     "type": "cat",
     "temperament": "active",
@@ -1495,6 +1620,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "ae3ae7ee-0ad5-4017-9f55-9c93ba95c4f5",
+    "slug": "menks",
     "name": "Мэнкс",
     "type": "cat",
     "temperament": "calm",
@@ -1507,6 +1633,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "c9c202cc-225a-42a0-bfa1-8f73a8c6a3eb",
+    "slug": "somali",
     "name": "Сомали (Сомалийская кошка)",
     "type": "cat",
     "temperament": "active",
@@ -1519,6 +1646,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "8501ab03-190d-4771-9f71-20bbfa0dd19c",
+    "slug": "turetskaya-angora",
     "name": "Турецкая ангора",
     "type": "cat",
     "temperament": "active",
@@ -1531,6 +1659,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "e9f14805-d7cc-4792-8774-5a555ba60658",
+    "slug": "turetskiy-van",
     "name": "Турецкий ван",
     "type": "cat",
     "temperament": "active",
@@ -1543,6 +1672,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "e819868f-4861-4002-a210-836057f6669e",
+    "slug": "ekzoticheskaya-korotkosherstnaya",
     "name": "Экзотическая короткошерстная (Экзот)",
     "type": "cat",
     "temperament": "calm",
@@ -1555,6 +1685,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "b258e3a2-4cff-4b36-a83c-5ec51b1f4c36",
+    "slug": "chauzi",
     "name": "Чаузи",
     "type": "cat",
     "temperament": "active",
@@ -1567,6 +1698,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "5356b16d-34cf-4890-8d3d-db75fce9e942",
+    "slug": "savanna",
     "name": "Саванна",
     "type": "cat",
     "temperament": "active",
@@ -1579,6 +1711,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "990f639d-baae-4e0c-acbf-360282694f32",
+    "slug": "amerikanskiy-kerl",
     "name": "Американский керл",
     "type": "cat",
     "temperament": "friendly",
@@ -1591,6 +1724,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "25603717-9c88-428b-ad82-ca4ddf86ad61",
+    "slug": "balineziyskaya-koshka",
     "name": "Балинезийская кошка (Балинез)",
     "type": "cat",
     "temperament": "friendly",
@@ -1603,6 +1737,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "31dd646c-c74a-4923-be66-28c2323ba0a2",
+    "slug": "shartrez",
     "name": "Шартрез (Картезианская кошка)",
     "type": "cat",
     "temperament": "calm",
@@ -1615,6 +1750,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "de6c2788-cdfd-4670-b59b-eb6d941f1875",
+    "slug": "korat",
     "name": "Корат",
     "type": "cat",
     "temperament": "friendly",
@@ -1627,6 +1763,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "80ba9ce9-0643-421a-bf9a-3c005f656ccb",
+    "slug": "gavana-braun",
     "name": "Гавана браун",
     "type": "cat",
     "temperament": "friendly",
@@ -1639,6 +1776,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "d79123bd-36ef-46c6-8e34-96b389d709a2",
+    "slug": "peterbold",
     "name": "Петерболд (Петербургский сфинкс)",
     "type": "cat",
     "temperament": "friendly",
@@ -1651,6 +1789,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "c8fd9e24-96de-4bfc-9e69-7062391cb6a4",
+    "slug": "donskoy-sfinks",
     "name": "Донской сфинкс",
     "type": "cat",
     "temperament": "friendly",
@@ -1663,6 +1802,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "0f356dac-b590-4dd3-9c94-3848ad4c94e5",
+    "slug": "tonkinskaya-koshka",
     "name": "Тонкинская кошка (Тонкинез)",
     "type": "cat",
     "temperament": "friendly",
@@ -1675,6 +1815,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     "id": "98ac50ea-0cc9-41a0-b02e-54aeab473d7c",
+    "slug": "selkirk-reks",
     "name": "Селкирк-рекс",
     "type": "cat",
     "temperament": "calm",
@@ -1687,6 +1828,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "730df96d-34ff-47da-8d5e-2ca3c8ac068d",
+    slug: "orientalnaya-koshka",
     name: "Ориентальная кошка",
     type: "cat",
     temperament: "active",
@@ -1699,6 +1841,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "ef15bb9c-2bc8-476d-9caa-eac5a6b39b16",
+    slug: "shotlandskaya-pryamoukhaya",
     name: "Шотландская прямоухая",
     type: "cat",
     temperament: "friendly",
@@ -1711,6 +1854,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "c1f40c46-f4cd-489d-9ee8-091c6756ee60",
+    slug: "britanskaya-dlinnosherstnaya",
     name: "Британская длинношёрстная",
     type: "cat",
     temperament: "calm",
@@ -1723,6 +1867,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "43aab0d8-b5af-4be7-8317-94edec426681",
+    slug: "amerikanskaya-korotkosherstnaya",
     name: "Американская короткошёрстная",
     type: "cat",
     temperament: "friendly",
@@ -1735,6 +1880,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "4a4353ed-88f6-4024-ae01-192dc1ff5857",
+    slug: "burmilla",
     name: "Бурмилла",
     type: "cat",
     temperament: "friendly",
@@ -1747,6 +1893,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "d60fb7e8-793a-474f-8233-57d1dcc9fdff",
+    slug: "snou-shu",
     name: "Сноу-шу",
     type: "cat",
     temperament: "friendly",
@@ -1759,6 +1906,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "f736248d-e99c-4254-81e3-0310c6815491",
+    slug: "laperm",
     name: "Лаперм",
     type: "cat",
     temperament: "friendly",
@@ -1771,6 +1919,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "85b48d34-0736-4f10-af90-f2b1980e5b56",
+    slug: "kimrik",
     name: "Кимрик",
     type: "cat",
     temperament: "calm",
@@ -1783,6 +1932,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "a5bba00f-4a20-4ba4-be8a-423e1122c3bd",
+    slug: "tayskaya-koshka",
     name: "Тайская кошка",
     type: "cat",
     temperament: "active",
@@ -1795,6 +1945,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "cd095672-5057-4429-9d0f-34832d89b049",
+    slug: "nibelung",
     name: "Нибелунг",
     type: "cat",
     temperament: "calm",
@@ -1807,6 +1958,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "d63a23ed-9162-4c2d-beee-29b6602070fe",
+    slug: "gimalayskaya-koshka",
     name: "Гималайская кошка",
     type: "cat",
     temperament: "calm",
@@ -1819,6 +1971,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "97fef156-c83c-42f8-8ba9-69721d5d6542",
+    slug: "toyger",
     name: "Тойгер",
     type: "cat",
     temperament: "active",
@@ -1831,6 +1984,7 @@ export const BREEDS_DATABASE: Breed[] = [
   },
   {
     id: "b67d81a6-0e89-40ba-9f12-1047f503f245",
+    slug: "evropeyskaya-korotkosherstnaya",
     name: "Европейская короткошёрстная",
     type: "cat",
     temperament: "friendly",

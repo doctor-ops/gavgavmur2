@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
 import { ArrowLeft, Dog, Cat, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
 import { Seo } from '@/components/Seo';
 import { AppPromoCard } from '@/components/AppPromo';
-import { absoluteUrl, breedMeta, canonicalUrl } from '@/seo/meta';
+import { absoluteUrl, breedMeta, breedPath, canonicalUrl } from '@/seo/meta';
 
 export function BreedDetail() {
   const { id } = useParams<{ id: string }>();
 
-  const breed = BREEDS_DATABASE.find((b) => b.id === id);
+  const breed = BREEDS_DATABASE.find((b) => b.slug === id);
+  // Старые адреса вели по UUID.
+  const oldBreed = breed ? undefined : BREEDS_DATABASE.find((b) => b.id === id);
+
+  if (oldBreed) return <Navigate to={breedPath(oldBreed)} replace />;
 
   if (!breed) {
     return (
@@ -31,7 +35,7 @@ export function BreedDetail() {
           <p className="text-ink-soft mb-6 text-sm">К сожалению, запрашиваемая страница питомца отсутствует в нашей базе данных.</p>
           
           <Link 
-            to="/wiki" 
+            to="/wiki/" 
             // CTA: bg-accent + text-brand (премиальный стандарт)
             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-light active:bg-accent-dark text-brand font-bold px-6 py-3 rounded-xl shadow-sm hover:shadow transition-all text-sm"
           >
@@ -68,7 +72,7 @@ export function BreedDetail() {
       <div className="max-w-4xl mx-auto">
         {/* Кнопка назад — аккуратный бренд-элемент */}
         <Link 
-          to="/wiki" 
+          to="/wiki/" 
           className="inline-flex items-center gap-2 text-sm font-bold text-ink-soft hover:text-brand mb-8 transition-all bg-base-surface px-4 py-2.5 rounded-xl border border-base-muted shadow-sm hover:shadow group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> К каталогу пород
