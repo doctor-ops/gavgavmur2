@@ -31,6 +31,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/tools/allergens',
+    updated: '2026-11-24',
     title: 'Аллерген-сканер: проверить состав корма для кошек и собак онлайн | ГавГавМур',
     h1: 'Аллерген-сканер состава корма',
     description:
@@ -39,6 +40,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/tools/calories',
+    updated: '2026-11-24',
     title: 'Калькулятор корма: суточная норма в граммах и ккал для собак и кошек | ГавГавМур',
     h1: 'Калькулятор нормы корма',
     description:
@@ -47,6 +49,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/tools/importozameshenie',
+    updated: '2026-11-24',
     title: 'Российские аналоги импортных кормов для кошек и собак | ГавГавМур',
     h1: 'Импортозамещение кормов',
     description:
@@ -55,6 +58,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/tools/budget',
+    updated: '2026-11-24',
     title: 'Сколько стоит содержать собаку или кошку: калькулятор бюджета | ГавГавМур',
     h1: 'Калькулятор бюджета на питомца',
     description:
@@ -63,6 +67,7 @@ export const STATIC_PAGES: PageMeta[] = [
   },
   {
     path: '/tools/quiz',
+    updated: '2026-11-24',
     title: 'Тест: какую породу собаки или кошки выбрать | ГавГавМур',
     h1: 'Тест совместимости с питомцем',
     description:

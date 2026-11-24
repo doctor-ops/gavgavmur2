@@ -4,7 +4,7 @@ import { ToolLayout } from '@/components/ToolLayout';
 import { AppPromoCard } from '@/components/AppPromo';
 import { foodBrands, type FoodBrand } from '@/data/foodBrands';
 import calorieFoods from '@/data/foodCalories.json';
-import { activityFactors, clampWeight, restingEnergy, weightLimits, type Activity, type AnimalType } from '@/lib/petNutrition';
+import { clampWeight, energyFactor, isGrowing, restingEnergy, weightLimits, type Activity, type AnimalType } from '@/lib/petNutrition';
 import { ArrowRight, Calculator, Flame, Scale, Search, Wallet, X } from 'lucide-react';
 
 type CalorieFood = {
@@ -30,6 +30,17 @@ function foodTitle(food: CalorieFood) {
   name = stripPrefix(name, food.line);
   name = stripPrefix(name, food.brand);
   return name;
+}
+
+// Возраст в месяцах: до года подробно (норма быстро меняется), дальше по полгода.
+const AGE_STEPS = [2, 3, 4, 5, 6, 8, 10, ...Array.from({ length: 39 }, (_, i) => 12 + i * 6)];
+
+function ageLabel(months: number): string {
+  if (months < 12) return `${months} мес.`;
+  const years = months / 12;
+  const value = String(years).replace('.', ',');
+  if (years === 1) return `${value} год`;
+  return `${value} ${!Number.isInteger(years) || years < 5 ? 'года' : 'лет'}`;
 }
 
 function foldBrand(value: string) {
@@ -63,7 +74,7 @@ export function CalorieCalculator() {
   const [weight, setWeight] = useState(() =>
     clampWeight(initialAnimal, Number(params.get('weight')) || (initialAnimal === 'cat' ? 4 : 15))
   );
-  const [age, setAge] = useState(3);
+  const [age, setAge] = useState(36);
   const [sterilized, setSterilized] = useState(false);
   const [activity, setActivity] = useState<Activity>('moderate');
   // Используем имя бренда вместо индекса для стабильности данных
@@ -78,13 +89,8 @@ export function CalorieCalculator() {
   const rer = useMemo(() => restingEnergy(weight), [weight]);
 
   // DER - Суточная энергия с поправками
-  const factor = useMemo(() => {
-    let f = activityFactors[animal][activity];
-    if (sterilized) f -= 0.2;
-    if (age > 7) f -= 0.2;
-    if (age < 1) f += 0.3;
-    return Math.max(f, 1.0);
-  }, [animal, activity, sterilized, age]);
+  const growing = isGrowing(age);
+  const factor = energyFactor(animal, age, activity, sterilized);
 
   const der = Math.round(rer * factor);
 
@@ -115,13 +121,14 @@ export function CalorieCalculator() {
   const kcalPer100g = selectedFood?.kcalPer100g ?? selectedBrand.kcalPer100g;
   const portionTitle = selectedFood ? foodTitle(selectedFood) : selectedBrand.name;
   const gramsPerDay = Math.round((der / kcalPer100g) * 100);
-  const gramsPerMeal = Math.round(gramsPerDay / 2);
+  const meals = age < 4 ? 4 : growing ? 3 : 2;
+  const gramsPerMeal = Math.round(gramsPerDay / meals);
   const rubPerDay = Math.round((gramsPerDay / 1000) * priceBrand.pricePerKg);
   const rubPerMonth = rubPerDay * 30;
 
   return (
     <ToolLayout
-      title="Корм и бюджет"
+      path="/tools/calories"
       subtitle="Суточная порция в граммах и оценка расходов на корм. Цена берётся как средняя по марке, это не стоимость конкретной пачки."
     >
       <div className="grid lg:grid-cols-2 gap-6">
@@ -175,15 +182,16 @@ export function CalorieCalculator() {
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <label className="block text-sm font-bold text-ink font-display">Возраст</label>
-              <span className="text-sm font-bold text-brand">{age} {age === 1 ? 'год' : age < 5 ? 'года' : 'лет'}</span>
+              <span className="text-sm font-bold text-brand">{ageLabel(age)}</span>
             </div>
             <input
               type="range"
-              min={0.5}
-              max={20}
-              step={0.5}
-              value={age}
-              onChange={(e) => setAge(Number(e.target.value))}
+              min={0}
+              max={AGE_STEPS.length - 1}
+              step={1}
+              value={AGE_STEPS.indexOf(age)}
+              aria-valuetext={ageLabel(age)}
+              onChange={(e) => setAge(AGE_STEPS[Number(e.target.value)])}
               className="w-full accent-accent"
             />
           </div>
@@ -348,10 +356,12 @@ export function CalorieCalculator() {
             
             {/* ИСПРАВЛЕННЫЙ БЛОК ПОПРАВОК: теперь это JSX-элементы, а не строки с тегами */}
             <div className="mt-4 text-xs text-brand-soft leading-relaxed relative z-10">
-              Коэффициент активности: <span className="font-bold text-white">×{factor.toFixed(1)}</span>
-              {sterilized && <span className="ml-1 text-accent-light"> · −0.2 (стерилизация)</span>}
-              {age > 7 && <span className="ml-1 text-accent-light"> · −0.2 (пожилой возраст)</span>}
-              {age < 1 && <span className="ml-1 text-accent-light"> · +0.3 (молодое животное)</span>}
+              Коэффициент: <span className="font-bold text-white">×{factor.toFixed(1)}</span>
+              {growing ? (
+                <span className="ml-1 text-accent-light"> · коэффициент роста, активность и стерилизация не учитываются</span>
+              ) : (
+                sterilized && <span className="ml-1 text-accent-light"> · с учётом −0.2 за стерилизацию</span>
+              )}
             </div>
           </div>
 
@@ -366,7 +376,7 @@ export function CalorieCalculator() {
                 <div className="font-display font-extrabold text-2xl text-accent-dark">{gramsPerDay} г</div>
               </div>
               <div className="bg-white/50 rounded-xl p-4 border border-white/50">
-                <div className="text-xs text-ink-light mb-1 font-medium">За 1 приём (2×/день)</div>
+                <div className="text-xs text-ink-light mb-1 font-medium">За 1 приём ({meals}×/день)</div>
                 <div className="font-display font-extrabold text-2xl text-accent-dark">{gramsPerMeal} г</div>
               </div>
             </div>

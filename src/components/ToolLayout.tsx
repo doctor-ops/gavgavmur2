@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { ToolInfo } from '@/components/ToolInfo';
+import { findStaticPage } from '@/seo/meta';
 
 interface ToolLayoutProps {
-  title: string;
+  // Путь страницы: по нему берутся H1 (как в готовом HTML) и пояснения.
+  path: string;
   subtitle: string;
   children: React.ReactNode;
 }
 
-export function ToolLayout({ title, subtitle, children }: ToolLayoutProps) {
+export function ToolLayout({ path, subtitle, children }: ToolLayoutProps) {
   return (
     // Оборачиваем в div с bg-base-bg, чтобы страницы инструментов 
     // имели тот же уютный молочный фон, что и остальной сайт
@@ -25,7 +28,7 @@ export function ToolLayout({ title, subtitle, children }: ToolLayoutProps) {
         </Link>
 
         <h1 className="font-display font-extrabold text-3xl lg:text-4xl text-ink mb-3">
-          {title}
+          {findStaticPage(path)?.h1}
         </h1>
         
         <p className="text-base text-ink-light leading-relaxed mb-10 max-w-2xl">
@@ -36,6 +39,8 @@ export function ToolLayout({ title, subtitle, children }: ToolLayoutProps) {
         <div className="relative">
           {children}
         </div>
+
+        <ToolInfo path={path} />
       </div>
     </div>
   );

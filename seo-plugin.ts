@@ -17,6 +17,7 @@ import {
   type PageMeta,
 } from './src/seo/meta';
 import { BREEDS_DATABASE, type Breed } from './src/data/breeds';
+import { TOOL_CONTENT, TOOL_SECTION_TITLES } from './src/data/toolContent';
 import { breedProfile } from './src/data/breedProfiles';
 import {
   SIZE_LABELS,
@@ -72,9 +73,33 @@ function headTags(meta: PageMeta, jsonLd?: unknown): string {
   return tags.join('\n  ');
 }
 
+// Те же пояснения, что рисует ToolInfo.tsx.
+function toolBody(pagePath: string): string {
+  const content = TOOL_CONTENT[pagePath];
+  if (!content) throw new Error(`seo-prerender: нет пояснений для «${pagePath}»`);
+  const h2 = (title: string) => `<h2>${escapeHtml(title)}</h2>`;
+  const paragraphs = (items: string[]) => items.map((item) => `<p>${escapeHtml(item)}</p>`).join('');
+  return [
+    h2(TOOL_SECTION_TITLES.method),
+    paragraphs(content.method),
+    h2(TOOL_SECTION_TITLES.example),
+    paragraphs(content.example),
+    h2(TOOL_SECTION_TITLES.limits),
+    `<ul>${content.limits.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`,
+    h2(TOOL_SECTION_TITLES.faq),
+    content.faq
+      .map(({ question, answer }) => `<h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p>`)
+      .join(''),
+    h2(TOOL_SECTION_TITLES.sources),
+    linkList(content.sources.map(({ label, href }) => [href, label])),
+  ].join('');
+}
+
 function staticBody(meta: PageMeta): string {
   let extra = '';
-  if (meta.path === '/wiki') {
+  if (meta.path.startsWith('/tools/')) {
+    extra = toolBody(meta.path);
+  } else if (meta.path === '/wiki') {
     extra = linkList(BREEDS_DATABASE.map((b) => [breedPath(b), b.name]));
   } else if (meta.path === '/app') {
     extra = `<p><a href="${escapeHtml(RUSTORE_URL)}">Скачать ГавГавМур в RuStore</a></p>`;

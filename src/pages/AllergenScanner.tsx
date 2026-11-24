@@ -255,7 +255,7 @@ export function AllergenScanner() {
 
   return (
     <ToolLayout
-      title="Аллерген-сканер"
+      path="/tools/allergens"
       subtitle="Введите состав корма с упаковки — сканер подсветит опасные ингредиенты (красный), триггеры (жёлтый) и безопасные (зелёный)."
     >
       <div className="rounded-xl2 bg-base-surface border border-base-muted p-6 mb-6 shadow-sm">

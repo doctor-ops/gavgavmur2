@@ -36,7 +36,7 @@ export function ImportSubstitution() {
 
   return (
     <ToolLayout
-      title="Импортозамещение кормов"
+      path="/tools/importozameshenie"
       subtitle="Найдите проверенные российские альтернативы для зарубежных брендов. База данных регулярно обновляется с учётом доступности на рынке."
     >
       {/* Панель поиска и фильтров */}

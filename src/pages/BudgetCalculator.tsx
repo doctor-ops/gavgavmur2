@@ -32,7 +32,7 @@ export function BudgetCalculator() {
 
   return (
     <ToolLayout
-      title="Калькулятор бюджета"
+      path="/tools/budget"
       subtitle="Рассчитайте ежемесячные и годовые расходы на содержание питомца по категориям: корм, ветеринария, груминг, страховка и амуниция."
     >
       <div className="grid lg:grid-cols-2 gap-6">

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Sparkles, Heart, RefreshCw, ShieldCheck, Clock, User, Home } from 'lucide-react';
-import { breedPath } from '@/seo/meta';
+import { ToolInfo } from '@/components/ToolInfo';
+import { breedPath, findStaticPage } from '@/seo/meta';
 import { BREEDS_DATABASE, breedPhoto, type Breed } from '../data/breeds';
 
 interface Question {
@@ -77,7 +78,6 @@ const QUESTIONS: Question[] = [
 ];
 
 export function PetQuiz() {
-  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   
@@ -120,14 +120,12 @@ export function PetQuiz() {
       sizeScores[a] > sizeScores[b] ? a : b
     );
 
-    let matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp && b.size === targetSize);
-    if (matches.length === 0) {
-      matches = BREEDS_DATABASE.filter(b => b.temperament === targetTemp);
-    }
-    if (matches.length === 0) {
-      matches = BREEDS_DATABASE;
-    }
-    return matches.slice(0, 4);
+    // По две породы каждого вида: в каталоге собаки идут первыми и вытесняли кошек.
+    return (['dog', 'cat'] as const).flatMap(type => {
+      const byTemp = BREEDS_DATABASE.filter(b => b.type === type && b.temperament === targetTemp);
+      const bySize = byTemp.filter(b => b.size === targetSize);
+      return (bySize.length > 0 ? bySize : byTemp).slice(0, 2);
+    });
   };
 
   const recommended = getRecommendedBreeds();
@@ -144,8 +142,8 @@ export function PetQuiz() {
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-ink font-display">Психологический тест совместимости</h1>
-              <p className="text-ink-light text-sm">Анализируем ваш психотип и образ жизни для подбора идеальной породы</p>
+              <h1 className="text-2xl font-bold text-ink font-display">{findStaticPage('/tools/quiz')?.h1}</h1>
+              <p className="text-ink-light text-sm">Подскажем породы под ваш образ жизни</p>
             </div>
           </div>
 
@@ -194,9 +192,9 @@ export function PetQuiz() {
                 <div className="inline-flex p-4 bg-accent-soft rounded-full text-accent mb-4 shadow-sm">
                   <Heart className="w-10 h-10 fill-current" />
                 </div>
-                <h2 className="text-3xl font-black text-ink font-display mb-2">Ваша психологическая совместимость</h2>
+                <h2 className="text-3xl font-black text-ink font-display mb-2">Подходящие породы</h2>
                 <p className="text-ink-light mt-1 max-w-md mx-auto leading-relaxed">
-                  Эти породы обладают поведенческими паттернами, которые идеально дополнят вашу повседневность.
+                  Эти породы ближе всего к вашим ответам по темпераменту и размеру.
                 </p>
               </div>
 
@@ -268,6 +266,8 @@ export function PetQuiz() {
             </div>
           )}
         </div>
+
+        <ToolInfo path="/tools/quiz" />
       </div>
     </div>
   );
