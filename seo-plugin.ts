@@ -100,6 +100,7 @@ function breadcrumbs(breed: Breed, meta: PageMeta) {
 
 // Хостинг не позволяет настроить 301 через .htaccess, поэтому на старых адресах
 // (по UUID) остаётся мгновенный meta refresh — Google считает его постоянным редиректом.
+// no-referrer обязателен: CDN отвечает 403, если в Referer есть UUID.
 function redirectPage(url: string, title: string): string {
   const href = escapeHtml(url);
   return `<!doctype html>
@@ -107,6 +108,7 @@ function redirectPage(url: string, title: string): string {
 <head>
   <meta charset="UTF-8" />
   <title>${escapeHtml(title)}</title>
+  <meta name="referrer" content="no-referrer" />
   <meta http-equiv="refresh" content="0; url=${href}" />
   <link rel="canonical" href="${href}" />
 </head>
