@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { BREEDS_DATABASE, breedPhoto } from '@/data/breeds';
-import { ArrowLeft, Dog, Cat, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
+import { breedProfile } from '@/data/breedProfiles';
+import {
+  SIZE_LABELS,
+  TEMPERAMENT_LABELS,
+  breedBudget,
+  breedFood,
+  breedPhotoAlt,
+  similarBreeds,
+} from '@/lib/breedInfo';
+import { ArrowLeft, ArrowRight, Dog, Cat, Heart, Lightbulb, PawPrint, ShieldCheck, HelpCircle, Smile, Utensils, Wallet } from 'lucide-react';
 import { Seo } from '@/components/Seo';
 import { AppPromoCard } from '@/components/AppPromo';
 import { absoluteUrl, breedMeta, breedPath, canonicalUrl } from '@/seo/meta';
@@ -46,13 +55,11 @@ export function BreedDetail() {
     );
   }
 
-  const temperamentLabels: Record<string, string> = {
-    active: 'Активный',
-    calm: 'Спокойный',
-    independent: 'Независимый',
-    friendly: 'Дружелюбный'
-  };
-
+  const profile = breedProfile(breed.slug);
+  const calculations = [
+    { title: 'Сколько корма нужно', icon: Utensils, cta: 'Рассчитать порцию', ...breedFood(breed) },
+    { title: 'Сколько стоит содержание', icon: Wallet, cta: 'Настроить бюджет', ...breedBudget(breed) },
+  ];
   const meta = breedMeta(breed);
   const isPuppy = breed.type === 'dog';
   const jsonLd = {
@@ -90,7 +97,7 @@ export function BreedDetail() {
 
             <img 
               src={breedPhoto(breed.image)} 
-              alt={breed.name}
+              alt={breedPhotoAlt(breed)}
               decoding="async"
               fetchPriority="high"
               className="relative z-10 max-w-full max-h-full object-contain pointer-events-none p-4 group-hover:scale-[1.03] transition-transform duration-500" 
@@ -106,7 +113,7 @@ export function BreedDetail() {
                 
                 {/* Акцент: bg-accent + text-brand */}
                 <span className="px-3 py-1.5 rounded-xl bg-accent text-brand text-xs font-bold uppercase tracking-wider shadow-sm">
-                  {temperamentLabels[breed.temperament] || 'Дружелюбный'}
+                  {TEMPERAMENT_LABELS[breed.temperament]}
                 </span>
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight font-display">{breed.name}</h1>
@@ -120,7 +127,7 @@ export function BreedDetail() {
               <ShieldCheck className="w-5 h-5 text-brand" /> Основные характеристики
             </h2>
             
-            <div className="grid sm:grid-cols-3 gap-4 mb-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {/* Характеристики: bg-base-bg внутри белой карточки */}
               <div className="bg-base-bg border border-base-muted/60 p-4 rounded-xl">
                 <div className="text-[10px] font-bold text-ink-light uppercase tracking-wider mb-1 font-display">📍 Происхождение</div>
@@ -134,6 +141,14 @@ export function BreedDetail() {
                 <div className="text-[10px] font-bold text-ink-light uppercase tracking-wider mb-1 font-display">⚖️ Средний вес</div>
                 <div className="text-base font-bold text-ink">{breed.weight}</div>
               </div>
+              <div className="bg-base-bg border border-base-muted/60 p-4 rounded-xl">
+                <div className="text-[10px] font-bold text-ink-light uppercase tracking-wider mb-1 font-display">📏 Размер</div>
+                <div className="text-base font-bold text-ink">{SIZE_LABELS[breed.size]}</div>
+              </div>
+              <div className="bg-base-bg border border-base-muted/60 p-4 rounded-xl">
+                <div className="text-[10px] font-bold text-ink-light uppercase tracking-wider mb-1 font-display">🐾 Темперамент</div>
+                <div className="text-base font-bold text-ink">{TEMPERAMENT_LABELS[breed.temperament]}</div>
+              </div>
             </div>
 
             <div className="border-t border-base-muted pt-6">
@@ -143,6 +158,59 @@ export function BreedDetail() {
               <p className="text-ink-soft text-base leading-relaxed whitespace-pre-line font-normal">
                 {breed.description}
               </p>
+              {profile && <p className="text-ink-soft text-base leading-relaxed mt-3">{profile.about}</p>}
+            </div>
+
+            {profile && (
+              <>
+                <div className="border-t border-base-muted pt-6 mt-6">
+                  <h2 className="text-xl font-bold text-ink mb-3 flex items-center gap-2 font-display">
+                    <Smile className="w-5 h-5 text-brand" /> Характер
+                  </h2>
+                  <p className="text-ink-soft text-base leading-relaxed">{profile.character}</p>
+                </div>
+                <div className="border-t border-base-muted pt-6 mt-6">
+                  <h2 className="text-xl font-bold text-ink mb-3 flex items-center gap-2 font-display">
+                    <Lightbulb className="w-5 h-5 text-brand" /> Интересные факты
+                  </h2>
+                  <ul className="list-disc pl-5 space-y-2 text-ink-soft text-base leading-relaxed">
+                    {profile.facts.map((fact) => (
+                      <li key={fact}>{fact}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
+            <div className="grid md:grid-cols-2 gap-4 border-t border-base-muted pt-6 mt-6">
+              {calculations.map(({ title, icon: Icon, text, href, cta }) => (
+                <div key={title} className="bg-base-bg border border-base-muted/60 p-5 rounded-xl flex flex-col">
+                  <h2 className="text-lg font-bold text-ink mb-2 flex items-center gap-2 font-display">
+                    <Icon className="w-5 h-5 text-brand" /> {title}
+                  </h2>
+                  <p className="text-sm text-ink-soft leading-relaxed mb-4">{text}</p>
+                  <Link to={href} className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-light">
+                    {cta} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-base-muted pt-6 mt-6">
+              <h2 className="text-xl font-bold text-ink mb-4 flex items-center gap-2 font-display">
+                <PawPrint className="w-5 h-5 text-brand" /> Похожие породы
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {similarBreeds(breed).map((other) => (
+                  <Link key={other.slug} to={breedPath(other)} className="group rounded-xl border border-base-muted overflow-hidden bg-base-bg hover:shadow transition-shadow">
+                    <img src={breedPhoto(other.image)} alt={breedPhotoAlt(other)} loading="lazy" decoding="async" className="w-full h-32 object-cover" />
+                    <span className="block p-3 text-sm font-bold text-ink group-hover:text-brand">{other.name}</span>
+                  </Link>
+                ))}
+              </div>
+              <Link to="/tools/quiz/" className="mt-5 inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-brand font-bold px-5 py-3 rounded-xl text-sm transition-colors">
+                Тест: подходит ли вам эта порода <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

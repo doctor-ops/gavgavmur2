@@ -101,7 +101,7 @@ export function findStaticPage(pathname: string): PageMeta | undefined {
 }
 
 // Обновлять вручную при изменении данных о породах.
-const BREEDS_UPDATED = '2026-10-09';
+const BREEDS_UPDATED = '2026-11-24';
 
 export interface BreedLike {
   slug: string;

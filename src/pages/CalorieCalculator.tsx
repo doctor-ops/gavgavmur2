@@ -1,13 +1,11 @@
 import { useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
 import { AppPromoCard } from '@/components/AppPromo';
 import { foodBrands, type FoodBrand } from '@/data/foodBrands';
 import calorieFoods from '@/data/foodCalories.json';
+import { activityFactors, clampWeight, restingEnergy, weightLimits, type Activity, type AnimalType } from '@/lib/petNutrition';
 import { ArrowRight, Calculator, Flame, Scale, Search, Wallet, X } from 'lucide-react';
-
-type AnimalType = 'dog' | 'cat';
-type Activity = 'low' | 'moderate' | 'high';
 
 type CalorieFood = {
   id: string;
@@ -34,12 +32,6 @@ function foodTitle(food: CalorieFood) {
   return name;
 }
 
-const activityFactors: Record<Activity, number> = {
-  low: 1.2,
-  moderate: 1.6,
-  high: 2.0,
-};
-
 function foldBrand(value: string) {
   return value.toLowerCase().replace(/['’`]/g, '').replace(/\s+/g, ' ').trim();
 }
@@ -64,8 +56,13 @@ function priceBrandFor(food: CalorieFood | null, fallback: FoodBrand): FoodBrand
 }
 
 export function CalorieCalculator() {
-  const [animal, setAnimal] = useState<AnimalType>('dog');
-  const [weight, setWeight] = useState(15);
+  // Начальные значения приходят со страниц пород: ?animal=cat&weight=5
+  const [params] = useSearchParams();
+  const initialAnimal: AnimalType = params.get('animal') === 'cat' ? 'cat' : 'dog';
+  const [animal, setAnimal] = useState<AnimalType>(initialAnimal);
+  const [weight, setWeight] = useState(() =>
+    clampWeight(initialAnimal, Number(params.get('weight')) || (initialAnimal === 'cat' ? 4 : 15))
+  );
   const [age, setAge] = useState(3);
   const [sterilized, setSterilized] = useState(false);
   const [activity, setActivity] = useState<Activity>('moderate');
@@ -78,16 +75,16 @@ export function CalorieCalculator() {
   const ignoreSearchChange = useRef(false);
 
   // RER - Базовая энергия покоя
-  const rer = useMemo(() => Math.round(70 * Math.pow(weight, 0.75)), [weight]);
+  const rer = useMemo(() => restingEnergy(weight), [weight]);
 
   // DER - Суточная энергия с поправками
   const factor = useMemo(() => {
-    let f = activityFactors[activity];
+    let f = activityFactors[animal][activity];
     if (sterilized) f -= 0.2;
     if (age > 7) f -= 0.2;
     if (age < 1) f += 0.3;
     return Math.max(f, 1.0);
-  }, [activity, sterilized, age]);
+  }, [animal, activity, sterilized, age]);
 
   const der = Math.round(rer * factor);
 
@@ -137,7 +134,10 @@ export function CalorieCalculator() {
               {(['dog', 'cat'] as AnimalType[]).map((a) => (
                 <button
                   key={a}
-                  onClick={() => setAnimal(a)}
+                  onClick={() => {
+                    setAnimal(a);
+                    setWeight((current) => clampWeight(a, current));
+                  }}
                   className={`py-3 rounded-xl text-sm font-bold transition-all ${
                     animal === a
                       ? 'bg-brand text-white shadow-md'
@@ -158,16 +158,16 @@ export function CalorieCalculator() {
             </div>
             <input
               type="range"
-              min={animal === 'dog' ? 1 : 2}
-              max={animal === 'dog' ? 60 : 10}
+              min={weightLimits[animal].min}
+              max={weightLimits[animal].max}
               step={0.5}
               value={weight}
               onChange={(e) => setWeight(Number(e.target.value))}
               className="w-full accent-accent"
             />
             <div className="flex justify-between text-xs text-ink-light mt-1">
-              <span>{animal === 'dog' ? '1 кг' : '2 кг'}</span>
-              <span>{animal === 'dog' ? '60 кг' : '10 кг'}</span>
+              <span>{weightLimits[animal].min} кг</span>
+              <span>{weightLimits[animal].max} кг</span>
             </div>
           </div>
 

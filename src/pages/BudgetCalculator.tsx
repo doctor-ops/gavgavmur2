@@ -1,74 +1,17 @@
 import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToolLayout } from '@/components/ToolLayout';
 import { Wallet, Plus, Minus, TrendingUp } from 'lucide-react';
-
-type AnimalType = 'dog' | 'cat';
-type Size = 'small' | 'medium' | 'large';
-
-interface CostCategory {
-  key: string;
-  label: string;
-  monthly: number;
-  icon: typeof Wallet;
-}
-
-const baseCosts: Record<AnimalType, Record<Size, CostCategory[]>> = {
-  dog: {
-    small: [
-      { key: 'food', label: 'Корм', monthly: 2500, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 1500, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 800, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 600, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и амуниция', monthly: 500, icon: Wallet },
-    ],
-    medium: [
-      { key: 'food', label: 'Корм', monthly: 4000, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 2000, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 1200, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 900, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и амуниция', monthly: 800, icon: Wallet },
-    ],
-    large: [
-      { key: 'food', label: 'Корм', monthly: 7000, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 2800, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 1800, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 1200, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и амуниция', monthly: 1000, icon: Wallet },
-    ],
-  },
-  cat: {
-    small: [
-      { key: 'food', label: 'Корм', monthly: 2000, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 1200, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 500, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 500, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и лоток', monthly: 600, icon: Wallet },
-    ],
-    medium: [
-      { key: 'food', label: 'Корм', monthly: 3000, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 1500, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 700, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 600, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и лоток', monthly: 700, icon: Wallet },
-    ],
-    large: [
-      { key: 'food', label: 'Корм', monthly: 4500, icon: Wallet },
-      { key: 'vet', label: 'Ветеринария и прививки', monthly: 1800, icon: Wallet },
-      { key: 'grooming', label: 'Груминг', monthly: 900, icon: Wallet },
-      { key: 'insurance', label: 'Страховка', monthly: 700, icon: Wallet },
-      { key: 'toys', label: 'Игрушки и лоток', monthly: 800, icon: Wallet },
-    ],
-  },
-};
-
-const sizeLabels: Record<AnimalType, Record<Size, string>> = {
-  dog: { small: 'Маленькая (<10 кг)', medium: 'Средняя (10–25 кг)', large: 'Крупная (>25 кг)' },
-  cat: { small: 'Маленькая (<3 кг)', medium: 'Средняя (3–5 кг)', large: 'Крупная (>5 кг)' },
-};
+import { baseCosts, sizeLabels, type AnimalType, type BudgetSize as Size } from '@/data/budgetCosts';
 
 export function BudgetCalculator() {
-  const [animal, setAnimal] = useState<AnimalType>('dog');
-  const [size, setSize] = useState<Size>('medium');
+  // Начальные значения приходят со страниц пород: ?animal=cat&size=small
+  const [params] = useSearchParams();
+  const requestedSize = params.get('size');
+  const [animal, setAnimal] = useState<AnimalType>(params.get('animal') === 'cat' ? 'cat' : 'dog');
+  const [size, setSize] = useState<Size>(
+    requestedSize === 'small' || requestedSize === 'large' ? requestedSize : 'medium'
+  );
   const [customCosts, setCustomCosts] = useState<Record<string, number>>({});
 
   const categories = baseCosts[animal][size];
@@ -136,12 +79,11 @@ export function BudgetCalculator() {
           <div className="space-y-3">
             <div className="text-sm font-bold text-ink pt-4 border-t border-base-muted font-display">Корректировка расходов (₽/мес)</div>
               {costs.map((c) => {
-                const Icon = c.icon;
                 return (
                   <div key={c.key} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-xl bg-base-bg border border-base-muted transition-colors hover:border-brand/20 w-full min-w-0">
                     <div className="flex items-center gap-2 w-full min-w-0">
                       <div className="w-8 h-8 rounded-lg bg-brand-soft/30 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4 text-brand" />
+                        <Wallet className="w-4 h-4 text-brand" />
                       </div>
                       <span className="text-xs sm:text-sm text-ink font-medium break-words leading-tight">{c.label}</span>
                     </div>

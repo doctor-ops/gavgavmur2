@@ -17,6 +17,15 @@ import {
   type PageMeta,
 } from './src/seo/meta';
 import { BREEDS_DATABASE, type Breed } from './src/data/breeds';
+import { breedProfile } from './src/data/breedProfiles';
+import {
+  SIZE_LABELS,
+  TEMPERAMENT_LABELS,
+  breedBudget,
+  breedFood,
+  breedPhotoAlt,
+  similarBreeds,
+} from './src/lib/breedInfo';
 import { RUSTORE_URL } from './src/config/app';
 
 const escapeHtml = (value: string) =>
@@ -74,14 +83,39 @@ function staticBody(meta: PageMeta): string {
 }
 
 function breedBody(breed: Breed): string {
+  const profile = breedProfile(breed.slug);
+  if (!profile) throw new Error(`seo-prerender: нет описания породы «${breed.slug}»`);
+  const food = breedFood(breed);
+  const budget = breedBudget(breed);
+  const p = (text: string) => `<p>${escapeHtml(text)}</p>`;
+  const link = (href: string, label: string) =>
+    `<p><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></p>`;
   return [
     `<h1>${escapeHtml(breed.name)}</h1>`,
-    `<p>${escapeHtml(breed.description)}</p>`,
-    '<ul>',
+    `<img src="/${escapeHtml(breed.image)}" alt="${escapeHtml(breedPhotoAlt(breed))}" class="max-w-full max-h-[450px]" />`,
+    p(breed.description),
+    '<h2>Основные характеристики</h2><ul>',
     `<li>Происхождение: ${escapeHtml(breed.origin)}</li>`,
     `<li>Срок жизни: ${escapeHtml(breed.lifeSpan)}</li>`,
     `<li>Средний вес: ${escapeHtml(breed.weight)}</li>`,
+    `<li>Размер: ${SIZE_LABELS[breed.size]}</li>`,
+    `<li>Темперамент: ${TEMPERAMENT_LABELS[breed.temperament]}</li>`,
     '</ul>',
+    '<h2>Описание породы</h2>',
+    p(profile.about),
+    '<h2>Характер</h2>',
+    p(profile.character),
+    '<h2>Интересные факты</h2>',
+    `<ul>${profile.facts.map((fact) => `<li>${escapeHtml(fact)}</li>`).join('')}</ul>`,
+    '<h2>Сколько корма нужно</h2>',
+    p(food.text),
+    link(food.href, 'Рассчитать порцию'),
+    '<h2>Сколько стоит содержание</h2>',
+    p(budget.text),
+    link(budget.href, 'Настроить бюджет'),
+    '<h2>Похожие породы</h2>',
+    linkList(similarBreeds(breed).map((b) => [breedPath(b), b.name])),
+    link('/tools/quiz/', 'Тест: подходит ли вам эта порода'),
     '<p><a href="/wiki/">Все породы</a> · <a href="/app/">Ветпаспорт в приложении ГавГавМур</a></p>',
   ].join('');
 }
